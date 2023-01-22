@@ -1,0 +1,83 @@
+{
+	"name": "@alexaegis/workspace",
+	"description": "base repo for common stuff in my other js projects",
+	"version": "0.0.1",
+	"license": "mit",
+	"author": {
+		"name": "Alex Aegis",
+		"email": "alexaegis@gmail.com",
+		"url": "https://github.com/AlexAegis"
+	},
+	"homepage": "https://github.com/AlexAegis/js",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/AlexAegis/js"
+	},
+	"bugs": {
+		"email": "alexaegis@gmail.com",
+		"url": "https://github.com/AlexAegis/js/issues"
+	},
+	"type": "module",
+	"private": true,
+	"workspaces": [
+		"packages/*",
+		"apps/*",
+		"libs/*"
+	],
+	"keywords": [
+		"turbo",
+		"eslint",
+		"tsconfig",
+		"ts",
+		"typescript",
+		"js",
+		"javascript"
+	],
+	"config": {
+		"engine-strict": true
+	},
+	"engines": {
+		"node": ">=18.13.0"
+	},
+	"packageManager": "pnpm@7.25.1",
+	"scripts": {
+		"build": "turbo run build",
+		"start": "turbo run start --parallel",
+		"test": "turbo run test",
+		"lint": "pnpm lint:tsc && pnpm lint:es && pnpm lint:svelte && pnpm lint:style && pnpm lint:format && pnpm lint:format:workspace && pnpm lint:md && pnpm lint:md:workspace && pnpm lint:rmd && pnpm lint:rmd:workspace",
+		"lint:es": "turbo run lint:es --concurrency 6",
+		"lint:tsc": "turbo run lint:es --concurrency 6",
+		"lint:svelte": "turbo run lint:svelte --concurrency 6",
+		"lint:style": "turbo run lint:style --concurrency 6",
+		"lint:md": "turbo run lint:md --concurrency 6",
+		"lint:md:workspace": "markdownlint --ignore-path '.gitignore' --ignore CHANGELOG.md *.md",
+		"lint:rmd": "turbo run lint:rmd --concurrency 6",
+		"lint:rmd:workspace": "remark --frail --quiet --no-stdout *.md",
+		"lint:format": "turbo run lint:format --concurrency 6",
+		"lint:format:workspace": "prettier --check *.{json,ts,js,mjs,md,yml,yaml}",
+		"postinstall": "husky install && turbo run build",
+		"ncu": "ncu --deep --peer --upgrade",
+		"format": "prettier --write .",
+		"nuke": "nuke"
+	},
+	"devDependencies": {
+		"@typescript-eslint/eslint-plugin": "^5.48.2",
+		"@typescript-eslint/parser": "^5.48.2",
+		"@vitest/coverage-c8": "^0.27.3",
+		"eslint": "^8.32.0",
+		"eslint-config-next": "^13.1.4",
+		"eslint-config-prettier": "^8.6.0",
+		"eslint-config-turbo": "^0.0.7",
+		"eslint-plugin-react": "^7.32.1",
+		"eslint-plugin-unicorn": "^45.0.2",
+		"husky": "^8.0.3",
+		"markdownlint-cli": "^0.33.0",
+		"npm-check-updates": "^16.6.2",
+		"prettier": "^2.8.3",
+		"standard-version": "^9.5.0",
+		"turbo": "^1.7.0",
+		"typedoc": "^0.23.24",
+		"typescript": "^4.9.4",
+		"vitest": "^0.27.3"
+	}
+}
