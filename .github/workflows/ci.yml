@@ -8,7 +8,7 @@ on:
 
 env:
   NPM_PACKAGE_ORG_PREFIX: ''
-  DEPLOY_ARTIFACT_DIR: 'packages/vite-plugin-autolib/typedoc'
+  DEPLOY_ARTIFACT_DIR: 'packages/common/typedoc'
   TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
   TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
   TURBO_REMOTE_ONLY: true
@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: [18.x]
     steps:
       - name: checkout
         uses: actions/checkout@v3
@@ -67,7 +67,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: [18.x]
     steps:
       - name: checkout
         uses: actions/checkout@v3
@@ -116,7 +116,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: [18.x]
     steps:
       - name: checkout
         uses: actions/checkout@v3
@@ -197,14 +197,14 @@ jobs:
     needs: [build, test, lint]
     strategy:
       matrix:
-        artifact: ['vite-plugin-autolib']
+        artifact: ['common', 'workspace-tools']
     steps:
       - name: checkout
         uses: actions/checkout@v3
       - name: setup node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
       - name: pnpm setup
         uses: pnpm/action-setup@v2
         with:
