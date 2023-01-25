@@ -9,7 +9,7 @@ on:
 env:
   NPM_PACKAGE_ORG_PREFIX: ''
   DEPLOY_ARTIFACT_DIR: 'packages/common/dist/typedoc'
-  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+  TURBO_TOKEN: ${{ secrets.VERCEL_TOKEN }}
   TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
   TURBO_REMOTE_ONLY: true
 
@@ -197,7 +197,7 @@ jobs:
     needs: [build, test, lint]
     strategy:
       matrix:
-        artifact: ['common', 'workspace-tools']
+        artifact: ['common', 'workspace-tools', 'fs']
     steps:
       - name: checkout
         uses: actions/checkout@v3
