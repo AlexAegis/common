@@ -33,6 +33,7 @@
 		"lint:es": "eslint --max-warnings=0 --fix .",
 		"lint:format": "prettier --check .",
 		"test": "vitest --passWithNoTests --coverage --run",
+		"test:watch": "vitest --passWithNoTests --coverage",
 		"typedoc": "typedoc ./src/index.ts --out ./dist/typedoc"
 	},
 	"exports": {
@@ -44,6 +45,7 @@
 		"./readme": "./readme.md"
 	},
 	"dependencies": {
+		"@alexaegis/fs": "*",
 		"@npmcli/package-json": "^3.0.0",
 		"globby": "^13.1.3",
 		"kolorist": "^1.6.0",
