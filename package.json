@@ -39,7 +39,7 @@
 	"engines": {
 		"node": ">=18.13.0"
 	},
-	"packageManager": "pnpm@7.25.1",
+	"packageManager": "pnpm@7.26.0",
 	"scripts": {
 		"build": "turbo run build",
 		"start": "turbo run start --parallel",
@@ -62,23 +62,28 @@
 		"typedoc": "turbo run typedoc"
 	},
 	"devDependencies": {
-		"@typescript-eslint/eslint-plugin": "^5.48.2",
-		"@typescript-eslint/parser": "^5.48.2",
-		"@vitest/coverage-c8": "^0.27.3",
+		"@typescript-eslint/eslint-plugin": "^5.49.0",
+		"@typescript-eslint/parser": "^5.49.0",
+		"@vitest/coverage-c8": "^0.28.1",
 		"eslint": "^8.32.0",
-		"eslint-config-next": "^13.1.4",
+		"eslint-config-next": "^13.1.5",
 		"eslint-config-prettier": "^8.6.0",
 		"eslint-config-turbo": "^0.0.7",
 		"eslint-plugin-react": "^7.32.1",
 		"eslint-plugin-unicorn": "^45.0.2",
 		"husky": "^8.0.3",
 		"markdownlint-cli": "^0.33.0",
-		"npm-check-updates": "^16.6.2",
+		"remark-cli": "^11.0.0",
+		"remark-lint": "^9.1.1",
+		"remark-lint-maximum-line-length": "^3.1.2",
+		"remark-preset-lint-consistent": "^5.1.1",
+		"remark-preset-lint-recommended": "^6.1.2",
+		"npm-check-updates": "^16.6.3",
 		"prettier": "^2.8.3",
 		"standard-version": "^9.5.0",
 		"turbo": "^1.7.0",
 		"typedoc": "^0.23.24",
 		"typescript": "^4.9.4",
-		"vitest": "^0.27.3"
+		"vitest": "^0.28.1"
 	}
 }
