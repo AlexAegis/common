@@ -1,18 +1,15 @@
 import type { PrettifyOptions } from 'vite-plugin-autolib';
-import { afterEach, beforeAll, describe, expect, it, SpyInstance, vi } from 'vitest';
-import { mockCwd, mockCwdOption } from '../directory/cwd.option.spec.js';
+import { afterEach, beforeAll, describe, expect, it, vi } from 'vitest';
+import { mockProcessCwd, mockProcessCwdValue } from '../directory/cwd.option.spec.js';
+
 import {
 	NormalizedPrettifyOptions,
 	normalizePrettifyOptions,
 } from './try-prettify.function.options.js';
 
-export const mockNormalizePrettifyOptions = (): SpyInstance => {
-	return mockCwdOption();
-};
-
 describe('normalizePrettifyOptions', () => {
 	beforeAll(() => {
-		mockNormalizePrettifyOptions();
+		mockProcessCwd();
 	});
 
 	afterEach(() => {
@@ -21,7 +18,7 @@ describe('normalizePrettifyOptions', () => {
 
 	it("should default to 'babel' when not defined", () => {
 		expect(normalizePrettifyOptions()).toEqual({
-			cwd: mockCwd,
+			cwd: mockProcessCwdValue,
 			parser: 'babel',
 		} as NormalizedPrettifyOptions);
 	});

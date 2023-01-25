@@ -1,39 +1,14 @@
 import type { MockedModule } from '@alexaegis/common';
 import { afterAll, beforeAll, describe, expect, it, Mock, vi } from 'vitest';
+import { mockFormat, mockPrettifiedJson } from '../../__mocks__/prettier.js';
 import { getPrettierFormatter } from './get-prettier-formatter.function.js';
 
-export const mockFormattedFile = 'formatted';
-
 export type MockedModuleGetPrettierFormatter = MockedModule<{ formatMock: Mock<[], string> }>;
-
-export const mockGetPrettierFormatter = (
-	isPrettierPresent: boolean
-): MockedModule<{ formatMock: Mock<[], string> }> => {
-	const formatMock = vi.fn(() => mockFormattedFile);
-	if (isPrettierPresent) {
-		vi.doMock('prettier', () => {
-			return {
-				default: {
-					resolveConfig: vi.fn(),
-					format: formatMock,
-				},
-			};
-		});
-	} else {
-		vi.doMock('prettier', () => {
-			return {
-				default: undefined,
-			};
-		});
-	}
-
-	return { unmock: () => vi.unmock('prettier'), data: { formatMock } };
-};
 
 describe('getPrettierFormatter', () => {
 	describe('when prettier is present', () => {
 		beforeAll(() => {
-			mockGetPrettierFormatter(true);
+			vi.doMock('prettier');
 		});
 
 		afterAll(() => {
@@ -47,15 +22,16 @@ describe('getPrettierFormatter', () => {
 
 		it('should return a formatted json', async () => {
 			const formatter = await getPrettierFormatter({ parser: 'json' });
-			const input = '{"foo": "hello", "bar": 2}';
+			const input = '{"foo": "hello",  "bar": 2}';
 
-			expect(formatter(input)).toEqual(mockFormattedFile);
+			expect(formatter(input)).toEqual(mockPrettifiedJson);
+			expect(mockFormat).toHaveBeenCalledOnce();
 		});
 	});
 
 	describe('when prettier is not present', () => {
 		beforeAll(() => {
-			mockGetPrettierFormatter(false);
+			vi.doMock('prettier', () => ({}));
 		});
 
 		afterAll(() => {

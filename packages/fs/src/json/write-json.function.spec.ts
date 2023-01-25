@@ -1,47 +1,50 @@
-import type { PathLike } from 'node:fs';
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import {
-	MockedModuleGetPrettierFormatter,
-	mockFormattedFile,
-} from '../format/get-prettier-formatter.function.spec.js';
-import { mockTryPrettify } from '../format/try-prettify.function.spec.js';
+import { afterAll, afterEach, beforeAll, describe, expect, it, vi } from 'vitest';
+import { mockWriteFile } from '../../__mocks__/node:fs/promises.js';
+import { mockFormat, mockPrettifiedJson } from '../../__mocks__/prettier.js';
+
 import { writeJson } from './write-json.function.js';
 
-const testJson = {
-	foo: { bar: 1, zed: 'hello' },
-};
-const writeFileMock = vi.fn();
-
 describe('writeJson', () => {
+	const testJson = {
+		foo: { bar: 1, zed: 'hello' },
+	};
+
 	const testFileName = 'test.json';
 
-	let tryPrettifyMock: MockedModuleGetPrettierFormatter;
-
-	beforeEach(() => {
-		tryPrettifyMock = mockTryPrettify();
-		vi.mock('node:fs/promises', async () => {
-			return {
-				writeFile: vi.fn(async (path: PathLike, data: unknown): Promise<void> => {
-					writeFileMock(path, data);
-				}),
-			};
-		});
+	beforeAll(() => {
+		vi.mock('prettier');
+		vi.mock('node:fs/promises');
 	});
 
 	afterEach(() => {
 		vi.clearAllMocks();
-		tryPrettifyMock.unmock();
+	});
+
+	afterAll(() => {
+		vi.resetAllMocks();
+	});
+
+	it('should write the prettified result by default', async () => {
+		await writeJson(testJson, testFileName);
+		expect(mockFormat).toHaveBeenCalledOnce();
+		expect(mockWriteFile).toHaveBeenCalledWith(testFileName, mockPrettifiedJson);
 	});
 
 	it('should write the stringified form of the object when not prettified', async () => {
 		await writeJson(testJson, testFileName, { autoPrettier: false });
-		expect(writeFileMock).toHaveBeenCalledWith(testFileName, JSON.stringify(testJson));
-		expect(tryPrettifyMock.data.formatMock).not.toHaveBeenCalled();
+		expect(mockFormat).not.toHaveBeenCalled();
+		expect(mockWriteFile).toHaveBeenCalledWith(testFileName, JSON.stringify(testJson));
 	});
 
-	it('should write the stringified form of the object when not prettified', async () => {
-		await writeJson(testJson, testFileName, { autoPrettier: true });
-		expect(writeFileMock).toHaveBeenCalledWith(testFileName, mockFormattedFile);
-		expect(tryPrettifyMock.data.formatMock).toHaveBeenCalled();
+	it('should not write when dry but still format when enabled', async () => {
+		await writeJson(testJson, testFileName, { autoPrettier: true, dry: true });
+		expect(mockFormat).toHaveBeenCalledOnce();
+		expect(mockWriteFile).not.toHaveBeenCalled();
+	});
+
+	it('should not write when dry and not even format when disabled', async () => {
+		await writeJson(testJson, testFileName, { autoPrettier: false, dry: true });
+		expect(mockFormat).not.toHaveBeenCalled();
+		expect(mockWriteFile).not.toHaveBeenCalled();
 	});
 });

@@ -10,11 +10,13 @@ export const getPrettierFormatter = async (
 	const options = normalizePrettifyOptions(rawOptions);
 	try {
 		const prettier = await import('prettier');
+
 		const prettierConfig = await prettier.default.resolveConfig(options.cwd);
 		const prettierOptions: Options = {
 			...prettierConfig,
 			parser: options.parser,
 		};
+
 		return (content) => prettier.default.format(content, prettierOptions);
 	} catch {
 		return (content) => content;

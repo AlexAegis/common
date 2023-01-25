@@ -1,17 +1,17 @@
 import { afterEach, beforeAll, describe, expect, it, SpyInstance, vi } from 'vitest';
 import { normalizeCwdOption, NormalizedCwdOption } from './cwd.option.js';
 
-export const mockCwd = '/cwd';
+export const mockProcessCwdValue = '/foo';
 
-export const mockCwdOption = (): SpyInstance => {
-	return vi.spyOn(process, 'cwd').mockReturnValue(mockCwd);
+export const mockProcessCwd = (): SpyInstance => {
+	return vi.spyOn(process, 'cwd').mockReturnValue(mockProcessCwdValue);
 };
 
 describe('cwdOption', () => {
 	let processCwdSpy: SpyInstance;
 
 	beforeAll(() => {
-		processCwdSpy = mockCwdOption();
+		processCwdSpy = mockProcessCwd();
 	});
 
 	afterEach(() => {
@@ -20,7 +20,7 @@ describe('cwdOption', () => {
 
 	it('should default to process.cwd() when not defined', () => {
 		expect(normalizeCwdOption()).toEqual({
-			cwd: mockCwd,
+			cwd: mockProcessCwdValue,
 		} as NormalizedCwdOption);
 
 		expect(processCwdSpy).toHaveBeenCalled();
