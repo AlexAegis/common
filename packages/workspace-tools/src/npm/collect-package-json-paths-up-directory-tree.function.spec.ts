@@ -10,6 +10,7 @@ describe('collectPackageJsonPathsUpDirectoryTree', () => {
 
 	afterAll(() => {
 		vi.resetAllMocks();
+		vi.unmock('node:fs');
 	});
 
 	it('should find nothing when not in a workspace', () => {

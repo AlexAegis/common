@@ -5,7 +5,7 @@ import { getWorkspaceRoot } from './get-workspace-root.function.js';
 
 describe('getWorkspaceRoot', () => {
 	beforeAll(() => {
-		vi.mock('./collect-package-json-paths-up-directory-tree.function.js');
+		vi.mock('node:fs');
 	});
 
 	afterAll(() => {

@@ -8,6 +8,7 @@ export type MockedModuleGetPrettierFormatter = MockedModule<{ formatMock: Mock<[
 describe('getPrettierFormatter', () => {
 	describe('when prettier is present', () => {
 		beforeAll(() => {
+			// 'prettier' is dynamically imported so it can be dynamically mocked
 			vi.doMock('prettier');
 		});
 
@@ -31,7 +32,9 @@ describe('getPrettierFormatter', () => {
 
 	describe('when prettier is not present', () => {
 		beforeAll(() => {
-			vi.doMock('prettier', () => ({}));
+			vi.doMock('prettier', () => {
+				return {};
+			});
 		});
 
 		afterAll(() => {

@@ -1,10 +1,10 @@
-import type { PrettifyOptions } from 'vite-plugin-autolib';
 import { afterEach, beforeAll, describe, expect, it, vi } from 'vitest';
 import { mockProcessCwd, mockProcessCwdValue } from '../directory/cwd.option.spec.js';
 
 import {
 	NormalizedPrettifyOptions,
 	normalizePrettifyOptions,
+	PrettifyOptions,
 } from './try-prettify.function.options.js';
 
 describe('normalizePrettifyOptions', () => {

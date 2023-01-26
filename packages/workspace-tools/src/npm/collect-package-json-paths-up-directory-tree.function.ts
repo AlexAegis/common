@@ -11,6 +11,7 @@ const collectPackageJsonPathsUpDirectoryTreeInternal = (
 	collection: string[] = []
 ): string[] => {
 	const path = normalize(cwd);
+
 	if (existsSync(join(path, PACKAGE_JSON_NAME))) {
 		collection.unshift(path);
 	}
