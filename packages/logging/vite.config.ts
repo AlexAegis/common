@@ -4,9 +4,7 @@ import dts from 'vite-plugin-dts';
 
 export default defineConfig({
 	plugins: [
-		autolib({
-			packageJsonTarget: 'out',
-		}),
+		autolib(),
 		dts({
 			copyDtsFiles: true,
 			insertTypesEntry: true,

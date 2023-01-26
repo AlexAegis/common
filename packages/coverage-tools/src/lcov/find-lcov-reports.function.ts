@@ -1,8 +1,10 @@
+import {
+	collectWorkspacePackages,
+	CollectWorkspacePackagesOptions,
+	getWorkspaceRoot,
+	NODE_MODULES_DIRECTORY_NAME,
+} from '@alexaegis/workspace-tools';
 import { globby } from 'globby';
-import { NODE_MODULES_DIRECTORY_NAME } from '../const/package-json.interface.js';
-import { getWorkspaceRoot } from '../npm/get-workspace-root.function.js';
-import { collectWorkspacePackages } from './collect-workspace-packages.function.js';
-import type { CollectWorkspacePackagesOptions } from './collect-workspace-packages.function.options.js';
 
 export const LCOV_INFO_FILE_NAME = 'lcov.info';
 

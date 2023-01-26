@@ -61,16 +61,47 @@ importers:
       '@types/node': ^18.11.18
       typescript: ^4.9.4
       vite: ^4.0.4
-      vite-plugin-autolib: ^0.0.5
+      vite-plugin-autolib: ^0.0.6
       vite-plugin-dts: ^1.7.1
       vite-plugin-static-copy: ^0.13.0
     devDependencies:
       '@types/node': 18.11.18
       typescript: 4.9.4
       vite: 4.0.4_@types+node@18.11.18
-      vite-plugin-autolib: 0.0.5
+      vite-plugin-autolib: 0.0.6
       vite-plugin-dts: 1.7.1_vite@4.0.4
       vite-plugin-static-copy: 0.13.0_vite@4.0.4
+
+  packages/coverage-tools:
+    specifiers:
+      '@alexaegis/workspace-tools': '*'
+      '@schemastore/package': ^0.0.6
+      '@types/fs-extra': ^11.0.1
+      '@types/node': ^18.11.18
+      '@types/prettier': ^2.7.2
+      '@types/yargs': ^17.0.20
+      globby: ^13.1.3
+      ts-node: ^10.9.1
+      typescript: ^4.9.4
+      vite: ^4.0.4
+      vite-plugin-autolib: ^0.0.6
+      vite-plugin-dts: ^1.7.1
+      yargs: ^17.6.2
+    dependencies:
+      '@alexaegis/workspace-tools': link:../workspace-tools
+      globby: 13.1.3
+      yargs: 17.6.2
+    devDependencies:
+      '@schemastore/package': 0.0.6
+      '@types/fs-extra': 11.0.1
+      '@types/node': 18.11.18
+      '@types/prettier': 2.7.2
+      '@types/yargs': 17.0.20
+      ts-node: 10.9.1_awa2wsr5thmg3i7jqycphctjfq
+      typescript: 4.9.4
+      vite: 4.0.4_@types+node@18.11.18
+      vite-plugin-autolib: 0.0.6
+      vite-plugin-dts: 1.7.1_vite@4.0.4
 
   packages/fs:
     specifiers:
@@ -85,7 +116,7 @@ importers:
       prettier: ^2.8.3
       typescript: ^4.9.4
       vite: ^4.0.4
-      vite-plugin-autolib: ^0.0.5
+      vite-plugin-autolib: ^0.0.6
       vite-plugin-dts: ^1.7.1
       yargs: ^17.6.2
     dependencies:
@@ -103,7 +134,7 @@ importers:
       '@types/yargs': 17.0.20
       typescript: 4.9.4
       vite: 4.0.4_@types+node@18.11.18
-      vite-plugin-autolib: 0.0.5
+      vite-plugin-autolib: 0.0.6
       vite-plugin-dts: 1.7.1_vite@4.0.4
 
   packages/logging:
@@ -111,13 +142,13 @@ importers:
       '@types/node': ^18.11.18
       typescript: ^4.9.4
       vite: ^4.0.4
-      vite-plugin-autolib: ^0.0.5
+      vite-plugin-autolib: ^0.0.6
       vite-plugin-dts: ^1.7.1
     devDependencies:
       '@types/node': 18.11.18
       typescript: 4.9.4
       vite: 4.0.4_@types+node@18.11.18
-      vite-plugin-autolib: 0.0.5
+      vite-plugin-autolib: 0.0.6
       vite-plugin-dts: 1.7.1_vite@4.0.4
 
   packages/workspace-tools:
@@ -130,22 +161,18 @@ importers:
       '@types/prettier': ^2.7.2
       '@types/yargs': ^17.0.20
       globby: ^13.1.3
-      kolorist: ^1.6.0
       prettier: ^2.8.3
       ts-node: ^10.9.1
       typescript: ^4.9.4
       vite: ^4.0.4
-      vite-plugin-autolib: ^0.0.5
+      vite-plugin-autolib: ^0.0.6
       vite-plugin-dts: ^1.7.1
-      yargs: ^17.6.2
     dependencies:
       '@alexaegis/fs': link:../fs
-      '@npmcli/package-json': 3.0.0
       globby: 13.1.3
-      kolorist: 1.6.0
       prettier: 2.8.3
-      yargs: 17.6.2
     devDependencies:
+      '@npmcli/package-json': 3.0.0
       '@schemastore/package': 0.0.6
       '@types/fs-extra': 11.0.1
       '@types/node': 18.11.18
@@ -154,7 +181,7 @@ importers:
       ts-node: 10.9.1_awa2wsr5thmg3i7jqycphctjfq
       typescript: 4.9.4
       vite: 4.0.4_@types+node@18.11.18
-      vite-plugin-autolib: 0.0.5
+      vite-plugin-autolib: 0.0.6
       vite-plugin-dts: 1.7.1_vite@4.0.4
 
 packages:
@@ -631,6 +658,7 @@ packages:
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
     dependencies:
       json-parse-even-better-errors: 3.0.0
+    dev: true
 
   /@npmcli/promise-spawn/6.0.2:
     resolution: {integrity: sha512-gGq0NJkIGSwdbUt4yhdF8ZrmkGKVz9vAdVzpOfnom+V8PLSmSOVhZwbNvZZS1EYcJN5hzzKBxmmVVAInM6HQLg==}
@@ -694,7 +722,7 @@ packages:
       picomatch: 2.3.1
     dev: true
 
-  /@rollup/pluginutils/5.0.2_rollup@3.10.1:
+  /@rollup/pluginutils/5.0.2_rollup@3.11.0:
     resolution: {integrity: sha512-pTd9rIsP92h+B6wWwFbW8RkZv4hiR/xKsqre4SIuAOaOEQRxi0lqLke9k2/7WegC85GgUs9pjmOjCUi3In4vwA==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
@@ -706,7 +734,7 @@ packages:
       '@types/estree': 1.0.0
       estree-walker: 2.0.2
       picomatch: 2.3.1
-      rollup: 3.10.1
+      rollup: 3.11.0
     dev: true
 
   /@rushstack/eslint-patch/1.2.0:
@@ -3666,6 +3694,7 @@ packages:
   /json-parse-even-better-errors/3.0.0:
     resolution: {integrity: sha512-iZbGHafX/59r39gPwVPRBGw0QQKnA7tte5pSMrhWOW7swGsVvVTjmfyAV9pNqk8YGT7tRCdxRu8uzcgZwoDooA==}
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
+    dev: true
 
   /json-parse-helpfulerror/1.0.3:
     resolution: {integrity: sha512-XgP0FGR77+QhUxjXkwOMkC94k3WtqEBfcnjWqhRd82qTat4SWKRE+9kUnynz/shm3I4ea2+qISvTIeGTNU7kJg==}
@@ -5733,6 +5762,14 @@ packages:
       fsevents: 2.3.2
     dev: true
 
+  /rollup/3.11.0:
+    resolution: {integrity: sha512-+uWPPkpWQ2H3Qi7sNBcRfhhHJyUNgBYhG4wKe5wuGRj2m55kpo+0p5jubKNBjQODyPe6tSBE3tNpdDwEisQvAQ==}
+    engines: {node: '>=14.18.0', npm: '>=8.0.0'}
+    hasBin: true
+    optionalDependencies:
+      fsevents: 2.3.2
+    dev: true
+
   /run-con/1.2.11:
     resolution: {integrity: sha512-NEMGsUT+cglWkzEr4IFK21P4Jca45HqiAbIIZIBdX5+UZTB24Mb/21iNGgz9xZa8tL6vbW7CXmq7MFN42+VjNQ==}
     hasBin: true
@@ -6820,8 +6857,8 @@ packages:
       - terser
     dev: true
 
-  /vite-plugin-autolib/0.0.5:
-    resolution: {integrity: sha512-tsZSi+Cxo1altANy8tu3FaK62wcilaMrseFjj30E2A0tGhHb+eKCofJDNQjWDSeFavYpGVTISBGp95EQW06l9A==}
+  /vite-plugin-autolib/0.0.6:
+    resolution: {integrity: sha512-7QRsUAEhSoU1LWrnprnUQJK5Kj7cjog3Y2sKgXQhzXKx3NaQFa6Al+k4VPkEkhAIHdJaZQ2dAacpM3+i1QX/8w==}
     hasBin: true
     dependencies:
       '@npmcli/package-json': 3.0.0
@@ -6831,12 +6868,12 @@ packages:
       globby: 13.1.3
       kolorist: 1.6.0
       prettier: 2.8.3
-      rollup: 3.10.1
+      rollup: 3.11.0
       svelte: 3.55.1
       ts-node: 10.9.1_awa2wsr5thmg3i7jqycphctjfq
       typescript: 4.9.4
       vite: 4.0.4_@types+node@18.11.18
-      vite-plugin-dts: 1.7.1_rollup@3.10.1+vite@4.0.4
+      vite-plugin-dts: 1.7.1_rollup@3.11.0+vite@4.0.4
       vite-plugin-static-copy: 0.13.0_vite@4.0.4
       yargs: 17.6.2
     transitivePeerDependencies:
@@ -6850,14 +6887,14 @@ packages:
       - terser
     dev: true
 
-  /vite-plugin-dts/1.7.1_rollup@3.10.1+vite@4.0.4:
+  /vite-plugin-dts/1.7.1_rollup@3.11.0+vite@4.0.4:
     resolution: {integrity: sha512-2oGMnAjcrZN7jM1TloiS1b1mCn42s3El04ix2RFhId5P1WfMigF8WAwsqT6a6jk0Yso8t7AeZsBkkxYShR0hBQ==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
       vite: '>=2.9.0'
     dependencies:
       '@microsoft/api-extractor': 7.33.8
-      '@rollup/pluginutils': 5.0.2_rollup@3.10.1
+      '@rollup/pluginutils': 5.0.2_rollup@3.11.0
       '@rushstack/node-core-library': 3.53.3
       debug: 4.3.4
       fast-glob: 3.2.12

@@ -12,6 +12,9 @@ export default defineConfig({
 			entryRoot: 'src',
 		}),
 	],
+	resolve: {
+		conditions: ['development'],
+	},
 	build: {
 		lib: {
 			entry: './src/index.ts',
