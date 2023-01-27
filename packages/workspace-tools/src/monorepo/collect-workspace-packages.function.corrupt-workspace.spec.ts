@@ -7,7 +7,7 @@ import { mockProjectRoot } from '../../__mocks__/node:fs.js';
 import { PACKAGE_JSON_NAME } from '../const/package-json.interface.js';
 import { collectWorkspacePackages } from './collect-workspace-packages.function.js';
 
-vi.mock('@alexaegis/fs', () => {
+vi.mock('@alexaegis/fs', async () => {
 	const mockReadJson = vi.fn<[string | undefined], Promise<unknown>>(async (_path) => {
 		// For some reason the file cannot be read even though it exists
 		return undefined;
@@ -17,7 +17,13 @@ vi.mock('@alexaegis/fs', () => {
 		return undefined;
 	});
 
-	return { readJson: mockReadJson, readYaml: mockReadYaml };
+	return {
+		readJson: mockReadJson,
+		readYaml: mockReadYaml,
+		normalizeCwdOption: await vi
+			.importActual<typeof import('@alexaegis/fs')>('@alexaegis/fs')
+			.then((mod) => mod.normalizeCwdOption),
+	};
 });
 
 vi.mock('node:fs', async () => {

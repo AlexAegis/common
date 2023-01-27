@@ -12,7 +12,7 @@ const mockPackageJsonWorkspaceValue: PackageJson = {
 	workspaces: ['packages/**'],
 };
 
-vi.mock('@alexaegis/fs', () => {
+vi.mock('@alexaegis/fs', async () => {
 	const mockReadJson = vi.fn<[string | undefined], Promise<unknown>>(async (path) => {
 		if (path?.endsWith('package.json')) {
 			return mockPackageJsonWorkspaceValue;
@@ -25,7 +25,13 @@ vi.mock('@alexaegis/fs', () => {
 		return undefined;
 	});
 
-	return { readJson: mockReadJson, readYaml: mockReadYaml };
+	return {
+		readJson: mockReadJson,
+		readYaml: mockReadYaml,
+		normalizeCwdOption: await vi
+			.importActual<typeof import('@alexaegis/fs')>('@alexaegis/fs')
+			.then((mod) => mod.normalizeCwdOption),
+	};
 });
 
 vi.mock('node:fs', () => {

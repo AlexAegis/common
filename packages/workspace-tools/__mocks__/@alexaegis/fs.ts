@@ -1,8 +1,6 @@
 import { vi } from 'vitest';
 import type { PackageJson } from '../../src/const/package-json.interface.js';
 
-// TODO: Explore if this file could be predefined in the fs package
-// ! This file isnt being read by vitest for some reason
 export const mockReadJson = vi.fn<[string | undefined], Promise<unknown>>(async (path) => {
 	if (path?.endsWith('package.json')) {
 		return {} as PackageJson;
@@ -20,6 +18,10 @@ export const mockReadYaml = vi.fn<[string | undefined], Promise<unknown>>(async 
 		return undefined;
 	}
 });
+
+export const normalizeCwdOption = await vi
+	.importActual<typeof import('@alexaegis/fs')>('@alexaegis/fs')
+	.then((m) => m.normalizeCwdOption);
 
 export const readJson = mockReadJson;
 export const readYaml = mockReadYaml;

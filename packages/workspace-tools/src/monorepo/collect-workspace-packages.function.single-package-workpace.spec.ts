@@ -11,7 +11,7 @@ const mockPackageJsonValue: PackageJson = {
 	name: 'name',
 };
 
-vi.mock('@alexaegis/fs', () => {
+vi.mock('@alexaegis/fs', async () => {
 	const mockReadJson = vi.fn<[string | undefined], Promise<unknown>>(async (path) => {
 		if (path?.endsWith(PACKAGE_JSON_NAME)) {
 			return mockPackageJsonValue;
@@ -24,7 +24,13 @@ vi.mock('@alexaegis/fs', () => {
 		return undefined;
 	});
 
-	return { readJson: mockReadJson, readYaml: mockReadYaml };
+	return {
+		readJson: mockReadJson,
+		readYaml: mockReadYaml,
+		normalizeCwdOption: await vi
+			.importActual<typeof import('@alexaegis/fs')>('@alexaegis/fs')
+			.then((mod) => mod.normalizeCwdOption),
+	};
 });
 
 vi.mock('node:fs', async () => {
