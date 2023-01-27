@@ -1,2 +1,2 @@
 export type SimpleObjectKey = string | number;
-export type Struct = Record<SimpleObjectKey, unknown>;
+export type Struct<T = unknown> = Record<SimpleObjectKey, T>;
