@@ -49,10 +49,9 @@
 		"./readme": "./readme.md"
 	},
 	"dependencies": {
-		"@alexaegis/common": "^0.0.1",
+		"@alexaegis/common": "*",
 		"globby": "^13.1.3",
 		"js-yaml": "^4.1.0",
-		"kolorist": "^1.6.0",
 		"yargs": "^17.6.2"
 	},
 	"devDependencies": {

@@ -41,6 +41,7 @@
 	},
 	"packageManager": "pnpm@7.26.1",
 	"scripts": {
+		"ci": "pnpm lint && pnpm build && pnpm test",
 		"build": "turbo run build",
 		"start": "turbo run start --parallel",
 		"test": "turbo run test",
