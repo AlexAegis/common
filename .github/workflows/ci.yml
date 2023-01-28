@@ -101,6 +101,8 @@ jobs:
         run: pnpm install
       - name: test
         run: pnpm test
+      - name: merge coverage
+        run: pnpm merge-coverage
       - name: upload coverage result to codacy
         uses: codacy/codacy-coverage-reporter-action@v1
         with:

@@ -4,6 +4,7 @@ importers:
 
   .:
     specifiers:
+      '@alexaegis/coverage-tools': '*'
       '@types/node': ^18.11.18
       '@typescript-eslint/eslint-plugin': ^5.49.0
       '@typescript-eslint/parser': ^5.49.0
@@ -30,6 +31,7 @@ importers:
       typescript: ^4.9.4
       vitest: ^0.28.3
     devDependencies:
+      '@alexaegis/coverage-tools': link:packages/coverage-tools
       '@types/node': 18.11.18
       '@typescript-eslint/eslint-plugin': 5.49.0_iu322prlnwsygkcra5kbpy22si
       '@typescript-eslint/parser': 5.49.0_7uibuqfxkfaozanbtbziikiqje
