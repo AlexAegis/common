@@ -2,7 +2,7 @@ import type { Options } from 'globby';
 
 import { join } from 'node:path/posix';
 import { afterAll, describe, expect, it, vi } from 'vitest';
-import { mockProjectRoot } from '../../__mocks__/node:fs.js';
+import { mockProjectRoot } from '../../__mocks__/fs.js';
 
 import {
 	PackageJson,

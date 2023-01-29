@@ -1,11 +1,11 @@
 import type { CollectWorkspacePackagesOptions } from '@alexaegis/workspace-tools';
 import { readFile } from 'node:fs/promises';
-import { findLcovReportPaths } from './find-lcov-reports.function.js';
+import { collectLcovReportPaths } from './collect-lcov-report-paths.function.js';
 
-export const mergeLcovReports = async (
+export const mergeLcovReportsInWorkspace = async (
 	rawOptions?: CollectWorkspacePackagesOptions
 ): Promise<string> => {
-	const lcovPaths = await findLcovReportPaths(rawOptions);
+	const lcovPaths = await collectLcovReportPaths(rawOptions);
 
 	const allLcovReports = await Promise.all(
 		lcovPaths.map((path) =>

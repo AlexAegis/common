@@ -1,14 +1,12 @@
-import { afterEach, beforeAll, describe, expect, it, vi } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { mockFormat, mockPrettifiedJson } from '../../__mocks__/prettier.js';
 
 import { tryPrettify } from './try-prettify.function.js';
 import type { PrettifyOptions } from './try-prettify.function.options.js';
 
-describe('tryPrettify', () => {
-	beforeAll(() => {
-		vi.mock('prettier');
-	});
+vi.mock('prettier');
 
+describe('tryPrettify', () => {
 	afterEach(() => {
 		vi.clearAllMocks();
 	});

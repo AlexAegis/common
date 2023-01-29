@@ -1,13 +1,11 @@
 import { join } from 'node:path/posix';
-import { afterAll, beforeAll, describe, expect, it, vi } from 'vitest';
-import { mockProjectRoot } from '../../__mocks__/node:fs.js';
+import { afterAll, describe, expect, it, vi } from 'vitest';
+import { mockProjectRoot } from '../../__mocks__/fs.js';
 import { collectPackageJsonPathsUpDirectoryTree } from './collect-package-json-paths-up-directory-tree.function.js';
 
-describe('collectPackageJsonPathsUpDirectoryTree', () => {
-	beforeAll(() => {
-		vi.mock('node:fs');
-	});
+vi.mock('fs');
 
+describe('collectPackageJsonPathsUpDirectoryTree', () => {
 	afterAll(() => {
 		vi.resetAllMocks();
 		vi.unmock('node:fs');

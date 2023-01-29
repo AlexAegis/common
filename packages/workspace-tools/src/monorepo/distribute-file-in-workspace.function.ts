@@ -1,6 +1,5 @@
 import { dry } from '@alexaegis/common';
-// eslint-disable-next-line unicorn/prefer-node-protocol
-import { existsSync } from 'fs';
+import { existsSync } from 'node:fs';
 import { cp, lstat, readFile, rm, symlink } from 'node:fs/promises';
 
 import { basename, dirname, isAbsolute, join, relative } from 'node:path';

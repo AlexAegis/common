@@ -6,6 +6,10 @@ describe('isNullish', () => {
 
 	const fun = vi.fn();
 
+	afterEach(() => {
+		vi.clearAllMocks();
+	});
+
 	it('should call the function if the field is undefined', () => {
 		optionalFoo = undefined;
 
@@ -32,9 +36,5 @@ describe('isNullish', () => {
 			fun();
 		}
 		expect(fun).not.toBeCalled();
-	});
-
-	afterEach(() => {
-		vi.resetAllMocks();
 	});
 });

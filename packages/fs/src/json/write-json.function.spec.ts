@@ -1,8 +1,11 @@
-import { afterAll, afterEach, beforeAll, describe, expect, it, vi } from 'vitest';
+import { afterAll, afterEach, describe, expect, it, vi } from 'vitest';
 import { mockWriteFile } from '../../__mocks__/node:fs/promises.js';
 import { mockFormat, mockPrettifiedJson } from '../../__mocks__/prettier.js';
 
 import { writeJson } from './write-json.function.js';
+
+vi.mock('prettier');
+vi.mock('node:fs/promises');
 
 describe('writeJson', () => {
 	const testJson = {
@@ -10,11 +13,6 @@ describe('writeJson', () => {
 	};
 
 	const testFileName = 'test.json';
-
-	beforeAll(() => {
-		vi.mock('prettier');
-		vi.mock('node:fs/promises');
-	});
 
 	afterEach(() => {
 		vi.clearAllMocks();

@@ -1,7 +1,7 @@
 import type { LoggerLike } from '@alexaegis/logging';
 import { join, sep } from 'node:path/posix';
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { mockProjectRoot } from '../../__mocks__/node:fs.js';
+import { mockProjectRoot } from '../../__mocks__/fs.js';
 import { cpMock, readFileMock, rmMock, symlinkMock } from '../../__mocks__/node:fs/promises.js';
 import type { PackageJson } from '../index.js';
 import {
@@ -10,7 +10,7 @@ import {
 } from './distribute-file-in-workspace.function.js';
 
 vi.mock('globby');
-vi.mock('node:fs');
+vi.mock('fs');
 vi.mock('node:fs/promises');
 vi.mock('@alexaegis/fs', async () => {
 	const mockReadJson = vi.fn<[string | undefined], Promise<unknown>>(async (_path) => {

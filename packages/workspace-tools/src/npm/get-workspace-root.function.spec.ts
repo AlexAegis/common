@@ -1,13 +1,11 @@
 import { join } from 'node:path/posix';
-import { afterAll, beforeAll, describe, expect, it, vi } from 'vitest';
-import { mockProjectRoot } from '../../__mocks__/node:fs.js';
+import { afterAll, describe, expect, it, vi } from 'vitest';
+import { mockProjectRoot } from '../../__mocks__/fs.js';
 import { getWorkspaceRoot } from './get-workspace-root.function.js';
 
-describe('getWorkspaceRoot', () => {
-	beforeAll(() => {
-		vi.mock('node:fs');
-	});
+vi.mock('fs');
 
+describe('getWorkspaceRoot', () => {
 	afterAll(() => {
 		vi.resetAllMocks();
 	});

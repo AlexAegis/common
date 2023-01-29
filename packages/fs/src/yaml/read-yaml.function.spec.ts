@@ -7,25 +7,25 @@ const testData = {
 	foo: { bar: 1, zed: 'hello' },
 };
 
+vi.mock('node:fs/promises', async () => {
+	return {
+		readFile: vi.fn(async (path: PathLike): Promise<string | undefined> => {
+			if (path.toString().endsWith('.yaml')) {
+				return dump(testData);
+			} else if (path.toString().endsWith('.txt')) {
+				return '323 \n! { hello world! }';
+			} else if (path.toString() === 'error') {
+				throw new Error('File error!');
+			} else {
+				return undefined;
+			}
+		}),
+	};
+});
+
 describe('readYaml', () => {
 	beforeAll(() => {
 		vi.spyOn(console, 'error').mockImplementation(() => undefined);
-
-		vi.mock('node:fs/promises', async () => {
-			return {
-				readFile: vi.fn(async (path: PathLike): Promise<string | undefined> => {
-					if (path.toString().endsWith('.yaml')) {
-						return dump(testData);
-					} else if (path.toString().endsWith('.txt')) {
-						return '323 \n! { hello world! }';
-					} else if (path.toString() === 'error') {
-						throw new Error('File error!');
-					} else {
-						return undefined;
-					}
-				}),
-			};
-		});
 	});
 
 	afterEach(() => {
