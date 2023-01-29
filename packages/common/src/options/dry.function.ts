@@ -1,4 +1,4 @@
 /**
- * It's a noop
+ * It's an async noop
  */
-export const dry = () => undefined;
+export const dry = async <R>(r?: R) => r;

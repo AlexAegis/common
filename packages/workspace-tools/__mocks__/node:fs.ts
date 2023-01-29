@@ -5,8 +5,10 @@ import { PACKAGE_JSON_NAME } from '../src/const/package-json.interface.js';
 
 export const mockProjectRoot = '/foo/bar';
 
+// I do not get coverage here even if it's running. If I change from using node:fs to fs it works
+/* c8 ignore start */
 export const existsSync = vi.fn((path: PathLike) => {
-	const workspaceFiles = [
+	const workspaceFiles = new Set([
 		join(mockProjectRoot, 'packages/zed', PACKAGE_JSON_NAME),
 		join(mockProjectRoot, 'packages/zed/rcfile'),
 		join(mockProjectRoot, 'packages/zod', PACKAGE_JSON_NAME),
@@ -15,7 +17,8 @@ export const existsSync = vi.fn((path: PathLike) => {
 		join(mockProjectRoot, 'packages/rcfile'),
 		join(mockProjectRoot, 'packages/nonfile'),
 		join(mockProjectRoot, PACKAGE_JSON_NAME),
-	];
+	]);
 
-	return workspaceFiles.includes(path.toString());
+	return workspaceFiles.has(path.toString());
 });
+/* c8 ignore stop */

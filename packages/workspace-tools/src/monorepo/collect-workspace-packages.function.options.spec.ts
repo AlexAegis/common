@@ -14,6 +14,7 @@ describe('normalizeCollectWorkspacePackagesOptions', () => {
 			cwd: mockCwd,
 			onlyWorkspaceRoot: false,
 			skipWorkspaceRoot: false,
+			dependencyCriteria: [],
 		} as NormalizedCollectWorkspacePackagesOptions);
 	});
 
@@ -22,6 +23,7 @@ describe('normalizeCollectWorkspacePackagesOptions', () => {
 			cwd: '/foo/bar',
 			onlyWorkspaceRoot: false,
 			skipWorkspaceRoot: false,
+			dependencyCriteria: [],
 		};
 		expect(normalizeCollectWorkspacePackagesOptions(manualOptions)).toEqual(manualOptions);
 	});

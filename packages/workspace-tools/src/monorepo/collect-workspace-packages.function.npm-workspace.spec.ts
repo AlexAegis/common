@@ -12,9 +12,25 @@ const mockPackageJsonWorkspaceValue: PackageJson = {
 	workspaces: ['packages/**'],
 };
 
+const mockPackageJsonZedValue: PackageJson = {
+	name: 'name',
+	workspaces: ['packages/**'],
+	dependencies: { foo: '1.0.0', bar: '1.0.0' },
+};
+
+const mockPackageJsonZodValue: PackageJson = {
+	name: 'name',
+	workspaces: ['packages/**'],
+	dependencies: { foo: '1.0.0' },
+};
+
 vi.mock('@alexaegis/fs', async () => {
 	const mockReadJson = vi.fn<[string | undefined], Promise<unknown>>(async (path) => {
-		if (path?.endsWith('package.json')) {
+		if (path?.endsWith('zed/package.json')) {
+			return mockPackageJsonZedValue;
+		} else if (path?.endsWith('zod/package.json')) {
+			return mockPackageJsonZodValue;
+		} else if (path?.endsWith('package.json')) {
 			return mockPackageJsonWorkspaceValue;
 		} else {
 			return undefined;
@@ -66,8 +82,8 @@ describe('collectWorkspacePackages in a multi-package npm workspace', () => {
 		const foundPackageJsons = await collectWorkspacePackages({ cwd: '/foo/bar/packages/zed' });
 		expect(foundPackageJsons).toEqual([
 			{ path: '/foo/bar', packageJson: mockPackageJsonWorkspaceValue },
-			{ path: '/foo/bar/packages/zed', packageJson: mockPackageJsonWorkspaceValue },
-			{ path: '/foo/bar/packages/zod', packageJson: mockPackageJsonWorkspaceValue },
+			{ path: '/foo/bar/packages/zed', packageJson: mockPackageJsonZedValue },
+			{ path: '/foo/bar/packages/zod', packageJson: mockPackageJsonZodValue },
 		]);
 	});
 
@@ -75,8 +91,18 @@ describe('collectWorkspacePackages in a multi-package npm workspace', () => {
 		const foundPackageJsons = await collectWorkspacePackages({ cwd: '/foo/bar' });
 		expect(foundPackageJsons).toEqual([
 			{ packageJson: mockPackageJsonWorkspaceValue, path: '/foo/bar' },
-			{ packageJson: mockPackageJsonWorkspaceValue, path: '/foo/bar/packages/zed' },
-			{ packageJson: mockPackageJsonWorkspaceValue, path: '/foo/bar/packages/zod' },
+			{ packageJson: mockPackageJsonZedValue, path: '/foo/bar/packages/zed' },
+			{ packageJson: mockPackageJsonZodValue, path: '/foo/bar/packages/zod' },
+		]);
+	});
+
+	it('should be able to collect packages with specific dependencies being present', async () => {
+		const foundPackageJsons = await collectWorkspacePackages({
+			cwd: '/foo/bar',
+			dependencyCriteria: ['foo', 'bar'],
+		});
+		expect(foundPackageJsons).toEqual([
+			{ packageJson: mockPackageJsonZedValue, path: '/foo/bar/packages/zed' },
 		]);
 	});
 

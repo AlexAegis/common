@@ -1,5 +1,5 @@
 export enum LogLevel {
-	TRACE = 'TRACE',
+	DEBUG = 'DEBUG',
 	INFO = 'INFO',
 	WARNING = 'WARN',
 	/**
@@ -25,8 +25,8 @@ export const isLogLevel = (rawLogLevel: string): rawLogLevel is LogLevel => {
 	return Object.values(LogLevel).some((logLevel) => logLevel.toString() === rawLogLevel);
 };
 
-export const logLevelTreshold: Record<LogLevel, number> = {
-	TRACE: 1,
+export const logLevelStrength: Record<LogLevel, number> = {
+	DEBUG: 1,
 	INFO: 2,
 	WARN: 3,
 	ERROR: 4,
@@ -36,5 +36,5 @@ export const logLevelTreshold: Record<LogLevel, number> = {
 };
 
 export const isLogLevelWithinTreshold = (logLevel: LogLevel, treshold: LogLevel): boolean => {
-	return logLevelTreshold[logLevel] >= logLevelTreshold[treshold];
+	return logLevelStrength[logLevel] >= logLevelStrength[treshold];
 };

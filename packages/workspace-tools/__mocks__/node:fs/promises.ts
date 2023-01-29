@@ -1,40 +1,35 @@
-import type { PathLike } from 'node:fs';
+import type { PathLike, Stats } from 'node:fs';
 import { vi } from 'vitest';
-import type { PackageJson } from '../../src/const/package-json.interface.js';
 
 export const cpMock = vi.fn<[string, string], Promise<void>>();
+export const rmMock = vi.fn<[string, string], Promise<void>>();
 export const symlinkMock = vi.fn<[string, string], Promise<void>>();
+export const readFileMock = vi.fn(async (_path: PathLike): Promise<string | undefined> => {
+	return undefined;
+});
 
-export default {
-	lstat: vi.fn(async (path: string) => {
-		switch (path) {
-			case 'rcfile':
-			case '/foo/bar/packages/rcfile':
-			case '/foo/bar/packages/zed/rcfile': {
-				return { isFile: () => true, isSymbolicLink: () => false };
-			}
-			case '/foo/bar/packages/zod/rcfile': {
-				return { isFile: () => true, isSymbolicLink: () => true };
-			}
-			case '/foo/bar/packages/nonfile': {
-				return { isFile: () => false, isSymbolicLink: () => true };
-			}
-			default: {
-				return undefined;
-			}
+export const cp = vi.fn(async (path: string, target: string) => cpMock(path, target));
+export const rm = vi.fn(async (path: string, target: string) => rmMock(path, target));
+export const symlink = vi.fn(async (path: string, target: string) => symlinkMock(path, target));
+
+export const readFile = vi.fn(async (path: string) => readFileMock(path));
+
+export const lstat = vi.fn(async (path: string) => {
+	switch (path) {
+		case '/foo/bar/packages/rcfile':
+		case '/foo/bar/packages/zed/package.json':
+		case '/foo/bar/packages/zod/package.json':
+		case '/foo/bar/packages/zed/rcfile': {
+			return { isFile: () => true, isSymbolicLink: () => false } as Stats;
 		}
-	}),
-	cp: vi.fn(async (path: string, target: string) => cpMock(path, target)),
-	symlink: vi.fn(async (path: string, target: string) => symlinkMock(path, target)),
-	readFile: vi.fn(
-		async (path: PathLike): Promise<string | undefined> =>
-			path === '/foo/bar/package.json'
-				? JSON.stringify({
-						workspaces: ['apps/*', 'libs/*', 'packages/*'],
-				  } as PackageJson)
-				: path === '/foo/bar/packages/zed/package.json' ||
-				  path === '/foo/bar/packages/zod/package.json'
-				? JSON.stringify({} as PackageJson)
-				: undefined
-	),
-};
+		case '/foo/bar/packages/zod/rcfile': {
+			return { isSymbolicLink: () => true } as Stats;
+		}
+		case '/foo/bar/packages/nonfile': {
+			return { isFile: () => false } as Stats;
+		}
+		default: {
+			return undefined;
+		}
+	}
+});

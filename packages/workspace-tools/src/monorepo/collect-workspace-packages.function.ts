@@ -47,7 +47,7 @@ export const collectWorkspacePackages = async (
 		workspaces = [...workspaces, ...pnpmWorkspace.packages];
 	}
 
-	const result: WorkspacePackage[] = [];
+	let result: WorkspacePackage[] = [];
 
 	if (workspaces.length > 0) {
 		const paths = await globby(workspaces, {
@@ -78,6 +78,19 @@ export const collectWorkspacePackages = async (
 
 	if (!options.skipWorkspaceRoot) {
 		result.unshift(rootPackage);
+	}
+
+	if (options.dependencyCriteria.length > 0) {
+		result = result.filter((relativePackage) => {
+			const packageDependencies = new Set([
+				...Object.keys(relativePackage.packageJson.dependencies ?? {}),
+				...Object.keys(relativePackage.packageJson.devDependencies ?? {}),
+			]);
+
+			return options.dependencyCriteria.every((dependency) =>
+				packageDependencies.has(dependency)
+			);
+		});
 	}
 
 	return result;

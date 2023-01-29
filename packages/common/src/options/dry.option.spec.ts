@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { DryOption, NormalizedDryOption, normalizeDryOption } from './dry.function.option.js';
+import { DryOption, NormalizedDryOption, normalizeDryOption } from './dry.option.js';
 
 describe('normalizeDryOption', () => {
 	it('should have a default when not defined', () => {

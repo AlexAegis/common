@@ -14,6 +14,14 @@ export interface CollectWorkspacePackagesOptions extends CwdOption {
 	 * @default false
 	 */
 	skipWorkspaceRoot?: boolean;
+
+	/**
+	 * Return only those packages that list these dependencies. When it's not
+	 * defined or is an empty array, it will not perform such filtering.
+	 *
+	 * @default []
+	 */
+	dependencyCriteria?: string[];
 }
 
 export type NormalizedCollectWorkspacePackagesOptions = Required<CollectWorkspacePackagesOptions>;
@@ -25,5 +33,6 @@ export const normalizeCollectWorkspacePackagesOptions = (
 		...normalizeCwdOption(options),
 		onlyWorkspaceRoot: options?.onlyWorkspaceRoot ?? false,
 		skipWorkspaceRoot: options?.skipWorkspaceRoot ?? false,
+		dependencyCriteria: options?.dependencyCriteria ?? [],
 	};
 };

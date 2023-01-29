@@ -23,27 +23,27 @@ describe('LogLevel', () => {
 		});
 
 		it('should return true when a logLevel is stronger than the treshold', () => {
-			expect(isLogLevelWithinTreshold(LogLevel.TRACE, LogLevel.TRACE)).toBeTruthy();
-			expect(isLogLevelWithinTreshold(LogLevel.INFO, LogLevel.TRACE)).toBeTruthy();
-			expect(isLogLevelWithinTreshold(LogLevel.WARNING, LogLevel.TRACE)).toBeTruthy();
-			expect(isLogLevelWithinTreshold(LogLevel.ERROR, LogLevel.TRACE)).toBeTruthy();
+			expect(isLogLevelWithinTreshold(LogLevel.DEBUG, LogLevel.DEBUG)).toBeTruthy();
+			expect(isLogLevelWithinTreshold(LogLevel.INFO, LogLevel.DEBUG)).toBeTruthy();
+			expect(isLogLevelWithinTreshold(LogLevel.WARNING, LogLevel.DEBUG)).toBeTruthy();
+			expect(isLogLevelWithinTreshold(LogLevel.ERROR, LogLevel.DEBUG)).toBeTruthy();
 
-			expect(isLogLevelWithinTreshold(LogLevel.TRACE, LogLevel.INFO)).toBeFalsy();
+			expect(isLogLevelWithinTreshold(LogLevel.DEBUG, LogLevel.INFO)).toBeFalsy();
 			expect(isLogLevelWithinTreshold(LogLevel.INFO, LogLevel.INFO)).toBeTruthy();
 			expect(isLogLevelWithinTreshold(LogLevel.WARNING, LogLevel.INFO)).toBeTruthy();
 			expect(isLogLevelWithinTreshold(LogLevel.ERROR, LogLevel.INFO)).toBeTruthy();
 
-			expect(isLogLevelWithinTreshold(LogLevel.TRACE, LogLevel.WARNING)).toBeFalsy();
+			expect(isLogLevelWithinTreshold(LogLevel.DEBUG, LogLevel.WARNING)).toBeFalsy();
 			expect(isLogLevelWithinTreshold(LogLevel.INFO, LogLevel.WARNING)).toBeFalsy();
 			expect(isLogLevelWithinTreshold(LogLevel.WARNING, LogLevel.WARNING)).toBeTruthy();
 			expect(isLogLevelWithinTreshold(LogLevel.ERROR, LogLevel.WARNING)).toBeTruthy();
 
-			expect(isLogLevelWithinTreshold(LogLevel.TRACE, LogLevel.ERROR)).toBeFalsy();
+			expect(isLogLevelWithinTreshold(LogLevel.DEBUG, LogLevel.ERROR)).toBeFalsy();
 			expect(isLogLevelWithinTreshold(LogLevel.INFO, LogLevel.ERROR)).toBeFalsy();
 			expect(isLogLevelWithinTreshold(LogLevel.WARNING, LogLevel.ERROR)).toBeFalsy();
 			expect(isLogLevelWithinTreshold(LogLevel.ERROR, LogLevel.ERROR)).toBeTruthy();
 
-			expect(isLogLevelWithinTreshold(LogLevel.TRACE, LogLevel.SILENT)).toBeFalsy();
+			expect(isLogLevelWithinTreshold(LogLevel.DEBUG, LogLevel.SILENT)).toBeFalsy();
 			expect(isLogLevelWithinTreshold(LogLevel.INFO, LogLevel.SILENT)).toBeFalsy();
 			expect(isLogLevelWithinTreshold(LogLevel.WARNING, LogLevel.SILENT)).toBeFalsy();
 			expect(isLogLevelWithinTreshold(LogLevel.ERROR, LogLevel.SILENT)).toBeFalsy();
