@@ -199,7 +199,8 @@ jobs:
     needs: [build, test, lint]
     strategy:
       matrix:
-        artifact: ['common', 'workspace-tools', 'fs']
+        artifact:
+          ['common', 'coverage-tools', 'fs', 'logging', 'workspace-tools']
     steps:
       - name: checkout
         uses: actions/checkout@v3
