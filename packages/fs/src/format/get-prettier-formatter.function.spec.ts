@@ -1,9 +1,6 @@
-import type { MockedModule } from '@alexaegis/common';
-import { afterAll, beforeAll, describe, expect, it, Mock, vi } from 'vitest';
+import { afterAll, beforeAll, describe, expect, it, vi } from 'vitest';
 import { mockFormat, mockPrettifiedJson } from '../../__mocks__/prettier.js';
 import { getPrettierFormatter } from './get-prettier-formatter.function.js';
-
-export type MockedModuleGetPrettierFormatter = MockedModule<{ formatMock: Mock<[], string> }>;
 
 describe('getPrettierFormatter', () => {
 	describe('when prettier is present', () => {

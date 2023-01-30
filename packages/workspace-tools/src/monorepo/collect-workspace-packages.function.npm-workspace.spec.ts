@@ -14,23 +14,21 @@ const mockPackageJsonWorkspaceValue: PackageJson = {
 
 const mockPackageJsonZedValue: PackageJson = {
 	name: 'name',
-	workspaces: ['packages/**'],
 	dependencies: { foo: '1.0.0', bar: '1.0.0' },
 };
 
 const mockPackageJsonZodValue: PackageJson = {
 	name: 'name',
-	workspaces: ['packages/**'],
 	dependencies: { foo: '1.0.0' },
 };
 
 vi.mock('@alexaegis/fs', async () => {
 	const mockReadJson = vi.fn<[string | undefined], Promise<unknown>>(async (path) => {
-		if (path?.endsWith('zed/package.json')) {
+		if (path?.endsWith(join('zed', PACKAGE_JSON_NAME))) {
 			return mockPackageJsonZedValue;
-		} else if (path?.endsWith('zod/package.json')) {
+		} else if (path?.endsWith(join('zod', PACKAGE_JSON_NAME))) {
 			return mockPackageJsonZodValue;
-		} else if (path?.endsWith('package.json')) {
+		} else if (path?.endsWith(PACKAGE_JSON_NAME)) {
 			return mockPackageJsonWorkspaceValue;
 		} else {
 			return undefined;

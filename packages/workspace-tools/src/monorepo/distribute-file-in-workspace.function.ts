@@ -64,6 +64,7 @@ export const distributeFileInWorkspace = async (
 			})
 		);
 	}
+
 	let validTargets: string[];
 	if (options?.symlinkInsteadOfCopy) {
 		validTargets = targetStats.filter((target) => !target.stats).map((target) => target.path);
@@ -89,7 +90,10 @@ export const distributeFileInWorkspace = async (
 		validTargets.map((targetFilepath) => {
 			if (options.symlinkInsteadOfCopy) {
 				const relativeFromTargetBackToFile = relative(dirname(targetFilepath), filePath);
-				return (options.dry ? dry() : symlink(relativeFromTargetBackToFile, targetFilepath))
+
+				const driedSymlink = dry(options.dry, symlink);
+
+				return driedSymlink(relativeFromTargetBackToFile, targetFilepath)
 					.then(() => {
 						options.logger.log(
 							`symlinked ${targetFilepath} to ${relativeFromTargetBackToFile}`
@@ -99,7 +103,9 @@ export const distributeFileInWorkspace = async (
 						options.logger.error(`can't link ${file}, error happened: ${error}`);
 					});
 			} else {
-				return (options.dry ? dry() : cp(filePath, targetFilepath))
+				const driedCp = dry(options.dry, cp);
+
+				return driedCp(filePath, targetFilepath)
 					.then(() => {
 						options.logger.log(`copied ${filePath} to ${targetFilepath}`);
 					})

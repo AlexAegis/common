@@ -41,7 +41,7 @@ export const collectWorkspacePackages = async (
 		join(rootWorkspace, PNPM_WORKSPACE_FILE_NAME)
 	);
 
-	let workspaces = packageJson.workspaces ?? [];
+	let workspaces: string[] = packageJson.workspaces ?? [];
 
 	if (pnpmWorkspace?.packages) {
 		workspaces = [...workspaces, ...pnpmWorkspace.packages];
