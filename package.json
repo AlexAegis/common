@@ -54,7 +54,7 @@
 		"lint:md": "turbo run lint:md --concurrency 6",
 		"lint:md:workspace": "markdownlint --ignore-path '.gitignore' --ignore CHANGELOG.md *.md",
 		"lint:rmd": "turbo run lint:rmd --concurrency 6",
-		"lint:rmd:workspace": "remark --frail --quiet --no-stdout *.md",
+		"lint:rmd:workspace": "remark --frail --quiet --no-stdout packages/**/*.md readme.md",
 		"lint:format": "turbo run lint:format --concurrency 6",
 		"lint:format:workspace": "prettier --check *.{json,ts,js,mjs,md,yml,yaml}",
 		"postinstall": "husky install && turbo run build",
