@@ -1,6 +1,7 @@
 import { CwdOption, normalizeCwdOption } from '@alexaegis/fs';
+import { LoggerOption, normalizeLoggerOption } from '@alexaegis/logging';
 
-export interface CollectWorkspacePackagesOptions extends CwdOption {
+export interface CollectWorkspacePackagesOptions extends CwdOption, LoggerOption {
 	/**
 	 * Only return the root workspace package
 	 *
@@ -31,6 +32,7 @@ export const normalizeCollectWorkspacePackagesOptions = (
 ): NormalizedCollectWorkspacePackagesOptions => {
 	return {
 		...normalizeCwdOption(options),
+		...normalizeLoggerOption(options),
 		onlyWorkspaceRoot: options?.onlyWorkspaceRoot ?? false,
 		skipWorkspaceRoot: options?.skipWorkspaceRoot ?? false,
 		dependencyCriteria: options?.dependencyCriteria ?? [],

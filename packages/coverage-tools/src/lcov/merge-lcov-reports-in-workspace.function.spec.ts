@@ -11,6 +11,7 @@ describe('mergeLcovReportsInWorkspace', () => {
 	});
 
 	it('should return paths of all lcov reports in the workspace except at the root', async () => {
+		console.log('await mergeLcovReportsInWorkspace()', await mergeLcovReportsInWorkspace());
 		expect(await mergeLcovReportsInWorkspace()).toEqual(
 			[
 				'/foo/bar/packages/zed/coverage/lcov.info',

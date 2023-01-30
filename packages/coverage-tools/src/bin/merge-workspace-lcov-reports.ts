@@ -1,3 +1,4 @@
+import { Logger, LogLevel } from '@alexaegis/logging';
 import { getWorkspaceRoot } from '@alexaegis/workspace-tools';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
@@ -5,14 +6,20 @@ import { LCOV_INFO_FILE_NAME } from '../index.js';
 import { mergeLcovReportsInWorkspace } from '../lcov/merge-lcov-reports-in-workspace.function.js';
 
 const mergeWorkspaceLcovReports = async () => {
+	const logger = new Logger({ domain: 'merge-lcov', logLevel: LogLevel.DEBUG });
 	const workspaceRoot = getWorkspaceRoot();
 
+	logger.info('Starting mergeWorkspaceLcovReports');
+
 	if (workspaceRoot) {
-		const mergedLcov = await mergeLcovReportsInWorkspace({ skipWorkspaceRoot: true });
+		const mergedLcov = await mergeLcovReportsInWorkspace({
+			skipWorkspaceRoot: true,
+			logger,
+		});
 		await mkdir(join(workspaceRoot, 'coverage'), { recursive: true });
 		await writeFile(join(workspaceRoot, 'coverage', LCOV_INFO_FILE_NAME), mergedLcov);
 	} else {
-		console.error('Not in a workspace!');
+		logger.error('Not in a workspace!');
 		// eslint-disable-next-line unicorn/no-process-exit
 		process.exit(1);
 	}

@@ -33,8 +33,7 @@
 		"lint:es": "eslint --max-warnings=0 --fix .",
 		"lint:format": "prettier --check .",
 		"test": "vitest --passWithNoTests --coverage --run",
-		"test:watch": "vitest --passWithNoTests --coverage",
-		"typedoc": "typedoc ./src/index.ts --out ./dist/typedoc"
+		"test:watch": "vitest --passWithNoTests --coverage"
 	},
 	"exports": {
 		".": {
@@ -48,6 +47,7 @@
 		"merge-workspace-lcov-reports": "./shims/merge-workspace-lcov-reports.mjs"
 	},
 	"dependencies": {
+		"@alexaegis/logging": "*",
 		"@alexaegis/workspace-tools": "*",
 		"globby": "^13.1.3",
 		"yargs": "^17.6.2"

@@ -59,7 +59,7 @@
 	"json.schemas": [
 		{
 			"fileMatch": ["typedoc.json"],
-			"url": "https://json.schemastore.org/typedoc"
+			"url": "https://json.schemastore.org/typedoc.json"
 		}
 	],
 	"vitest.enable": true,

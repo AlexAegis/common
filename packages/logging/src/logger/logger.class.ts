@@ -41,13 +41,11 @@ export class Logger implements LoggerLike {
 		this.options.domain = domain;
 	}
 
-	private format(message: string, logLevel: Exclude<LogLevel, LogLevel.OFF>): void {
-		const colorScheme = this.colorScheme[logLevel];
-		colorScheme.domain(
-			`[${this.options.domain}:${logLevel
-				.toString()
-				.padStart(longestLogLevelNameLength)}] ${colorScheme.message(message)}`
-		);
+	private format(message: string, logLevel: Exclude<LogLevel, LogLevel.OFF>): string {
+		const scheme = this.colorScheme[logLevel];
+		const level = logLevel.toString().padStart(longestLogLevelNameLength);
+
+		return scheme.domain(`[${this.options.domain}:${level}] ${scheme.message(message)}`);
 	}
 
 	subDomain(domain: string): Logger {
