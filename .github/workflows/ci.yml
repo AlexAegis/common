@@ -58,7 +58,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-
       - name: install
-        if: steps.cache.outputs.cache-hit != 'true'
         run: pnpm install
       - name: lint
         run: pnpm lint
@@ -97,7 +96,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-
       - name: install
-        if: steps.cache.outputs.cache-hit != 'true'
         run: pnpm install
       - name: test
         run: pnpm test
@@ -169,7 +167,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-
       - name: install
-        if: steps.cache.outputs.cache-hit != 'true'
         run: pnpm install
       - name: build
         run: BASE_HREF="/${{ github.event.repository.name }}/" pnpm build
