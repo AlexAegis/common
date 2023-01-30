@@ -1,7 +1,7 @@
 {
 	"name": "@alexaegis/workspace",
 	"description": "base repo for common stuff in my other js projects",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"license": "mit",
 	"author": {
 		"name": "Alex Aegis",
@@ -58,6 +58,9 @@
 		"lint:format": "turbo run lint:format --concurrency 6",
 		"lint:format:workspace": "prettier --check *.{json,ts,js,mjs,md,yml,yaml}",
 		"postinstall": "husky install && turbo run build",
+		"release": "standard-version",
+		"release:major": "standard-version --release-as major",
+		"release:minor": "standard-version --release-as minor",
 		"ncu": "ncu --deep --peer --upgrade",
 		"format": "prettier --write .",
 		"nuke": "nuke",
