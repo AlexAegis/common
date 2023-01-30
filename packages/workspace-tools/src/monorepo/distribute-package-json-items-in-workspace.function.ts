@@ -8,6 +8,11 @@ import {
 	normalizeDistributeInWorkspaceOptions,
 } from './distribute-in-workspace.options.js';
 
+/**
+ * Deeply merges updates into the packageJson files of a workspace.
+ * Can be used to force dependencies or other keys to be present in source
+ * packageJson files.
+ */
 export const distributePackageJsonItemsInWorkspace = async (
 	packageJsonUpdates: Record<string | number, unknown>,
 	rawOptions?: DistributeInWorkspaceOptions
