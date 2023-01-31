@@ -1,12 +1,12 @@
+import { createLogger } from '@alexaegis/logging';
 import { getWorkspaceRoot } from '@alexaegis/workspace-tools';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
-import { Logger } from 'tslog';
 import { LCOV_INFO_FILE_NAME } from '../index.js';
 import { mergeLcovReportsInWorkspace } from '../lcov/merge-lcov-reports-in-workspace.function.js';
 
 const mergeWorkspaceLcovReports = async () => {
-	const logger = new Logger({ name: 'merge-lcov' });
+	const logger = createLogger({ name: 'merge-lcov' });
 	const workspaceRoot = getWorkspaceRoot();
 
 	logger.info('Starting mergeWorkspaceLcovReports');

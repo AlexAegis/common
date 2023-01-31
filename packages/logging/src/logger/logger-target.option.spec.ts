@@ -1,5 +1,5 @@
-import { Logger } from 'tslog';
 import { describe, expect, it } from 'vitest';
+import { createLogger } from './create-logger.function.js';
 import {
 	LoggerOption,
 	NormalizedLoggerOption,
@@ -16,7 +16,7 @@ describe('normalizeLoggerTargetOption', () => {
 
 	it('should use the provided values when defined', () => {
 		const manualOptions: LoggerOption = {
-			logger: new Logger(),
+			logger: createLogger(),
 		};
 		expect(normalizeLoggerOption(manualOptions)).toEqual(manualOptions);
 	});

@@ -1,10 +1,7 @@
 import { isObject } from './is-object.function.js';
 import type { Struct } from './struct.type.js';
 
-export const deepMerge = <T extends Struct, S extends Struct[]>(
-	target: T,
-	...sources: S
-): T & S => {
+export const deepMerge = <T, S extends unknown[]>(target: T, ...sources: S): T & S => {
 	if (sources.length === 0) {
 		return target as T & S;
 	}
