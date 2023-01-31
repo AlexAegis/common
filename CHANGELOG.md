@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.5](https://github.com/AlexAegis/js/compare/v0.0.4...v0.0.5) (2023-01-31)
+
+
+### Features
+
+* added a createLogger function ([904f5ae](https://github.com/AlexAegis/js/commit/904f5ae3fe531d04f19cde765b866934c983d4c6))
+* move to tslog for logging ([db4f1b4](https://github.com/AlexAegis/js/commit/db4f1b43cc47429a34886ebc63f82206856ae3bf))
+
+
+### Bug Fixes
+
+* add missing options export ([8379735](https://github.com/AlexAegis/js/commit/837973555e6e3edecd550bebabb99d1657cdcae5))
+
 ### [0.0.4](https://github.com/AlexAegis/js/compare/v0.0.3...v0.0.4) (2023-01-30)
 
 
