@@ -23,12 +23,16 @@ export const collectWorkspacePackages = async (
 
 	const rootWorkspace = getWorkspaceRoot(options.cwd);
 	if (!rootWorkspace) {
+		options.logger.error('No package json was found! Cannot collect workspace packages!');
+
 		return [];
 	}
 
-	const packageJson = await readJson<PackageJson>(join(rootWorkspace, PACKAGE_JSON_NAME));
+	const packageJsonPath = join(rootWorkspace, PACKAGE_JSON_NAME);
+	const packageJson = await readJson<PackageJson>(packageJsonPath);
 
 	if (!packageJson) {
+		options.logger.error('Failed to read packageJson!', packageJsonPath);
 		return [];
 	}
 

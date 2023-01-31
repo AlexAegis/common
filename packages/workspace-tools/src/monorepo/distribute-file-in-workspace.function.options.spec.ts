@@ -1,4 +1,4 @@
-import { Logger } from '@alexaegis/logging';
+import { noopLogger } from '@alexaegis/logging';
 import { describe, expect, it, vi } from 'vitest';
 import {
 	DistributeFileInWorkspaceOptions,
@@ -16,7 +16,7 @@ describe('DistributeFileInWorkspaceOptions', () => {
 		dependencyCriteria: [],
 		dry: false,
 		force: false,
-		logger: Logger.OFF,
+		logger: noopLogger,
 		onlyWorkspaceRoot: false,
 		skipWorkspaceRoot: false,
 		symlinkInsteadOfCopy: false,

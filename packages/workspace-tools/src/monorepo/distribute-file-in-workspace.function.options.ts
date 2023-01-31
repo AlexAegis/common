@@ -1,9 +1,10 @@
 import {
 	DistributeInWorkspaceOptions,
+	NormalizedDistributeInWorkspaceOptions,
 	normalizeDistributeInWorkspaceOptions,
 } from './distribute-in-workspace.options.js';
 
-export interface DistributeFileInWorkspaceOptions extends DistributeInWorkspaceOptions {
+interface DistributeFileInWorkspaceOnlyOptions {
 	/**
 	 * Instead of copying file, just symlink them.
 	 *
@@ -12,7 +13,11 @@ export interface DistributeFileInWorkspaceOptions extends DistributeInWorkspaceO
 	symlinkInsteadOfCopy?: boolean;
 }
 
-export type NormalizedDistributeFileInWorkspaceOptions = Required<DistributeFileInWorkspaceOptions>;
+export type DistributeFileInWorkspaceOptions = DistributeFileInWorkspaceOnlyOptions &
+	DistributeInWorkspaceOptions;
+
+export type NormalizedDistributeFileInWorkspaceOptions =
+	Required<DistributeFileInWorkspaceOnlyOptions> & NormalizedDistributeInWorkspaceOptions;
 
 export const normalizeDistributeFileInWorkspaceOptions = (
 	options?: DistributeFileInWorkspaceOptions

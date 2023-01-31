@@ -5,4 +5,6 @@
 [![codacy](https://app.codacy.com/project/badge/Grade/402dd6d7fcbd4cde86fdf8e7d948fcde)](https://www.codacy.com/gh/AlexAegis/js-core/dashboard?utm_source=github.com&utm_medium=referral&utm_content=AlexAegis/js-core&utm_campaign=Badge_Grade)
 [![codecov](https://codecov.io/gh/AlexAegis/js-core/branch/master/graph/badge.svg?token=kw8ZeoPbUh)](https://codecov.io/gh/AlexAegis/js-core)
 
-A custom logging solution to log with context and with pretty colors.
+Provides some utility for uniform usage of
+[`tslog`](https://github.com/fullstack-build/tslog) like default options, types
+to distributing the logger object through functions, and mocks

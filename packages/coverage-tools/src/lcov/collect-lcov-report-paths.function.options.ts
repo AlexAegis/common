@@ -1,6 +1,7 @@
 import {
 	CollectWorkspacePackagesOptions,
 	normalizeCollectWorkspacePackagesOptions,
+	NormalizedCollectWorkspacePackagesOptions,
 } from '@alexaegis/workspace-tools';
 
 export type CollectLcovReportPathsOptions = Omit<
@@ -8,7 +9,10 @@ export type CollectLcovReportPathsOptions = Omit<
 	'onlyWorkspaceRoot' | 'skipWorkspaceRoot'
 >;
 
-export type NormalizedCollectLcovReportPathsOptions = Required<CollectLcovReportPathsOptions>;
+export type NormalizedCollectLcovReportPathsOptions = Omit<
+	NormalizedCollectWorkspacePackagesOptions,
+	'onlyWorkspaceRoot' | 'skipWorkspaceRoot'
+>;
 
 export const normalizeCollectLcovReportPathsOptions = (
 	options?: CollectLcovReportPathsOptions

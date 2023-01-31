@@ -36,7 +36,7 @@ export const distributeFileInWorkspace = async (
 
 	const targetPackages = await collectWorkspacePackages(options);
 
-	options.logger.log(
+	options.logger.info(
 		`packages to check:\n\t${targetPackages
 			.map((packageJson) => './' + relative(options.cwd, packageJson.path))
 			.join('\n\t')}`
@@ -53,7 +53,7 @@ export const distributeFileInWorkspace = async (
 	);
 
 	if (options.force) {
-		options.logger.log('force option used, removing all targets before distribution...');
+		options.logger.info('force option used, removing all targets before distribution...');
 		await Promise.all(
 			targetStats.map((target) => {
 				if (target.stats && !options.dry) {
@@ -95,7 +95,7 @@ export const distributeFileInWorkspace = async (
 
 				return driedSymlink(relativeFromTargetBackToFile, targetFilepath)
 					.then(() => {
-						options.logger.log(
+						options.logger.info(
 							`symlinked ${targetFilepath} to ${relativeFromTargetBackToFile}`
 						);
 					})
@@ -107,7 +107,7 @@ export const distributeFileInWorkspace = async (
 
 				return driedCp(filePath, targetFilepath)
 					.then(() => {
-						options.logger.log(`copied ${filePath} to ${targetFilepath}`);
+						options.logger.info(`copied ${filePath} to ${targetFilepath}`);
 					})
 					.catch((error: string) => {
 						options.logger.error(`can't copy ${file}, error happened ${error}`);

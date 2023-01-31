@@ -1,10 +1,9 @@
 import { writeJson } from '@alexaegis/fs';
-import type { LoggerLike } from '@alexaegis/logging';
+import { mockLogger } from '@alexaegis/logging/mocks';
 import { join } from 'node:path/posix';
 
 import { afterEach, describe, expect, it, Mock, vi } from 'vitest';
 import { mockProjectRoot } from '../../__mocks__/fs.js';
-
 import { PackageJson, PACKAGE_JSON_NAME } from '../index.js';
 import { distributePackageJsonItemsInWorkspace } from './distribute-package-json-items-in-workspace.function.js';
 
@@ -41,9 +40,7 @@ vi.mock('@alexaegis/fs', async () => {
 	});
 
 	const mockWriteJson = vi.fn<[Record<string, unknown>, string], Promise<void>>(
-		async (o: Record<string, unknown>, path: string) => {
-			console.log('mok', o, path);
-		}
+		async (_o: Record<string, unknown>, _path: string) => undefined
 	);
 
 	return {
@@ -61,15 +58,6 @@ vi.mock('fs');
 vi.mock('node:fs/promises');
 
 describe('distributePackageJsonItemsInWorkspace', async () => {
-	const mockErrorLog = vi.fn();
-	const mockLogger: LoggerLike = {
-		error: mockErrorLog,
-		debug: vi.fn(),
-		info: vi.fn(),
-		log: vi.fn(),
-		warning: vi.fn(),
-	};
-
 	afterEach(() => {
 		vi.clearAllMocks();
 	});
@@ -216,7 +204,7 @@ describe('distributePackageJsonItemsInWorkspace', async () => {
 				logger: mockLogger,
 			});
 
-			expect(mockErrorLog).toHaveBeenCalled();
+			expect(mockLogger.error).toHaveBeenCalled();
 		});
 	});
 });

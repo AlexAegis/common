@@ -1,4 +1,4 @@
-import { Logger } from '@alexaegis/logging';
+import { noopLogger } from '@alexaegis/logging';
 import { describe, expect, it, vi } from 'vitest';
 import {
 	CollectWorkspacePackagesOptions,
@@ -16,7 +16,7 @@ describe('normalizeCollectWorkspacePackagesOptions', () => {
 			onlyWorkspaceRoot: false,
 			skipWorkspaceRoot: false,
 			dependencyCriteria: [],
-			logger: Logger.OFF,
+			logger: noopLogger,
 		} as NormalizedCollectWorkspacePackagesOptions);
 	});
 
@@ -26,7 +26,7 @@ describe('normalizeCollectWorkspacePackagesOptions', () => {
 			onlyWorkspaceRoot: false,
 			skipWorkspaceRoot: false,
 			dependencyCriteria: [],
-			logger: Logger.GLOBAL,
+			logger: noopLogger,
 		};
 		expect(normalizeCollectWorkspacePackagesOptions(manualOptions)).toEqual(manualOptions);
 	});

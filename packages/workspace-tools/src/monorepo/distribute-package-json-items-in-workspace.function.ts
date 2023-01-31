@@ -21,7 +21,7 @@ export const distributePackageJsonItemsInWorkspace = async (
 
 	const targetPackages = await collectWorkspacePackages(options);
 
-	options.logger.log(
+	options.logger.info(
 		`packages to check:\n\t${targetPackages
 			.map((packageJson) => './' + relative(options.cwd, packageJson.path))
 			.join('\n\t')}`
@@ -37,7 +37,7 @@ export const distributePackageJsonItemsInWorkspace = async (
 				}
 			)
 				.then(() => {
-					options.logger.log(
+					options.logger.info(
 						`writing ${target.path}'s new content: ${JSON.stringify(
 							target.packageJson
 						)}`

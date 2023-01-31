@@ -1,5 +1,5 @@
 import { afterAll, beforeAll, describe, expect, it, vi } from 'vitest';
-import { mockFormat, mockPrettifiedJson } from '../../__mocks__/prettier.js';
+import { mockPrettierFormat, mockPrettifiedJson } from '../mocks.js';
 import { getPrettierFormatter } from './get-prettier-formatter.function.js';
 
 describe('getPrettierFormatter', () => {
@@ -23,7 +23,7 @@ describe('getPrettierFormatter', () => {
 			const input = '{"foo": "hello",  "bar": 2}';
 
 			expect(formatter(input)).toEqual(mockPrettifiedJson);
-			expect(mockFormat).toHaveBeenCalledOnce();
+			expect(mockPrettierFormat).toHaveBeenCalledOnce();
 		});
 	});
 

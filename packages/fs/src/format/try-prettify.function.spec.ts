@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { mockFormat, mockPrettifiedJson } from '../../__mocks__/prettier.js';
+import { mockPrettierFormat, mockPrettifiedJson } from '../mocks.js';
 
 import { tryPrettify } from './try-prettify.function.js';
 import type { PrettifyOptions } from './try-prettify.function.options.js';
@@ -17,6 +17,6 @@ describe('tryPrettify', () => {
 		const result = await tryPrettify(unformatted, prettifyOptions);
 		expect(result).toEqual(mockPrettifiedJson);
 
-		expect(mockFormat).toHaveBeenCalledWith(unformatted, prettifyOptions);
+		expect(mockPrettierFormat).toHaveBeenCalledWith(unformatted, prettifyOptions);
 	});
 });

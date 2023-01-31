@@ -46,6 +46,11 @@
 			"import": "./dist/index.js",
 			"require": "./dist/index.cjs"
 		},
+		"./mocks": {
+			"types": "./src/mocks.ts",
+			"import": "./dist/mocks.js",
+			"require": "./dist/mocks.cjs"
+		},
 		"./readme": "./readme.md"
 	},
 	"dependencies": {

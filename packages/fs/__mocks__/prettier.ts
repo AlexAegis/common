@@ -1,12 +1,3 @@
-import type { Options } from 'prettier';
-import { vi } from 'vitest';
+import { mockPrettier } from '../src/mocks.js';
 
-export const mockPrettifiedJson = 'prettyJson';
-export const mockFormat = vi.fn<[string, Options], string | undefined>(
-	(_data: string) => mockPrettifiedJson
-);
-
-export default {
-	resolveConfig: vi.fn<[string], Promise<Options>>(),
-	format: mockFormat,
-};
+export default mockPrettier();

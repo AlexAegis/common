@@ -1,3 +1,4 @@
+import { mockLogger } from '@alexaegis/logging/mocks';
 import { afterAll, describe, expect, it, vi } from 'vitest';
 import { mergeLcovReportsInWorkspace } from './merge-lcov-reports-in-workspace.function.js';
 
@@ -11,8 +12,7 @@ describe('mergeLcovReportsInWorkspace', () => {
 	});
 
 	it('should return paths of all lcov reports in the workspace except at the root', async () => {
-		console.log('await mergeLcovReportsInWorkspace()', await mergeLcovReportsInWorkspace());
-		expect(await mergeLcovReportsInWorkspace()).toEqual(
+		expect(await mergeLcovReportsInWorkspace({ logger: mockLogger })).toEqual(
 			[
 				'/foo/bar/packages/zed/coverage/lcov.info',
 				'/foo/bar/packages/zod/coverage/lcov.info',

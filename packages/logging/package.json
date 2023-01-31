@@ -43,11 +43,16 @@
 			"import": "./dist/index.js",
 			"require": "./dist/index.cjs"
 		},
+		"./mocks": {
+			"types": "./src/mocks.ts",
+			"import": "./dist/mocks.js",
+			"require": "./dist/mocks.cjs"
+		},
 		"./readme": "./readme.md"
 	},
 	"dependencies": {
 		"@alexaegis/common": "*",
-		"kolorist": "^1.6.0"
+		"tslog": "^4.7.1"
 	},
 	"devDependencies": {
 		"@types/node": "^18.11.18",
