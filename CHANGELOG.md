@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.6](https://github.com/AlexAegis/js/compare/v0.0.5...v0.0.6) (2023-02-01)
+
+
+### Features
+
+* added cli-tools with default yargs stuff ([a0ffb77](https://github.com/AlexAegis/js/commit/a0ffb77503d3633fe5f04df1f603be90dbb86a94))
+
 ### [0.0.5](https://github.com/AlexAegis/js/compare/v0.0.4...v0.0.5) (2023-01-31)
 
 
