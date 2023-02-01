@@ -1,4 +1,4 @@
-import type { LoggerLike } from '@alexaegis/logging';
+import { mockLogger } from '@alexaegis/logging/mocks';
 import { join, sep } from 'node:path/posix';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { mockProjectRoot } from '../../__mocks__/fs.js';
@@ -34,15 +34,6 @@ vi.mock('@alexaegis/fs', async () => {
 });
 
 describe('distributeFile', () => {
-	const mockErrorLog = vi.fn();
-	const mockLogger: LoggerLike = {
-		error: mockErrorLog,
-		debug: vi.fn(),
-		info: vi.fn(),
-		log: vi.fn(),
-		warning: vi.fn(),
-	};
-
 	afterEach(() => {
 		vi.clearAllMocks();
 	});

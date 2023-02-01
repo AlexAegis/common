@@ -36,6 +36,7 @@
 		"build": "vite build",
 		"lint:es": "eslint --max-warnings=0 --fix .",
 		"lint:format": "prettier --check .",
+		"lint:tsc": "tsc --noEmit",
 		"test": "vitest --passWithNoTests --coverage --run",
 		"test:watch": "vitest --passWithNoTests --coverage",
 		"typedoc": "typedoc ./src/index.ts --out ./dist/typedoc"

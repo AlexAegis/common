@@ -32,6 +32,7 @@
 		"build": "vite build",
 		"lint:es": "eslint --max-warnings=0 --fix .",
 		"lint:format": "prettier --check .",
+		"lint:tsc": "tsc --noEmit",
 		"test": "vitest --passWithNoTests --coverage --run",
 		"test:watch": "vitest --passWithNoTests",
 		"turbo:test": "turbo --color --filter @alexaegis/workspace-tools test",
