@@ -59,8 +59,28 @@ jobs:
             ${{ runner.os }}-
       - name: install
         run: pnpm install
-      - name: lint
-        run: pnpm lint
+      - name: lint:tsc
+        run: pnpm lint:tsc
+      - name: lint:es
+        run: pnpm lint:es
+      - name: lint:depcheck
+        run: pnpm lint:depcheck
+      - name: lint:svelte
+        run: pnpm lint:svelte
+      - name: lint:style
+        run: pnpm lint:style
+      - name: lint:md
+        run: pnpm lint:md
+      - name: lint:md:workspace
+        run: pnpm lint:md:workspace
+      - name: lint:remark
+        run: pnpm lint:remark
+      - name: lint:remark:workspace
+        run: pnpm lint:remark:workspace
+      - name: lint:format
+        run: pnpm lint:format
+      - name: lint:format:workspace
+        run: pnpm lint:format:workspace
   test:
     name: test
     runs-on: ubuntu-latest

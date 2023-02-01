@@ -25,12 +25,14 @@
 		"lint": {
 			"outputs": [],
 			"dependsOn": [
+				"lint:tsc",
 				"lint:es",
 				"lint:svelte",
 				"lint:style",
 				"lint:md",
-				"lint:rmd",
-				"lint:format"
+				"lint:remark",
+				"lint:format",
+				"lint:depcheck"
 			],
 			"outputMode": "new-only"
 		},
@@ -50,6 +52,11 @@
 			"outputMode": "new-only"
 		},
 		"lint:tsc": {
+			"outputs": [],
+			"dependsOn": [],
+			"outputMode": "new-only"
+		},
+		"lint:depcheck": {
 			"outputs": [],
 			"dependsOn": [],
 			"outputMode": "new-only"
@@ -84,13 +91,13 @@
 			"outputs": [],
 			"outputMode": "new-only"
 		},
-		"lint:rmd": {
+		"lint:remark": {
 			"env": [],
 			"outputs": [],
 			"dependsOn": [],
 			"outputMode": "new-only"
 		},
-		"//#lint:rmd:workspace": {
+		"//#lint:remark:workspace": {
 			"env": [],
 			"dependsOn": [],
 			"outputs": [],

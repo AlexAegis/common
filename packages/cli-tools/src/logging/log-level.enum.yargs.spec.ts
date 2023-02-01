@@ -1,6 +1,7 @@
+import { LogLevel } from '@alexaegis/logging';
 import { describe, expect, it } from 'vitest';
 import yargs from 'yargs';
-import { LogLevel } from '../../../logging/src/logger/log-level.enum.js';
+
 import { yargsForLogLevelOption } from './log-level.enum.yargs.js';
 
 describe('yargsForLogLevelOption', () => {

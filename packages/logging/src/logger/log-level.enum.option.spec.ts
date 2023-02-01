@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { LogLevel } from './log-level.enum.js';
 import {
 	LogLevelOption,
-	NormalizedLoggerOption,
+	NormalizedLogLevelOption,
 	normalizeLogLevelOption,
 } from './log-level.enum.option.js';
 
@@ -10,7 +10,7 @@ describe('normalizeLogLevelOption', () => {
 	it('should have a default when not defined', () => {
 		expect(normalizeLogLevelOption()).toEqual({
 			logLevel: LogLevel.OFF,
-		} as NormalizedLoggerOption);
+		} as NormalizedLogLevelOption);
 	});
 
 	it('should use the provided values when defined', () => {
