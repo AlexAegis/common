@@ -8,3 +8,21 @@ export enum LogLevel {
 	TRACE = 1,
 	SILLY = 0,
 }
+
+export type LogLevelKeys = keyof typeof LogLevel;
+
+export const logLevelKeys = Object.values(LogLevel).filter(
+	(valueOrKey) => typeof valueOrKey === 'string'
+);
+
+export const logLevelValues = Object.values(LogLevel).filter(
+	(valueOrKey) => typeof valueOrKey === 'number'
+);
+
+export const isLogLevelEnumValue = (o: unknown): o is LogLevel => {
+	return logLevelValues.includes(o as string | LogLevel);
+};
+
+export const isLogLevelEnumKey = (o: unknown): o is LogLevelKeys => {
+	return logLevelKeys.includes(o as string | LogLevel);
+};

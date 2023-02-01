@@ -7,7 +7,7 @@ export const NODE_MODULES_DIRECTORY_NAME = 'node_modules';
 
 export type PackageJsonExports = Record<string, PackageJsonExportConditions | string>;
 
-export type PackageJson = Omit<JSONSchemaForNPMPackageJsonFiles, 'bin' | 'exports'> & {
+export type PackageJson = Exclude<JSONSchemaForNPMPackageJsonFiles, 'bin' | 'exports'> & {
 	exports?: PackageJsonExports;
 	bin?: Record<string, string>;
 	type?: 'commonjs' | 'module';

@@ -15,6 +15,11 @@ Common functions and workspace tools for other projects.
 
 Common utility functions.
 
+### [cli-tools](./packages/cli-tools/)
+
+Common tools for creating cli applications like common `yargs` configs and
+options.
+
 ### [coverage-tools](./packages/coverage-tools/)
 
 Can find and merge lcov files in a workspace.

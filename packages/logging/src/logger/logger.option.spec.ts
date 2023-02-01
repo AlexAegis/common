@@ -1,13 +1,9 @@
 import { describe, expect, it } from 'vitest';
 import { createLogger } from './create-logger.function.js';
-import {
-	LoggerOption,
-	NormalizedLoggerOption,
-	normalizeLoggerOption,
-} from './logger-target.option.js';
+import { LoggerOption, NormalizedLoggerOption, normalizeLoggerOption } from './logger.option.js';
 import { noopLogger } from './noop-logger.const.js';
 
-describe('normalizeLoggerTargetOption', () => {
+describe('normalizeLoggerOption', () => {
 	it('should have a default when not defined', () => {
 		expect(normalizeLoggerOption()).toEqual({
 			logger: noopLogger,

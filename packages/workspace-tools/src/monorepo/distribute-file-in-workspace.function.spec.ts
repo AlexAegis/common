@@ -38,6 +38,10 @@ describe('distributeFile', () => {
 		vi.clearAllMocks();
 	});
 
+	it('sould expose DISTRIBUTION_MARK', () => {
+		expect(DISTRIBUTION_MARK).toBeTruthy();
+	});
+
 	describe('copy', () => {
 		it('should copy to all folders when not dry', async () => {
 			const filename = '/foo/bar/packages/rcfile';
