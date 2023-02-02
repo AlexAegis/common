@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.7](https://github.com/AlexAegis/js/compare/v0.0.6...v0.0.7) (2023-02-02)
+
+
+### Features
+
+* added a yargs builder, and tweaked logging template ([0958dfe](https://github.com/AlexAegis/js/commit/0958dfedb69b7e514111948f9ea4d1686aa9f461))
+
 ### [0.0.6](https://github.com/AlexAegis/js/compare/v0.0.5...v0.0.6) (2023-02-01)
 
 
