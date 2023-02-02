@@ -48,6 +48,8 @@
 		"./readme": "./readme.md"
 	},
 	"dependencies": {
+		"@alexaegis/common": "*",
+		"@alexaegis/fs": "*",
 		"@alexaegis/logging": "*",
 		"@alexaegis/workspace-tools": "*",
 		"yargs": "^17.6.2"

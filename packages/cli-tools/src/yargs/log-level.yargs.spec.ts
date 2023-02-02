@@ -2,7 +2,7 @@ import { LogLevel } from '@alexaegis/logging';
 import { describe, expect, it } from 'vitest';
 import yargs from 'yargs';
 
-import { yargsForLogLevelOption } from './log-level.enum.yargs.js';
+import { yargsForLogLevelOption } from './log-level.yargs.js';
 
 describe('yargsForLogLevelOption', () => {
 	describe('--logLevel', () => {

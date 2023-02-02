@@ -1,13 +1,11 @@
-import type { LogLevelOption } from '@alexaegis/logging';
+import type { LogLevelOption, NormalizedLogLevelOption } from '@alexaegis/logging';
 import { isLogLevelEnumKey, isLogLevelEnumValue, LogLevel } from '@alexaegis/logging';
 import type { ArgumentsCamelCase, Argv, MiddlewareFunction } from 'yargs';
 
-export type LogLevelOptionArgs = Argv<LogLevelOption>;
-
-export const yargsForLogLevelOption = (yargs: Argv) => {
+export const yargsForLogLevelOption = <T>(yargs: Argv<T>): Argv<T | NormalizedLogLevelOption> => {
 	const logLevelYargs = yargs
 		.option('logLevel', {
-			alias: 'l',
+			alias: 'll',
 			choices: Object.values(LogLevel),
 			description: 'The minimum logLevel',
 			conflicts: ['silent', 'verbose'],

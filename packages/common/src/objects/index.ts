@@ -1,5 +1,7 @@
 export * from './awaitable.type.js';
 export * from './deep-merge.function.js';
+export * from './defined.type.js';
+export * from './expand.type.js';
 export * from './is-not-nullish.function.js';
 export * from './is-nullish.function.js';
 export * from './is-object.function.js';

@@ -122,7 +122,7 @@ describe('reorderObject', () => {
 		};
 
 		const result = JSON.stringify(sortObject(from, ['d', 'f']), undefined, 2);
-		// console.log(result);
+
 		expect(result).toEqual(JSON.stringify(to, undefined, 2));
 	});
 

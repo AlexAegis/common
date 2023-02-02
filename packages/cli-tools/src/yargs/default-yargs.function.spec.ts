@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it, SpyInstance, vi } from 'vitest';
 import yargs, { Argv } from 'yargs';
-import { defaultYargs } from './default-yargs.function.js';
+import { defaultYargsFromPackageJson } from './default-yargs.function.js';
 
 describe('defaultYargs', () => {
 	let yargsInstance!: Argv;
@@ -14,12 +14,12 @@ describe('defaultYargs', () => {
 	});
 
 	it('should be fully filled from a filled packageJson file where the repository field is an object', async () => {
-		const yarguments = defaultYargs(yargsInstance, {
+		const yarguments = defaultYargsFromPackageJson({
 			name: 'name',
 			version: '1',
 			description: 'descriptions',
 			repository: { url: 'homepage' },
-		});
+		})(yargsInstance);
 
 		const args = await yarguments.parseAsync();
 
@@ -29,12 +29,12 @@ describe('defaultYargs', () => {
 	});
 
 	it('should be fully filled from a filled packageJson file where the repository is a string', async () => {
-		const args = await defaultYargs(yargsInstance, {
+		const args = await defaultYargsFromPackageJson({
 			name: 'name',
 			version: '1',
 			description: 'descriptions',
 			repository: 'homepage',
-		}).parseAsync();
+		})(yargsInstance).parseAsync();
 
 		expect(args).toBeDefined();
 		expect(versionSpy).toHaveBeenCalledOnce();
@@ -42,7 +42,7 @@ describe('defaultYargs', () => {
 	});
 
 	it('should be working from an empty packageJson file', async () => {
-		const args = await defaultYargs(yargsInstance).parseAsync();
+		const args = await defaultYargsFromPackageJson()(yargsInstance).parseAsync();
 
 		expect(args).toBeDefined();
 		expect(versionSpy).not.toHaveBeenCalledOnce();
