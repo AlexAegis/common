@@ -2,6 +2,7 @@ import { getPrettierFormatter } from './get-prettier-formatter.function.js';
 import type { PrettifyOptions } from './try-prettify.function.options.js';
 
 /**
+ *
  * @returns a prettified string if prettier is available, an untouched string
  * otherwise
  */

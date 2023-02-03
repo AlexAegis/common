@@ -1,6 +1,10 @@
 import { readFile } from 'node:fs/promises';
 
-export const readJson = async <T>(path: string | undefined): Promise<T | undefined> => {
+export const readJson = async <
+	T extends Record<string | number, unknown> = Record<string | number, unknown>
+>(
+	path: string | undefined
+): Promise<T | undefined> => {
 	if (path === undefined) {
 		return undefined;
 	}

@@ -42,6 +42,7 @@
 			"outputMode": "new-only"
 		},
 		"lint:es": {
+			"inputs": [".?eslintrc.(json|js|cjs|mjs)"],
 			"outputs": [],
 			"dependsOn": [],
 			"outputMode": "new-only"
@@ -116,6 +117,7 @@
 		},
 		"typedoc": {
 			"dependsOn": [],
+			"inputs": ["typedoc.json"],
 			"outputs": ["typedoc/**"],
 			"outputMode": "new-only"
 		},

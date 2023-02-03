@@ -3,7 +3,7 @@ import type { Argv } from 'yargs';
 import yargs from 'yargs';
 import { defaultYargsFromPackageJson } from '../index.js';
 
-export type YargsMutator<T, R> = (yargs: Argv<T>) => Argv<T | R>;
+export type YargsMutator<T, R> = (yargs: Argv<T>) => Argv<T & R>;
 
 export class YargsBuilder<T> {
 	private mutators: YargsMutator<object, T>[] = [];
@@ -16,12 +16,12 @@ export class YargsBuilder<T> {
 		return new YargsBuilder().add(defaultYargsFromPackageJson(packageJson));
 	}
 
-	add<R>(mutator: YargsMutator<T, R>): YargsBuilder<T | R> {
+	add<R>(mutator: YargsMutator<T, R>): YargsBuilder<T & R> {
 		if (typeof mutator === 'function') {
-			this.mutators.push(mutator as YargsMutator<object, T>);
+			this.mutators.push(mutator as YargsMutator<object, T & R>);
 		}
 
-		return this as YargsBuilder<T | R>;
+		return this as YargsBuilder<T & R>;
 	}
 
 	/***
