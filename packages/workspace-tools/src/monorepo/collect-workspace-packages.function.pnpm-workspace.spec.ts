@@ -9,7 +9,7 @@ import {
 	PACKAGE_JSON_NAME,
 	PnpmWorkspaceYaml,
 	PNPM_WORKSPACE_FILE_NAME,
-} from '../const/package-json.interface.js';
+} from '../package-json/package-json.interface.js';
 import { collectWorkspacePackages } from './collect-workspace-packages.function.js';
 
 const mockPackageJsonValue: PackageJson = {

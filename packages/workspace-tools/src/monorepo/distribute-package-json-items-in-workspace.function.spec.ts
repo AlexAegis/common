@@ -15,6 +15,9 @@ const mockPackageJsonWorkspaceValue: PackageJson = {
 const mockPackageJsonZedValue: PackageJson = {
 	name: 'zed',
 	dependencies: { foo: '1.0.0', bar: '0.5.0' },
+	scripts: {
+		whoami: 'echo I am someone else',
+	},
 };
 
 const mockPackageJsonZodValue: PackageJson = {
@@ -62,10 +65,13 @@ describe('distributePackageJsonItemsInWorkspace', async () => {
 		vi.clearAllMocks();
 	});
 
-	describe('distributing dependencies', () => {
+	describe('distributing dependencies and template variables', () => {
 		const updates: PackageJson = {
 			dependencies: {
 				bar: '1.0.0',
+			},
+			scripts: {
+				whoami: 'echo I am ${packageName}',
 			},
 		};
 
@@ -81,6 +87,9 @@ describe('distributePackageJsonItemsInWorkspace', async () => {
 					dependencies: {
 						bar: '1.0.0',
 					},
+					scripts: {
+						whoami: 'echo I am workspace',
+					},
 					workspaces: ['packages/*'],
 				},
 				'/foo/bar/package.json',
@@ -94,6 +103,9 @@ describe('distributePackageJsonItemsInWorkspace', async () => {
 						bar: '1.0.0',
 						foo: '1.0.0',
 					},
+					scripts: {
+						whoami: 'echo I am zed',
+					},
 				},
 				'/foo/bar/packages/zed/package.json',
 				expect.anything()
@@ -105,6 +117,9 @@ describe('distributePackageJsonItemsInWorkspace', async () => {
 					dependencies: {
 						bar: '1.0.0',
 						foo: '1.0.0',
+					},
+					scripts: {
+						whoami: 'echo I am zod',
 					},
 				},
 				'/foo/bar/packages/zod/package.json',
@@ -132,6 +147,9 @@ describe('distributePackageJsonItemsInWorkspace', async () => {
 						bar: '1.0.0',
 						foo: '1.0.0',
 					},
+					scripts: {
+						whoami: 'echo I am zed',
+					},
 				},
 				'/foo/bar/packages/zed/package.json',
 				expect.anything()
@@ -143,6 +161,9 @@ describe('distributePackageJsonItemsInWorkspace', async () => {
 					dependencies: {
 						bar: '1.0.0',
 						foo: '1.0.0',
+					},
+					scripts: {
+						whoami: 'echo I am zod',
 					},
 				},
 				'/foo/bar/packages/zod/package.json',
@@ -162,6 +183,9 @@ describe('distributePackageJsonItemsInWorkspace', async () => {
 					name: 'workspace',
 					dependencies: {
 						bar: '1.0.0',
+					},
+					scripts: {
+						whoami: 'echo I am workspace',
 					},
 					workspaces: ['packages/*'],
 				},

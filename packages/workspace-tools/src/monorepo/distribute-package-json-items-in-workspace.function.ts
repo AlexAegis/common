@@ -1,7 +1,11 @@
-import { deepMerge, sortObject } from '@alexaegis/common';
+import { deepMerge, fillObjectWithTemplateVariables, sortObject } from '@alexaegis/common';
 import { writeJson } from '@alexaegis/fs';
 import { join, relative } from 'node:path';
-import { PACKAGE_JSON_NAME } from '../const/package-json.interface.js';
+import {
+	getPackageJsonTemplateVariables,
+	PackageJsonTemplateVariableNames,
+} from '../package-json/get-package-json-template-variables.function.js';
+import { PACKAGE_JSON_NAME } from '../package-json/package-json.interface.js';
 import { collectWorkspacePackages } from './collect-workspace-packages.function.js';
 import {
 	DistributePackageJsonItemsInWorkspaceOptions,
@@ -14,7 +18,7 @@ import {
  * packageJson files.
  */
 export const distributePackageJsonItemsInWorkspace = async (
-	packageJsonUpdates: Record<string | number, unknown>,
+	unprocessedPackageJsonUpdates: Record<string | number, unknown>,
 	rawOptions?: DistributePackageJsonItemsInWorkspaceOptions
 ): Promise<void> => {
 	const options = normalizeDistributePackageJsonItemsInWorkspaceOptions(rawOptions);
@@ -28,8 +32,16 @@ export const distributePackageJsonItemsInWorkspace = async (
 	);
 
 	await Promise.all(
-		targetPackages.map((target) =>
-			writeJson(
+		targetPackages.map((target) => {
+			const templateVariables = getPackageJsonTemplateVariables(target.packageJson);
+
+			const packageJsonUpdates =
+				fillObjectWithTemplateVariables<PackageJsonTemplateVariableNames>(
+					unprocessedPackageJsonUpdates,
+					templateVariables
+				);
+
+			return writeJson(
 				sortObject(
 					deepMerge(target.packageJson, packageJsonUpdates),
 					options.sortingPreference
@@ -53,7 +65,7 @@ export const distributePackageJsonItemsInWorkspace = async (
 							PACKAGE_JSON_NAME
 						)}, error happened: ${error}`
 					);
-				})
-		)
+				});
+		})
 	);
 };

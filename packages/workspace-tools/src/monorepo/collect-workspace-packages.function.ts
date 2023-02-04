@@ -7,14 +7,14 @@ import {
 	PACKAGE_JSON_NAME,
 	PnpmWorkspaceYaml,
 	PNPM_WORKSPACE_FILE_NAME,
-} from '../const/package-json.interface.js';
+} from '../package-json/package-json.interface.js';
 
 import { getWorkspaceRoot } from '../npm/get-workspace-root.function.js';
+import type { WorkspacePackage } from '../package-json/workspace-package.interface.js';
 import {
 	CollectWorkspacePackagesOptions,
 	normalizeCollectWorkspacePackagesOptions,
 } from './collect-workspace-packages.function.options.js';
-import type { WorkspacePackage } from './workspace-package.interface.js';
 
 export const collectWorkspacePackages = async (
 	rawOptions?: CollectWorkspacePackagesOptions

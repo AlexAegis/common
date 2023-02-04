@@ -4,7 +4,7 @@ import { join } from 'node:path/posix';
 import { afterAll, describe, expect, it, vi } from 'vitest';
 import { mockProjectRoot } from '../../__mocks__/fs.js';
 
-import { PACKAGE_JSON_NAME } from '../const/package-json.interface.js';
+import { PACKAGE_JSON_NAME } from '../package-json/package-json.interface.js';
 import { collectWorkspacePackages } from './collect-workspace-packages.function.js';
 
 vi.mock('@alexaegis/fs', async () => {

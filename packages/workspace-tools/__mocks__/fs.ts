@@ -1,7 +1,7 @@
 import type { PathLike } from 'node:fs';
 import { join } from 'node:path/posix';
 import { vi } from 'vitest';
-import { PACKAGE_JSON_NAME } from '../src/const/package-json.interface.js';
+import { PACKAGE_JSON_NAME } from '../src/package-json/package-json.interface.js';
 
 export const mockProjectRoot = '/foo/bar';
 

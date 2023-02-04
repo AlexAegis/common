@@ -1,6 +1,6 @@
 import { existsSync } from 'node:fs';
 import { join, normalize } from 'node:path';
-import { PACKAGE_JSON_NAME } from '../const/package-json.interface.js';
+import { PACKAGE_JSON_NAME } from '../package-json/package-json.interface.js';
 
 export const collectPackageJsonPathsUpDirectoryTree = (cwd: string = process.cwd()): string[] => {
 	return collectPackageJsonPathsUpDirectoryTreeInternal(cwd);
