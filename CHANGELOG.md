@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.11](https://github.com/AlexAegis/js/compare/v0.0.10...v0.0.11) (2023-02-04)
+
+
+### Features
+
+* let deepMerge drop keys ([93111df](https://github.com/AlexAegis/js/commit/93111df484e8c4839866341d83835c392324cd07))
+
 ### [0.0.10](https://github.com/AlexAegis/js/compare/v0.0.9...v0.0.10) (2023-02-04)
 
 
