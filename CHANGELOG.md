@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.8](https://github.com/AlexAegis/js/compare/v0.0.7...v0.0.8) (2023-02-04)
+
+
+### Features
+
+* add a memoize function ([5022146](https://github.com/AlexAegis/js/commit/5022146e2e1a74be51c949672d92d12cebc6903a))
+
+
+### Bug Fixes
+
+* build coverage tools before using it ([0400b10](https://github.com/AlexAegis/js/commit/0400b1084a4333a0f4fc8db876b1b3d5dcca7397))
+* yargs types ([2fe59a1](https://github.com/AlexAegis/js/commit/2fe59a162ebddbbbc74fd43c78b7aa3ff2b0c52b))
+
 ### [0.0.7](https://github.com/AlexAegis/js/compare/v0.0.6...v0.0.7) (2023-02-02)
 
 
