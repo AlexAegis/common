@@ -27,4 +27,30 @@ describe('fillObjectWithTemplateVariables', () => {
 		expect(filled).not.toBe(source);
 		expect(filled).toEqual(expected);
 	});
+
+	it('should fill in declared variables in an object even if there are nullish values', () => {
+		const variableMap = {
+			foo: 'fooValue',
+			bar: 'barValue',
+		};
+		const source = {
+			a: undefined,
+			deep: {
+				a: 'bar: ${bar}',
+				b: undefined,
+			},
+		};
+
+		const expected = {
+			a: undefined,
+			deep: {
+				a: 'bar: barValue',
+				b: undefined,
+			},
+		};
+		const filled = fillObjectWithTemplateVariables(source, variableMap);
+
+		expect(filled).not.toBe(source);
+		expect(filled).toEqual(expected);
+	});
 });

@@ -25,4 +25,15 @@ describe('deepMerge', () => {
 		expect(result).toEqual(expected);
 		expect(result).toBe(target);
 	});
+
+	it('should be able to delete items that are explicitly undefined in the sources', () => {
+		const target = { a: 'a', deleteMe: 'delete', keepMeHere: 'keepMeHere' };
+		const source = { deleteMe: undefined };
+
+		const result = deepMerge(target, source);
+		const expected = { a: 'a', keepMeHere: 'keepMeHere' };
+
+		expect(result).toEqual(expected);
+		expect(result).toBe(target);
+	});
 });
