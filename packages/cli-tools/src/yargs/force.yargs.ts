@@ -1,7 +1,7 @@
 import type { NormalizedForceOption } from '@alexaegis/common';
 import type { Argv } from 'yargs';
 
-export const yargsForForceOption = <T>(yargs: Argv<T>): Argv<T | NormalizedForceOption> => {
+export const yargsForForceOption = <T>(yargs: Argv<T>): Argv<T & NormalizedForceOption> => {
 	return yargs.option('force', {
 		boolean: true,
 		default: false,

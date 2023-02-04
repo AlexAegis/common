@@ -5,7 +5,7 @@ import { yargsForCollectWorkspacePackagesOptions } from './collect-workspace-pac
 
 export const yargsForDistributeInWorkspaceOptions = <T>(
 	yargs: Argv<T>
-): Argv<T | Omit<DistributeFileInWorkspaceOptions, keyof LoggerOption>> => {
+): Argv<T & Omit<DistributeFileInWorkspaceOptions, keyof LoggerOption>> => {
 	return yargsForCollectWorkspacePackagesOptions(yargs).option('symlinkInsteadOfCopy', {
 		boolean: true,
 		default: false,

@@ -1,7 +1,7 @@
 import type { NormalizedCwdOption } from '@alexaegis/fs';
 import type { Argv } from 'yargs';
 
-export const yargsForCwdOption = <T>(yargs: Argv<T>): Argv<T | NormalizedCwdOption> => {
+export const yargsForCwdOption = <T>(yargs: Argv<T>): Argv<T & NormalizedCwdOption> => {
 	return yargs.option('cwd', {
 		string: true,
 		default: process.cwd(),
