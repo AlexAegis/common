@@ -1,7 +1,7 @@
 {
 	"name": "@alexaegis/cli-tools",
 	"description": "Common yargs setup",
-	"version": "0.0.9",
+	"version": "0.0.10",
 	"license": "MIT",
 	"private": false,
 	"author": {

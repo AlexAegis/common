@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.10](https://github.com/AlexAegis/js/compare/v0.0.9...v0.0.10) (2023-02-04)
+
+
+### Features
+
+* added the ability to substitute variables from the target packageJson when distributing items ([9d39c79](https://github.com/AlexAegis/js/commit/9d39c79db8397e84a8aba9e665fc205517e75778))
+
 ### [0.0.9](https://github.com/AlexAegis/js/compare/v0.0.8...v0.0.9) (2023-02-04)
 
 
