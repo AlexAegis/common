@@ -7,7 +7,7 @@ export default defineConfig({
 		autolib(),
 		dts({
 			copyDtsFiles: true,
-			insertTypesEntry: true,
+
 			tsConfigFilePath: 'tsconfig.json',
 			entryRoot: 'src',
 		}),
