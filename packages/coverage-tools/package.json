@@ -1,7 +1,7 @@
 {
 	"name": "@alexaegis/coverage-tools",
 	"description": "Tools for working with coverage reports in workspaces",
-	"version": "0.0.8",
+	"version": "0.0.9",
 	"license": "MIT",
 	"private": false,
 	"author": {

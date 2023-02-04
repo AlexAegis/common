@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.9](https://github.com/AlexAegis/js/compare/v0.0.8...v0.0.9) (2023-02-04)
+
+
+### Features
+
+* **workspace-tools:** added autosorter to packageJson distributor ([6c9bb18](https://github.com/AlexAegis/js/commit/6c9bb185e43871bffd1c46ce485328f1f5512b2c))
+
 ### [0.0.8](https://github.com/AlexAegis/js/compare/v0.0.7...v0.0.8) (2023-02-04)
 
 
