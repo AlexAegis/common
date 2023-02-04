@@ -1,15 +1,14 @@
-import type { LogLevelOption } from '@alexaegis/logging';
+import type { NormalizedLogLevelOption } from '@alexaegis/logging';
 import { isLogLevelEnumKey, isLogLevelEnumValue, LogLevel } from '@alexaegis/logging';
 import type { Argv, MiddlewareFunction } from 'yargs';
 
-export const yargsForLogLevelOption = <T>(yargs: Argv<T>): Argv<T & LogLevelOption> => {
+export const yargsForLogLevelOption = <T>(yargs: Argv<T>): Argv<T & NormalizedLogLevelOption> => {
 	const logLevelYargs = yargs
 		.option('logLevel', {
 			alias: 'll',
 			choices: Object.values(LogLevel),
 			description: 'Minimum logLevel',
-			conflicts: ['silent', 'verbose'],
-			requiresArg: true,
+			default: LogLevel.INFO,
 			coerce: (value: string): LogLevel => {
 				const i = Number.parseInt(value, 10);
 				if (!Number.isNaN(i) && isLogLevelEnumValue(i)) {
@@ -25,13 +24,13 @@ export const yargsForLogLevelOption = <T>(yargs: Argv<T>): Argv<T & LogLevelOpti
 			alias: ['q', 'silent'],
 			description: 'Turn off logging',
 			boolean: true,
-			conflicts: ['logLevel', 'verbose'],
+			conflicts: ['verbose'],
 		})
 		.option('verbose', {
 			alias: 'v',
 			description: 'Turn on (almost) all logging',
 			boolean: true,
-			conflicts: ['logLevel', 'silent'],
+			conflicts: ['silent'],
 		});
 	// Middleware looks like is not typed well in @types/yargs
 	return logLevelYargs.middleware(((args: Awaited<typeof logLevelYargs.argv>) => {

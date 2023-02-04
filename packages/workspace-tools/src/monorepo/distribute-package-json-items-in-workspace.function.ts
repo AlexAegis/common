@@ -1,12 +1,12 @@
-import { deepMerge } from '@alexaegis/common';
+import { deepMerge, sortObject } from '@alexaegis/common';
 import { writeJson } from '@alexaegis/fs';
 import { join, relative } from 'node:path';
 import { PACKAGE_JSON_NAME } from '../const/package-json.interface.js';
 import { collectWorkspacePackages } from './collect-workspace-packages.function.js';
 import {
-	DistributeInWorkspaceOptions,
-	normalizeDistributeInWorkspaceOptions,
-} from './distribute-in-workspace.options.js';
+	DistributePackageJsonItemsInWorkspaceOptions,
+	normalizeDistributePackageJsonItemsInWorkspaceOptions,
+} from './distribute-package-json-items-in-workspace.function.options.js';
 
 /**
  * Deeply merges updates into the packageJson files of a workspace.
@@ -15,9 +15,9 @@ import {
  */
 export const distributePackageJsonItemsInWorkspace = async (
 	packageJsonUpdates: Record<string | number, unknown>,
-	rawOptions?: DistributeInWorkspaceOptions
+	rawOptions?: DistributePackageJsonItemsInWorkspaceOptions
 ): Promise<void> => {
-	const options = normalizeDistributeInWorkspaceOptions(rawOptions);
+	const options = normalizeDistributePackageJsonItemsInWorkspaceOptions(rawOptions);
 
 	const targetPackages = await collectWorkspacePackages(options);
 
@@ -30,7 +30,10 @@ export const distributePackageJsonItemsInWorkspace = async (
 	await Promise.all(
 		targetPackages.map((target) =>
 			writeJson(
-				deepMerge(target.packageJson, packageJsonUpdates),
+				sortObject(
+					deepMerge(target.packageJson, packageJsonUpdates),
+					options.sortingPreference
+				),
 				join(target.path, PACKAGE_JSON_NAME),
 				{
 					dry: options.dry,
@@ -39,13 +42,16 @@ export const distributePackageJsonItemsInWorkspace = async (
 				.then(() => {
 					options.logger.info(
 						`writing ${target.path}'s new content: ${JSON.stringify(
-							target.packageJson
+							packageJsonUpdates
 						)}`
 					);
 				})
 				.catch((error: string) => {
 					options.logger.error(
-						`can't link ${packageJsonUpdates}, error happened: ${error}`
+						`can't write updates to ${join(
+							target.path,
+							PACKAGE_JSON_NAME
+						)}, error happened: ${error}`
 					);
 				})
 		)

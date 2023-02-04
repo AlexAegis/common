@@ -22,7 +22,6 @@
 		"typescript"
 	],
 	"type": "module",
-	"sideEffects": false,
 	"config": {
 		"engine-strict": false
 	},
