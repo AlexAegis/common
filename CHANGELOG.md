@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.12](https://github.com/AlexAegis/js/compare/v0.0.11...v0.0.12) (2023-02-05)
+
+
+### Features
+
+* add sorting preference normalizer for packageJson ([8d28d6b](https://github.com/AlexAegis/js/commit/8d28d6b3e922be5aa138487a14eceeb0f779ecb6))
+* added keyword criteria ([0205c4a](https://github.com/AlexAegis/js/commit/0205c4a8e117b2648b5f6781ea3e098d898d82c1))
+
 ### [0.0.11](https://github.com/AlexAegis/js/compare/v0.0.10...v0.0.11) (2023-02-04)
 
 
