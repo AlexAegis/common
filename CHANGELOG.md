@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.13](https://github.com/AlexAegis/js/compare/v0.0.12...v0.0.13) (2023-02-05)
+
+
+### Features
+
+* file distribution now can mark distributed files as executable ([f2ad388](https://github.com/AlexAegis/js/commit/f2ad388293b53b7b595bfaf9fe0f4d4eb31652f4))
+
 ### [0.0.12](https://github.com/AlexAegis/js/compare/v0.0.11...v0.0.12) (2023-02-05)
 
 
