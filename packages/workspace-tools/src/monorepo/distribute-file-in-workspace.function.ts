@@ -1,4 +1,5 @@
 import { dry } from '@alexaegis/common';
+import { turnIntoExecutable } from '@alexaegis/fs';
 import { existsSync } from 'node:fs';
 import { cp, lstat, readFile, rm, symlink } from 'node:fs/promises';
 
@@ -113,4 +114,13 @@ export const distributeFileInWorkspace = async (
 			}
 		})
 	);
+
+	if (options.markAsExecutable) {
+		await Promise.all(
+			validTargets.map((targetFilepath) => {
+				const driedTurnIntoExecutable = dry(options.dry, turnIntoExecutable);
+				return driedTurnIntoExecutable(targetFilepath, options);
+			})
+		);
+	}
 };

@@ -9,6 +9,8 @@ import {
 	DISTRIBUTION_MARK,
 } from './distribute-file-in-workspace.function.js';
 
+const mockTurnIntoExecutable = vi.fn<[string | undefined], Promise<unknown>>();
+
 vi.mock('globby');
 vi.mock('fs');
 vi.mock('node:fs/promises');
@@ -27,6 +29,9 @@ vi.mock('@alexaegis/fs', async () => {
 	return {
 		readJson: mockReadJson,
 		readYaml: mockReadYaml,
+		turnIntoExecutable: vi.fn<[string | undefined], Promise<unknown>>(async (path) => {
+			return mockTurnIntoExecutable(path);
+		}),
 		normalizeCwdOption: await vi
 			.importActual<typeof import('@alexaegis/fs')>('@alexaegis/fs')
 			.then((mod) => mod.normalizeCwdOption),
@@ -110,6 +115,8 @@ describe('distributeFile', () => {
 			expect(cpMock).toHaveBeenCalledTimes(2);
 			expect(symlinkMock).not.toHaveBeenCalled();
 			expect(rmMock).not.toHaveBeenCalled();
+
+			expect(mockTurnIntoExecutable).not.toHaveBeenCalled();
 		});
 
 		it('should log an error if it fails and there is a logger', async () => {
@@ -126,6 +133,32 @@ describe('distributeFile', () => {
 			expect(cpMock).not.toHaveBeenCalledWith();
 			expect(symlinkMock).not.toHaveBeenCalled();
 			expect(rmMock).not.toHaveBeenCalled();
+		});
+
+		it('should also mark the file as executable when enabled', async () => {
+			const filename = '/foo/bar/packages/rcfile';
+			readFileMock.mockImplementation(async (path) => {
+				if (path.toString().endsWith('zed/rcfile')) {
+					return `${DISTRIBUTION_MARK}\nhello auto world!`;
+				} else {
+					return undefined;
+				}
+			});
+
+			await distributeFileInWorkspace(filename, {
+				cwd: join(mockProjectRoot, 'packages'),
+				skipWorkspaceRoot: true,
+				markAsExecutable: true,
+			});
+
+			expect(cpMock).toHaveBeenCalledWith(filename, '/foo/bar/packages/zod/rcfile');
+			expect(cpMock).toHaveBeenCalledWith(filename, '/foo/bar/packages/zed/rcfile');
+
+			expect(cpMock).toHaveBeenCalledTimes(2);
+			expect(symlinkMock).not.toHaveBeenCalled();
+			expect(rmMock).not.toHaveBeenCalled();
+
+			expect(mockTurnIntoExecutable).toHaveBeenCalled();
 		});
 	});
 

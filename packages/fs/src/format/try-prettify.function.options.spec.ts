@@ -1,5 +1,5 @@
 import { afterEach, beforeAll, describe, expect, it, vi } from 'vitest';
-import { mockProcessCwd, mockProcessCwdValue } from '../directory/cwd.option.spec.js';
+import { mockProcessCwd, mockProcessCwdValue } from '../functions/cwd.option.spec.js';
 
 import {
 	NormalizedPrettifyOptions,

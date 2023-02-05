@@ -5,7 +5,7 @@ import {
 	getPackageJsonTemplateVariables,
 	PackageJsonTemplateVariableNames,
 } from '../package-json/get-package-json-template-variables.function.js';
-import { PACKAGE_JSON_NAME } from '../package-json/package-json.interface.js';
+import { PackageJson, PACKAGE_JSON_NAME } from '../package-json/package-json.interface.js';
 import { collectWorkspacePackages } from './collect-workspace-packages.function.js';
 import {
 	DistributePackageJsonItemsInWorkspaceOptions,
@@ -16,9 +16,12 @@ import {
  * Deeply merges updates into the packageJson files of a workspace.
  * Can be used to force dependencies or other keys to be present in source
  * packageJson files.
+ *
+ * Do not use it concurrently with other packageJson edits! Information can be
+ * lost as they both edit the same files!
  */
 export const distributePackageJsonItemsInWorkspace = async (
-	unprocessedPackageJsonUpdates: Record<string | number, unknown>,
+	unprocessedPackageJsonUpdates: Partial<PackageJson>,
 	rawOptions?: DistributePackageJsonItemsInWorkspaceOptions
 ): Promise<void> => {
 	const options = normalizeDistributePackageJsonItemsInWorkspaceOptions(rawOptions);
@@ -53,9 +56,8 @@ export const distributePackageJsonItemsInWorkspace = async (
 			)
 				.then(() => {
 					options.logger.info(
-						`writing ${target.path}'s new content: ${JSON.stringify(
-							packageJsonUpdates
-						)}`
+						`writing ${target.path}'s new content:`,
+						packageJsonUpdates
 					);
 				})
 				.catch((error: string) => {

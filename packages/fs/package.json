@@ -56,6 +56,7 @@
 	},
 	"dependencies": {
 		"@alexaegis/common": "*",
+		"@alexaegis/logging": "*",
 		"js-yaml": "^4.1.0"
 	},
 	"devDependencies": {

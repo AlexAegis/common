@@ -11,6 +11,15 @@ interface DistributeFileInWorkspaceOnlyOptions {
 	 * @default false
 	 */
 	symlinkInsteadOfCopy?: boolean;
+
+	/**
+	 * Should the copied file be marked as executable by the current user
+	 *
+	 * Use this when distributing scripts
+	 *
+	 * @default false
+	 */
+	markAsExecutable?: boolean;
 }
 
 export type DistributeFileInWorkspaceOptions = DistributeFileInWorkspaceOnlyOptions &
@@ -25,5 +34,6 @@ export const normalizeDistributeFileInWorkspaceOptions = (
 	return {
 		...normalizeDistributeInWorkspaceOptions(options),
 		symlinkInsteadOfCopy: options?.symlinkInsteadOfCopy ?? false,
+		markAsExecutable: options?.markAsExecutable ?? false,
 	};
 };

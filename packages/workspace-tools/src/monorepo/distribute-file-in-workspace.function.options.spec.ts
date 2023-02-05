@@ -21,6 +21,7 @@ describe('DistributeFileInWorkspaceOptions', () => {
 		onlyWorkspaceRoot: false,
 		skipWorkspaceRoot: false,
 		symlinkInsteadOfCopy: false,
+		markAsExecutable: false,
 	} as NormalizedDistributeFileInWorkspaceOptions;
 
 	it('should have a default when not defined', () => {
@@ -30,6 +31,7 @@ describe('DistributeFileInWorkspaceOptions', () => {
 	it('should use the provided values when defined', () => {
 		const manualOptions: DistributeFileInWorkspaceOptions = {
 			dry: true,
+			markAsExecutable: true,
 		};
 		expect(normalizeDistributeFileInWorkspaceOptions(manualOptions)).toEqual({
 			...defaultOptions,
