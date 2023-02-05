@@ -15,11 +15,13 @@ const mockPackageJsonWorkspaceValue: PackageJson = {
 const mockPackageJsonZedValue: PackageJson = {
 	name: 'name',
 	dependencies: { foo: '1.0.0', bar: '1.0.0' },
+	keywords: ['keyA'],
 };
 
 const mockPackageJsonZodValue: PackageJson = {
 	name: 'name',
 	dependencies: { foo: '1.0.0' },
+	keywords: ['keyA', 'keyB'],
 };
 
 vi.mock('@alexaegis/fs', async () => {
@@ -101,6 +103,27 @@ describe('collectWorkspacePackages in a multi-package npm workspace', () => {
 		});
 		expect(foundPackageJsons).toEqual([
 			{ packageJson: mockPackageJsonZedValue, path: '/foo/bar/packages/zed' },
+		]);
+	});
+
+	it('should be able to collect packages with specific keywords being present', async () => {
+		const foundPackageJsons = await collectWorkspacePackages({
+			cwd: '/foo/bar',
+			keywordCriteria: ['keyA', 'keyB'],
+		});
+		expect(foundPackageJsons).toEqual([
+			{ packageJson: mockPackageJsonZodValue, path: '/foo/bar/packages/zod' },
+		]);
+	});
+
+	it('should be able to collect packages with both a keywords and dependency criteria being present', async () => {
+		const foundPackageJsons = await collectWorkspacePackages({
+			cwd: '/foo/bar',
+			keywordCriteria: ['keyB'],
+			dependencyCriteria: ['foo'],
+		});
+		expect(foundPackageJsons).toEqual([
+			{ packageJson: mockPackageJsonZodValue, path: '/foo/bar/packages/zod' },
 		]);
 	});
 

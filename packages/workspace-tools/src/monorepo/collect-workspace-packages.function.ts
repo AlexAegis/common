@@ -97,5 +97,18 @@ export const collectWorkspacePackages = async (
 		});
 	}
 
+	if (options.keywordCriteria.length > 0) {
+		result = result.filter((relativePackage) => {
+			const keywords = relativePackage.packageJson.keywords;
+
+			return (
+				keywords &&
+				options.keywordCriteria.every((keywordCriteria) =>
+					keywords.includes(keywordCriteria)
+				)
+			);
+		});
+	}
+
 	return result;
 };

@@ -23,6 +23,14 @@ interface CollectWorkspaceOnlyOptions {
 	 * @default []
 	 */
 	dependencyCriteria?: string[];
+
+	/**
+	 * Return only those packages that list these keywords. When it's not
+	 * defined or is an empty array, it will not perform such filtering.
+	 *
+	 * @default []
+	 */
+	keywordCriteria?: string[];
 }
 
 export type CollectWorkspacePackagesOptions = CollectWorkspaceOnlyOptions &
@@ -42,5 +50,6 @@ export const normalizeCollectWorkspacePackagesOptions = (
 		onlyWorkspaceRoot: options?.onlyWorkspaceRoot ?? false,
 		skipWorkspaceRoot: options?.skipWorkspaceRoot ?? false,
 		dependencyCriteria: options?.dependencyCriteria ?? [],
+		keywordCriteria: options?.keywordCriteria ?? [],
 	};
 };

@@ -14,6 +14,7 @@ describe('DistributeFileInWorkspaceOptions', () => {
 	const defaultOptions: NormalizedDistributeFileInWorkspaceOptions = {
 		cwd: mockCwd,
 		dependencyCriteria: [],
+		keywordCriteria: [],
 		dry: false,
 		force: false,
 		logger: noopLogger,

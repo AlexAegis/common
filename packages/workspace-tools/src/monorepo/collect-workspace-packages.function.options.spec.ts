@@ -16,6 +16,7 @@ describe('normalizeCollectWorkspacePackagesOptions', () => {
 			onlyWorkspaceRoot: false,
 			skipWorkspaceRoot: false,
 			dependencyCriteria: [],
+			keywordCriteria: [],
 			logger: noopLogger,
 		} as NormalizedCollectWorkspacePackagesOptions);
 	});
@@ -25,7 +26,8 @@ describe('normalizeCollectWorkspacePackagesOptions', () => {
 			cwd: '/foo/bar',
 			onlyWorkspaceRoot: false,
 			skipWorkspaceRoot: false,
-			dependencyCriteria: [],
+			dependencyCriteria: ['dep'],
+			keywordCriteria: ['key'],
 			logger: noopLogger,
 		};
 		expect(normalizeCollectWorkspacePackagesOptions(manualOptions)).toEqual(manualOptions);
