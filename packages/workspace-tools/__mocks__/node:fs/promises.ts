@@ -18,7 +18,9 @@ export const readFile = vi.fn(async (path: string) => readFileMock(path));
 
 export const lstat = vi.fn(async (path: string) => {
 	switch (path) {
+		case '/foo/bar/trash':
 		case '/foo/bar/packages/rcfile':
+		case '/foo/bar/packages/zed/trash':
 		case '/foo/bar/packages/zed/package.json':
 		case '/foo/bar/packages/zod/package.json':
 		case '/foo/bar/packages/zed/rcfile': {
