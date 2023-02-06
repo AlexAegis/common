@@ -1,3 +1,4 @@
+import type { SomePartial } from '@alexaegis/common';
 import {
 	DistributeInWorkspaceOptions,
 	NormalizedDistributeInWorkspaceOptions,
@@ -20,13 +21,23 @@ interface DistributeFileInWorkspaceOnlyOptions {
 	 * @default false
 	 */
 	markAsExecutable?: boolean;
+
+	/**
+	 * This path will be used relative from the target. For example if you
+	 * target the workspaceRoot, setting this to `.vscode` will put everything
+	 * into that folder.
+	 */
+	relativeTargetDirectory?: string;
 }
 
 export type DistributeFileInWorkspaceOptions = DistributeFileInWorkspaceOnlyOptions &
 	DistributeInWorkspaceOptions;
 
-export type NormalizedDistributeFileInWorkspaceOptions =
-	Required<DistributeFileInWorkspaceOnlyOptions> & NormalizedDistributeInWorkspaceOptions;
+export type NormalizedDistributeFileInWorkspaceOptions = SomePartial<
+	DistributeFileInWorkspaceOnlyOptions,
+	'relativeTargetDirectory'
+> &
+	NormalizedDistributeInWorkspaceOptions;
 
 export const normalizeDistributeFileInWorkspaceOptions = (
 	options?: DistributeFileInWorkspaceOptions
@@ -35,5 +46,6 @@ export const normalizeDistributeFileInWorkspaceOptions = (
 		...normalizeDistributeInWorkspaceOptions(options),
 		symlinkInsteadOfCopy: options?.symlinkInsteadOfCopy ?? false,
 		markAsExecutable: options?.markAsExecutable ?? false,
+		relativeTargetDirectory: options?.relativeTargetDirectory,
 	};
 };

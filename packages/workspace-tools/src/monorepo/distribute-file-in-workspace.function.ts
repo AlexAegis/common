@@ -1,7 +1,7 @@
 import { dry } from '@alexaegis/common';
 import { turnIntoExecutable } from '@alexaegis/fs';
 import { existsSync } from 'node:fs';
-import { cp, lstat, readFile, rm, symlink } from 'node:fs/promises';
+import { cp, lstat, mkdir, readFile, rm, symlink } from 'node:fs/promises';
 
 import { basename, dirname, isAbsolute, join, relative } from 'node:path';
 import { collectWorkspacePackages } from './collect-workspace-packages.function.js';
@@ -43,7 +43,9 @@ export const distributeFileInWorkspace = async (
 
 	const targetStats = await Promise.all(
 		targetPackages
-			.map((targetPackage) => join(targetPackage.path, fileName))
+			.map((targetPackage) =>
+				join(targetPackage.path, options.relativeTargetDirectory ?? '', fileName)
+			)
 			.map((path) =>
 				lstat(path)
 					.then((stats) => ({ stats, path }))
@@ -83,6 +85,14 @@ export const distributeFileInWorkspace = async (
 			)
 		);
 		validTargets = validPaths.filter((path): path is string => !!path);
+	}
+
+	// make sure target folders exist
+
+	if (options.relativeTargetDirectory) {
+		await Promise.all(
+			validTargets.map((target) => mkdir(dirname(target), { recursive: true }))
+		);
 	}
 
 	await Promise.all(

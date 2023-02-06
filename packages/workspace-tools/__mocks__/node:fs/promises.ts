@@ -7,10 +7,12 @@ export const symlinkMock = vi.fn<[string, string], Promise<void>>();
 export const readFileMock = vi.fn(async (_path: PathLike): Promise<string | undefined> => {
 	return undefined;
 });
+export const mkdirMock = vi.fn<[string], Promise<void>>();
 
 export const cp = vi.fn(async (path: string, target: string) => cpMock(path, target));
 export const rm = vi.fn(async (path: string, target: string) => rmMock(path, target));
 export const symlink = vi.fn(async (path: string, target: string) => symlinkMock(path, target));
+export const mkdir = vi.fn(async (path: string) => mkdirMock(path));
 
 export const readFile = vi.fn(async (path: string) => readFileMock(path));
 

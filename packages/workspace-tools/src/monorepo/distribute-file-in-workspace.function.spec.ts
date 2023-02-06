@@ -2,7 +2,13 @@ import { mockLogger } from '@alexaegis/logging/mocks';
 import { join, sep } from 'node:path/posix';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { mockProjectRoot } from '../../__mocks__/fs.js';
-import { cpMock, readFileMock, rmMock, symlinkMock } from '../../__mocks__/node:fs/promises.js';
+import {
+	cpMock,
+	mkdirMock,
+	readFileMock,
+	rmMock,
+	symlinkMock,
+} from '../../__mocks__/node:fs/promises.js';
 import type { PackageJson } from '../index.js';
 import {
 	distributeFileInWorkspace,
@@ -67,6 +73,26 @@ describe('distributeFile', () => {
 			});
 
 			expect(cpMock).not.toHaveBeenCalledWith();
+			expect(symlinkMock).not.toHaveBeenCalled();
+			expect(rmMock).not.toHaveBeenCalled();
+			expect(mkdirMock).not.toHaveBeenCalled();
+		});
+
+		it('should create folders before if necessary', async () => {
+			const filename = '/foo/bar/packages/rcfile';
+			await distributeFileInWorkspace(filename, {
+				cwd: join(mockProjectRoot, 'packages'),
+				relativeTargetDirectory: 'foo',
+			});
+
+			expect(mkdirMock).toHaveBeenCalledWith('/foo/bar/packages/zed/foo');
+			expect(mkdirMock).toHaveBeenCalledWith('/foo/bar/packages/zod/foo');
+
+			expect(cpMock).toHaveBeenCalledWith(filename, '/foo/bar/foo/rcfile');
+
+			expect(cpMock).toHaveBeenCalledWith(filename, '/foo/bar/packages/zed/foo/rcfile');
+			expect(cpMock).toHaveBeenCalledWith(filename, '/foo/bar/packages/zod/foo/rcfile');
+
 			expect(symlinkMock).not.toHaveBeenCalled();
 			expect(rmMock).not.toHaveBeenCalled();
 		});
