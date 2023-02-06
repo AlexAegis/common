@@ -53,7 +53,7 @@
 	},
 	"dependencies": {
 		"@alexaegis/common": "*",
-		"tslog": "^4.7.1"
+		"tslog": "^4.7.2"
 	},
 	"devDependencies": {
 		"@types/node": "^18.11.19",
