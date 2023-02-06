@@ -8,4 +8,6 @@ export * from './is-not-nullish.function.js';
 export * from './is-nullish.function.js';
 export * from './is-object.function.js';
 export * from './is-promise-like.function.js';
+export * from './some-partial.type.js';
+export * from './some-required.type.js';
 export * from './struct.type.js';
