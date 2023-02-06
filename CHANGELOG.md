@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.14](https://github.com/AlexAegis/js/compare/v0.0.13...v0.0.14) (2023-02-06)
+
+
+### Features
+
+* **common:** added SomePartial and SomeRequired ([89ff670](https://github.com/AlexAegis/js/commit/89ff670ec8afb848d346bc620edac3912330fde4))
+* **workspace-tools:** add remover ([e972833](https://github.com/AlexAegis/js/commit/e972833ddce8eba2abf8f5b25e03da4e40c6b1af))
+* **workspace-tools:** now it can create target folders ([6d9fe90](https://github.com/AlexAegis/js/commit/6d9fe90364bfa58696656ef61e837df478f8ee29))
+
 ### [0.0.13](https://github.com/AlexAegis/js/compare/v0.0.12...v0.0.13) (2023-02-05)
 
 
