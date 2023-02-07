@@ -8,6 +8,7 @@ import {
 	readFileMock,
 	rmMock,
 	symlinkMock,
+	writeFileMock,
 } from '../../__mocks__/node:fs/promises.js';
 import type { PackageJson } from '../index.js';
 import {
@@ -41,6 +42,9 @@ vi.mock('@alexaegis/fs', async () => {
 		normalizeCwdOption: await vi
 			.importActual<typeof import('@alexaegis/fs')>('@alexaegis/fs')
 			.then((mod) => mod.normalizeCwdOption),
+		toAbsolute: await vi
+			.importActual<typeof import('@alexaegis/fs')>('@alexaegis/fs')
+			.then((mod) => mod.toAbsolute),
 	};
 });
 
@@ -53,21 +57,44 @@ describe('distributeFile', () => {
 		expect(DISTRIBUTION_MARK).toBeTruthy();
 	});
 
+	describe('workspace', () => {
+		it('should immediately return if cwd is not in a workspace', async () => {
+			const filename = '/foo/bar/packages/rcfile';
+			await distributeFileInWorkspace(filename, 'rcfile', {
+				cwd: join(mockProjectRoot, '..'),
+			});
+
+			expect(readFileMock).not.toHaveBeenCalled();
+			expect(writeFileMock).not.toHaveBeenCalled();
+			expect(symlinkMock).not.toHaveBeenCalled();
+			expect(rmMock).not.toHaveBeenCalled();
+		});
+	});
+
 	describe('copy', () => {
 		it('should copy to all folders when not dry', async () => {
 			const filename = '/foo/bar/packages/rcfile';
-			await distributeFileInWorkspace(filename, {
+			await distributeFileInWorkspace(filename, 'rcfile', {
 				cwd: join(mockProjectRoot, 'packages'),
 			});
 
-			expect(cpMock).toHaveBeenCalledWith(filename, '/foo/bar/packages/zod/rcfile');
+			expect(readFileMock).toHaveBeenCalledWith('/foo/bar/packages/zed/rcfile');
+
+			expect(readFileMock).toHaveBeenCalledWith(filename);
+			expect(writeFileMock).toHaveBeenCalledWith(
+				'/foo/bar/packages/zod/rcfile',
+				'content ../..'
+			);
+
+			expect(writeFileMock).toHaveBeenCalledWith('/foo/bar/rcfile', 'content .');
+
 			expect(symlinkMock).not.toHaveBeenCalled();
 			expect(rmMock).not.toHaveBeenCalled();
 		});
 
 		it('should not copy to any folders when dry', async () => {
 			const filename = '/foo/bar/packages/rcfile';
-			await distributeFileInWorkspace(filename, {
+			await distributeFileInWorkspace(filename, 'rcfile', {
 				cwd: join(mockProjectRoot, 'packages'),
 				dry: true,
 			});
@@ -80,18 +107,24 @@ describe('distributeFile', () => {
 
 		it('should create folders before if necessary', async () => {
 			const filename = '/foo/bar/packages/rcfile';
-			await distributeFileInWorkspace(filename, {
+			await distributeFileInWorkspace(filename, 'foo/rcfile', {
 				cwd: join(mockProjectRoot, 'packages'),
-				relativeTargetDirectory: 'foo',
 			});
 
+			expect(mkdirMock).toHaveBeenCalledWith('/foo/bar/foo');
 			expect(mkdirMock).toHaveBeenCalledWith('/foo/bar/packages/zed/foo');
 			expect(mkdirMock).toHaveBeenCalledWith('/foo/bar/packages/zod/foo');
 
-			expect(cpMock).toHaveBeenCalledWith(filename, '/foo/bar/foo/rcfile');
-
-			expect(cpMock).toHaveBeenCalledWith(filename, '/foo/bar/packages/zed/foo/rcfile');
-			expect(cpMock).toHaveBeenCalledWith(filename, '/foo/bar/packages/zod/foo/rcfile');
+			expect(readFileMock).toHaveBeenCalledWith(filename);
+			expect(writeFileMock).toHaveBeenCalledWith('/foo/bar/foo/rcfile', 'content .');
+			expect(writeFileMock).toHaveBeenCalledWith(
+				'/foo/bar/packages/zed/foo/rcfile',
+				'content ../..'
+			);
+			expect(writeFileMock).toHaveBeenCalledWith(
+				'/foo/bar/packages/zod/foo/rcfile',
+				'content ../..'
+			);
 
 			expect(symlinkMock).not.toHaveBeenCalled();
 			expect(rmMock).not.toHaveBeenCalled();
@@ -107,15 +140,18 @@ describe('distributeFile', () => {
 				}
 			});
 
-			await distributeFileInWorkspace(filename, {
+			await distributeFileInWorkspace(filename, 'rcfile', {
 				cwd: join(mockProjectRoot, 'packages'),
 				skipWorkspaceRoot: true,
 			});
 
-			expect(cpMock).toHaveBeenCalledWith(filename, '/foo/bar/packages/zod/rcfile');
-			expect(cpMock).not.toHaveBeenCalledWith(filename, '/foo/bar/packages/zed/rcfile');
+			expect(readFileMock).toHaveBeenCalledWith(filename);
+			expect(writeFileMock).not.toHaveBeenCalledWith(
+				'/foo/bar/packages/zed/rcfile',
+				expect.anything()
+			);
+			expect(writeFileMock).toHaveBeenCalledWith('/foo/bar/packages/zod/rcfile', '');
 
-			expect(cpMock).toHaveBeenCalledTimes(1);
 			expect(symlinkMock).not.toHaveBeenCalled();
 			expect(rmMock).not.toHaveBeenCalled();
 		});
@@ -130,15 +166,15 @@ describe('distributeFile', () => {
 				}
 			});
 
-			await distributeFileInWorkspace(filename, {
+			await distributeFileInWorkspace(filename, 'rcfile', {
 				cwd: join(mockProjectRoot, 'packages'),
 				skipWorkspaceRoot: true,
 			});
 
-			expect(cpMock).toHaveBeenCalledWith(filename, '/foo/bar/packages/zod/rcfile');
-			expect(cpMock).toHaveBeenCalledWith(filename, '/foo/bar/packages/zed/rcfile');
+			expect(readFileMock).toHaveBeenCalledWith(filename);
+			expect(writeFileMock).toHaveBeenCalledWith('/foo/bar/packages/zed/rcfile', '');
+			expect(writeFileMock).toHaveBeenCalledWith('/foo/bar/packages/zod/rcfile', '');
 
-			expect(cpMock).toHaveBeenCalledTimes(2);
 			expect(symlinkMock).not.toHaveBeenCalled();
 			expect(rmMock).not.toHaveBeenCalled();
 
@@ -146,11 +182,11 @@ describe('distributeFile', () => {
 		});
 
 		it('should log an error if it fails and there is a logger', async () => {
-			cpMock.mockRejectedValueOnce('ERROR');
+			writeFileMock.mockRejectedValueOnce('ERROR');
 
 			const filename = '/foo/bar/packages/rcfile';
 
-			await distributeFileInWorkspace(filename, {
+			await distributeFileInWorkspace(filename, 'rcfile', {
 				cwd: join(mockProjectRoot, 'packages'),
 				logger: mockLogger,
 			});
@@ -171,16 +207,16 @@ describe('distributeFile', () => {
 				}
 			});
 
-			await distributeFileInWorkspace(filename, {
+			await distributeFileInWorkspace(filename, 'rcfile', {
 				cwd: join(mockProjectRoot, 'packages'),
 				skipWorkspaceRoot: true,
 				markAsExecutable: true,
 			});
 
-			expect(cpMock).toHaveBeenCalledWith(filename, '/foo/bar/packages/zod/rcfile');
-			expect(cpMock).toHaveBeenCalledWith(filename, '/foo/bar/packages/zed/rcfile');
+			expect(readFileMock).toHaveBeenCalledWith(filename);
+			expect(writeFileMock).toHaveBeenCalledWith('/foo/bar/packages/zed/rcfile', '');
+			expect(writeFileMock).toHaveBeenCalledWith('/foo/bar/packages/zod/rcfile', '');
 
-			expect(cpMock).toHaveBeenCalledTimes(2);
 			expect(symlinkMock).not.toHaveBeenCalled();
 			expect(rmMock).not.toHaveBeenCalled();
 
@@ -191,7 +227,7 @@ describe('distributeFile', () => {
 	describe('force', () => {
 		it('should remove existing files when force is used and is not a dry run', async () => {
 			const filename = 'rcfile';
-			await distributeFileInWorkspace(filename, {
+			await distributeFileInWorkspace(filename, 'rcfile', {
 				cwd: join(mockProjectRoot, 'packages'),
 				force: true,
 			});
@@ -200,7 +236,7 @@ describe('distributeFile', () => {
 
 		it('should not remove existing files even when force is used but it is a dry run', async () => {
 			const filename = 'rcfile';
-			await distributeFileInWorkspace(filename, {
+			await distributeFileInWorkspace(filename, 'rcfile', {
 				cwd: join(mockProjectRoot, 'packages'),
 				force: true,
 				dry: true,
@@ -213,7 +249,7 @@ describe('distributeFile', () => {
 	describe('symlinking', () => {
 		it('should symlink to all folders', async () => {
 			const filename = 'rcfile';
-			await distributeFileInWorkspace(filename, {
+			await distributeFileInWorkspace(filename, 'rcfile', {
 				cwd: join(mockProjectRoot, 'packages'),
 				symlinkInsteadOfCopy: true,
 			});
@@ -229,7 +265,7 @@ describe('distributeFile', () => {
 
 		it('should not symlink to any folders when dry', async () => {
 			const filename = 'rcfile';
-			await distributeFileInWorkspace(filename, {
+			await distributeFileInWorkspace(filename, 'rcfile', {
 				cwd: join(mockProjectRoot, 'packages'),
 				symlinkInsteadOfCopy: true,
 				dry: true,
@@ -242,7 +278,7 @@ describe('distributeFile', () => {
 
 		it('should refuse to link something thats nonexistent', async () => {
 			const filename = 'nonexistent';
-			await distributeFileInWorkspace(filename, {
+			await distributeFileInWorkspace(filename, 'rcfile', {
 				cwd: join(mockProjectRoot, 'packages'),
 				symlinkInsteadOfCopy: true,
 			});
@@ -254,7 +290,7 @@ describe('distributeFile', () => {
 
 		it('should refuse to link something thats not a file', async () => {
 			const filename = 'nonfile';
-			await distributeFileInWorkspace(filename, {
+			await distributeFileInWorkspace(filename, 'rcfile', {
 				dependencyCriteria: ['@dep'],
 				cwd: join(mockProjectRoot, 'packages'),
 				symlinkInsteadOfCopy: true,
@@ -270,7 +306,7 @@ describe('distributeFile', () => {
 
 			const filename = '/foo/bar/packages/rcfile';
 
-			await distributeFileInWorkspace(filename, {
+			await distributeFileInWorkspace(filename, 'rcfile', {
 				cwd: join(mockProjectRoot, 'packages'),
 				logger: mockLogger,
 				symlinkInsteadOfCopy: true,

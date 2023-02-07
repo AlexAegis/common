@@ -4,6 +4,7 @@ export * from './deep-merge.function.js';
 export * from './defined.type.js';
 export * from './expand.type.js';
 export * from './fill-object-with-template-variables.function.js';
+export * from './fill-string-with-template-variables.function.js';
 export * from './is-not-nullish.function.js';
 export * from './is-nullish.function.js';
 export * from './is-object.function.js';

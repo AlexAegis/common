@@ -1,4 +1,5 @@
 import { deepMapObject } from './deep-map-object.function.js';
+import { fillStringWithTemplateVariables } from './fill-string-with-template-variables.function.js';
 import type { SimpleObjectKey } from './struct.type.js';
 
 /**
@@ -16,9 +17,7 @@ export const fillObjectWithTemplateVariables = <
 ): T => {
 	return deepMapObject(target, (_key, value) => {
 		if (typeof value === 'string') {
-			return Object.entries<string>(variables).reduce((acc, [variableKey, variableValue]) => {
-				return acc.replaceAll('${' + variableKey + '}', variableValue);
-			}, value);
+			return fillStringWithTemplateVariables(value, variables);
 		}
 	});
 };

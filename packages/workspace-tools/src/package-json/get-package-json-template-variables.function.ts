@@ -9,7 +9,7 @@ export type PackageJsonTemplateVariables = Record<PackageJsonTemplateVariableNam
 
 export const getPackageJsonTemplateVariables = (
 	packageJson: PackageJson
-): PackageJsonTemplateVariables => {
+): PackageJsonTemplateVariables & Record<string, string> => {
 	const packageName = packageJson.name ?? '';
 	let packageOrg = '';
 	let packageNameWithoutOrg: string = packageName;

@@ -29,6 +29,7 @@ module.exports = {
 		'@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
 		quotes: ['error', 'single', { avoidEscape: true }],
 		'unicorn/no-array-reduce': 'off',
+		'unicorn/no-array-callback-reference': 'off', // needed for easy nullish checks
 		'unicorn/prevent-abbreviations': 'off', // no thanks
 		'unicorn/prefer-ternary': 'off', // no thanks
 		'unicorn/prefer-top-level-await': 'off', // Until ES2022 is used as target
