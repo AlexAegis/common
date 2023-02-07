@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.15](https://github.com/AlexAegis/js/compare/v0.0.14...v0.0.15) (2023-02-07)
+
+
+### Features
+
+* **common:** added default ecmascript edition ([f7480b7](https://github.com/AlexAegis/js/commit/f7480b775bc8b0eeca8c5a2c4f3c3dd73c166f38))
+* **workspace-tools:** file distribution now also fills in template ([3a66c37](https://github.com/AlexAegis/js/commit/3a66c3781dfd4d71b20b65fe5bc18d23e985d902))
+
 ### [0.0.14](https://github.com/AlexAegis/js/compare/v0.0.13...v0.0.14) (2023-02-06)
 
 
