@@ -54,6 +54,30 @@ describe('normalizeSortingPreferenceForPackageJson', () => {
 		expect(result).toEqual(expectedSortingPreference);
 	});
 
+	it('should add a wildcard to the exports level if there is none', () => {
+		const sortingPreference: ObjectKeyOrder = [
+			{
+				key: 'exports',
+				order: [
+					{ key: 'foo', order: ['nope'] },
+					{ key: 'bar', order: ['nope'] },
+				],
+			},
+		];
+		const expectedSortingPreference: ObjectKeyOrder = [
+			{
+				key: 'exports',
+				order: [
+					{ key: 'foo', order: ['types', 'nope'] },
+					{ key: 'bar', order: ['types', 'nope'] },
+					{ key: '.*', order: ['types'] },
+				],
+			},
+		];
+		const result = normalizeSortingPreferenceForPackageJson(sortingPreference);
+		expect(result).toEqual(expectedSortingPreference);
+	});
+
 	it('should override existing preferences if it is non-comforming at the last level because types is at the wrong place', () => {
 		const sortingPreference: ObjectKeyOrder = [
 			{ key: 'exports', order: [{ key: '.*', order: ['nope', 'types'] }] },

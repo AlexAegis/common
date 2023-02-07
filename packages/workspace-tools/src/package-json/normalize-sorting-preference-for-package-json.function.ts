@@ -21,29 +21,30 @@ export const normalizeSortingPreferenceForPackageJson = (
 					typeof sortingPrefrence === 'object' &&
 					sortingPrefrence.key === 'exports'
 				) {
+					const order = sortingPrefrence.order.map((ordering) => {
+						if (typeof ordering === 'string') {
+							return { key: ordering, order: ['types'] };
+						} else {
+							const existingTypesEntry = ordering.order.find((o) =>
+								typeof o === 'string' ? o === 'types' : o.key === 'types'
+							);
+							const nonTypesEntries = ordering.order.filter((o) =>
+								typeof o === 'string' ? o !== 'types' : o.key !== 'types'
+							);
+							return {
+								key: ordering.key,
+								order: [existingTypesEntry ?? 'types', ...nonTypesEntries],
+							};
+						}
+					});
+
+					if (!order.some((o) => o.key === '.*')) {
+						order.push({ key: '.*', order: ['types'] });
+					}
+
 					return {
 						key: 'exports',
-						order: sortingPrefrence.order.flatMap((ordering) => {
-							if (typeof ordering === 'string') {
-								return [
-									{ key: ordering, order: ['types'] },
-									{ key: '.*', order: ['types'] },
-								];
-							} else {
-								const existingTypesEntry = ordering.order.find((o) =>
-									typeof o === 'string' ? o === 'types' : o.key === 'types'
-								);
-								const nonTypesEntries = ordering.order.filter((o) =>
-									typeof o === 'string' ? o !== 'types' : o.key !== 'types'
-								);
-								return [
-									{
-										key: ordering.key,
-										order: [existingTypesEntry ?? 'types', ...nonTypesEntries],
-									},
-								];
-							}
-						}),
+						order,
 					};
 				} else {
 					return sortingPrefrence;
