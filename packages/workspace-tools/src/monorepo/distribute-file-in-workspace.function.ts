@@ -58,8 +58,6 @@ export const distributeFileInWorkspace = async (
 
 	const targetPackages = await collectWorkspacePackages(options);
 
-	console.log('targetPackages', targetPackages);
-
 	options.logger.info(
 		`packages to check:\n\t${targetPackages
 			.map((packageJson) => './' + relative(options.cwd, packageJson.path))

@@ -22,7 +22,10 @@ vi.mock('globby');
 vi.mock('fs');
 vi.mock('node:fs/promises');
 vi.mock('@alexaegis/fs', async () => {
-	const mockReadJson = vi.fn<[string | undefined], Promise<unknown>>(async (_path) => {
+	const mockReadJson = vi.fn<[string | undefined], Promise<unknown>>(async (path) => {
+		if (path?.endsWith('empty/package.json')) {
+			throw new Error('Does not exist!');
+		}
 		// For some reason the file cannot be read even though it exists
 		return {
 			workspaces: ['packages/*'],
@@ -253,6 +256,11 @@ describe('distributeFile', () => {
 				cwd: join(mockProjectRoot, 'packages'),
 				symlinkInsteadOfCopy: true,
 			});
+
+			expect(symlinkMock).not.toHaveBeenCalledWith(
+				'../rcfile',
+				'/foo/bar/packages/empty/rcfile'
+			);
 
 			expect(symlinkMock).toHaveBeenCalledWith(
 				`packages${sep}${filename}`,

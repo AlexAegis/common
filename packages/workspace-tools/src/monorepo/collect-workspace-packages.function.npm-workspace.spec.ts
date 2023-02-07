@@ -30,6 +30,8 @@ vi.mock('@alexaegis/fs', async () => {
 			return mockPackageJsonZedValue;
 		} else if (path?.endsWith(join('zod', PACKAGE_JSON_NAME))) {
 			return mockPackageJsonZodValue;
+		} else if (path?.endsWith(join('empty', PACKAGE_JSON_NAME))) {
+			throw new Error('does not exist');
 		} else if (path?.endsWith(PACKAGE_JSON_NAME)) {
 			return mockPackageJsonWorkspaceValue;
 		} else {
@@ -68,7 +70,7 @@ vi.mock('globby', () => {
 			expect(options.absolute).toBeTruthy();
 			expect(options.onlyDirectories).toBeTruthy();
 			expect(options.cwd).toBe('/foo/bar');
-			return ['/foo/bar/packages/zed', '/foo/bar/packages/zod'];
+			return ['/foo/bar/packages/zed', '/foo/bar/packages/zod', '/foo/bar/packages/empty'];
 		},
 	};
 });

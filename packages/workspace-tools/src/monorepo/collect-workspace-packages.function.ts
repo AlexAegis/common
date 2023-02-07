@@ -29,7 +29,7 @@ export const collectWorkspacePackages = async (
 	}
 
 	const packageJsonPath = join(rootWorkspace, PACKAGE_JSON_NAME);
-	const packageJson = await readJson<PackageJson>(packageJsonPath);
+	const packageJson = await readJson<PackageJson>(packageJsonPath).catch(() => undefined);
 
 	if (!packageJson) {
 		options.logger.error('Failed to read packageJson!', packageJsonPath);
@@ -64,10 +64,12 @@ export const collectWorkspacePackages = async (
 
 		const potentialSubPackages = await Promise.all(
 			paths.map((path) =>
-				readJson<PackageJson>(join(path, PACKAGE_JSON_NAME)).then((packageJson) => ({
-					packageJson,
-					path,
-				}))
+				readJson<PackageJson>(join(path, PACKAGE_JSON_NAME))
+					.catch(() => undefined)
+					.then((packageJson) => ({
+						packageJson,
+						path,
+					}))
 			)
 		);
 

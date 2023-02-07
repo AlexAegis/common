@@ -7,5 +7,9 @@ export const globby = async (_patterns: string[], options: Options): Promise<str
 	expect(options.absolute).toBeTruthy();
 	expect(options.onlyDirectories).toBeTruthy();
 	expect(options.cwd).toBe(mockProjectRoot);
-	return [join(mockProjectRoot, 'packages/zed'), join(mockProjectRoot, 'packages/zod')];
+	return [
+		join(mockProjectRoot, 'packages/zed'),
+		join(mockProjectRoot, 'packages/zod'),
+		join(mockProjectRoot, 'packages/empty'),
+	];
 };
