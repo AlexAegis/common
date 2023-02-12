@@ -1,10 +1,6 @@
 import { CwdOption, normalizeCwdOption, NormalizedCwdOption } from '@alexaegis/fs';
 import { LoggerOption, NormalizedLoggerOption, normalizeLoggerOption } from '@alexaegis/logging';
 
-interface WorkspaceOnlyCollectWorkspaceOnlyOptions extends CollectWorkspaceOnlyOptions {
-	onlyWorkspaceRoot: true;
-}
-
 interface CollectWorkspaceOnlyOptions {
 	/**
 	 * Only return the root workspace package
