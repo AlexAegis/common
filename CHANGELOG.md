@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.16](https://github.com/AlexAegis/js/compare/v0.0.15...v0.0.16) (2023-02-12)
+
+
+### Bug Fixes
+
+* **workspace-tools:** do not report folder as package when there is no package.json there ([a47378a](https://github.com/AlexAegis/js/commit/a47378a354aba2d92445ac83db33950082fcb8e4))
+* **workspace-tools:** improved sorting prefrence normalizer ([b7f803f](https://github.com/AlexAegis/js/commit/b7f803f6f46d424c34a71bf033a69d3e14efc563))
+
 ### [0.0.15](https://github.com/AlexAegis/js/compare/v0.0.14...v0.0.15) (2023-02-07)
 
 
