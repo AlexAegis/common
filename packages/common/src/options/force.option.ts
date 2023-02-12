@@ -2,7 +2,7 @@ export interface ForceOption {
 	/**
 	 * Ignore caches, guards, overwrite files
 	 *
-	 * @default false
+	 * @defaultValue false
 	 */
 	force?: boolean;
 }

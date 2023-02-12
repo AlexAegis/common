@@ -6,7 +6,7 @@ export interface WriteJsonOptions extends DryOption {
 	 *
 	 * Disable if you don't have prettier
 	 *
-	 * @default true
+	 * @defaultValue true
 	 */
 	autoPrettier?: boolean;
 }

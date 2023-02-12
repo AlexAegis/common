@@ -51,7 +51,7 @@
 		"@alexaegis/fs": "*",
 		"@alexaegis/logging": "*",
 		"globby": "^13.1.3",
-		"prettier": "^2.8.3"
+		"prettier": "^2.8.4"
 	},
 	"devDependencies": {
 		"@schemastore/package": "^0.0.6",

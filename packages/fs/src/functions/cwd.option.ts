@@ -2,7 +2,7 @@ export interface CwdOption {
 	/**
 	 * Current working directory
 	 *
-	 * @default process.cwd()
+	 * @defaultValue process.cwd()
 	 */
 	cwd?: string;
 }

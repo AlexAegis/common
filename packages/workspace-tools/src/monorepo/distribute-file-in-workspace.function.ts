@@ -21,12 +21,11 @@ type WorkspaceFileTarget = { absolutePathToTargetFile: string; targetPackage: Wo
  * Takes a file relative to cwd then distributes it along the workspace
  * based on the targetFile path relative to the package it's distributing to.
  *
- * TODO: It also substitutes the following variables in the files being
- * distributed:
- *   - ${packageToWorkspaceRelativePath} => '../../'
+ * It also substitutes the following variables in the files being distributed:
+ *   - ${relativePathFromPackageToRoot} => '../../' (or '.' in the case of the root package)
  *   - ${packageName}
- *   - ${packageOrgName}
- *   - ${}
+ *   - ${packageOrg}
+ *   - ${packageNameWithoutOrg}
  *
  * This is only available when files are copied and not symlinked.
  */

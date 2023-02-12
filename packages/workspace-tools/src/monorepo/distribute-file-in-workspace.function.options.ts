@@ -7,7 +7,7 @@ interface DistributeFileInWorkspaceOnlyOptions {
 	/**
 	 * Instead of copying file, just symlink them.
 	 *
-	 * @default false
+	 * @defaultValue false
 	 */
 	symlinkInsteadOfCopy?: boolean;
 
@@ -16,7 +16,7 @@ interface DistributeFileInWorkspaceOnlyOptions {
 	 *
 	 * Use this when distributing scripts
 	 *
-	 * @default false
+	 * @defaultValue false
 	 */
 	markAsExecutable?: boolean;
 }

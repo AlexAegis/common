@@ -4,7 +4,7 @@ export interface LogLevelOption {
 	/**
 	 * A minimum logLevel
 	 *
-	 * @default LogLevel.OFF
+	 * @defaultValue LogLevel.OFF
 	 */
 	logLevel?: LogLevel;
 }

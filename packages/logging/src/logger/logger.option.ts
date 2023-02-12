@@ -5,7 +5,7 @@ export interface LoggerOption<LogObj = unknown> {
 	/**
 	 * An optional Logger target.
 	 *
-	 * @default undefined
+	 * @defaultValue undefined
 	 */
 	logger?: Logger<LogObj>;
 }

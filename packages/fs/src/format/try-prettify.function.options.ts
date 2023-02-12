@@ -5,7 +5,7 @@ export interface PrettifyOptions extends CwdOption {
 	/**
 	 * Which prettier parser is used
 	 *
-	 * @default 'babel'
+	 * @defaultValue 'babel'
 	 */
 	parser?: BuiltInParserName;
 }

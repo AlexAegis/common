@@ -1,15 +1,15 @@
 export interface MemoizeOptions<A, T = unknown> {
 	/**
-	 * @default undefined
+	 * @defaultValue undefined
 	 */
 	thisContext?: T | undefined;
 	/**
 	 *
-	 * @default JSON.stringify
+	 * @defaultValue JSON.stringify
 	 */
 	argHasher?: (args: A) => string;
 	/**
-	 * @default 10
+	 * @defaultValue 10
 	 */
 	maxCacheEntries?: number;
 }

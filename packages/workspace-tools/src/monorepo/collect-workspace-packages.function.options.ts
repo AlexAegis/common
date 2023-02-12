@@ -1,18 +1,22 @@
 import { CwdOption, normalizeCwdOption, NormalizedCwdOption } from '@alexaegis/fs';
 import { LoggerOption, NormalizedLoggerOption, normalizeLoggerOption } from '@alexaegis/logging';
 
+interface WorkspaceOnlyCollectWorkspaceOnlyOptions extends CollectWorkspaceOnlyOptions {
+	onlyWorkspaceRoot: true;
+}
+
 interface CollectWorkspaceOnlyOptions {
 	/**
 	 * Only return the root workspace package
 	 *
-	 * @default false
+	 * @defaultValue false
 	 */
 	onlyWorkspaceRoot?: boolean;
 
 	/**
 	 * Skip the root workspace package itself
 	 *
-	 * @default false
+	 * @defaultValue false
 	 */
 	skipWorkspaceRoot?: boolean;
 
@@ -20,7 +24,7 @@ interface CollectWorkspaceOnlyOptions {
 	 * Return only those packages that list these dependencies. When it's not
 	 * defined or is an empty array, it will not perform such filtering.
 	 *
-	 * @default []
+	 * @defaultValue []
 	 */
 	dependencyCriteria?: string[];
 
@@ -28,7 +32,7 @@ interface CollectWorkspaceOnlyOptions {
 	 * Return only those packages that list these keywords. When it's not
 	 * defined or is an empty array, it will not perform such filtering.
 	 *
-	 * @default []
+	 * @defaultValue []
 	 */
 	keywordCriteria?: string[];
 }

@@ -6,7 +6,7 @@ export interface DryOption {
 	 * Post requests won't be made, filesystem operations won't write,
 	 * but still send get requests and read from filesystem.
 	 *
-	 * @default false
+	 * @defaultValue false
 	 */
 	dry?: boolean;
 }
