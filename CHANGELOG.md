@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.17](https://github.com/AlexAegis/js/compare/v0.0.16...v0.0.17) (2023-02-16)
+
+
+### Bug Fixes
+
+* **coverage-tools:** survive non-existent lcov files ([f7b0b7b](https://github.com/AlexAegis/js/commit/f7b0b7b965be91672e8998027259f4609597cdf0))
+
 ### [0.0.16](https://github.com/AlexAegis/js/compare/v0.0.15...v0.0.16) (2023-02-12)
 
 
