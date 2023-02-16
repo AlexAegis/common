@@ -1,3 +1,4 @@
+import { isNotNullish } from '@alexaegis/common';
 import {
 	CollectWorkspacePackagesOptions,
 	normalizeCollectWorkspacePackagesOptions,
@@ -19,9 +20,9 @@ export const mergeLcovReportsInWorkspace = async (
 		lcovPaths.map((path) =>
 			readFile(path, {
 				encoding: 'utf8',
-			})
+			}).catch(() => undefined)
 		)
 	);
 
-	return allLcovReports.join('\n');
+	return allLcovReports.filter(isNotNullish).join('\n');
 };

@@ -51,7 +51,7 @@
 		"@alexaegis/fs": "*",
 		"@alexaegis/logging": "*",
 		"@alexaegis/workspace-tools": "*",
-		"yargs": "^17.6.2"
+		"yargs": "^17.7.0"
 	},
 	"devDependencies": {
 		"@types/node": "^18.13.0",

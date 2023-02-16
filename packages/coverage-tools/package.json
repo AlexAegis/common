@@ -48,6 +48,7 @@
 		"merge-workspace-lcov-reports": "./shims/merge-workspace-lcov-reports.mjs"
 	},
 	"dependencies": {
+		"@alexaegis/common": "*",
 		"@alexaegis/logging": "*",
 		"@alexaegis/workspace-tools": "*",
 		"globby": "^13.1.3"
