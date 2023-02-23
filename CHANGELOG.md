@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.18](https://github.com/AlexAegis/js/compare/v0.0.17...v0.0.18) (2023-02-23)
+
+
+### Features
+
+* **workspace-tools:** added transformers and additional variables ([eab260b](https://github.com/AlexAegis/js/commit/eab260bd18190ad85775f9779911ec4db1b6e23e))
+
 ### [0.0.17](https://github.com/AlexAegis/js/compare/v0.0.16...v0.0.17) (2023-02-16)
 
 
