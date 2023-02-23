@@ -147,14 +147,19 @@ export const distributeFileInWorkspace = async (
 		await Promise.all(
 			validTargets.map((target) => {
 				const variables = getPackageJsonTemplateVariables(target.targetPackage.packageJson);
-
 				variables['relativePathFromPackageToRoot'] =
 					relative(target.targetPackage.path, workspaceRoot) || '.';
+				Object.assign(variables, options.templateVariables);
+
+				const transformedContent = options.transformers.reduce(
+					(content, transformer) => transformer(content),
+					sourceFileContent
+				);
 
 				const driedWriteFile = dry(options.dry, writeFile);
 				return driedWriteFile(
 					target.absolutePathToTargetFile,
-					fillStringWithTemplateVariables(sourceFileContent, variables)
+					fillStringWithTemplateVariables(transformedContent, variables)
 				)
 					.then(() => {
 						options.logger.info(`copied ${absoluteSourceFilePath} to ${target}`);

@@ -225,6 +225,43 @@ describe('distributeFile', () => {
 
 			expect(mockTurnIntoExecutable).toHaveBeenCalled();
 		});
+
+		it('should be able to use additional variables besides the defaults', async () => {
+			const filename = '/foo/bar/packages/rcfile';
+			readFileMock.mockImplementation(async (path) => {
+				if (path.toString().endsWith('packages/rcfile')) {
+					return 'content ${foo}';
+				} else {
+					return undefined;
+				}
+			});
+			await distributeFileInWorkspace(filename, 'rcfile', {
+				cwd: join(mockProjectRoot, 'packages'),
+				onlyWorkspaceRoot: true,
+				templateVariables: {
+					foo: 'bar',
+				},
+			});
+
+			expect(readFileMock).toHaveBeenCalledWith(filename);
+			expect(writeFileMock).toHaveBeenCalledWith('/foo/bar/rcfile', 'content bar');
+			expect(symlinkMock).not.toHaveBeenCalled();
+			expect(rmMock).not.toHaveBeenCalled();
+		});
+
+		it('should be able to run defined transformers sequentially to change the output', async () => {
+			const filename = '/foo/bar/packages/rcfile';
+			await distributeFileInWorkspace(filename, 'rcfile', {
+				cwd: join(mockProjectRoot, 'packages'),
+				onlyWorkspaceRoot: true,
+				transformers: [(_content) => 'new file'],
+			});
+
+			expect(readFileMock).toHaveBeenCalledWith(filename);
+			expect(writeFileMock).toHaveBeenCalledWith('/foo/bar/rcfile', 'new file');
+			expect(symlinkMock).not.toHaveBeenCalled();
+			expect(rmMock).not.toHaveBeenCalled();
+		});
 	});
 
 	describe('force', () => {
