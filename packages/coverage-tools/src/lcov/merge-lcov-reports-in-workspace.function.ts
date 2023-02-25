@@ -1,4 +1,4 @@
-import { isNotNullish } from '@alexaegis/common';
+import { asyncFilterMap } from '@alexaegis/common';
 import {
 	CollectWorkspacePackagesOptions,
 	normalizeCollectWorkspacePackagesOptions,
@@ -16,13 +16,11 @@ export const mergeLcovReportsInWorkspace = async (
 		`found the following lcov files in the workpace:\n\t- ${lcovPaths.join('\n\t- ')}`
 	);
 
-	const allLcovReports = await Promise.all(
-		lcovPaths.map((path) =>
-			readFile(path, {
-				encoding: 'utf8',
-			}).catch(() => undefined)
-		)
+	const allLcovReports = await asyncFilterMap(lcovPaths, (path) =>
+		readFile(path, {
+			encoding: 'utf8',
+		}).catch(() => undefined)
 	);
 
-	return allLcovReports.filter(isNotNullish).join('\n');
+	return allLcovReports.join('\n');
 };

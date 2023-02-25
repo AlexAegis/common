@@ -9,6 +9,7 @@ import {
 	PNPM_WORKSPACE_FILE_NAME,
 } from '../package-json/package-json.interface.js';
 
+import { asyncFilterMap } from '@alexaegis/common';
 import { getWorkspaceRoot } from '../npm/get-workspace-root.function.js';
 import { normalizePackageJsonWorkspacesField } from '../npm/normalize-package-json-workspaces-field.function.js';
 import type { WorkspacePackage } from '../package-json/workspace-package.interface.js';
@@ -63,19 +64,17 @@ export const collectWorkspacePackages = async (
 			cwd: rootWorkspace,
 		});
 
-		const potentialSubPackages = await Promise.all(
-			paths.map((path) =>
-				readJson<PackageJson>(join(path, PACKAGE_JSON_NAME))
-					.catch(() => undefined)
-					.then((packageJson) => ({
-						packageJson,
-						path,
-					}))
-			)
-		);
-
-		const subPackages = potentialSubPackages.filter(
-			(relativePackage): relativePackage is WorkspacePackage => !!relativePackage.packageJson
+		const subPackages = await asyncFilterMap(paths, (path) =>
+			readJson<PackageJson>(join(path, PACKAGE_JSON_NAME))
+				.catch(() => undefined)
+				.then((packageJson) =>
+					packageJson
+						? {
+								packageJson,
+								path,
+						  }
+						: undefined
+				)
 		);
 
 		if (!options.onlyWorkspaceRoot) {
@@ -89,13 +88,13 @@ export const collectWorkspacePackages = async (
 
 	if (options.dependencyCriteria.length > 0) {
 		result = result.filter((relativePackage) => {
-			const packageDependencies = new Set([
+			const packageDependencies = [
 				...Object.keys(relativePackage.packageJson.dependencies ?? {}),
 				...Object.keys(relativePackage.packageJson.devDependencies ?? {}),
-			]);
+			];
 
-			return options.dependencyCriteria.every((dependency) =>
-				packageDependencies.has(dependency)
+			return options.dependencyCriteria.every((dependencyCriteria) =>
+				packageDependencies.some((dependency) => dependencyCriteria.test(dependency))
 			);
 		});
 	}
@@ -107,7 +106,7 @@ export const collectWorkspacePackages = async (
 			return (
 				keywords &&
 				options.keywordCriteria.every((keywordCriteria) =>
-					keywords.includes(keywordCriteria)
+					keywords.some((keyword) => keywordCriteria.test(keyword))
 				)
 			);
 		});

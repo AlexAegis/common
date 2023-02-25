@@ -27,9 +27,12 @@ describe('normalizeCollectWorkspacePackagesOptions', () => {
 			onlyWorkspaceRoot: false,
 			skipWorkspaceRoot: false,
 			dependencyCriteria: ['dep'],
-			keywordCriteria: ['key'],
+			keywordCriteria: [/key/],
 			logger: noopLogger,
 		};
-		expect(normalizeCollectWorkspacePackagesOptions(manualOptions)).toEqual(manualOptions);
+		expect(normalizeCollectWorkspacePackagesOptions(manualOptions)).toEqual({
+			...manualOptions,
+			dependencyCriteria: [/dep/],
+		});
 	});
 });

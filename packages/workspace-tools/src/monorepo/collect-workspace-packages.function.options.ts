@@ -1,3 +1,4 @@
+import { normalizeRegExpLikeToRegExp } from '@alexaegis/common';
 import { CwdOption, normalizeCwdOption, NormalizedCwdOption } from '@alexaegis/fs';
 import { LoggerOption, NormalizedLoggerOption, normalizeLoggerOption } from '@alexaegis/logging';
 
@@ -22,7 +23,7 @@ interface CollectWorkspaceOnlyOptions {
 	 *
 	 * @defaultValue []
 	 */
-	dependencyCriteria?: string[];
+	dependencyCriteria?: (string | RegExp)[];
 
 	/**
 	 * Return only those packages that list these keywords. When it's not
@@ -30,15 +31,16 @@ interface CollectWorkspaceOnlyOptions {
 	 *
 	 * @defaultValue []
 	 */
-	keywordCriteria?: string[];
+	keywordCriteria?: (string | RegExp)[];
 }
 
 export type CollectWorkspacePackagesOptions = CollectWorkspaceOnlyOptions &
 	CwdOption &
 	LoggerOption;
 
-export type NormalizedCollectWorkspacePackagesOptions = Required<CollectWorkspaceOnlyOptions> &
-	NormalizedCwdOption &
+export type NormalizedCollectWorkspacePackagesOptions = Required<
+	Omit<CollectWorkspaceOnlyOptions, 'keywordCriteria' | 'dependencyCriteria'>
+> & { dependencyCriteria: RegExp[]; keywordCriteria: RegExp[] } & NormalizedCwdOption &
 	NormalizedLoggerOption;
 
 export const normalizeCollectWorkspacePackagesOptions = (
@@ -49,7 +51,7 @@ export const normalizeCollectWorkspacePackagesOptions = (
 		...normalizeLoggerOption(options),
 		onlyWorkspaceRoot: options?.onlyWorkspaceRoot ?? false,
 		skipWorkspaceRoot: options?.skipWorkspaceRoot ?? false,
-		dependencyCriteria: options?.dependencyCriteria ?? [],
-		keywordCriteria: options?.keywordCriteria ?? [],
+		dependencyCriteria: options?.dependencyCriteria?.map(normalizeRegExpLikeToRegExp) ?? [],
+		keywordCriteria: options?.keywordCriteria?.map(normalizeRegExpLikeToRegExp) ?? [],
 	};
 };

@@ -6,4 +6,4 @@ export * from './distribute-in-workspace.options.js';
 export * from './distribute-package-json-items-in-workspace.function.js';
 export * from './distribute-package-json-items-in-workspace.function.options.js';
 export * from './is-distributed-file.function.js';
-export * from './remove-in-workspace.function.js';
+export * from './remove-files-in-workspace.function.js';
