@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.20](https://github.com/AlexAegis/js/compare/v0.0.19...v0.0.20) (2023-02-25)
+
+
+### Features
+
+* **common:** added async map-filter-mapFilter and regex normalizer ([f3a027f](https://github.com/AlexAegis/js/commit/f3a027f073a950276da6c0ec97e8a47c80dfdcc8))
+* **common:** added the safe option ([1faa3fe](https://github.com/AlexAegis/js/commit/1faa3feccab1fdf16adc5757f75f94c8e9288ca7))
+* **workspace-tools:** added is distributed file checker ([4b1d842](https://github.com/AlexAegis/js/commit/4b1d842078ba99860a89c9705c091c89964d3339))
+* **workspace-tools:** remove has a safe option now ([241616e](https://github.com/AlexAegis/js/commit/241616efafed28e7721147f7681161295a2fbc3e))
+
 ### [0.0.19](https://github.com/AlexAegis/js/compare/v0.0.18...v0.0.19) (2023-02-25)
 
 
