@@ -27,7 +27,6 @@ export const normalizeDistributeInWorkspaceOptions = (
 		...normalizeCollectWorkspacePackagesOptions(options),
 		...normalizeDryOption(options),
 		...normalizeForceOption(options),
-		dependencyCriteria: options?.dependencyCriteria ?? [],
 		onlyWorkspaceRoot: options?.onlyWorkspaceRoot ?? false,
 		skipWorkspaceRoot: options?.skipWorkspaceRoot ?? false,
 	};
