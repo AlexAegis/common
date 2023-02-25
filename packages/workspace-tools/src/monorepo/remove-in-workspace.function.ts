@@ -1,6 +1,8 @@
 import { dry } from '@alexaegis/common';
+import { globby } from 'globby';
 import { rm } from 'node:fs/promises';
-import { join, relative } from 'node:path';
+import { relative } from 'node:path';
+import { NODE_MODULES_DIRECTORY_NAME } from '../package-json/package-json.interface.js';
 import { collectWorkspacePackages } from './collect-workspace-packages.function.js';
 import {
 	DistributeInWorkspaceOptions,
@@ -8,7 +10,7 @@ import {
 } from './distribute-in-workspace.options.js';
 
 export const removeInWorkspace = async (
-	relativePath: string,
+	packageRelativeGlobs: string | string[],
 	rawOptions?: DistributeInWorkspaceOptions
 ): Promise<void> => {
 	const options = normalizeDistributeInWorkspaceOptions(rawOptions);
@@ -21,19 +23,27 @@ export const removeInWorkspace = async (
 			.join('\n\t')}`
 	);
 
+	const pathsToDelete = await Promise.all(
+		targetPackages.map((target) =>
+			globby(packageRelativeGlobs, {
+				cwd: target.path,
+				ignore: [NODE_MODULES_DIRECTORY_NAME],
+				absolute: true,
+				gitignore: true,
+			})
+		)
+	);
+
 	await Promise.all(
-		targetPackages.map((target) => {
-			const pathToBeDeleted = join(target.path, relativePath);
+		pathsToDelete.flat().map((pathToDelete) => {
 			const dryRm = dry(options.dry, rm);
 
-			return dryRm(pathToBeDeleted, { recursive: true })
+			return dryRm(pathToDelete, { recursive: true })
 				.then(() => {
-					options.logger.info(`removed ${pathToBeDeleted}`);
+					options.logger.info(`removed ${pathToDelete}`);
 				})
 				.catch((error: string) => {
-					options.logger.error(
-						`can't remove ${pathToBeDeleted}, error happened: ${error}`
-					);
+					options.logger.error(`can't remove ${pathToDelete}, error happened: ${error}`);
 				});
 		})
 	);

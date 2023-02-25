@@ -10,6 +10,7 @@ import {
 } from '../package-json/package-json.interface.js';
 
 import { getWorkspaceRoot } from '../npm/get-workspace-root.function.js';
+import { normalizePackageJsonWorkspacesField } from '../npm/normalize-package-json-workspaces-field.function.js';
 import type { WorkspacePackage } from '../package-json/workspace-package.interface.js';
 import {
 	CollectWorkspacePackagesOptions,
@@ -45,7 +46,7 @@ export const collectWorkspacePackages = async (
 		join(rootWorkspace, PNPM_WORKSPACE_FILE_NAME)
 	);
 
-	let workspaces: string[] = packageJson.workspaces ?? [];
+	let workspaces = normalizePackageJsonWorkspacesField(packageJson.workspaces);
 
 	if (pnpmWorkspace?.packages) {
 		workspaces = [...workspaces, ...pnpmWorkspace.packages];

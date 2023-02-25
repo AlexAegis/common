@@ -1,4 +1,5 @@
 import { mockLogger } from '@alexaegis/logging/mocks';
+import type { Options } from 'globby';
 import { join } from 'node:path/posix';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { mockProjectRoot } from '../../__mocks__/fs.js';
@@ -6,7 +7,19 @@ import { rmMock } from '../../__mocks__/node:fs/promises.js';
 import type { PackageJson } from '../index.js';
 import { removeInWorkspace } from './remove-in-workspace.function.js';
 
-vi.mock('globby');
+vi.mock('globby', async () => {
+	return {
+		globby: async (_patterns: string[], options: Options): Promise<string[]> => {
+			expect(options.absolute).toBeTruthy();
+			return [
+				join(mockProjectRoot, 'trash'),
+				join(mockProjectRoot, 'packages/zed/trash'),
+				join(mockProjectRoot, 'packages/zod/trash'),
+			];
+		},
+	};
+});
+
 vi.mock('fs');
 vi.mock('node:fs/promises');
 vi.mock('@alexaegis/fs', async () => {
@@ -46,6 +59,8 @@ describe('removeInWorkspace', () => {
 
 		expect(rmMock).toHaveBeenCalledWith('/foo/bar/trash', rmOptions);
 		expect(rmMock).toHaveBeenCalledWith('/foo/bar/packages/zed/trash', rmOptions);
+		expect(rmMock).toHaveBeenCalledWith('/foo/bar/packages/zod/trash', rmOptions);
+
 		expect(mockLogger.info).toHaveBeenCalled();
 	});
 
