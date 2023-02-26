@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.21](https://github.com/AlexAegis/js/compare/v0.0.20...v0.0.21) (2023-02-26)
+
+
+### Features
+
+* **common:** add the modify type ([f8ee35f](https://github.com/AlexAegis/js/commit/f8ee35fc1c87b0e00c8f5d139cdcb69defca58d6))
+
+
+### Bug Fixes
+
+* **workspace-tools:** fix typo in ordering ([1628121](https://github.com/AlexAegis/js/commit/1628121075713e355f2aa8fbca20a6d4332d9fbd))
+* **workspace-tools:** packageJson def ([6c392bb](https://github.com/AlexAegis/js/commit/6c392bb8e63af59256f576a3d637a9df111a80ca))
+
 ### [0.0.20](https://github.com/AlexAegis/js/compare/v0.0.19...v0.0.20) (2023-02-25)
 
 

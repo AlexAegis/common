@@ -1,7 +1,7 @@
 {
 	"name": "@alexaegis/workspace",
 	"description": "base repo for common stuff in my other js projects",
-	"version": "0.0.20",
+	"version": "0.0.21",
 	"license": "mit",
 	"author": {
 		"name": "Alex Aegis",
