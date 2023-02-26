@@ -24,6 +24,6 @@ export const DEFAULT_PACKAGE_JSON_SORTING_PREFERENCE: ObjectKeyOrder = [
 	'bin',
 	'dependencies',
 	'peerDependencies',
-	'optonalDependencies',
+	'optionalDependencies',
 	'devDependencies',
 ];
