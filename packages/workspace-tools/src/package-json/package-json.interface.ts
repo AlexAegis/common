@@ -7,15 +7,17 @@ export const NODE_MODULES_DIRECTORY_NAME = 'node_modules';
 
 export type PackageJsonExports = Record<string, PackageJsonExportConditions | string>;
 
-/**
- * This packageJson definition is a bit simplified from the real one
- */
-export type PackageJson = Omit<JSONSchemaForNPMPackageJsonFiles, 'bin' | 'exports'> & {
+export type SimplifiedPackageJsonFields = {
 	exports?: PackageJsonExports;
 	bin?: Record<string, string>;
 	type?: 'commonjs' | 'module';
 	scripts?: Record<string, string | undefined>;
 };
+
+/**
+ * This packageJson definition is a bit simplified from the real one
+ */
+export type PackageJson = JSONSchemaForNPMPackageJsonFiles & SimplifiedPackageJsonFields;
 
 export interface PnpmWorkspaceYaml {
 	packages?: string[];
