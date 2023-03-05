@@ -1,6 +1,7 @@
 import { deepMerge, fillObjectWithTemplateVariables, sortObject } from '@alexaegis/common';
 import { writeJson } from '@alexaegis/fs';
 import { join, relative } from 'node:path';
+import { getWorkspaceRoot } from '../index.js';
 import {
 	getPackageJsonTemplateVariables,
 	PackageJsonTemplateVariableNames,
@@ -25,6 +26,12 @@ export const distributePackageJsonItemsInWorkspace = async (
 	rawOptions?: DistributePackageJsonItemsInWorkspaceOptions
 ): Promise<void> => {
 	const options = normalizeDistributePackageJsonItemsInWorkspaceOptions(rawOptions);
+	const workspaceRoot = await getWorkspaceRoot(options.cwd);
+
+	if (!workspaceRoot) {
+		options.logger.error("can't distribute packageJson updates, not in a workspace!");
+		return;
+	}
 
 	const targetPackages = await collectWorkspacePackages(options);
 
@@ -37,6 +44,8 @@ export const distributePackageJsonItemsInWorkspace = async (
 	await Promise.all(
 		targetPackages.map((target) => {
 			const templateVariables = getPackageJsonTemplateVariables(target.packageJson);
+			templateVariables['relativePathFromPackageToRoot'] =
+				relative(target.path, workspaceRoot) || '.';
 
 			const packageJsonUpdates =
 				fillObjectWithTemplateVariables<PackageJsonTemplateVariableNames>(

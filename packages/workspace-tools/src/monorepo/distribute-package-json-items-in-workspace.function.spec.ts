@@ -206,6 +206,55 @@ describe('distributePackageJsonItemsInWorkspace', async () => {
 			);
 		});
 
+		it('should be able to use the relativePathFromPackageToRoot variable even when not executed from the project root', async () => {
+			const updates: PackageJson = {
+				scripts: {
+					whereami: '${relativePathFromPackageToRoot}',
+				},
+			};
+
+			await distributePackageJsonItemsInWorkspace(updates, {
+				cwd: join(mockProjectRoot, 'packages'),
+				logger: mockLogger,
+			});
+
+			expect(writeJson).toHaveBeenCalledWith(
+				{
+					...mockPackageJsonWorkspaceValue,
+					scripts: {
+						...mockPackageJsonWorkspaceValue.scripts,
+						whereami: '.',
+					},
+				},
+				'/foo/bar/package.json',
+				expect.anything()
+			);
+
+			expect(writeJson).toHaveBeenCalledWith(
+				{
+					...mockPackageJsonZedValue,
+					scripts: {
+						...mockPackageJsonZedValue.scripts,
+						whereami: '../..',
+					},
+				},
+				'/foo/bar/packages/zed/package.json',
+				expect.anything()
+			);
+
+			expect(writeJson).toHaveBeenCalledWith(
+				{
+					...mockPackageJsonZodValue,
+					scripts: {
+						...mockPackageJsonZodValue.scripts,
+						whereami: '../..',
+					},
+				},
+				'/foo/bar/packages/zod/package.json',
+				expect.anything()
+			);
+		});
+
 		it('should not do anything when dry', async () => {
 			await distributePackageJsonItemsInWorkspace(updates, {
 				cwd: mockProjectRoot,
@@ -216,6 +265,16 @@ describe('distributePackageJsonItemsInWorkspace', async () => {
 			expect(writeJson).toHaveBeenCalledWith(expect.anything(), expect.anything(), {
 				dry: true,
 			});
+		});
+
+		it('should not do anything when not in a workspace', async () => {
+			await distributePackageJsonItemsInWorkspace(updates, {
+				cwd: join(mockProjectRoot, '..'),
+				logger: mockLogger,
+			});
+
+			expect(writeJson).not.toHaveBeenCalled();
+			expect(mockLogger.error).toHaveBeenCalled();
 		});
 
 		it('should report errors to the logger when write fails', async () => {
