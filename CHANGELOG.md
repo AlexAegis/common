@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.22](https://github.com/AlexAegis/js/compare/v0.0.21...v0.0.22) (2023-03-05)
+
+
+### Features
+
+* **workspace-tools:** enable to usage of relativePathFromPackageToRoot in packageJson scripts ([9868c16](https://github.com/AlexAegis/js/commit/9868c1600ac0eee8163905188e6753f388672280))
+
 ### [0.0.21](https://github.com/AlexAegis/js/compare/v0.0.20...v0.0.21) (2023-02-26)
 
 
