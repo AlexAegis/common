@@ -158,9 +158,9 @@ export const distributeFileInWorkspace = async (
 					.then(() => {
 						options.logger.debug(
 							`copied ${relative(
-								absoluteSourceFilePath,
-								workspaceRoot
-							)} to ${relative(target.absolutePathToTargetFile, workspaceRoot)}`
+								workspaceRoot,
+								absoluteSourceFilePath
+							)} to ${relative(workspaceRoot, target.absolutePathToTargetFile)}`
 						);
 					})
 					.catch((error: string) => {
