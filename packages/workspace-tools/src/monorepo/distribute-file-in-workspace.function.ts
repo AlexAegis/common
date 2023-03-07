@@ -125,7 +125,7 @@ export const distributeFileInWorkspace = async (
 
 				return driedSymlink(relativeFromTargetBackToFile, target.absolutePathToTargetFile)
 					.then(() => {
-						options.logger.info(
+						options.logger.debug(
 							`symlinked ${target} to ${relativeFromTargetBackToFile}`
 						);
 					})
@@ -156,7 +156,12 @@ export const distributeFileInWorkspace = async (
 					fillStringWithTemplateVariables(transformedContent, variables)
 				)
 					.then(() => {
-						options.logger.info(`copied ${absoluteSourceFilePath} to ${target}`);
+						options.logger.debug(
+							`copied ${relative(
+								absoluteSourceFilePath,
+								workspaceRoot
+							)} to ${relative(target.absolutePathToTargetFile, workspaceRoot)}`
+						);
 					})
 					.catch((error: string) => {
 						options.logger.error(`can't copy ${sourceFile}, error happened ${error}`);
