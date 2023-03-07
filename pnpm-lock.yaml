@@ -99,14 +99,14 @@ importers:
       '@types/node': ^18.14.6
       typescript: ^4.9.5
       vite: ^4.1.4
-      vite-plugin-autolib: ^0.0.11
+      vite-plugin-autolib: ^0.0.12
       vite-plugin-dts: ^2.0.2
       vitest: ^0.29.2
     devDependencies:
       '@types/node': 18.14.6
       typescript: 4.9.5
       vite: 4.1.4_@types+node@18.14.6
-      vite-plugin-autolib: 0.0.11_typescript@4.9.5
+      vite-plugin-autolib: 0.0.12_typescript@4.9.5
       vite-plugin-dts: 2.0.2_pakyy5w5azqvyjtjjomilajlpy
       vitest: 0.29.2
 
@@ -7300,43 +7300,6 @@ packages:
       vite: 4.1.4_@types+node@18.14.6
     transitivePeerDependencies:
       - '@types/node'
-      - less
-      - sass
-      - stylus
-      - sugarss
-      - supports-color
-      - terser
-    dev: true
-
-  /vite-plugin-autolib/0.0.11_typescript@4.9.5:
-    resolution: {integrity: sha512-rE2+KuCnfMchXTTmeLmIuvItu4+d2D4/BqFe7kkyB3Vt0YrgLHLArN4HG/hSK1n5n/MKbSbwjOgb4p5XwMEijQ==}
-    engines: {node: '>=18.13.0'}
-    hasBin: true
-    peerDependencies:
-      typescript: ^4.9.5
-    dependencies:
-      '@alexaegis/common': 0.0.22
-      '@alexaegis/fs': 0.0.22
-      '@alexaegis/logging': 0.0.22
-      '@alexaegis/workspace-tools': 0.0.22
-      '@npmcli/package-json': 3.0.0
-      '@sveltejs/vite-plugin-svelte': 2.0.3_svelte@3.55.1+vite@4.1.4
-      '@types/node': 18.14.6
-      fs-extra: 11.1.0
-      globby: 13.1.3
-      kolorist: 1.7.0
-      prettier: 2.8.4
-      rollup: 3.18.0
-      svelte: 3.55.1
-      ts-node: 10.9.1_alpjt73dvgv6kni625hu7f2l4m
-      typescript: 4.9.5
-      vite: 4.1.4_@types+node@18.14.6
-      vite-plugin-dts: 2.0.2_h37bxcmstsgcmwrqgewcpi4xyu
-      vite-plugin-static-copy: 0.13.1_vite@4.1.4
-      yargs: 17.7.1
-    transitivePeerDependencies:
-      - '@swc/core'
-      - '@swc/wasm'
       - less
       - sass
       - stylus
