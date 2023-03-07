@@ -1,7 +1,7 @@
 {
 	"name": "@alexaegis/fs",
 	"description": "Filesystem tools",
-	"version": "0.0.22",
+	"version": "0.0.23",
 	"license": "MIT",
 	"private": false,
 	"author": {

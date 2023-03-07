@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.23](https://github.com/AlexAegis/js/compare/v0.0.22...v0.0.23) (2023-03-07)
+
+
+### Features
+
+* added findNearestFile ([b7da338](https://github.com/AlexAegis/js/commit/b7da3383649e0444b03c0cffb04dc5d0ed979e45))
+* added groupByCommonNearestFile ([9acc947](https://github.com/AlexAegis/js/commit/9acc94705d76ce00ec060ea44e1fcece5de516a3))
+
+
+### Bug Fixes
+
+* copy log ([f6e243f](https://github.com/AlexAegis/js/commit/f6e243f8ec6fad17136b209bc41406b503a362f5))
+
 ### [0.0.22](https://github.com/AlexAegis/js/compare/v0.0.21...v0.0.22) (2023-03-05)
 
 
