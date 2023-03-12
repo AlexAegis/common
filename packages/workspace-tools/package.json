@@ -55,11 +55,11 @@
 	},
 	"devDependencies": {
 		"@schemastore/package": "^0.0.8",
-		"@types/node": "^18.15.0",
+		"@types/node": "^18.15.3",
 		"typescript": "^4.9.5",
 		"vite": "^4.1.4",
-		"vite-plugin-autolib": "^0.0.12",
+		"vite-plugin-autolib": "^0.0.13",
 		"vite-plugin-dts": "^2.1.0",
-		"vitest": "^0.29.2"
+		"vitest": "^0.29.3"
 	}
 }
