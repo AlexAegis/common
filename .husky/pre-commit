@@ -1,0 +1,6 @@
+#!/bin/sh
+
+pnpm install
+git add pnpm-lock.yaml
+npx lint-staged
+
