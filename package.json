@@ -1,7 +1,7 @@
 {
 	"name": "@alexaegis/workspace",
 	"description": "base repo for common stuff in my other js projects",
-	"version": "0.0.23",
+	"version": "0.0.24",
 	"license": "mit",
 	"private": true,
 	"author": {
@@ -75,7 +75,7 @@
 		"typedoc-plugin-missing-exports": "^1.0.0"
 	},
 	"devDependencies": {
-		"@alexaegis/coverage-tools": "0.0.23",
+		"@alexaegis/coverage-tools": "0.0.24",
 		"@alexaegis/eslint-config-core": "0.0.3",
 		"@alexaegis/nuke": "0.0.3",
 		"@alexaegis/setup-commitlint": "0.0.3",

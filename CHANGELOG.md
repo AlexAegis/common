@@ -1,6 +1,18 @@
 # Changelog
 
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
+
+## [0.0.24](https://github.com/AlexAegis/js/compare/v0.0.23...v0.0.24) (2023-04-04)
+
+
+### Features
+
+* updated packages, migrated to common tooling ([a2bbe98](https://github.com/AlexAegis/js/commit/a2bbe98af83acf1a3526ee88549a66aab0c5c3d6))
+
+
+### Bug Fixes
+
+* reversed relative paths ([6267bcd](https://github.com/AlexAegis/js/commit/6267bcd51770e7d408cfdc638fc3b4de527fc025))
 
 ### [0.0.23](https://github.com/AlexAegis/js/compare/v0.0.22...v0.0.23) (2023-03-07)
 
