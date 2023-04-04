@@ -1,9 +1,9 @@
 import { noopLogger } from '@alexaegis/logging';
 import { describe, expect, it, vi } from 'vitest';
 import {
-	CollectWorkspacePackagesOptions,
 	normalizeCollectWorkspacePackagesOptions,
-	NormalizedCollectWorkspacePackagesOptions,
+	type CollectWorkspacePackagesOptions,
+	type NormalizedCollectWorkspacePackagesOptions,
 } from './collect-workspace-packages.function.options.js';
 
 const mockCwd = '/cwd';

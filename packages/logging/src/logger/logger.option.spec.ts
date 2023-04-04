@@ -1,6 +1,10 @@
 import { describe, expect, it } from 'vitest';
 import { createLogger } from './create-logger.function.js';
-import { LoggerOption, NormalizedLoggerOption, normalizeLoggerOption } from './logger.option.js';
+import {
+	normalizeLoggerOption,
+	type LoggerOption,
+	type NormalizedLoggerOption,
+} from './logger.option.js';
 import { noopLogger } from './noop-logger.const.js';
 
 describe('normalizeLoggerOption', () => {

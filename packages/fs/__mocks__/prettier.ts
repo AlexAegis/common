@@ -1,3 +1,5 @@
 import { mockPrettier } from '../src/mocks.js';
 
-export default mockPrettier();
+const mockedPrettier: ReturnType<typeof mockPrettier> = mockPrettier();
+
+export default mockedPrettier;

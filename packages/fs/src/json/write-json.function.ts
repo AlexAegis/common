@@ -1,6 +1,6 @@
 import { writeFile } from 'node:fs/promises';
 import { tryPrettify } from '../format/try-prettify.function.js';
-import { normalizeWriteJsonOptions, WriteJsonOptions } from './write-json.function.options.js';
+import { normalizeWriteJsonOptions, type WriteJsonOptions } from './write-json.function.options.js';
 
 export const writeJson = async <
 	T extends Record<string | number, unknown> = Record<string | number, unknown>

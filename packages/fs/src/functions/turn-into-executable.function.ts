@@ -1,11 +1,10 @@
-import { extname } from 'node:path';
-
 import { chmod, lstat, readFile, writeFile } from 'node:fs/promises';
-import { shebangs, SHEBANG_SEQUENCE } from './shebangs.const.js';
+import { extname } from 'node:path';
+import { SHEBANG_SEQUENCE, shebangs } from './shebangs.const.js';
 import { toAbsolute } from './to-absolute.function.js';
 import {
 	normalizeTurnIntoExecutableOptions,
-	TurnIntoExecutableOptions,
+	type TurnIntoExecutableOptions,
 } from './turn-into-executable.function.options.js';
 
 /**

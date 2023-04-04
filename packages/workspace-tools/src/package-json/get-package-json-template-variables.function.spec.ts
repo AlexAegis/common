@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
 	getPackageJsonTemplateVariables,
-	PackageJsonTemplateVariables,
+	type PackageJsonTemplateVariables,
 } from './get-package-json-template-variables.function.js';
 import type { PackageJson } from './package-json.interface.js';
 

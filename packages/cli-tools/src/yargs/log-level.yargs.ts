@@ -38,6 +38,8 @@ export const yargsForLogLevelOption = <T>(yargs: Argv<T>): Argv<T & NormalizedLo
 			return { logLevel: LogLevel.OFF };
 		} else if (args.verbose) {
 			return { logLevel: LogLevel.TRACE };
+		} else {
+			return undefined;
 		}
 	}) as MiddlewareFunction);
 };

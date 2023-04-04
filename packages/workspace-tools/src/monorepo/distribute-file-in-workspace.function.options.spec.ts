@@ -1,9 +1,9 @@
 import { noopLogger } from '@alexaegis/logging';
 import { describe, expect, it, vi } from 'vitest';
 import {
-	DistributeFileInWorkspaceOptions,
-	NormalizedDistributeFileInWorkspaceOptions,
 	normalizeDistributeFileInWorkspaceOptions,
+	type DistributeFileInWorkspaceOptions,
+	type NormalizedDistributeFileInWorkspaceOptions,
 } from './distribute-file-in-workspace.function.options.js';
 
 const mockCwd = '/foo/bar';

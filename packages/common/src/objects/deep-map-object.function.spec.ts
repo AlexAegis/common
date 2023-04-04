@@ -19,6 +19,8 @@ describe('deepMapObject', () => {
 		const mappedObject = deepMapObject(original, (key, value) => {
 			if (typeof value === 'string') {
 				return `${value} ${key}!`;
+			} else {
+				return undefined;
 			}
 		});
 

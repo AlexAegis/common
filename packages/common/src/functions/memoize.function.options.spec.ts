@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import {
-	MemoizeOptions,
-	NormalizedMemoizeOptions,
 	normalizeMemoizeOptions,
+	type MemoizeOptions,
+	type NormalizedMemoizeOptions,
 } from './memoize.function.options.js';
 
 describe('normalizeMemoizeOptions', () => {

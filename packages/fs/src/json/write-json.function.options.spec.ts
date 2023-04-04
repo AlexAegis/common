@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import {
-	NormalizedWriteJsonOptions,
 	normalizeWriteJsonOptions,
-	WriteJsonOptions,
+	type NormalizedWriteJsonOptions,
+	type WriteJsonOptions,
 } from './write-json.function.options.js';
 
 describe('WriteJsonFunctionOptions', () => {

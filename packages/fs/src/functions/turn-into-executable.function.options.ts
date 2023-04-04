@@ -1,5 +1,9 @@
-import { LoggerOption, NormalizedLoggerOption, normalizeLoggerOption } from '@alexaegis/logging';
-import { CwdOption, normalizeCwdOption, NormalizedCwdOption } from './cwd.option.js';
+import {
+	normalizeLoggerOption,
+	type LoggerOption,
+	type NormalizedLoggerOption,
+} from '@alexaegis/logging';
+import { normalizeCwdOption, type CwdOption, type NormalizedCwdOption } from './cwd.option.js';
 
 export type TurnIntoExecutableOptions = CwdOption & LoggerOption;
 export type NormalizedTurnIntoExecutableOptions = NormalizedCwdOption & NormalizedLoggerOption;

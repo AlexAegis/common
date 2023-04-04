@@ -1,5 +1,5 @@
 import { isAbsolute, join } from 'node:path';
-import { CwdOption, normalizeCwdOption } from './cwd.option.js';
+import { normalizeCwdOption, type CwdOption } from './cwd.option.js';
 
 /**
  * Normalizes a path to an absolute one

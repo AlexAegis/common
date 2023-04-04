@@ -7,7 +7,7 @@ import { collectWorkspacePackages } from './collect-workspace-packages.function.
 import { isDistributedFile } from './is-distributed-file.function.js';
 import {
 	normalizeRemoveFilesInWorkspaceOptions,
-	RemoveFilesInWorkspaceOptions,
+	type RemoveFilesInWorkspaceOptions,
 } from './remove-files-in-workspace.function.options.js';
 
 export const removeFilesInWorkspace = async (

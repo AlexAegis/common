@@ -2,9 +2,9 @@ import { noopLogger } from '@alexaegis/logging';
 import { describe, expect, it, vi } from 'vitest';
 import { DEFAULT_PACKAGE_JSON_SORTING_PREFERENCE } from '../index.js';
 import {
-	DistributePackageJsonItemsInWorkspaceOptions,
-	NormalizedDistributePackageJsonItemsInWorkspaceOptions,
 	normalizeDistributePackageJsonItemsInWorkspaceOptions,
+	type DistributePackageJsonItemsInWorkspaceOptions,
+	type NormalizedDistributePackageJsonItemsInWorkspaceOptions,
 } from './distribute-package-json-items-in-workspace.function.options.js';
 
 const mockCwd = '/foo/bar';

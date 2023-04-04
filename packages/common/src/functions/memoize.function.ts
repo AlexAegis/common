@@ -1,5 +1,5 @@
 import type { Fn } from './fn.type.js';
-import { MemoizeOptions, normalizeMemoizeOptions } from './memoize.function.options.js';
+import { normalizeMemoizeOptions, type MemoizeOptions } from './memoize.function.options.js';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const memoize = <F extends (...args: any) => unknown, T = unknown>(

@@ -11,7 +11,7 @@ export const getPackageJsonTemplateVariables = (
 	packageJson: PackageJson
 ): PackageJsonTemplateVariables & Record<string, string> => {
 	const packageName = packageJson.name ?? '';
-	let packageOrg = '';
+	let packageOrg: string | undefined;
 	let packageNameWithoutOrg: string = packageName;
 	if (packageName.includes('/')) {
 		const [splitPackageOrg, ...splitPackageName] = packageName.split('/');
@@ -20,8 +20,8 @@ export const getPackageJsonTemplateVariables = (
 	}
 
 	return {
+		packageOrg: packageOrg ?? '',
 		packageName,
-		packageOrg,
 		packageNameWithoutOrg,
 	};
 };

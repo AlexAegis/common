@@ -56,7 +56,7 @@ export const sortObject = <T extends object | unknown[]>(
 						.map((r) => r.source);
 					const shakedKey = shaked.indexOf(key);
 					order = closestNumber(regexpIndices, shakedKey);
-				} else {
+				} else if (regexpIndices[0]) {
 					order = regexpIndices[0];
 				}
 			}

@@ -1,5 +1,9 @@
 import { describe, expect, it } from 'vitest';
-import { ForceOption, NormalizedForceOption, normalizeForceOption } from './force.option.js';
+import {
+	normalizeForceOption,
+	type ForceOption,
+	type NormalizedForceOption,
+} from './force.option.js';
 
 describe('normalizeForceOption', () => {
 	it('should have a default when not defined', () => {

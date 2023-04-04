@@ -1,15 +1,15 @@
 import {
-	DryOption,
-	ForceOption,
-	NormalizedDryOption,
-	NormalizedForceOption,
 	normalizeDryOption,
 	normalizeForceOption,
+	type DryOption,
+	type ForceOption,
+	type NormalizedDryOption,
+	type NormalizedForceOption,
 } from '@alexaegis/common';
 import {
-	CollectWorkspacePackagesOptions,
 	normalizeCollectWorkspacePackagesOptions,
-	NormalizedCollectWorkspacePackagesOptions,
+	type CollectWorkspacePackagesOptions,
+	type NormalizedCollectWorkspacePackagesOptions,
 } from './collect-workspace-packages.function.options.js';
 
 export type DistributeInWorkspaceOptions = CollectWorkspacePackagesOptions &

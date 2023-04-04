@@ -1,5 +1,5 @@
-import { beforeEach, describe, expect, it, SpyInstance, vi } from 'vitest';
-import yargs, { Argv } from 'yargs';
+import { beforeEach, describe, expect, it, vi, type SpyInstance } from 'vitest';
+import yargs, { type Argv } from 'yargs';
 import { defaultYargsFromPackageJson } from './default-yargs.function.js';
 
 describe('defaultYargs', () => {

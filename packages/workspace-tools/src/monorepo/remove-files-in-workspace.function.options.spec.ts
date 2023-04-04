@@ -1,9 +1,9 @@
 import { noopLogger } from '@alexaegis/logging';
 import { describe, expect, it, vi } from 'vitest';
 import {
-	NormalizedRemoveFilesInWorkspaceOptions,
 	normalizeRemoveFilesInWorkspaceOptions,
-	RemoveFilesInWorkspaceOptions,
+	type NormalizedRemoveFilesInWorkspaceOptions,
+	type RemoveFilesInWorkspaceOptions,
 } from './remove-files-in-workspace.function.options.js';
 
 const mockCwd = '/foo/bar';

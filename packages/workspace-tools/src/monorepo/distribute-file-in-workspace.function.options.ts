@@ -1,6 +1,6 @@
 import {
-	DistributeInWorkspaceOptions,
 	normalizeDistributeInWorkspaceOptions,
+	type DistributeInWorkspaceOptions,
 } from './distribute-in-workspace.options.js';
 
 export type Transformer = (content: string) => string;

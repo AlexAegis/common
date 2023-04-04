@@ -1,14 +1,12 @@
 import type { Options } from 'globby';
-
 import { join } from 'node:path/posix';
 import { afterAll, describe, expect, it, vi } from 'vitest';
 import { mockProjectRoot } from '../../__mocks__/fs.js';
-
 import {
-	PackageJson,
 	PACKAGE_JSON_NAME,
-	PnpmWorkspaceYaml,
 	PNPM_WORKSPACE_FILE_NAME,
+	type PackageJson,
+	type PnpmWorkspaceYaml,
 } from '../package-json/package-json.interface.js';
 import { collectWorkspacePackages } from './collect-workspace-packages.function.js';
 

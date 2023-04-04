@@ -4,7 +4,7 @@ import { join } from 'node:path/posix';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { mockProjectRoot } from '../../__mocks__/fs.js';
 import { readFileMock, rmMock } from '../../__mocks__/node:fs/promises.js';
-import { DISTRIBUTION_MARK, PackageJson } from '../index.js';
+import { DISTRIBUTION_MARK, type PackageJson } from '../index.js';
 import { removeFilesInWorkspace } from './remove-files-in-workspace.function.js';
 
 vi.mock('globby', async () => {

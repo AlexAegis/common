@@ -1,10 +1,9 @@
 import { afterEach, beforeAll, describe, expect, it, vi } from 'vitest';
 import { mockProcessCwd, mockProcessCwdValue } from '../functions/cwd.option.spec.js';
-
 import {
-	NormalizedPrettifyOptions,
 	normalizePrettifyOptions,
-	PrettifyOptions,
+	type NormalizedPrettifyOptions,
+	type PrettifyOptions,
 } from './try-prettify.function.options.js';
 
 describe('normalizePrettifyOptions', () => {

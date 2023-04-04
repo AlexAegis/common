@@ -1,4 +1,4 @@
-import { DryOption, normalizeDryOption } from '@alexaegis/common';
+import { normalizeDryOption, type DryOption } from '@alexaegis/common';
 
 export interface WriteJsonOptions extends DryOption {
 	/**

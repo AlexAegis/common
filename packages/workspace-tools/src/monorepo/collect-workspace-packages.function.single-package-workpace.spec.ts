@@ -1,10 +1,8 @@
 import type { Options } from 'globby';
-
 import { join } from 'node:path/posix';
 import { afterAll, describe, expect, it, vi } from 'vitest';
 import { mockProjectRoot } from '../../__mocks__/fs.js';
-
-import { PackageJson, PACKAGE_JSON_NAME } from '../package-json/package-json.interface.js';
+import { PACKAGE_JSON_NAME, type PackageJson } from '../package-json/package-json.interface.js';
 import { collectWorkspacePackages } from './collect-workspace-packages.function.js';
 
 const mockPackageJsonValue: PackageJson = {

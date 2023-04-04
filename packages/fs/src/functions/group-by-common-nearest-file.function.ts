@@ -11,11 +11,11 @@ export const groupByCommonNearestFile = (
 		const nearestFile = findNearestFile(filename, path);
 
 		if (nearestFile) {
-			if (!groups[nearestFile]) {
-				groups[nearestFile] = [];
-			}
+			groups[nearestFile]?.push(path);
 
-			groups[nearestFile].push(path);
+			if (!groups[nearestFile]) {
+				groups[nearestFile] = [path];
+			}
 		}
 
 		return groups;

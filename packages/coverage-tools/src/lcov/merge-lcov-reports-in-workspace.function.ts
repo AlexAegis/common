@@ -1,7 +1,7 @@
 import { asyncFilterMap } from '@alexaegis/common';
 import {
-	CollectWorkspacePackagesOptions,
 	normalizeCollectWorkspacePackagesOptions,
+	type CollectWorkspacePackagesOptions,
 } from '@alexaegis/workspace-tools';
 import { readFile } from 'node:fs/promises';
 import { collectLcovReportPaths } from './collect-lcov-report-paths.function.js';

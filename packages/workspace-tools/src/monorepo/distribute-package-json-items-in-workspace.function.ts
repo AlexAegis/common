@@ -4,13 +4,13 @@ import { join, relative } from 'node:path';
 import { getWorkspaceRoot } from '../index.js';
 import {
 	getPackageJsonTemplateVariables,
-	PackageJsonTemplateVariableNames,
+	type PackageJsonTemplateVariableNames,
 } from '../package-json/get-package-json-template-variables.function.js';
-import { PackageJson, PACKAGE_JSON_NAME } from '../package-json/package-json.interface.js';
+import { PACKAGE_JSON_NAME, type PackageJson } from '../package-json/package-json.interface.js';
 import { collectWorkspacePackages } from './collect-workspace-packages.function.js';
 import {
-	DistributePackageJsonItemsInWorkspaceOptions,
 	normalizeDistributePackageJsonItemsInWorkspaceOptions,
+	type DistributePackageJsonItemsInWorkspaceOptions,
 } from './distribute-package-json-items-in-workspace.function.options.js';
 
 /**

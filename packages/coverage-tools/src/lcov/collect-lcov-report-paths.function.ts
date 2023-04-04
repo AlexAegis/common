@@ -1,12 +1,13 @@
+import { isNullish } from '@alexaegis/common';
 import {
+	NODE_MODULES_DIRECTORY_NAME,
 	collectWorkspacePackages,
 	getWorkspaceRoot,
-	NODE_MODULES_DIRECTORY_NAME,
 } from '@alexaegis/workspace-tools';
 import { globby } from 'globby';
 import {
-	CollectLcovReportPathsOptions,
 	normalizeCollectLcovReportPathsOptions,
+	type CollectLcovReportPathsOptions,
 } from './collect-lcov-report-paths.function.options.js';
 
 export const LCOV_INFO_FILE_NAME = 'lcov.info';
@@ -16,6 +17,10 @@ export const collectLcovReportPaths = async (
 ): Promise<string[]> => {
 	const options = normalizeCollectLcovReportPathsOptions(rawOptions);
 	const workspaceRoot = await getWorkspaceRoot(options.cwd);
+
+	if (isNullish(workspaceRoot)) {
+		return [];
+	}
 
 	const workspacePackages = await collectWorkspacePackages({
 		...options,

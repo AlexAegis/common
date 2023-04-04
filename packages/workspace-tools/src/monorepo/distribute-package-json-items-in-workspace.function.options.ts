@@ -1,9 +1,9 @@
 import type { ObjectKeyOrder } from '@alexaegis/common';
 import { DEFAULT_PACKAGE_JSON_SORTING_PREFERENCE } from '../package-json/default-package-json-order.const.js';
 import {
-	DistributeInWorkspaceOptions,
-	NormalizedDistributeInWorkspaceOptions,
 	normalizeDistributeInWorkspaceOptions,
+	type DistributeInWorkspaceOptions,
+	type NormalizedDistributeInWorkspaceOptions,
 } from './distribute-in-workspace.options.js';
 
 export type DistributePackageJsonItemsInWorkspaceOnlyOptions = {

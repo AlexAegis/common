@@ -1,7 +1,7 @@
 import {
-	CollectWorkspacePackagesOptions,
 	normalizeCollectWorkspacePackagesOptions,
-	NormalizedCollectWorkspacePackagesOptions,
+	type CollectWorkspacePackagesOptions,
+	type NormalizedCollectWorkspacePackagesOptions,
 } from '@alexaegis/workspace-tools';
 
 export type CollectLcovReportPathsOptions = Omit<

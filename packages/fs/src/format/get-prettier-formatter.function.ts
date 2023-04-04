@@ -1,5 +1,5 @@
 import type { Options } from 'prettier';
-import { normalizePrettifyOptions, PrettifyOptions } from './try-prettify.function.options.js';
+import { normalizePrettifyOptions, type PrettifyOptions } from './try-prettify.function.options.js';
 
 /**
  * @returns a function that formats strings with prettier

@@ -19,4 +19,6 @@ export const findNearestFile = (
 
 		currentPath = parentPath;
 	}
+
+	return undefined;
 };

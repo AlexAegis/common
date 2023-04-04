@@ -1,9 +1,9 @@
 import { describe, expect, it } from 'vitest';
 import { LogLevel } from './log-level.enum.js';
 import {
-	LogLevelOption,
-	NormalizedLogLevelOption,
 	normalizeLogLevelOption,
+	type LogLevelOption,
+	type NormalizedLogLevelOption,
 } from './log-level.enum.option.js';
 
 describe('normalizeLogLevelOption', () => {

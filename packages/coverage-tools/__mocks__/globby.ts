@@ -15,5 +15,7 @@ export const globby = async (
 		return [join(mockProjectRoot, 'packages/zed/coverage/lcov.info')];
 	} else if (patterns.some((pattern) => pattern.includes('zod'))) {
 		return [join(mockProjectRoot, 'packages/zod/coverage/lcov.info')];
+	} else {
+		return undefined;
 	}
 };

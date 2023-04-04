@@ -1,10 +1,10 @@
 import {
-	ForceOption,
-	NormalizedDryOption,
 	normalizeDryOption,
-	NormalizedSafeOption,
 	normalizeSafeOption,
-	SafeOption,
+	type ForceOption,
+	type NormalizedDryOption,
+	type NormalizedSafeOption,
+	type SafeOption,
 } from '@alexaegis/common';
 import { normalizeCollectWorkspacePackagesOptions } from './collect-workspace-packages.function.options.js';
 import type { DistributeInWorkspaceOptions } from './distribute-in-workspace.options.js';

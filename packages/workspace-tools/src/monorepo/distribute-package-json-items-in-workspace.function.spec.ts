@@ -1,10 +1,9 @@
 import { writeJson } from '@alexaegis/fs';
 import { mockLogger } from '@alexaegis/logging/mocks';
 import { join } from 'node:path/posix';
-
-import { afterEach, describe, expect, it, Mock, vi } from 'vitest';
+import { afterEach, describe, expect, it, vi, type Mock } from 'vitest';
 import { mockProjectRoot } from '../../__mocks__/fs.js';
-import { PackageJson, PACKAGE_JSON_NAME } from '../index.js';
+import { PACKAGE_JSON_NAME, type PackageJson } from '../index.js';
 import { distributePackageJsonItemsInWorkspace } from './distribute-package-json-items-in-workspace.function.js';
 
 const mockPackageJsonWorkspaceValue: PackageJson = {

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { NormalizedSafeOption, normalizeSafeOption, SafeOption } from './safe.option.js';
+import { normalizeSafeOption, type NormalizedSafeOption, type SafeOption } from './safe.option.js';
 
 describe('normalizeSafeOption', () => {
 	it('should have a default when not defined', () => {

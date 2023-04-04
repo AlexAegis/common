@@ -1,6 +1,10 @@
 import { normalizeRegExpLikeToRegExp } from '@alexaegis/common';
-import { CwdOption, normalizeCwdOption, NormalizedCwdOption } from '@alexaegis/fs';
-import { LoggerOption, NormalizedLoggerOption, normalizeLoggerOption } from '@alexaegis/logging';
+import { normalizeCwdOption, type CwdOption, type NormalizedCwdOption } from '@alexaegis/fs';
+import {
+	normalizeLoggerOption,
+	type LoggerOption,
+	type NormalizedLoggerOption,
+} from '@alexaegis/logging';
 
 interface CollectWorkspaceOnlyOptions {
 	/**

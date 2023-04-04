@@ -1,5 +1,5 @@
-import { afterEach, beforeAll, describe, expect, it, SpyInstance, vi } from 'vitest';
-import { normalizeCwdOption, NormalizedCwdOption } from './cwd.option.js';
+import { afterEach, beforeAll, describe, expect, it, vi, type SpyInstance } from 'vitest';
+import { normalizeCwdOption, type NormalizedCwdOption } from './cwd.option.js';
 
 export const mockProcessCwdValue = '/foo';
 

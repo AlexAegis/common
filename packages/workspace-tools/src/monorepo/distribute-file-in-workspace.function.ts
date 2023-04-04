@@ -2,15 +2,14 @@ import { asyncFilter, dry, fillStringWithTemplateVariables } from '@alexaegis/co
 import { toAbsolute, turnIntoExecutable } from '@alexaegis/fs';
 import { existsSync } from 'node:fs';
 import { lstat, mkdir, readFile, rm, symlink, writeFile } from 'node:fs/promises';
-
 import { dirname, join, relative } from 'node:path';
 import { getWorkspaceRoot } from '../npm/get-workspace-root.function.js';
 import { getPackageJsonTemplateVariables } from '../package-json/get-package-json-template-variables.function.js';
 import type { WorkspacePackage } from '../package-json/workspace-package.interface.js';
 import { collectWorkspacePackages } from './collect-workspace-packages.function.js';
 import {
-	DistributeFileInWorkspaceOptions,
 	normalizeDistributeFileInWorkspaceOptions,
+	type DistributeFileInWorkspaceOptions,
 } from './distribute-file-in-workspace.function.options.js';
 import { isDistributedFile } from './is-distributed-file.function.js';
 

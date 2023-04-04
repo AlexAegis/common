@@ -1,5 +1,5 @@
 import type { BuiltInParserName } from 'prettier';
-import { CwdOption, normalizeCwdOption } from '../functions/cwd.option.js';
+import { normalizeCwdOption, type CwdOption } from '../functions/cwd.option.js';
 
 export interface PrettifyOptions extends CwdOption {
 	/**

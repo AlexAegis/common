@@ -1,21 +1,20 @@
+import { asyncFilterMap } from '@alexaegis/common';
 import { readJson, readYaml } from '@alexaegis/fs';
 import { globby } from 'globby';
 import { join } from 'node:path';
-import {
-	NODE_MODULES_DIRECTORY_NAME,
-	PackageJson,
-	PACKAGE_JSON_NAME,
-	PnpmWorkspaceYaml,
-	PNPM_WORKSPACE_FILE_NAME,
-} from '../package-json/package-json.interface.js';
-
-import { asyncFilterMap } from '@alexaegis/common';
 import { getWorkspaceRoot } from '../npm/get-workspace-root.function.js';
 import { normalizePackageJsonWorkspacesField } from '../npm/normalize-package-json-workspaces-field.function.js';
+import {
+	NODE_MODULES_DIRECTORY_NAME,
+	PACKAGE_JSON_NAME,
+	PNPM_WORKSPACE_FILE_NAME,
+	type PackageJson,
+	type PnpmWorkspaceYaml,
+} from '../package-json/package-json.interface.js';
 import type { WorkspacePackage } from '../package-json/workspace-package.interface.js';
 import {
-	CollectWorkspacePackagesOptions,
 	normalizeCollectWorkspacePackagesOptions,
+	type CollectWorkspacePackagesOptions,
 } from './collect-workspace-packages.function.options.js';
 
 export const collectWorkspacePackages = async (

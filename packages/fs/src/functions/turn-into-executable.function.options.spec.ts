@@ -1,9 +1,9 @@
 import { noopLogger } from '@alexaegis/logging';
 import { describe, expect, it, vi } from 'vitest';
 import {
-	NormalizedTurnIntoExecutableOptions,
 	normalizeTurnIntoExecutableOptions,
-	TurnIntoExecutableOptions,
+	type NormalizedTurnIntoExecutableOptions,
+	type TurnIntoExecutableOptions,
 } from './turn-into-executable.function.options.js';
 
 export const mockProcessCwdValue = '/foo';
