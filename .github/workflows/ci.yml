@@ -169,8 +169,6 @@ jobs:
         run: pnpm install
       - name: build
         run: BASE_HREF="/${{ github.event.repository.name }}/" pnpm build
-      - name: typedoc
-        run: BASE_HREF="/${{ github.event.repository.name }}/" pnpm typedoc
       - name: prepare pages (use index.html as 404.html)
         if: |
           env.DEPLOY_ARTIFACT_DIR != '' &&
