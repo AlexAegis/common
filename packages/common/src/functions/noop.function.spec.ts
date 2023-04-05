@@ -9,8 +9,12 @@ describe('noop', () => {
 	});
 
 	describe('noopPromise', () => {
-		it('should return undefined asynchronously', async () => {
-			expect(await noopAsync()).toBeUndefined();
+		it('should return undefined asynchronously in micro mode', async () => {
+			expect(await noopAsync('micro')).toBeUndefined();
+		});
+
+		it('should return undefined asynchronously in macro mode', async () => {
+			expect(await noopAsync('macro')).toBeUndefined();
 		});
 	});
 });

@@ -20,7 +20,12 @@ describe('identity', () => {
 
 		it('should return what you pass to it', async () => {
 			const foo = 'foo';
-			expect(await identityAsync(foo)).toBe(foo);
+			expect(await identityAsync(foo, 'micro')).toBe(foo);
+		});
+
+		it('should return what you pass to it in macro mode too', async () => {
+			const foo = 'foo';
+			expect(await identityAsync(foo, 'macro')).toBe(foo);
 		});
 	});
 });

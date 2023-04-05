@@ -9,8 +9,12 @@ describe('yes', () => {
 	});
 
 	describe('async', () => {
-		it('should return true', async () => {
-			expect(await yesAsync()).toBeTruthy();
+		it('should return true in micro mode', async () => {
+			expect(await yesAsync('micro')).toBeTruthy();
+		});
+
+		it('should return true in macro mode', async () => {
+			expect(await yesAsync('macro')).toBeTruthy();
 		});
 	});
 });
