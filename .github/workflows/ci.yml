@@ -131,6 +131,27 @@ jobs:
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           directory: coverage
+      - name: prepare pages (use index.html as 404.html)
+        if: |
+          env.DEPLOY_ARTIFACT_DIR != '' &&
+          github.ref_name == ${{ github.event.repository.default_branch }} &&
+          github.event_name != 'pull_request'
+        run: |
+          cp ${{ env.DEPLOY_ARTIFACT_DIR }}/index.html ${{ env.DEPLOY_ARTIFACT_DIR }}/404.html
+      - name: setup pages
+        uses: actions/configure-pages@v3
+        if: |
+          env.DEPLOY_ARTIFACT_DIR != '' &&
+          github.ref_name == ${{ github.event.repository.default_branch }} &&
+          github.event_name != 'pull_request'
+      - name: upload artifact
+        uses: actions/upload-pages-artifact@v1
+        if: |
+          env.DEPLOY_ARTIFACT_DIR != '' && 
+          github.ref_name == ${{ github.event.repository.default_branch }} && 
+          github.event_name != 'pull_request'
+        with:
+          path: ${{ env.DEPLOY_ARTIFACT_DIR }}
   build:
     name: build
     runs-on: ubuntu-latest
@@ -169,27 +190,6 @@ jobs:
         run: pnpm install
       - name: build
         run: BASE_HREF="/${{ github.event.repository.name }}/" pnpm build
-      - name: prepare pages (use index.html as 404.html)
-        if: |
-          env.DEPLOY_ARTIFACT_DIR != '' &&
-          github.ref_name == ${{ github.event.repository.default_branch }} &&
-          github.event_name != 'pull_request'
-        run: |
-          cp ${{ env.DEPLOY_ARTIFACT_DIR }}/index.html ${{ env.DEPLOY_ARTIFACT_DIR }}/404.html
-      - name: setup pages
-        uses: actions/configure-pages@v3
-        if: |
-          env.DEPLOY_ARTIFACT_DIR != '' &&
-          github.ref_name == ${{ github.event.repository.default_branch }} &&
-          github.event_name != 'pull_request'
-      - name: upload artifact
-        uses: actions/upload-pages-artifact@v1
-        if: |
-          env.DEPLOY_ARTIFACT_DIR != '' && 
-          github.ref_name == ${{ github.event.repository.default_branch }} && 
-          github.event_name != 'pull_request'
-        with:
-          path: ${{ env.DEPLOY_ARTIFACT_DIR }}
   deploy:
     name: deploy
     if: |
