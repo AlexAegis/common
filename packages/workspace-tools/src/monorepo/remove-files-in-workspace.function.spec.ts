@@ -1,4 +1,5 @@
-import { mockLogger } from '@alexaegis/logging/mocks';
+import type { Logger } from '@alexaegis/logging';
+import { MockLogger } from '@alexaegis/logging/mocks';
 import type { Options } from 'globby';
 import { join } from 'node:path/posix';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
@@ -7,9 +8,9 @@ import { readFileMock, rmMock } from '../../__mocks__/node:fs/promises.js';
 import { DISTRIBUTION_MARK, type PackageJson } from '../index.js';
 import { removeFilesInWorkspace } from './remove-files-in-workspace.function.js';
 
-vi.mock('globby', async () => {
+vi.mock('globby', () => {
 	return {
-		globby: async (_patterns: string[], options: Options): Promise<string[]> => {
+		globby: (_patterns: string[], options: Options): string[] => {
 			expect(options.absolute).toBeTruthy();
 			return [
 				join(mockProjectRoot, 'trash'),
@@ -24,14 +25,14 @@ vi.mock('fs');
 vi.mock('node:fs/promises');
 
 vi.mock('@alexaegis/fs', async () => {
-	const mockReadJson = vi.fn<[string | undefined], Promise<unknown>>(async (_path) => {
+	const mockReadJson = vi.fn<[string | undefined], Promise<PackageJson | undefined>>((_path) => {
 		// For some reason the file cannot be read even though it exists
-		return {
+		return Promise.resolve({
 			workspaces: ['packages/*'],
-		} as PackageJson;
+		} as PackageJson);
 	});
 
-	const mockReadYaml = vi.fn<[string | undefined], Promise<unknown>>(async (_path) => {
+	const mockReadYaml = vi.fn<[string | undefined], unknown>((_path) => {
 		return undefined;
 	});
 
@@ -45,14 +46,22 @@ vi.mock('@alexaegis/fs', async () => {
 });
 
 describe('removeFilesInWorkspace', () => {
+	let mockLogger: MockLogger;
+	let logger: Logger<unknown>;
+
 	beforeEach(() => {
-		readFileMock.mockImplementation(async (path) => {
-			if (path.toString().includes('trash') && !path.toString().includes('zod')) {
-				return DISTRIBUTION_MARK;
-			} else {
-				return undefined;
-			}
-		});
+		mockLogger = new MockLogger();
+		logger = mockLogger as unknown as Logger<unknown>;
+	});
+
+	beforeEach(() => {
+		readFileMock.mockImplementation((path) =>
+			Promise.resolve(
+				path.toString().includes('trash') && !path.toString().includes('zod')
+					? DISTRIBUTION_MARK
+					: undefined
+			)
+		);
 	});
 
 	afterEach(() => {
@@ -65,7 +74,7 @@ describe('removeFilesInWorkspace', () => {
 	it('should remove files if they exist', async () => {
 		await removeFilesInWorkspace(filename, {
 			cwd: join(mockProjectRoot, 'packages'),
-			logger: mockLogger,
+			logger,
 		});
 
 		expect(rmMock).toHaveBeenCalledWith('/foo/bar/trash', rmOptions);
@@ -79,7 +88,7 @@ describe('removeFilesInWorkspace', () => {
 		await removeFilesInWorkspace(filename, {
 			cwd: join(mockProjectRoot, 'packages'),
 			safe: true,
-			logger: mockLogger,
+			logger,
 		});
 
 		expect(rmMock).toHaveBeenCalledWith('/foo/bar/trash', rmOptions);
@@ -93,7 +102,7 @@ describe('removeFilesInWorkspace', () => {
 		await removeFilesInWorkspace(filename, {
 			cwd: join(mockProjectRoot, 'packages'),
 			dry: true,
-			logger: mockLogger,
+			logger,
 		});
 
 		expect(rmMock).not.toHaveBeenCalled();
@@ -105,7 +114,7 @@ describe('removeFilesInWorkspace', () => {
 
 		await removeFilesInWorkspace(filename, {
 			cwd: join(mockProjectRoot, 'packages'),
-			logger: mockLogger,
+			logger,
 		});
 
 		expect(rmMock).toHaveBeenCalled();

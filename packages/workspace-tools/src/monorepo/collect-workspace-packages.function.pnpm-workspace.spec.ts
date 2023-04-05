@@ -15,23 +15,20 @@ const mockPackageJsonValue: PackageJson = {
 };
 
 vi.mock('@alexaegis/fs', async () => {
-	const mockReadJson = vi.fn<[string | undefined], Promise<unknown>>(async (path) => {
-		if (path?.endsWith(PACKAGE_JSON_NAME)) {
-			return mockPackageJsonValue;
-		} else {
-			return undefined;
-		}
-	});
+	const mockReadJson = vi.fn<[string | undefined], Promise<PackageJson | undefined>>((path) =>
+		Promise.resolve(path?.endsWith(PACKAGE_JSON_NAME) ? mockPackageJsonValue : undefined)
+	);
 
-	const mockReadYaml = vi.fn<[string | undefined], Promise<unknown>>(async (path) => {
-		if (path?.endsWith(PNPM_WORKSPACE_FILE_NAME)) {
-			return {
-				packages: ['packages/*'],
-			} satisfies PnpmWorkspaceYaml;
-		} else {
-			return undefined;
-		}
-	});
+	const mockReadYaml = vi.fn<[string | undefined], Promise<PnpmWorkspaceYaml | undefined>>(
+		(path) =>
+			Promise.resolve(
+				path?.endsWith(PNPM_WORKSPACE_FILE_NAME)
+					? ({
+							packages: ['packages/*'],
+					  } satisfies PnpmWorkspaceYaml)
+					: undefined
+			)
+	);
 
 	return {
 		readJson: mockReadJson,
@@ -60,11 +57,9 @@ vi.mock('globby', () => {
 			expect(options.onlyDirectories).toBeTruthy();
 			expect(options.cwd).toBe('/foo/bar');
 
-			if (patterns.some((pattern) => pattern.startsWith('packages/*'))) {
-				return ['/foo/bar/packages/zed', '/foo/bar/packages/zod'];
-			} else {
-				return [];
-			}
+			return patterns.some((pattern) => pattern.startsWith('packages/*'))
+				? ['/foo/bar/packages/zed', '/foo/bar/packages/zod']
+				: [];
 		},
 	};
 });

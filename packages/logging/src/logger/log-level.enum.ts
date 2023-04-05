@@ -1,5 +1,5 @@
 export enum LogLevel {
-	OFF = Number.POSITIVE_INFINITY,
+	OFF = 1_000_000,
 	FATAL = 6,
 	ERROR = 5,
 	WARN = 4,

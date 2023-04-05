@@ -7,12 +7,12 @@ describe('sleep', () => {
 	});
 
 	it('should be a noop when the timeout is 0 or less', () => {
-		sleep(0);
+		void sleep(0);
 		expect(vi.getTimerCount()).toBe(0);
 	});
 
 	it('should be a noop when the timeout is 0 or less', () => {
-		sleep(100);
+		void sleep(100);
 		expect(vi.getTimerCount()).toBe(1);
 		vi.advanceTimersByTime(100);
 		expect(vi.getTimerCount()).toBe(0);

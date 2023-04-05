@@ -90,8 +90,8 @@ importers:
         specifier: ^0.29.8
         version: 0.29.8(vitest@0.29.8)
       commit-and-tag-version:
-        specifier: ^11.2.0
-        version: 11.2.0
+        specifier: ^11.2.1
+        version: 11.2.1
       commitlint:
         specifier: ^17.5.1
         version: 17.5.1
@@ -123,8 +123,8 @@ importers:
         specifier: ^0.33.0
         version: 0.33.0
       npm-check-updates:
-        specifier: ^16.10.2
-        version: 16.10.2
+        specifier: ^16.10.6
+        version: 16.10.6
       prettier:
         specifier: ^2.8.7
         version: 2.8.7
@@ -727,7 +727,7 @@ packages:
       '@alexaegis/logging': 0.0.23
       '@alexaegis/standard-version': 0.0.5
       '@alexaegis/workspace-tools': 0.0.23
-      commit-and-tag-version: 11.2.0
+      commit-and-tag-version: 11.2.1
     dev: true
 
   /@alexaegis/setup-stylelint@0.0.5:
@@ -826,7 +826,7 @@ packages:
       '@alexaegis/logging': 0.0.23
       '@alexaegis/setup-editorconfig': 0.0.5(@types/node@18.15.11)(typescript@5.0.3)
       '@alexaegis/workspace-tools': 0.0.23
-      npm-check-updates: 16.10.2
+      npm-check-updates: 16.10.6
     transitivePeerDependencies:
       - '@swc/core'
       - '@swc/wasm'
@@ -2993,8 +2993,8 @@ packages:
     engines: {node: ^12.20.0 || >=14}
     dev: true
 
-  /commit-and-tag-version@11.2.0:
-    resolution: {integrity: sha512-cPMEvxIayRCTGw3k9WyRhGcI1snPNoXLXtOxKIS/hCGgVQZJ/Jn2zT8wMrTJw7kfqbWNA/kOukeIOHAJ+ZWy8g==}
+  /commit-and-tag-version@11.2.1:
+    resolution: {integrity: sha512-ruYCGsYtevfA+sueDJoMlb//v9IL2+WTjjqIX/IoAmd4SKilOz4HZHAl4QnxuDZN2Npvv0A8RgE97DfwzYxwDw==}
     engines: {node: '>=14'}
     hasBin: true
     dependencies:
@@ -3010,7 +3010,6 @@ packages:
       find-up: 5.0.0
       git-semver-tags: 4.1.1
       semver: 7.3.8
-      stringify-package: 1.0.1
       yargs: 17.7.1
     dev: true
 
@@ -6648,8 +6647,8 @@ packages:
       npm-normalize-package-bin: 3.0.0
     dev: true
 
-  /npm-check-updates@16.10.2:
-    resolution: {integrity: sha512-njcps3jbtviL8Bqmv5vh2EeUY4z3dEORr7t0CIOR6+M05yhch5GzYT9MObQaA/pi0miDqukf2Y829c1SAc3n+w==}
+  /npm-check-updates@16.10.6:
+    resolution: {integrity: sha512-5pj7Q1boz6NaR/4700TWtzdU6g7++Ivbn5Y/NYHuHcx3K+3pMuH/03ZUUyEY/p/y+XPTCKe7q4iPvIxzub+7Zw==}
     engines: {node: '>=14.14'}
     hasBin: true
     dependencies:
@@ -6666,7 +6665,7 @@ packages:
       json-parse-helpfulerror: 1.0.3
       jsonlines: 0.1.1
       lodash: 4.17.21
-      minimatch: 7.4.5
+      minimatch: 8.0.3
       p-map: 4.0.0
       pacote: 15.1.1
       parse-github-url: 1.0.2

@@ -26,7 +26,7 @@ export const distributePackageJsonItemsInWorkspace = async (
 	rawOptions?: DistributePackageJsonItemsInWorkspaceOptions
 ): Promise<void> => {
 	const options = normalizeDistributePackageJsonItemsInWorkspaceOptions(rawOptions);
-	const workspaceRoot = await getWorkspaceRoot(options.cwd);
+	const workspaceRoot = getWorkspaceRoot(options.cwd);
 
 	if (!workspaceRoot) {
 		options.logger.error("can't distribute packageJson updates, not in a workspace!");

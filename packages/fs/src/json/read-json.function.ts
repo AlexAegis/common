@@ -21,7 +21,7 @@ export const readJson = async <
 	}
 
 	try {
-		return JSON.parse(rawJson);
+		return JSON.parse(rawJson) as T;
 	} catch {
 		return undefined;
 	}

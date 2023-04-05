@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import {
-	mockLogger,
+	MockLogger,
 	mockTsLogAttachTransport,
 	mockTsLogDebug,
 	mockTsLogError,
@@ -15,7 +15,17 @@ import {
 
 describe('mocks', () => {
 	it('should exist', () => {
-		expect(mockLogger).toBeDefined();
+		const mockLogger = new MockLogger();
+		expect(mockLogger.attachTransport).toBeDefined();
+		expect(mockLogger.debug).toBeDefined();
+		expect(mockLogger.error).toBeDefined();
+		expect(mockLogger.fatal).toBeDefined();
+		expect(mockLogger.getSubLogger).toBeDefined();
+		expect(mockLogger.info).toBeDefined();
+		expect(mockLogger.log).toBeDefined();
+		expect(mockLogger.silly).toBeDefined();
+		expect(mockLogger.trace).toBeDefined();
+		expect(mockLogger.warn).toBeDefined();
 
 		expect(mockTsLogSilly()).toBeUndefined();
 		expect(mockTsLogTrace()).toBeUndefined();
@@ -26,6 +36,6 @@ describe('mocks', () => {
 		expect(mockTsLogFatal()).toBeUndefined();
 		expect(mockTsLogError()).toBeUndefined();
 		expect(mockTsLogAttachTransport()).toBeUndefined();
-		expect(mockTsLogGetSubLogger()).toBe(mockLogger);
+		expect(mockTsLogGetSubLogger()).toBeUndefined();
 	});
 });

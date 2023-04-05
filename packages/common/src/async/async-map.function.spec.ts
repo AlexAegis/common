@@ -37,7 +37,7 @@ describe('asyncMap', () => {
 	});
 
 	it('should just let errors escape', async () => {
-		expect(async () => {
+		await expect(async () => {
 			const promise = asyncMap([1, -1], slowIncrement);
 			expect(vi.getTimerCount()).toEqual(2);
 			vi.advanceTimersByTime(100);

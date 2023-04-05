@@ -16,10 +16,8 @@ export const fillObjectWithTemplateVariables = <
 	variables: Record<VariableKeys, string>
 ): T => {
 	return deepMapObject(target, (_key, value) => {
-		if (typeof value === 'string') {
-			return fillStringWithTemplateVariables(value, variables);
-		} else {
-			return undefined;
-		}
+		return typeof value === 'string'
+			? fillStringWithTemplateVariables(value, variables)
+			: undefined;
 	});
 };

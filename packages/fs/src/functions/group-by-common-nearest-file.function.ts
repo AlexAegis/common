@@ -7,7 +7,7 @@ export const groupByCommonNearestFile = (
 	paths: string[],
 	filename: string
 ): Record<string, string[]> => {
-	return paths.reduce((groups, path) => {
+	return paths.reduce<Record<string, string[]>>((groups, path) => {
 		const nearestFile = findNearestFile(filename, path);
 
 		if (nearestFile) {
@@ -19,5 +19,5 @@ export const groupByCommonNearestFile = (
 		}
 
 		return groups;
-	}, {} as Record<string, string[]>);
+	}, {});
 };

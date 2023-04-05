@@ -7,12 +7,12 @@ export const NODE_MODULES_DIRECTORY_NAME = 'node_modules';
 
 export type PackageJsonExports = Record<string, PackageJsonExportConditions | string>;
 
-export type SimplifiedPackageJsonFields = {
+export interface SimplifiedPackageJsonFields {
 	exports?: PackageJsonExports;
 	bin?: Record<string, string>;
 	type?: 'commonjs' | 'module';
 	scripts?: Record<string, string | undefined>;
-};
+}
 
 /**
  * This packageJson definition is a bit simplified from the real one

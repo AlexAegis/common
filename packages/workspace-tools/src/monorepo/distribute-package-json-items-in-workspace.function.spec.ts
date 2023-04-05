@@ -1,7 +1,8 @@
 import { writeJson } from '@alexaegis/fs';
-import { mockLogger } from '@alexaegis/logging/mocks';
+import type { Logger } from '@alexaegis/logging';
+import { MockLogger } from '@alexaegis/logging/mocks';
 import { join } from 'node:path/posix';
-import { afterEach, describe, expect, it, vi, type Mock } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi, type Mock } from 'vitest';
 import { mockProjectRoot } from '../../__mocks__/fs.js';
 import { PACKAGE_JSON_NAME, type PackageJson } from '../index.js';
 import { distributePackageJsonItemsInWorkspace } from './distribute-package-json-items-in-workspace.function.js';
@@ -25,24 +26,27 @@ const mockPackageJsonZodValue: PackageJson = {
 };
 
 vi.mock('@alexaegis/fs', async () => {
-	const mockReadJson = vi.fn<[string | undefined], Promise<unknown>>(async (path) => {
-		if (path?.endsWith(join('zed', PACKAGE_JSON_NAME))) {
-			return mockPackageJsonZedValue;
-		} else if (path?.endsWith(join('zod', PACKAGE_JSON_NAME))) {
-			return mockPackageJsonZodValue;
-		} else if (path?.endsWith(PACKAGE_JSON_NAME)) {
-			return mockPackageJsonWorkspaceValue;
-		} else {
-			return undefined;
-		}
-	});
+	const mockReadJson = vi.fn<[string | undefined], Promise<unknown>>(
+		(path) =>
+			new Promise((resolve) => {
+				if (path?.endsWith(join('zed', PACKAGE_JSON_NAME))) {
+					resolve(mockPackageJsonZedValue);
+				} else if (path?.endsWith(join('zod', PACKAGE_JSON_NAME))) {
+					resolve(mockPackageJsonZodValue);
+				} else if (path?.endsWith(PACKAGE_JSON_NAME)) {
+					resolve(mockPackageJsonWorkspaceValue);
+				} else {
+					throw new Error('File does not exist!');
+				}
+			})
+	);
 
-	const mockReadYaml = vi.fn<[string | undefined], Promise<unknown>>(async (_path) => {
+	const mockReadYaml = vi.fn<[string | undefined], unknown>((_path) => {
 		return undefined;
 	});
 
-	const mockWriteJson = vi.fn<[Record<string, unknown>, string], Promise<void>>(
-		async (_o: Record<string, unknown>, _path: string) => undefined
+	const mockWriteJson = vi.fn<[Record<string, unknown>, string], Promise<undefined>>(
+		(_o: Record<string, unknown>, _path: string) => Promise.resolve(undefined)
 	);
 
 	return {
@@ -59,7 +63,15 @@ vi.mock('globby');
 vi.mock('fs');
 vi.mock('node:fs/promises');
 
-describe('distributePackageJsonItemsInWorkspace', async () => {
+describe('distributePackageJsonItemsInWorkspace', () => {
+	let mockLogger: MockLogger;
+	let logger: Logger<unknown>;
+
+	beforeEach(() => {
+		mockLogger = new MockLogger();
+		logger = mockLogger as unknown as Logger<unknown>;
+	});
+
 	afterEach(() => {
 		vi.clearAllMocks();
 	});
@@ -77,7 +89,7 @@ describe('distributePackageJsonItemsInWorkspace', async () => {
 		it('should mix in the distributed dependencies into all packageJson files', async () => {
 			await distributePackageJsonItemsInWorkspace(updates, {
 				cwd: mockProjectRoot,
-				logger: mockLogger,
+				logger,
 			});
 
 			expect(writeJson).toHaveBeenCalledWith(
@@ -129,7 +141,7 @@ describe('distributePackageJsonItemsInWorkspace', async () => {
 		it('should mix in the distributed dependencies into only the inner packageJson files when skipping the workspace', async () => {
 			await distributePackageJsonItemsInWorkspace(updates, {
 				cwd: mockProjectRoot,
-				logger: mockLogger,
+				logger,
 				skipWorkspaceRoot: true,
 			});
 
@@ -173,7 +185,7 @@ describe('distributePackageJsonItemsInWorkspace', async () => {
 		it('should mix in the distributed dependencies into only the workspace packageJson file when onlyWorkspaceRoot is true', async () => {
 			await distributePackageJsonItemsInWorkspace(updates, {
 				cwd: mockProjectRoot,
-				logger: mockLogger,
+				logger,
 				onlyWorkspaceRoot: true,
 			});
 
@@ -214,7 +226,7 @@ describe('distributePackageJsonItemsInWorkspace', async () => {
 
 			await distributePackageJsonItemsInWorkspace(updates, {
 				cwd: join(mockProjectRoot, 'packages'),
-				logger: mockLogger,
+				logger,
 			});
 
 			expect(writeJson).toHaveBeenCalledWith(
@@ -257,7 +269,7 @@ describe('distributePackageJsonItemsInWorkspace', async () => {
 		it('should not do anything when dry', async () => {
 			await distributePackageJsonItemsInWorkspace(updates, {
 				cwd: mockProjectRoot,
-				logger: mockLogger,
+				logger,
 				dry: true,
 			});
 
@@ -269,7 +281,7 @@ describe('distributePackageJsonItemsInWorkspace', async () => {
 		it('should not do anything when not in a workspace', async () => {
 			await distributePackageJsonItemsInWorkspace(updates, {
 				cwd: join(mockProjectRoot, '..'),
-				logger: mockLogger,
+				logger,
 			});
 
 			expect(writeJson).not.toHaveBeenCalled();
@@ -277,13 +289,11 @@ describe('distributePackageJsonItemsInWorkspace', async () => {
 		});
 
 		it('should report errors to the logger when write fails', async () => {
-			(writeJson as Mock).mockImplementationOnce(async () => {
-				throw new Error('Error');
-			});
+			(writeJson as Mock).mockImplementationOnce(() => Promise.reject('Error'));
 
 			await distributePackageJsonItemsInWorkspace(updates, {
 				cwd: mockProjectRoot,
-				logger: mockLogger,
+				logger,
 			});
 
 			expect(mockLogger.error).toHaveBeenCalled();

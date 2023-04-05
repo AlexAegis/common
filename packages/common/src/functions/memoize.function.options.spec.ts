@@ -10,11 +10,11 @@ describe('normalizeMemoizeOptions', () => {
 		expect(normalizeMemoizeOptions()).toEqual({
 			argHasher: JSON.stringify,
 			maxCacheEntries: 10,
-		} as NormalizedMemoizeOptions<unknown, unknown>);
+		} as NormalizedMemoizeOptions<unknown>);
 	});
 
 	it('should use the provided values when defined', () => {
-		const manualOptions: MemoizeOptions<unknown, unknown> = {
+		const manualOptions: MemoizeOptions<unknown> = {
 			argHasher: (_s) => 'hash',
 			maxCacheEntries: 2,
 			thisContext: {},

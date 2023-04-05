@@ -23,6 +23,7 @@ export const deepMerge = <T, S extends unknown[]>(target: T, ...sources: S): T &
 				}
 				deepMerge(target[key] as Struct, source[key] as Struct);
 			} else if (key in source && isNullish(source[key])) {
+				// eslint-disable-next-line @typescript-eslint/no-dynamic-delete
 				delete target[key];
 			} else {
 				Object.assign(target, { [key]: source[key] });

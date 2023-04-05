@@ -4,7 +4,7 @@ vi.mock('node:fs/promises');
 vi.mock('globby');
 vi.mock('../lcov/merge-lcov-reports-in-workspace.function.js');
 
-vi.mock('@alexaegis/workspace-tools', async () => {
+vi.mock('@alexaegis/workspace-tools', () => {
 	return {
 		getWorkspaceRoot: vi.fn(() => '/foo/bar'),
 	};

@@ -10,17 +10,13 @@ const mockPackageJsonValue: PackageJson = {
 };
 
 vi.mock('@alexaegis/fs', async () => {
-	const mockReadJson = vi.fn<[string | undefined], Promise<unknown>>(async (path) => {
-		if (path?.endsWith(PACKAGE_JSON_NAME)) {
-			return mockPackageJsonValue;
-		} else {
-			return undefined;
-		}
-	});
+	const mockReadJson = vi.fn<[string | undefined], Promise<PackageJson | undefined>>((path) =>
+		Promise.resolve(path?.endsWith(PACKAGE_JSON_NAME) ? mockPackageJsonValue : undefined)
+	);
 
-	const mockReadYaml = vi.fn<[string | undefined], Promise<unknown>>(async (_path) => {
-		return undefined;
-	});
+	const mockReadYaml = vi.fn<[string | undefined], Promise<undefined>>((_path) =>
+		Promise.resolve(undefined)
+	);
 
 	return {
 		readJson: mockReadJson,
@@ -31,11 +27,9 @@ vi.mock('@alexaegis/fs', async () => {
 	};
 });
 
-vi.mock('node:fs', async () => {
+vi.mock('node:fs', () => {
 	return {
-		existsSync: vi.fn((path: string) => {
-			return path === join(mockProjectRoot, PACKAGE_JSON_NAME);
-		}),
+		existsSync: vi.fn((path: string) => path === join(mockProjectRoot, PACKAGE_JSON_NAME)),
 	};
 });
 

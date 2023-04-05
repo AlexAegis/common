@@ -1,7 +1,7 @@
 import type { CollectWorkspacePackagesOptions } from '@alexaegis/workspace-tools';
 
-export const mergeLcovReportsInWorkspace = async (
+export const mergeLcovReportsInWorkspace = (
 	_rawOptions?: CollectWorkspacePackagesOptions
-): Promise<string> => {
+): string => {
 	return 'lcov';
 };

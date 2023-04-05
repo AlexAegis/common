@@ -5,6 +5,8 @@ import { mockProjectRoot } from '../../__mocks__/globby.js';
 import { collectLcovReportPaths } from './collect-lcov-report-paths.function.js';
 
 vi.mock('globby');
+vi.mock('fs');
+
 const cwdSpy = vi.spyOn(process, 'cwd').mockImplementation(() => mockProjectRoot);
 
 vi.mock('@alexaegis/workspace-tools', async () => {
@@ -13,21 +15,22 @@ vi.mock('@alexaegis/workspace-tools', async () => {
 	);
 
 	return {
-		getWorkspaceRoot: vi.fn<[], string | undefined>(() => process.cwd()),
+		getWorkspaceRoot: vi.fn<[], string | undefined>((cwd = process.cwd()) => {
+			return cwd.startsWith(mockProjectRoot) ? mockProjectRoot : undefined;
+		}),
 		collectWorkspacePackages: vi.fn(
-			async (rawOptions?: CollectWorkspacePackagesOptions): Promise<WorkspacePackage[]> => {
+			(rawOptions?: CollectWorkspacePackagesOptions): WorkspacePackage[] => {
 				expect(rawOptions?.skipWorkspaceRoot).toBeTruthy();
 
 				const cwd = rawOptions?.cwd ?? process.cwd();
 
-				if (cwd.startsWith(mockProjectRoot)) {
-					return [
-						{ path: `${mockProjectRoot}/package/zed`, packageJson: {} },
-						{ path: `${mockProjectRoot}/package/zod`, packageJson: {} },
-					];
-				} else {
-					return [];
-				}
+				return cwd.startsWith(mockProjectRoot)
+					? [
+							{ path: `${mockProjectRoot}/package/zed`, packageJson: {} },
+							{ path: `${mockProjectRoot}/package/zod`, packageJson: {} },
+							{ path: `${mockProjectRoot}/package/notest`, packageJson: {} },
+					  ]
+					: [];
 			}
 		),
 		normalizeCollectWorkspacePackagesOptions:
@@ -50,6 +53,7 @@ describe('collectLcovReportPaths', () => {
 
 	it('should not find any outside of the project', async () => {
 		cwdSpy.mockImplementationOnce(() => '/foo');
+
 		expect(await collectLcovReportPaths()).toEqual([]);
 	});
 });

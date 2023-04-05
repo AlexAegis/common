@@ -9,19 +9,22 @@ const testJson = {
 describe('readJson', () => {
 	beforeAll(() => {
 		vi.spyOn(console, 'error').mockImplementation(() => undefined);
-		vi.mock('node:fs/promises', async () => {
+		vi.mock('node:fs/promises', () => {
 			return {
-				readFile: vi.fn(async (path: PathLike): Promise<string | undefined> => {
-					if (path.toString().endsWith('.json')) {
-						return JSON.stringify(testJson);
-					} else if (path.toString().endsWith('.txt')) {
-						return 'hello world!';
-					} else if (path.toString() === 'error') {
-						throw new Error('File error!');
-					} else {
-						return undefined;
-					}
-				}),
+				readFile: vi.fn(
+					async (path: PathLike): Promise<string | undefined> =>
+						new Promise((resolve, reject) => {
+							if (path.toString().endsWith('.json')) {
+								resolve(JSON.stringify(testJson));
+							} else if (path.toString().endsWith('.txt')) {
+								resolve('hello world!');
+							} else if (path.toString() === 'error') {
+								reject(new Error('File error!'));
+							} else {
+								resolve(undefined);
+							}
+						})
+				),
 			};
 		});
 	});

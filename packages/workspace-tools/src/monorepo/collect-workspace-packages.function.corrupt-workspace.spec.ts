@@ -8,14 +8,13 @@ import { PACKAGE_JSON_NAME } from '../package-json/package-json.interface.js';
 import { collectWorkspacePackages } from './collect-workspace-packages.function.js';
 
 vi.mock('@alexaegis/fs', async () => {
-	const mockReadJson = vi.fn<[string | undefined], Promise<unknown>>(async (_path) => {
-		// For some reason the file cannot be read even though it exists
-		return undefined;
-	});
+	const mockReadJson = vi.fn<[string | undefined], Promise<undefined>>((_path) =>
+		Promise.resolve(undefined)
+	);
 
-	const mockReadYaml = vi.fn<[string | undefined], Promise<unknown>>(async (_path) => {
-		return undefined;
-	});
+	const mockReadYaml = vi.fn<[string | undefined], Promise<undefined>>((_path) =>
+		Promise.resolve(undefined)
+	);
 
 	return {
 		readJson: mockReadJson,
@@ -26,7 +25,7 @@ vi.mock('@alexaegis/fs', async () => {
 	};
 });
 
-vi.mock('node:fs', async () => {
+vi.mock('node:fs', () => {
 	return {
 		existsSync: vi.fn((path: string) => {
 			return path === join(mockProjectRoot, PACKAGE_JSON_NAME);

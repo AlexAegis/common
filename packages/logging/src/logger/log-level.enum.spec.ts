@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import {
+	LogLevel,
 	isLogLevelEnumKey,
 	isLogLevelEnumValue,
 	logLevelKeys,
@@ -12,7 +13,7 @@ describe('LogLevel', () => {
 			expect(logLevelKeys).toBeTruthy();
 			expect(logLevelValues).toBeTruthy();
 
-			expect(isLogLevelEnumValue(Number.POSITIVE_INFINITY)).toBeTruthy();
+			expect(isLogLevelEnumValue(LogLevel.OFF)).toBeTruthy();
 			for (let i = 0; i <= 6; i++) {
 				expect(isLogLevelEnumValue(i)).toBeTruthy();
 			}

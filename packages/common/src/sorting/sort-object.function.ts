@@ -1,5 +1,13 @@
+import type { SimpleObjectKey } from '../index.js';
 import { closestNumber } from '../math/closest-number.function.js';
 import type { DetailedObjectKeyOrder, ObjectKeyOrder } from './object-key-order.type.js';
+
+const arrayToObject = <T extends SimpleObjectKey>(a: T[]): Record<SimpleObjectKey, T> => {
+	return a.reduce<Record<SimpleObjectKey, T>>((acc, next) => {
+		acc[next] = next;
+		return acc;
+	}, {});
+};
 
 /**
  * Creates a copy of an object with its keys ordered according to a
@@ -28,14 +36,11 @@ export const sortObject = <T extends object | unknown[]>(
 	const isArray = Array.isArray(o);
 	let obj: T = o;
 	if (isArray) {
-		obj = o.reduce((acc, next) => {
-			acc[next] = next;
-			return acc;
-		}, {} as T);
+		obj = arrayToObject(o) as T;
 	}
 
 	const ordered = Object.entries(obj)
-		.map(([key, value]) => {
+		.map<[string, unknown, number]>(([key, value]) => {
 			// Could fill multiple spots
 			let order = -1;
 			const regexpIndices = regexpLevelOrder

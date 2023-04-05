@@ -6,9 +6,9 @@ import {
 	type NormalizedDistributeInWorkspaceOptions,
 } from './distribute-in-workspace.options.js';
 
-export type DistributePackageJsonItemsInWorkspaceOnlyOptions = {
+export interface DistributePackageJsonItemsInWorkspaceOnlyOptions {
 	sortingPreference?: ObjectKeyOrder;
-};
+}
 
 export type DistributePackageJsonItemsInWorkspaceOptions =
 	DistributePackageJsonItemsInWorkspaceOnlyOptions & DistributeInWorkspaceOptions;

@@ -25,21 +25,24 @@ const mockPackageJsonZodValue: PackageJson = {
 };
 
 vi.mock('@alexaegis/fs', async () => {
-	const mockReadJson = vi.fn<[string | undefined], Promise<unknown>>(async (path) => {
-		if (path?.endsWith(join('zed', PACKAGE_JSON_NAME))) {
-			return mockPackageJsonZedValue;
-		} else if (path?.endsWith(join('zod', PACKAGE_JSON_NAME))) {
-			return mockPackageJsonZodValue;
-		} else if (path?.endsWith(join('empty', PACKAGE_JSON_NAME))) {
-			throw new Error('does not exist');
-		} else if (path?.endsWith(PACKAGE_JSON_NAME)) {
-			return mockPackageJsonWorkspaceValue;
-		} else {
-			return undefined;
-		}
-	});
+	const mockReadJson = vi.fn<[string | undefined], Promise<PackageJson | undefined>>(
+		(path) =>
+			new Promise((resolve) => {
+				if (path?.endsWith(join('zed', PACKAGE_JSON_NAME))) {
+					resolve(mockPackageJsonZedValue);
+				} else if (path?.endsWith(join('zod', PACKAGE_JSON_NAME))) {
+					resolve(mockPackageJsonZodValue);
+				} else if (path?.endsWith(join('empty', PACKAGE_JSON_NAME))) {
+					throw new Error('does not exist');
+				} else if (path?.endsWith(PACKAGE_JSON_NAME)) {
+					resolve(mockPackageJsonWorkspaceValue);
+				} else {
+					resolve(undefined);
+				}
+			})
+	);
 
-	const mockReadYaml = vi.fn<[string | undefined], Promise<unknown>>(async (_path) => {
+	const mockReadYaml = vi.fn<[string | undefined], undefined>((_path) => {
 		return undefined;
 	});
 

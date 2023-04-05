@@ -76,6 +76,7 @@ describe('memoize', () => {
 
 			const foo = new Foo(2);
 
+			// eslint-disable-next-line @typescript-eslint/unbound-method
 			const memoizedFooAdd = memoize(foo.add, { thisContext: foo });
 
 			const firstResult = memoizedFooAdd(1);
