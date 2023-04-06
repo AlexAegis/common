@@ -102,8 +102,8 @@ importers:
         specifier: ^8.37.0
         version: 8.37.0
       eslint-config-next:
-        specifier: ^13.2.4
-        version: 13.2.4(eslint@8.37.0)(typescript@5.0.3)
+        specifier: ^13.3.0
+        version: 13.3.0(eslint@8.37.0)(typescript@5.0.3)
       eslint-config-prettier:
         specifier: ^8.8.0
         version: 8.8.0(eslint@8.37.0)
@@ -123,8 +123,8 @@ importers:
         specifier: ^0.33.0
         version: 0.33.0
       npm-check-updates:
-        specifier: ^16.10.6
-        version: 16.10.6
+        specifier: ^16.10.7
+        version: 16.10.7
       prettier:
         specifier: ^2.8.7
         version: 2.8.7
@@ -491,7 +491,7 @@ packages:
       '@typescript-eslint/eslint-plugin': 5.57.1(@typescript-eslint/parser@5.57.1)(eslint@8.37.0)(typescript@5.0.3)
       '@typescript-eslint/parser': 5.57.1(eslint@8.37.0)(typescript@5.0.3)
       eslint: 8.37.0
-      eslint-config-next: 13.2.4(eslint@8.37.0)(typescript@5.0.3)
+      eslint-config-next: 13.3.0(eslint@8.37.0)(typescript@5.0.3)
       eslint-config-prettier: 8.8.0(eslint@8.37.0)
       eslint-config-turbo: 1.8.8(eslint@8.37.0)
       eslint-plugin-react: 7.32.2(eslint@8.37.0)
@@ -826,7 +826,7 @@ packages:
       '@alexaegis/logging': 0.0.23
       '@alexaegis/setup-editorconfig': 0.0.5(@types/node@18.15.11)(typescript@5.0.3)
       '@alexaegis/workspace-tools': 0.0.23
-      npm-check-updates: 16.10.6
+      npm-check-updates: 16.10.7
     transitivePeerDependencies:
       - '@swc/core'
       - '@swc/wasm'
@@ -1644,8 +1644,8 @@ packages:
     resolution: {integrity: sha512-9b8mPpKrfeGRuhFH5iO1iwCLeIIsV6+H1sRfxbkoGXIyQE2BTsPd9zqSqQJ+pv5sJ/hT5M1zvOFL02MnEezFug==}
     dev: true
 
-  /@next/eslint-plugin-next@13.2.4:
-    resolution: {integrity: sha512-ck1lI+7r1mMJpqLNa3LJ5pxCfOB1lfJncKmRJeJxcJqcngaFwylreLP7da6Rrjr6u2gVRTfmnkSkjc80IiQCwQ==}
+  /@next/eslint-plugin-next@13.3.0:
+    resolution: {integrity: sha512-wuGN5qSEjSgcq9fVkH0Y/qIPFjnZtW3ZPwfjJOn7l/rrf6y8J24h/lo61kwqunTyzZJm/ETGfGVU9PUs8cnzEA==}
     dependencies:
       glob: 7.1.7
     dev: true
@@ -3811,8 +3811,8 @@ packages:
       source-map: 0.6.1
     dev: true
 
-  /eslint-config-next@13.2.4(eslint@8.37.0)(typescript@5.0.3):
-    resolution: {integrity: sha512-lunIBhsoeqw6/Lfkd6zPt25w1bn0znLA/JCL+au1HoEpSb4/PpsOYsYtgV/q+YPsoKIOzFyU5xnb04iZnXjUvg==}
+  /eslint-config-next@13.3.0(eslint@8.37.0)(typescript@5.0.3):
+    resolution: {integrity: sha512-6YEwmFBX0VjBd3ODGW9df0Is0FLaRFdMN8eAahQG9CN6LjQ28J8AFr19ngxqMSg7Qv6Uca/3VeeBosJh1bzu0w==}
     peerDependencies:
       eslint: ^7.23.0 || ^8.0.0
       typescript: '>=3.3.1'
@@ -3820,7 +3820,7 @@ packages:
       typescript:
         optional: true
     dependencies:
-      '@next/eslint-plugin-next': 13.2.4
+      '@next/eslint-plugin-next': 13.3.0
       '@rushstack/eslint-patch': 1.2.0
       '@typescript-eslint/parser': 5.57.1(eslint@8.37.0)(typescript@5.0.3)
       eslint: 8.37.0
@@ -6647,8 +6647,8 @@ packages:
       npm-normalize-package-bin: 3.0.0
     dev: true
 
-  /npm-check-updates@16.10.6:
-    resolution: {integrity: sha512-5pj7Q1boz6NaR/4700TWtzdU6g7++Ivbn5Y/NYHuHcx3K+3pMuH/03ZUUyEY/p/y+XPTCKe7q4iPvIxzub+7Zw==}
+  /npm-check-updates@16.10.7:
+    resolution: {integrity: sha512-hVJCULf8AoVob9FDvoC7hrkQGuWhWctE9k3sNmR+M6hxZJnlb+03Ph4G1w/pHmI5BGHoo+ZPJtVEXkJsA+JwPQ==}
     engines: {node: '>=14.14'}
     hasBin: true
     dependencies:
@@ -6662,6 +6662,7 @@ packages:
       globby: 11.1.0
       hosted-git-info: 5.2.1
       ini: 4.0.0
+      js-yaml: 4.1.0
       json-parse-helpfulerror: 1.0.3
       jsonlines: 0.1.1
       lodash: 4.17.21
@@ -6670,7 +6671,7 @@ packages:
       pacote: 15.1.1
       parse-github-url: 1.0.2
       progress: 2.0.3
-      prompts-ncu: 2.5.1
+      prompts-ncu: 3.0.0
       rc-config-loader: 4.1.2
       remote-git-tags: 3.0.0
       rimraf: 4.4.1
@@ -6681,7 +6682,6 @@ packages:
       strip-json-comments: 5.0.0
       untildify: 4.0.0
       update-notifier: 6.0.2
-      yaml: 2.2.1
     transitivePeerDependencies:
       - bluebird
       - supports-color
@@ -7265,9 +7265,9 @@ packages:
       retry: 0.12.0
     dev: true
 
-  /prompts-ncu@2.5.1:
-    resolution: {integrity: sha512-Hdd7GgV7b76Yh9FP9HL1D9xqtJCJdVPpiM2vDtuoc8W1KfweJe15gutFYmxkq83ViFaagFM8K0UcPCQ/tZq8bA==}
-    engines: {node: '>= 6'}
+  /prompts-ncu@3.0.0:
+    resolution: {integrity: sha512-qyz9UxZ5MlPKWVhWrCmSZ1ahm2GVYdjLb8og2sg0IPth1KRuhcggHGuijz0e41dkx35p1t1q3GRISGH7QGALFA==}
+    engines: {node: '>= 14'}
     dependencies:
       kleur: 4.1.5
       sisteransi: 1.0.5

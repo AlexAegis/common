@@ -266,13 +266,13 @@ jobs:
           builds
         if: env.IS_ON_NPM != 'true'
         run: |
-          npx turbo run build --scope="${{ matrix.artifact }}"
+          npx turbo run build-lib_ --scope="${{ matrix.artifact }}"
       - name:
           verify that ${{ env.NPM_PACKAGE_ORG_PREFIX }}${{ matrix.artifact }}
           lints are succeeding
         if: env.IS_ON_NPM != 'true'
         run: |
-          npx turbo run lint --scope="${{ matrix.artifact }}"
+          npx turbo run lint_ --scope="${{ matrix.artifact }}"
       - name:
           verify that ${{ env.NPM_PACKAGE_ORG_PREFIX }}${{ matrix.artifact }}
           tests are succeeding
