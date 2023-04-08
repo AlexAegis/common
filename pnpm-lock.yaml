@@ -5,8 +5,8 @@ importers:
   .:
     devDependencies:
       '@alexaegis/coverage-tools':
-        specifier: 0.0.24
-        version: 0.0.24
+        specifier: workspace:^0.1.0
+        version: link:packages/coverage-tools
       '@alexaegis/eslint-config-core':
         specifier: 0.1.0
         version: 0.1.0(typescript@5.0.4)
