@@ -15,8 +15,8 @@
 		"url": "https://www.github.com/AlexAegis/vite-plugin-autolib/issues"
 	},
 	"keywords": [
-		"@alexaegis/setup-eslint",
 		"@alexaegis/setup-depcheck",
+		"@alexaegis/setup-eslint",
 		"@alexaegis/setup-prettier",
 		"@alexaegis/setup-remark",
 		"@alexaegis/setup-ts-node",

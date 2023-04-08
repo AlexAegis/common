@@ -15,8 +15,8 @@
 		"url": "https://www.github.com/AlexAegis/js-core/issues"
 	},
 	"keywords": [
-		"@alexaegis/setup-eslint",
 		"@alexaegis/setup-depcheck",
+		"@alexaegis/setup-eslint",
 		"@alexaegis/setup-prettier",
 		"@alexaegis/setup-remark",
 		"@alexaegis/setup-ts-node",
