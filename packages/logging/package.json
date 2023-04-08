@@ -72,12 +72,12 @@
 		"tslog": "^4.8.2"
 	},
 	"devDependencies": {
-		"@alexaegis/ts": "0.0.5",
-		"@alexaegis/vite": "0.0.5",
-		"@alexaegis/vitest": "0.0.5",
+		"@alexaegis/ts": "0.1.0",
+		"@alexaegis/vite": "^0.1.0",
+		"@alexaegis/vitest": "0.1.0",
 		"@types/node": "^18.15.11",
 		"typescript": "^5.0.4",
-		"vite": "4.2.1",
+		"vite": "^4.2.1",
 		"vitest": "^0.29.8"
 	}
 }
