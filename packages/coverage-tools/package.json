@@ -71,7 +71,8 @@
 		"globby": "^13.1.3"
 	},
 	"devDependencies": {
-		"@alexaegis/ts": "0.1.0",
+		"@alexaegis/eslint-config-vitest": "^0.1.0",
+		"@alexaegis/ts": "^0.1.0",
 		"@alexaegis/vite": "^0.1.0",
 		"@alexaegis/vitest": "^0.1.0",
 		"@types/node": "^18.15.11",

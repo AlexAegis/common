@@ -71,9 +71,9 @@
 	},
 	"devDependencies": {
 		"@alexaegis/eslint-config-vitest": "^0.1.0",
-		"@alexaegis/ts": "0.1.0",
+		"@alexaegis/ts": "^0.1.0",
 		"@alexaegis/vite": "^0.1.0",
-		"@alexaegis/vitest": "0.1.0",
+		"@alexaegis/vitest": "^0.1.0",
 		"@types/node": "^18.15.11",
 		"@types/yargs": "17.0.24",
 		"typescript": "^5.0.4",
