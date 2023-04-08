@@ -13,6 +13,8 @@ export interface SimplifiedPackageJsonFields {
 	bin?: Record<string, string> | undefined;
 	type?: 'commonjs' | 'module' | undefined;
 	scripts?: Record<string, string | undefined> | undefined;
+	main?: string | undefined;
+	module?: string | undefined;
 }
 
 /**
