@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.0.25](https://github.com/AlexAegis/js/compare/v0.0.24...v0.0.25) (2023-04-08)
+
+
+### Features
+
+* add common commitlint config ([3f80d2e](https://github.com/AlexAegis/js/commit/3f80d2eaf5da005a912e8244ff9db05f89ac4b5d))
+* added the replace type ([12687ee](https://github.com/AlexAegis/js/commit/12687ee97605441cae075d20aa7920eb935847a2))
+* **workspace-tools:** added main and module fields ([59c367c](https://github.com/AlexAegis/js/commit/59c367c89bfd891656f008445c0e67464cd96063))
+
+
+### Bug Fixes
+
+* fix freshly introduced linting errors ([64ba21a](https://github.com/AlexAegis/js/commit/64ba21a4e0494ca1a2e2798b8c42e5e5d9132a88))
+
 ## [0.0.24](https://github.com/AlexAegis/js/compare/v0.0.23...v0.0.24) (2023-04-04)
 
 
