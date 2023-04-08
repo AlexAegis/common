@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.1.0](https://github.com/AlexAegis/js/compare/v0.0.25...v0.1.0) (2023-04-08)
+
+
+### Bug Fixes
+
+* moved schemastore def to regular dependencies ([54e563b](https://github.com/AlexAegis/js/commit/54e563b0231257030651c0d752667930400f68c7))
+
 ## [0.0.25](https://github.com/AlexAegis/js/compare/v0.0.24...v0.0.25) (2023-04-08)
 
 
