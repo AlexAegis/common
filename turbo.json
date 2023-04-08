@@ -56,6 +56,16 @@
 			"cache": false,
 			"outputMode": "new-only"
 		},
+		"lint:depcheck_": {
+			"outputs": [],
+			"dependsOn": [],
+			"outputMode": "new-only"
+		},
+		"//#lint:depcheck_": {
+			"dependsOn": [],
+			"outputs": [],
+			"outputMode": "new-only"
+		},
 		"lint:tsc_": {
 			"dependsOn": ["//#lint:tsc:require_", "lint:tsc:require_"],
 			"outputs": [],
