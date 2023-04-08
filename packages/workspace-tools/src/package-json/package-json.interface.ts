@@ -1,3 +1,4 @@
+import type { Replace } from '@alexaegis/common';
 import type { JSONSchemaForNPMPackageJsonFiles } from '@schemastore/package';
 import type { PackageJsonExportConditions } from './package-json-export-conditions.type.js';
 
@@ -8,17 +9,17 @@ export const NODE_MODULES_DIRECTORY_NAME = 'node_modules';
 export type PackageJsonExports = Record<string, PackageJsonExportConditions | string>;
 
 export interface SimplifiedPackageJsonFields {
-	exports?: PackageJsonExports;
-	bin?: Record<string, string>;
-	type?: 'commonjs' | 'module';
-	scripts?: Record<string, string | undefined>;
+	exports?: PackageJsonExports | undefined;
+	bin?: Record<string, string> | undefined;
+	type?: 'commonjs' | 'module' | undefined;
+	scripts?: Record<string, string | undefined> | undefined;
 }
 
 /**
  * This packageJson definition is a bit simplified from the real one
  */
-export type PackageJson = JSONSchemaForNPMPackageJsonFiles & SimplifiedPackageJsonFields;
+export type PackageJson = Replace<JSONSchemaForNPMPackageJsonFiles, SimplifiedPackageJsonFields>;
 
 export interface PnpmWorkspaceYaml {
-	packages?: string[];
+	packages?: string[] | undefined;
 }
