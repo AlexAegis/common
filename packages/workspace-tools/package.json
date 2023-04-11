@@ -50,7 +50,7 @@
 		"format": "prettier --write .",
 		"test": "turbo run test_ --concurrency 6 --cache-dir .cache/turbo --filter @alexaegis/workspace-tools",
 		"test_": "vitest --passWithNoTests --coverage --run",
-		"test:watch": "vitest --passWithNoTests --coverage --run",
+		"test:watch": "vitest --passWithNoTests --coverage",
 		"turbo:test": "turbo --color --filter @alexaegis/workspace-tools test",
 		"typedoc": "typedoc ./src/index.ts --excludeExternals --externalPattern '**/node_modules/**' --out ./dist/typedoc"
 	},
@@ -63,12 +63,13 @@
 		"./readme": "./readme.md"
 	},
 	"dependencies": {
-		"@alexaegis/common": "*",
-		"@alexaegis/fs": "*",
-		"@alexaegis/logging": "*",
+		"@alexaegis/common": "^0.1.2",
+		"@alexaegis/fs": "^0.1.2",
+		"@alexaegis/logging": "^0.1.2",
 		"@schemastore/package": "^0.0.8",
 		"globby": "^13.1.4",
-		"prettier": "^2.8.7"
+		"prettier": "^2.8.7",
+		"semver": "^7.4.0"
 	},
 	"devDependencies": {
 		"@alexaegis/eslint-config-vitest": "^0.1.4",
@@ -76,6 +77,7 @@
 		"@alexaegis/vite": "^0.1.4",
 		"@alexaegis/vitest": "^0.1.4",
 		"@types/node": "^18.15.11",
+		"@types/semver": "^7.3.13",
 		"typescript": "^5.0.4",
 		"vite": "^4.2.1",
 		"vitest": "^0.30.1"

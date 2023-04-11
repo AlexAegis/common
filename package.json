@@ -74,7 +74,7 @@
 		"typedoc": "turbo run typedoc_"
 	},
 	"devDependencies": {
-		"@alexaegis/coverage-tools": "^0.1.2",
+		"@alexaegis/coverage-tools": "workspace:^",
 		"@alexaegis/eslint-config-core": "^0.1.4",
 		"@alexaegis/nuke": "^0.1.4",
 		"@alexaegis/setup-commitlint": "^0.1.4",

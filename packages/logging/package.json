@@ -68,7 +68,7 @@
 		"./readme": "./readme.md"
 	},
 	"dependencies": {
-		"@alexaegis/common": "*",
+		"@alexaegis/common": "^0.1.2",
 		"tslog": "^4.8.2"
 	},
 	"devDependencies": {

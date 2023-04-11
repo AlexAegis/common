@@ -63,10 +63,10 @@
 		"./readme": "./readme.md"
 	},
 	"dependencies": {
-		"@alexaegis/common": "*",
-		"@alexaegis/fs": "*",
-		"@alexaegis/logging": "*",
-		"@alexaegis/workspace-tools": "*",
+		"@alexaegis/common": "^0.1.2",
+		"@alexaegis/fs": "^0.1.2",
+		"@alexaegis/logging": "^0.1.2",
+		"@alexaegis/workspace-tools": "^0.1.2",
 		"yargs": "^17.7.1"
 	},
 	"devDependencies": {

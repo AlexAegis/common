@@ -1,12 +1,18 @@
 import { deepMerge, fillObjectWithTemplateVariables, sortObject } from '@alexaegis/common';
 import { writeJson } from '@alexaegis/fs';
+import type { Dependency } from '@schemastore/package';
 import { join, relative } from 'node:path';
-import { getWorkspaceRoot } from '../index.js';
+import { getWorkspaceRoot } from '../npm/get-workspace-root.function.js';
 import {
 	getPackageJsonTemplateVariables,
 	type PackageJsonTemplateVariableNames,
 } from '../package-json/get-package-json-template-variables.function.js';
-import { PACKAGE_JSON_NAME, type PackageJson } from '../package-json/package-json.interface.js';
+import { mergeDependencies } from '../package-json/merge-dependencies.function.js';
+import {
+	PACKAGE_JSON_DEPENDENCY_FIELDS,
+	PACKAGE_JSON_NAME,
+	type PackageJson,
+} from '../package-json/package-json.interface.js';
 import { collectWorkspacePackages } from './collect-workspace-packages.function.js';
 import {
 	normalizeDistributePackageJsonItemsInWorkspaceOptions,
@@ -53,11 +59,22 @@ export const distributePackageJsonItemsInWorkspace = async (
 					templateVariables
 				);
 
+			const targetPackageJson = PACKAGE_JSON_DEPENDENCY_FIELDS.reduce(
+				(acc, dependencyFieldKey) => {
+					if (packageJsonUpdates[dependencyFieldKey]) {
+						acc[dependencyFieldKey] = mergeDependencies(
+							target.packageJson[dependencyFieldKey] as Dependency,
+							packageJsonUpdates[dependencyFieldKey] as Dependency
+						);
+					}
+
+					return acc;
+				},
+				deepMerge(structuredClone(target.packageJson), packageJsonUpdates)
+			);
+
 			return writeJson(
-				sortObject(
-					deepMerge(target.packageJson, packageJsonUpdates),
-					options.sortingPreference
-				),
+				sortObject(targetPackageJson, options.sortingPreference),
 				join(target.path, PACKAGE_JSON_NAME),
 				{
 					dry: options.dry,
