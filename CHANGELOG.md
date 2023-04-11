@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.1.3](https://github.com/AlexAegis/js/compare/v0.1.2...v0.1.3) (2023-04-11)
+
+
+### Features
+
+* **workspace-tools:** prefer larger version on merge ([4984f93](https://github.com/AlexAegis/js/commit/4984f93114f3a3342cdd603ddcad5dfe21ace974))
+
 ## [0.1.2](https://github.com/AlexAegis/js/compare/v0.1.1...v0.1.2) (2023-04-11)
 
 ## [0.1.1](https://github.com/AlexAegis/js/compare/v0.1.0...v0.1.1) (2023-04-08)
