@@ -37,18 +37,18 @@
 	"scripts": {
 		"build": "turbo run build-lib_ --concurrency 6 --cache-dir .cache/turbo --filter @alexaegis/workspace-tools",
 		"build-lib_": "vite build",
-		"lint:depcheck": "turbo run lint:depcheck_ --concurrency 6 --cache-dir .cache/turbo --filter @alexaegis/workspace-tools",
+		"lint:depcheck": "turbo run lint:depcheck_ --concurrency 32 --cache-dir .cache/turbo --filter @alexaegis/workspace-tools",
 		"lint:depcheck_": "depcheck",
-		"lint:es": "turbo run lint:es_ --concurrency 6 --cache-dir .cache/turbo --filter @alexaegis/workspace-tools",
+		"lint:es": "turbo run lint:es_ --concurrency 32 --cache-dir .cache/turbo --filter @alexaegis/workspace-tools",
 		"lint:es_": "eslint --max-warnings=0 --fix --no-error-on-unmatched-pattern .",
-		"lint:format": "turbo run lint:format_ --concurrency 6 --cache-dir .cache/turbo --filter @alexaegis/workspace-tools",
+		"lint:format": "turbo run lint:format_ --concurrency 32 --cache-dir .cache/turbo --filter @alexaegis/workspace-tools",
 		"lint:format_": "prettier --check .",
-		"lint:md": "turbo run lint:md_ --concurrency 6 --cache-dir .cache/turbo --filter @alexaegis/workspace-tools",
+		"lint:md": "turbo run lint:md_ --concurrency 32 --cache-dir .cache/turbo --filter @alexaegis/workspace-tools",
 		"lint:md_": "remark --frail --no-stdout --silently-ignore *.md docs/**/*.md",
-		"lint:tsc": "turbo run lint:tsc_ --concurrency 6 --cache-dir .cache/turbo --filter @alexaegis/workspace-tools",
+		"lint:tsc": "turbo run lint:tsc_ --concurrency 32 --cache-dir .cache/turbo --filter @alexaegis/workspace-tools",
 		"lint:tsc_": "tsc --noEmit",
 		"format": "prettier --write .",
-		"test": "turbo run test_ --concurrency 6 --cache-dir .cache/turbo --filter @alexaegis/workspace-tools",
+		"test": "turbo run test_ --concurrency 32 --cache-dir .cache/turbo --filter @alexaegis/workspace-tools",
 		"test_": "vitest --passWithNoTests --coverage --run",
 		"test:watch": "vitest --passWithNoTests --coverage",
 		"turbo:test": "turbo --color --filter @alexaegis/workspace-tools test",
@@ -68,7 +68,7 @@
 		"@alexaegis/logging": "^0.1.4",
 		"@schemastore/package": "^0.0.8",
 		"globby": "^13.1.4",
-		"prettier": "^2.8.7",
+		"prettier": "^2.8.8",
 		"semver": "^7.5.0"
 	},
 	"devDependencies": {
@@ -76,10 +76,10 @@
 		"@alexaegis/ts": "^0.2.0",
 		"@alexaegis/vite": "^0.2.0",
 		"@alexaegis/vitest": "^0.2.0",
-		"@types/node": "^18.15.13",
+		"@types/node": "^18.16.2",
 		"@types/semver": "^7.3.13",
 		"typescript": "^5.0.4",
-		"vite": "^4.3.1",
+		"vite": "^4.3.3",
 		"vitest": "^0.30.1"
 	}
 }

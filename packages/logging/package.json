@@ -38,18 +38,18 @@
 	"scripts": {
 		"build": "turbo run build-lib_ --concurrency 6 --cache-dir .cache/turbo --filter @alexaegis/logging",
 		"build-lib_": "vite build",
-		"lint:depcheck": "turbo run lint:depcheck_ --concurrency 6 --cache-dir .cache/turbo --filter @alexaegis/logging",
+		"lint:depcheck": "turbo run lint:depcheck_ --concurrency 32 --cache-dir .cache/turbo --filter @alexaegis/logging",
 		"lint:depcheck_": "depcheck",
-		"lint:es": "turbo run lint:es_ --concurrency 6 --cache-dir .cache/turbo --filter @alexaegis/logging",
+		"lint:es": "turbo run lint:es_ --concurrency 32 --cache-dir .cache/turbo --filter @alexaegis/logging",
 		"lint:es_": "eslint --max-warnings=0 --fix --no-error-on-unmatched-pattern .",
-		"lint:format": "turbo run lint:format_ --concurrency 6 --cache-dir .cache/turbo --filter @alexaegis/logging",
+		"lint:format": "turbo run lint:format_ --concurrency 32 --cache-dir .cache/turbo --filter @alexaegis/logging",
 		"lint:format_": "prettier --check .",
-		"lint:md": "turbo run lint:md_ --concurrency 6 --cache-dir .cache/turbo --filter @alexaegis/logging",
+		"lint:md": "turbo run lint:md_ --concurrency 32 --cache-dir .cache/turbo --filter @alexaegis/logging",
 		"lint:md_": "remark --frail --no-stdout --silently-ignore *.md docs/**/*.md",
-		"lint:tsc": "turbo run lint:tsc_ --concurrency 6 --cache-dir .cache/turbo --filter @alexaegis/logging",
+		"lint:tsc": "turbo run lint:tsc_ --concurrency 32 --cache-dir .cache/turbo --filter @alexaegis/logging",
 		"lint:tsc_": "tsc --noEmit",
 		"format": "prettier --write .",
-		"test": "turbo run test_ --concurrency 6 --cache-dir .cache/turbo --filter @alexaegis/logging",
+		"test": "turbo run test_ --concurrency 32 --cache-dir .cache/turbo --filter @alexaegis/logging",
 		"test_": "vitest --passWithNoTests --coverage --run",
 		"test:watch": "vitest --passWithNoTests --coverage",
 		"typedoc": "typedoc ./src/index.ts --excludeExternals --externalPattern '**/node_modules/**' --out ./dist/typedoc"
@@ -76,9 +76,9 @@
 		"@alexaegis/ts": "^0.2.0",
 		"@alexaegis/vite": "^0.2.0",
 		"@alexaegis/vitest": "^0.2.0",
-		"@types/node": "^18.15.13",
+		"@types/node": "^18.16.2",
 		"typescript": "^5.0.4",
-		"vite": "^4.3.1",
+		"vite": "^4.3.3",
 		"vitest": "^0.30.1"
 	}
 }

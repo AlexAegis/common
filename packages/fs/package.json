@@ -38,18 +38,18 @@
 	"scripts": {
 		"build": "turbo run build-lib_ --concurrency 6 --cache-dir .cache/turbo --filter @alexaegis/fs",
 		"build-lib_": "vite build",
-		"lint:depcheck": "turbo run lint:depcheck_ --concurrency 6 --cache-dir .cache/turbo --filter @alexaegis/fs",
+		"lint:depcheck": "turbo run lint:depcheck_ --concurrency 32 --cache-dir .cache/turbo --filter @alexaegis/fs",
 		"lint:depcheck_": "depcheck",
-		"lint:es": "turbo run lint:es_ --concurrency 6 --cache-dir .cache/turbo --filter @alexaegis/fs",
+		"lint:es": "turbo run lint:es_ --concurrency 32 --cache-dir .cache/turbo --filter @alexaegis/fs",
 		"lint:es_": "eslint --max-warnings=0 --fix --no-error-on-unmatched-pattern .",
-		"lint:format": "turbo run lint:format_ --concurrency 6 --cache-dir .cache/turbo --filter @alexaegis/fs",
+		"lint:format": "turbo run lint:format_ --concurrency 32 --cache-dir .cache/turbo --filter @alexaegis/fs",
 		"lint:format_": "prettier --check .",
-		"lint:md": "turbo run lint:md_ --concurrency 6 --cache-dir .cache/turbo --filter @alexaegis/fs",
+		"lint:md": "turbo run lint:md_ --concurrency 32 --cache-dir .cache/turbo --filter @alexaegis/fs",
 		"lint:md_": "remark --frail --no-stdout --silently-ignore *.md docs/**/*.md",
-		"lint:tsc": "turbo run lint:tsc_ --concurrency 6 --cache-dir .cache/turbo --filter @alexaegis/fs",
+		"lint:tsc": "turbo run lint:tsc_ --concurrency 32 --cache-dir .cache/turbo --filter @alexaegis/fs",
 		"lint:tsc_": "tsc --noEmit",
 		"format": "prettier --write .",
-		"test": "turbo run test_ --concurrency 6 --cache-dir .cache/turbo --filter @alexaegis/fs",
+		"test": "turbo run test_ --concurrency 32 --cache-dir .cache/turbo --filter @alexaegis/fs",
 		"test_": "vitest --passWithNoTests --coverage --run",
 		"test:watch": "vitest --passWithNoTests --coverage",
 		"typedoc": "typedoc ./src/index.ts --excludeExternals --externalPattern '**/node_modules/**' --out ./dist/typedoc"
@@ -73,7 +73,7 @@
 		"js-yaml": "^4.1.0"
 	},
 	"optionalDependencies": {
-		"prettier": "^2.8.7"
+		"prettier": "^2.8.8"
 	},
 	"devDependencies": {
 		"@alexaegis/eslint-config-vitest": "^0.2.0",
@@ -81,10 +81,10 @@
 		"@alexaegis/vite": "^0.2.0",
 		"@alexaegis/vitest": "^0.2.0",
 		"@types/js-yaml": "^4.0.5",
-		"@types/node": "^18.15.13",
+		"@types/node": "^18.16.2",
 		"@types/prettier": "^2.7.2",
 		"typescript": "^5.0.4",
-		"vite": "^4.3.1",
+		"vite": "^4.3.3",
 		"vitest": "^0.30.1"
 	}
 }
