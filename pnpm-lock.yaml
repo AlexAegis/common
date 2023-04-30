@@ -21,7 +21,7 @@ importers:
         version: 0.2.0
       '@alexaegis/setup-editorconfig':
         specifier: ^0.2.0
-        version: 0.2.0(@types/node@18.16.2)(typescript@5.0.4)
+        version: 0.2.0(@types/node@18.16.3)(typescript@5.0.4)
       '@alexaegis/setup-eslint':
         specifier: ^0.2.0
         version: 0.2.0
@@ -54,7 +54,7 @@ importers:
         version: 0.2.0
       '@alexaegis/setup-vite':
         specifier: ^0.2.0
-        version: 0.2.0(@types/node@18.16.2)
+        version: 0.2.0(@types/node@18.16.3)
       '@alexaegis/setup-vitest':
         specifier: ^0.2.0
         version: 0.2.0
@@ -63,7 +63,7 @@ importers:
         version: 0.2.0
       '@alexaegis/setup-workspace':
         specifier: ^0.2.0
-        version: 0.2.0(@types/node@18.16.2)(typescript@5.0.4)
+        version: 0.2.0(@types/node@18.16.3)(typescript@5.0.4)
       '@alexaegis/stylelint-config':
         specifier: ^0.2.0
         version: 0.2.0(postcss@8.4.23)(stylelint@15.6.0)
@@ -117,7 +117,7 @@ importers:
         version: 15.6.0
       ts-node:
         specifier: ^10.9.1
-        version: 10.9.1(@types/node@18.16.2)(typescript@5.0.4)
+        version: 10.9.1(@types/node@18.16.3)(typescript@5.0.4)
       turbo:
         specifier: ^1.9.3
         version: 1.9.3
@@ -157,13 +157,13 @@ importers:
         version: 0.2.0
       '@alexaegis/vite':
         specifier: ^0.2.0
-        version: 0.2.0(@types/node@18.16.2)(typescript@5.0.4)
+        version: 0.2.0(@types/node@18.16.3)(typescript@5.0.4)
       '@alexaegis/vitest':
         specifier: ^0.2.0
         version: 0.2.0(svelte@3.58.0)(vite@4.3.3)(vitest@0.30.1)
       '@types/node':
-        specifier: ^18.16.2
-        version: 18.16.2
+        specifier: ^18.16.3
+        version: 18.16.3
       '@types/yargs':
         specifier: 17.0.24
         version: 17.0.24
@@ -172,7 +172,7 @@ importers:
         version: 5.0.4
       vite:
         specifier: ^4.3.3
-        version: 4.3.3(@types/node@18.16.2)
+        version: 4.3.3(@types/node@18.16.3)
       vitest:
         specifier: ^0.30.1
         version: 0.30.1
@@ -187,19 +187,19 @@ importers:
         version: 0.2.0
       '@alexaegis/vite':
         specifier: ^0.2.0
-        version: 0.2.0(@types/node@18.16.2)(typescript@5.0.4)
+        version: 0.2.0(@types/node@18.16.3)(typescript@5.0.4)
       '@alexaegis/vitest':
         specifier: ^0.2.0
         version: 0.2.0(svelte@3.58.0)(vite@4.3.3)(vitest@0.30.1)
       '@types/node':
-        specifier: ^18.16.2
-        version: 18.16.2
+        specifier: ^18.16.3
+        version: 18.16.3
       typescript:
         specifier: ^5.0.4
         version: 5.0.4
       vite:
         specifier: ^4.3.3
-        version: 4.3.3(@types/node@18.16.2)
+        version: 4.3.3(@types/node@18.16.3)
       vitest:
         specifier: ^0.30.1
         version: 0.30.1
@@ -227,19 +227,19 @@ importers:
         version: 0.2.0
       '@alexaegis/vite':
         specifier: ^0.2.0
-        version: 0.2.0(@types/node@18.16.2)(typescript@5.0.4)
+        version: 0.2.0(@types/node@18.16.3)(typescript@5.0.4)
       '@alexaegis/vitest':
         specifier: ^0.2.0
         version: 0.2.0(svelte@3.58.0)(vite@4.3.3)(vitest@0.30.1)
       '@types/node':
-        specifier: ^18.16.2
-        version: 18.16.2
+        specifier: ^18.16.3
+        version: 18.16.3
       typescript:
         specifier: ^5.0.4
         version: 5.0.4
       vite:
         specifier: ^4.3.3
-        version: 4.3.3(@types/node@18.16.2)
+        version: 4.3.3(@types/node@18.16.3)
       vitest:
         specifier: ^0.30.1
         version: 0.30.1
@@ -268,7 +268,7 @@ importers:
         version: 0.2.0
       '@alexaegis/vite':
         specifier: ^0.2.0
-        version: 0.2.0(@types/node@18.16.2)(typescript@5.0.4)
+        version: 0.2.0(@types/node@18.16.3)(typescript@5.0.4)
       '@alexaegis/vitest':
         specifier: ^0.2.0
         version: 0.2.0(svelte@3.58.0)(vite@4.3.3)(vitest@0.30.1)
@@ -276,8 +276,8 @@ importers:
         specifier: ^4.0.5
         version: 4.0.5
       '@types/node':
-        specifier: ^18.16.2
-        version: 18.16.2
+        specifier: ^18.16.3
+        version: 18.16.3
       '@types/prettier':
         specifier: ^2.7.2
         version: 2.7.2
@@ -286,7 +286,7 @@ importers:
         version: 5.0.4
       vite:
         specifier: ^4.3.3
-        version: 4.3.3(@types/node@18.16.2)
+        version: 4.3.3(@types/node@18.16.3)
       vitest:
         specifier: ^0.30.1
         version: 0.30.1
@@ -308,19 +308,19 @@ importers:
         version: 0.2.0
       '@alexaegis/vite':
         specifier: ^0.2.0
-        version: 0.2.0(@types/node@18.16.2)(typescript@5.0.4)
+        version: 0.2.0(@types/node@18.16.3)(typescript@5.0.4)
       '@alexaegis/vitest':
         specifier: ^0.2.0
         version: 0.2.0(svelte@3.58.0)(vite@4.3.3)(vitest@0.30.1)
       '@types/node':
-        specifier: ^18.16.2
-        version: 18.16.2
+        specifier: ^18.16.3
+        version: 18.16.3
       typescript:
         specifier: ^5.0.4
         version: 5.0.4
       vite:
         specifier: ^4.3.3
-        version: 4.3.3(@types/node@18.16.2)
+        version: 4.3.3(@types/node@18.16.3)
       vitest:
         specifier: ^0.30.1
         version: 0.30.1
@@ -357,13 +357,13 @@ importers:
         version: 0.2.0
       '@alexaegis/vite':
         specifier: ^0.2.0
-        version: 0.2.0(@types/node@18.16.2)(typescript@5.0.4)
+        version: 0.2.0(@types/node@18.16.3)(typescript@5.0.4)
       '@alexaegis/vitest':
         specifier: ^0.2.0
         version: 0.2.0(svelte@3.58.0)(vite@4.3.3)(vitest@0.30.1)
       '@types/node':
-        specifier: ^18.16.2
-        version: 18.16.2
+        specifier: ^18.16.3
+        version: 18.16.3
       '@types/semver':
         specifier: ^7.3.13
         version: 7.3.13
@@ -372,7 +372,7 @@ importers:
         version: 5.0.4
       vite:
         specifier: ^4.3.3
-        version: 4.3.3(@types/node@18.16.2)
+        version: 4.3.3(@types/node@18.16.3)
       vitest:
         specifier: ^0.30.1
         version: 0.30.1
@@ -427,7 +427,7 @@ packages:
       '@typescript-eslint/eslint-plugin': 5.59.1(@typescript-eslint/parser@5.59.1)(eslint@8.39.0)(typescript@5.0.4)
       '@typescript-eslint/parser': 5.59.1(eslint@8.39.0)(typescript@5.0.4)
       eslint: 8.39.0
-      eslint-config-next: 13.3.1(eslint@8.39.0)(typescript@5.0.4)
+      eslint-config-next: 13.3.2(eslint@8.39.0)(typescript@5.0.4)
       eslint-config-prettier: 8.8.0(eslint@8.39.0)
       eslint-config-turbo: 1.9.3(eslint@8.39.0)
       eslint-plugin-react: 7.32.2(eslint@8.39.0)
@@ -468,7 +468,7 @@ packages:
     resolution: {integrity: sha512-yPTcrxPaTdj9VxmMgEvG5bGCxTiIWz1Oc50HbKIpcJd4bKtBUo71CB25ATnl+T51jCiawt2p37zCwyh2IFznXw==}
     engines: {node: '>=18.13.0'}
     dependencies:
-      '@alexaegis/common': 0.1.4
+      '@alexaegis/common': 0.1.1
       '@alexaegis/logging': 0.1.4
       js-yaml: 4.1.0
     optionalDependencies:
@@ -506,7 +506,7 @@ packages:
     resolution: {integrity: sha512-8fYdRfmyus2BQ4f76iErb74loH8eecj9gUy9cEj6K4wIy1UoevyvkzhBse5Qi/aKPHV/+o27HSzp9QDahLxhOQ==}
     engines: {node: '>=18.13.0'}
     dependencies:
-      '@alexaegis/common': 0.1.4
+      '@alexaegis/common': 0.1.1
       tslog: 4.8.2
     dev: true
 
@@ -590,7 +590,7 @@ packages:
       '@alexaegis/workspace-tools': 0.1.4
     dev: true
 
-  /@alexaegis/setup-editorconfig@0.2.0(@types/node@18.16.2)(typescript@5.0.4):
+  /@alexaegis/setup-editorconfig@0.2.0(@types/node@18.16.3)(typescript@5.0.4):
     resolution: {integrity: sha512-Itj1FxdT9hoF6PEu0lQDhyyuCTZK40jaYChnEFFT7NNgBJZU709oeHnzQ4Bpi5FUAHHflD76gznk39SjktWDKw==}
     engines: {node: '>=18.13.0'}
     hasBin: true
@@ -598,7 +598,7 @@ packages:
     dependencies:
       '@alexaegis/cli-tools': 0.1.4
       '@alexaegis/logging': 0.1.4
-      '@alexaegis/vite': 0.2.0(@types/node@18.16.2)(typescript@5.0.4)
+      '@alexaegis/vite': 0.2.0(@types/node@18.16.3)(typescript@5.0.4)
       '@alexaegis/workspace-tools': 0.1.4
     transitivePeerDependencies:
       - '@swc/core'
@@ -733,7 +733,7 @@ packages:
       '@alexaegis/cli-tools': 0.1.4
       '@alexaegis/logging': 0.1.4
       '@alexaegis/workspace-tools': 0.1.4
-      ts-node: 10.9.1(@types/node@18.16.2)(typescript@5.0.4)
+      ts-node: 10.9.1(@types/node@18.16.3)(typescript@5.0.4)
       typescript: 5.0.4
     dev: true
 
@@ -749,7 +749,7 @@ packages:
       turbo: 1.9.3
     dev: true
 
-  /@alexaegis/setup-vite@0.2.0(@types/node@18.16.2):
+  /@alexaegis/setup-vite@0.2.0(@types/node@18.16.3):
     resolution: {integrity: sha512-yMxvzSARB2WHqUVW8yiquo+k9EXNFqT51lN30ftEeuFtFlGV9+MP1IYy8Wdbx4DbCUBNXHpk32r3utJfU2Iy9Q==}
     engines: {node: '>=18.13.0'}
     hasBin: true
@@ -760,7 +760,7 @@ packages:
       '@alexaegis/workspace-tools': 0.1.4
       concurrently: 8.0.1
       nodemon: 2.0.22
-      vite: 4.3.3(@types/node@18.16.2)
+      vite: 4.3.3(@types/node@18.16.3)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -794,7 +794,7 @@ packages:
       '@alexaegis/workspace-tools': 0.1.4
     dev: true
 
-  /@alexaegis/setup-workspace@0.2.0(@types/node@18.16.2)(typescript@5.0.4):
+  /@alexaegis/setup-workspace@0.2.0(@types/node@18.16.3)(typescript@5.0.4):
     resolution: {integrity: sha512-x//9LJKM00S2O2dh0AsGkWrzb5Yphdr5nAudlFgt+UyhQA7cECu8UosA2wWBVDtVRtrggnYqrnTvrxTGqO5iPA==}
     engines: {node: '>=18.13.0'}
     hasBin: true
@@ -802,7 +802,7 @@ packages:
     dependencies:
       '@alexaegis/cli-tools': 0.1.4
       '@alexaegis/logging': 0.1.4
-      '@alexaegis/setup-editorconfig': 0.2.0(@types/node@18.16.2)(typescript@5.0.4)
+      '@alexaegis/setup-editorconfig': 0.2.0(@types/node@18.16.3)(typescript@5.0.4)
       '@alexaegis/workspace-tools': 0.1.4
       npm-check-updates: 16.10.9
     transitivePeerDependencies:
@@ -847,12 +847,12 @@ packages:
     resolution: {integrity: sha512-tmnxkSPkq2NsRf/Qz3HsNW81UdSrZT0mpr+z8ASI3Klerqe1EZE+IUK7YZWE2ytnIhQhxLfPW6TmxUhpUmpbhQ==}
     engines: {node: '>=18.13.0'}
     dependencies:
-      '@alexaegis/vite': 0.2.0(@types/node@18.16.2)(typescript@5.0.4)
+      '@alexaegis/vite': 0.2.0(@types/node@18.16.3)(typescript@5.0.4)
       '@tsconfig/svelte': 4.0.1
-      '@types/node': 18.16.2
-      ts-node: 10.9.1(@types/node@18.16.2)(typescript@5.0.4)
+      '@types/node': 18.16.3
+      ts-node: 10.9.1(@types/node@18.16.3)(typescript@5.0.4)
       typescript: 5.0.4
-      vite: 4.3.3(@types/node@18.16.2)
+      vite: 4.3.3(@types/node@18.16.3)
     transitivePeerDependencies:
       - '@swc/core'
       - '@swc/wasm'
@@ -865,7 +865,7 @@ packages:
       - terser
     dev: true
 
-  /@alexaegis/vite@0.2.0(@types/node@18.16.2)(typescript@5.0.4):
+  /@alexaegis/vite@0.2.0(@types/node@18.16.3)(typescript@5.0.4):
     resolution: {integrity: sha512-rqCXegFFT/k52bNOBWdhiBjK2sf0aRljA0nKv42p+3zFGsMjzX7mUqESxH5CSd6LiwYLLMwoFL406Nsq3VEKJw==}
     engines: {node: '>=18.13.0'}
     dependencies:
@@ -873,9 +873,9 @@ packages:
       concurrently: 8.0.1
       nodemon: 2.0.22
       svelte: 3.58.0
-      vite: 4.3.3(@types/node@18.16.2)
+      vite: 4.3.3(@types/node@18.16.3)
       vite-plugin-autolib: 0.1.0(typescript@5.0.4)
-      vite-plugin-dts: 2.3.0(@types/node@18.16.2)(vite@4.3.3)
+      vite-plugin-dts: 2.3.0(@types/node@18.16.3)(vite@4.3.3)
     optionalDependencies:
       prettier: 2.8.8
     transitivePeerDependencies:
@@ -904,7 +904,7 @@ packages:
       '@vitest/coverage-c8': 0.30.1(vitest@0.30.1)
       '@vitest/ui': 0.30.1
       jsdom: 21.1.1
-      vite: 4.3.3(@types/node@18.16.2)
+      vite: 4.3.3(@types/node@18.16.3)
       vitest: 0.30.1
     transitivePeerDependencies:
       - bufferutil
@@ -918,8 +918,8 @@ packages:
     resolution: {integrity: sha512-T3zoD0d/Zy2CBA+49uosvN8WL9gPiZK74cTMd3dKBUXcU4zMkJAAepgq5zF1jEeUwhAjgu5CNx2A0jTmSx2O2Q==}
     engines: {node: '>=18.13.0'}
     dependencies:
-      '@alexaegis/common': 0.1.4
-      '@alexaegis/fs': 0.1.4
+      '@alexaegis/common': 0.1.1
+      '@alexaegis/fs': 0.1.1
       '@alexaegis/logging': 0.1.4
       '@schemastore/package': 0.0.8
       globby: 13.1.4
@@ -1158,15 +1158,15 @@ packages:
       '@commitlint/execute-rule': 17.4.0
       '@commitlint/resolve-extends': 17.4.4
       '@commitlint/types': 17.4.4
-      '@types/node': 18.16.2
+      '@types/node': 18.16.3
       chalk: 4.1.2
       cosmiconfig: 8.1.3
-      cosmiconfig-typescript-loader: 4.3.0(@types/node@18.16.2)(cosmiconfig@8.1.3)(ts-node@10.9.1)(typescript@5.0.4)
+      cosmiconfig-typescript-loader: 4.3.0(@types/node@18.16.3)(cosmiconfig@8.1.3)(ts-node@10.9.1)(typescript@5.0.4)
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       lodash.uniq: 4.5.0
       resolve-from: 5.0.0
-      ts-node: 10.9.1(@types/node@18.16.2)(typescript@5.0.4)
+      ts-node: 10.9.1(@types/node@18.16.3)(typescript@5.0.4)
       typescript: 5.0.4
     transitivePeerDependencies:
       - '@swc/core'
@@ -1272,13 +1272,13 @@ packages:
       '@csstools/css-tokenizer': 2.1.1
     dev: true
 
-  /@csstools/selector-specificity@2.2.0(postcss-selector-parser@6.0.11):
+  /@csstools/selector-specificity@2.2.0(postcss-selector-parser@6.0.12):
     resolution: {integrity: sha512-+OJ9konv95ClSTOJCmMZqpd5+YGsB2S+x6w3E1oaM8UuR5j8nTNHYSz8c9BEPGDOCMQYIEEGlVPj/VY64iTbGw==}
     engines: {node: ^14 || ^16 || >=18}
     peerDependencies:
       postcss-selector-parser: ^6.0.10
     dependencies:
-      postcss-selector-parser: 6.0.11
+      postcss-selector-parser: 6.0.12
     dev: true
 
   /@esbuild/android-arm64@0.17.18:
@@ -1489,8 +1489,8 @@ packages:
       eslint-visitor-keys: 3.4.0
     dev: true
 
-  /@eslint-community/regexpp@4.5.0:
-    resolution: {integrity: sha512-vITaYzIcNmjn5tF5uxcZ/ft7/RXGrMUIS9HalWckEOF6ESiwXKoMzAQf2UW0aVd6rnOeExTJVd5hmWXucBKGXQ==}
+  /@eslint-community/regexpp@4.5.1:
+    resolution: {integrity: sha512-Z5ba73P98O1KUYCCJTUeVpja9RcGoMdncZ6T49FCUl2lN38JtCJ+3WgIDBv0AuY4WChU5PmtJmOCTlN6FZTFKQ==}
     engines: {node: ^12.0.0 || ^14.0.0 || >=16.0.0}
     dev: true
 
@@ -1603,24 +1603,24 @@ packages:
       commander: 9.5.0
     dev: true
 
-  /@microsoft/api-extractor-model@7.26.5(@types/node@18.16.2):
-    resolution: {integrity: sha512-sv1dF9B3AeMURTW0xubvmrX/tLFe2bpmHJBXKiqfOl2YOoLNjreIqmPHPe1vDSq9MDxAJLqvyurjOf87abVJBQ==}
+  /@microsoft/api-extractor-model@7.26.6(@types/node@18.16.3):
+    resolution: {integrity: sha512-vacINIUTAwtN6W2fMbO/JORR8sVfq+DxS++ewSeqy0AM9a55IgMXC04p31IB3vShaFnozcjHLxTOD/eWom0dXA==}
     dependencies:
       '@microsoft/tsdoc': 0.14.2
       '@microsoft/tsdoc-config': 0.16.2
-      '@rushstack/node-core-library': 3.56.0(@types/node@18.16.2)
+      '@rushstack/node-core-library': 3.57.0(@types/node@18.16.3)
     transitivePeerDependencies:
       - '@types/node'
     dev: true
 
-  /@microsoft/api-extractor@7.34.5(@types/node@18.16.2):
-    resolution: {integrity: sha512-0CUMSHvJ3Tq7ZJg09vn3kwvZN41k6dbe4zcPrDpZwQKh/dXIL5oQ7hbrbrASBDlE5DSPHs+7iGYa9FGGdgyrCA==}
+  /@microsoft/api-extractor@7.34.6(@types/node@18.16.3):
+    resolution: {integrity: sha512-TBbJZjUSt4vWjBchnkfmHwmQlwhMfavXIGbuSzN3QJV5n1oqKY+RtkYMEmLtW01OAJ6QsWFVx4tLHHsh608YQw==}
     hasBin: true
     dependencies:
-      '@microsoft/api-extractor-model': 7.26.5(@types/node@18.16.2)
+      '@microsoft/api-extractor-model': 7.26.6(@types/node@18.16.3)
       '@microsoft/tsdoc': 0.14.2
       '@microsoft/tsdoc-config': 0.16.2
-      '@rushstack/node-core-library': 3.56.0(@types/node@18.16.2)
+      '@rushstack/node-core-library': 3.57.0(@types/node@18.16.3)
       '@rushstack/rig-package': 0.3.18
       '@rushstack/ts-command-line': 4.13.2
       colors: 1.2.5
@@ -1648,6 +1648,12 @@ packages:
 
   /@next/eslint-plugin-next@13.3.1:
     resolution: {integrity: sha512-Hpd74UrYGF+bq9bBSRDXRsRfaWkPpcwjhvachy3sr/R/5fY6feC0T0s047pUthyqcaeNsqKOY1nUGQQJNm4WyA==}
+    dependencies:
+      glob: 7.1.7
+    dev: true
+
+  /@next/eslint-plugin-next@13.3.2:
+    resolution: {integrity: sha512-YHugXBtXWVUjSMRirZPxDlDn3LvYpuCqaRlIHgKA52Q6PVtYtmFjhzYQ8LuN9mKCKF5NOZcrf3jya2uL8WQwuw==}
     dependencies:
       glob: 7.1.7
     dev: true
@@ -1835,15 +1841,15 @@ packages:
     resolution: {integrity: sha512-sXo/qW2/pAcmT43VoRKOJbDOfV3cYpq3szSVfIThQXNt+E4DfKj361vaAt3c88U5tPUxzEswam7GW48PJqtKAg==}
     dev: true
 
-  /@rushstack/node-core-library@3.56.0(@types/node@18.16.2):
-    resolution: {integrity: sha512-HyaRfgL77I8y6HCFYkLnAUWjsniDrIHlomic570TJ/ehd+pOdrRr95APAYGFw+nVwXE4qyEUTyYMWxsOnV14VA==}
+  /@rushstack/node-core-library@3.57.0(@types/node@18.16.3):
+    resolution: {integrity: sha512-uR5I9vLJuknliZXDDqW7nBtiKSO0fYOnvNEUNPQ84rmFYbvDWQGTDx7MREMVGXhfEN5J50xzAtGTPC9xdbia6g==}
     peerDependencies:
       '@types/node': '*'
     peerDependenciesMeta:
       '@types/node':
         optional: true
     dependencies:
-      '@types/node': 18.16.2
+      '@types/node': 18.16.3
       colors: 1.2.5
       fs-extra: 7.0.1
       import-lazy: 4.0.0
@@ -1895,7 +1901,7 @@ packages:
       magic-string: 0.30.0
       svelte: 3.58.0
       svelte-hmr: 0.15.1(svelte@3.58.0)
-      vite: 4.3.3(@types/node@18.16.2)
+      vite: 4.3.3(@types/node@18.16.3)
       vitefu: 0.2.4(vite@4.3.3)
     transitivePeerDependencies:
       - supports-color
@@ -1914,7 +1920,7 @@ packages:
       magic-string: 0.30.0
       svelte: 3.58.0
       svelte-hmr: 0.15.1(svelte@3.58.0)
-      vite: 4.3.3(@types/node@18.16.2)
+      vite: 4.3.3(@types/node@18.16.3)
       vitefu: 0.2.4(vite@4.3.3)
     transitivePeerDependencies:
       - supports-color
@@ -1988,10 +1994,14 @@ packages:
     resolution: {integrity: sha512-KnRanxnpfpjUTqTCXslZSEdLfXExwgNxYPdiO2WGUj8+HDjFi8R3k5RVKPeSCzLjCcshCAtVO2QBbVuAV4kTnw==}
     dev: true
 
+  /@types/chai@4.3.5:
+    resolution: {integrity: sha512-mEo1sAde+UCE6b2hxn332f1g1E8WfYRu6p5SvTKr2ZKC1f7gFJXk4h5PyGP9Dt6gCaG8y8XhwnXWC6Iy2cmBng==}
+    dev: true
+
   /@types/concat-stream@2.0.0:
     resolution: {integrity: sha512-t3YCerNM7NTVjLuICZo5gYAXYoDvpuuTceCcFQWcDQz26kxUR5uIWolxbIR5jRNIXpMqhOpW/b8imCR1LEmuJw==}
     dependencies:
-      '@types/node': 18.16.2
+      '@types/node': 18.16.3
     dev: true
 
   /@types/debug@4.1.7:
@@ -2065,8 +2075,8 @@ packages:
     resolution: {integrity: sha512-iiUgKzV9AuaEkZqkOLDIvlQiL6ltuZd9tGcW3gwpnX8JbuiuhFlEGmmFXEXkN50Cvq7Os88IY2v0dkDqXYWVgA==}
     dev: true
 
-  /@types/node@18.16.2:
-    resolution: {integrity: sha512-GQW/JL/5Fz/0I8RpeBG9lKp0+aNcXEaVL71c0D2Q0QHDTFvlYKT7an0onCUXj85anv7b4/WesqdfchLc0jtsCg==}
+  /@types/node@18.16.3:
+    resolution: {integrity: sha512-OPs5WnnT1xkCBiuQrZA4+YAV4HEJejmHneyraIaxsbev5yCEr6KMwINNFP9wQeFIw8FWcoTqF3vQsa5CDaI+8Q==}
     dev: true
 
   /@types/normalize-package-data@2.4.1:
@@ -2118,7 +2128,7 @@ packages:
       typescript:
         optional: true
     dependencies:
-      '@eslint-community/regexpp': 4.5.0
+      '@eslint-community/regexpp': 4.5.1
       '@typescript-eslint/parser': 5.59.0(eslint@8.39.0)(typescript@5.0.4)
       '@typescript-eslint/scope-manager': 5.59.0
       '@typescript-eslint/type-utils': 5.59.0(eslint@8.39.0)(typescript@5.0.4)
@@ -2146,7 +2156,7 @@ packages:
       typescript:
         optional: true
     dependencies:
-      '@eslint-community/regexpp': 4.5.0
+      '@eslint-community/regexpp': 4.5.1
       '@typescript-eslint/parser': 5.59.1(eslint@8.39.0)(typescript@5.0.4)
       '@typescript-eslint/scope-manager': 5.59.1
       '@typescript-eslint/type-utils': 5.59.1(eslint@8.39.0)(typescript@5.0.4)
@@ -3233,7 +3243,7 @@ packages:
     hasBin: true
     dependencies:
       chalk: 4.1.2
-      date-fns: 2.29.3
+      date-fns: 2.30.0
       lodash: 4.17.21
       rxjs: 7.8.1
       shell-quote: 1.8.1
@@ -3447,7 +3457,7 @@ packages:
     resolution: {integrity: sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==}
     dev: true
 
-  /cosmiconfig-typescript-loader@4.3.0(@types/node@18.16.2)(cosmiconfig@8.1.3)(ts-node@10.9.1)(typescript@5.0.4):
+  /cosmiconfig-typescript-loader@4.3.0(@types/node@18.16.3)(cosmiconfig@8.1.3)(ts-node@10.9.1)(typescript@5.0.4):
     resolution: {integrity: sha512-NTxV1MFfZDLPiBMjxbHRwSh5LaLcPMwNdCutmnHJCKoVnlvldPWlllonKwrsRJ5pYZBIBGRWWU2tfvzxgeSW5Q==}
     engines: {node: '>=12', npm: '>=6'}
     peerDependencies:
@@ -3456,9 +3466,9 @@ packages:
       ts-node: '>=10'
       typescript: '>=3'
     dependencies:
-      '@types/node': 18.16.2
+      '@types/node': 18.16.3
       cosmiconfig: 8.1.3
-      ts-node: 10.9.1(@types/node@18.16.2)(typescript@5.0.4)
+      ts-node: 10.9.1(@types/node@18.16.3)(typescript@5.0.4)
       typescript: 5.0.4
     dev: true
 
@@ -3547,9 +3557,11 @@ packages:
       whatwg-url: 12.0.1
     dev: true
 
-  /date-fns@2.29.3:
-    resolution: {integrity: sha512-dDCnyH2WnnKusqvZZ6+jA1O51Ibt8ZMRNkDZdyAyK4YfbDwa/cEmuztzG5pk6hqlp9aSBPYcjOlktquahGwGeA==}
+  /date-fns@2.30.0:
+    resolution: {integrity: sha512-fnULvOpxnC5/Vg3NCiWelDsLiUc9bRwAPs/+LfTLNvetFCtCTN+yQz15C/fs4AwX1R9K5GLtLfn8QW+dWisaAw==}
     engines: {node: '>=0.11'}
+    dependencies:
+      '@babel/runtime': 7.21.5
     dev: true
 
   /date-time@3.1.0:
@@ -3758,10 +3770,6 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       path-type: 4.0.0
-
-  /dlv@1.1.3:
-    resolution: {integrity: sha512-+HlytyjlPKnIG8XuRG8WvmBP8xs8P71y+SKKS6ZXWoEgLuePxtDoUEiH7WkdePWrQ5JBpE6aoVqfZfJUQkjXwA==}
-    dev: true
 
   /doctrine@2.1.0:
     resolution: {integrity: sha512-35mSku4ZXK0vfCuHEDAwt55dg2jNajHZ1odvF+8SSr82EsZY4QmXfuWso8oEd8zRhVObSN18aM0CjSdoBX7zIw==}
@@ -4023,6 +4031,31 @@ packages:
       - supports-color
     dev: true
 
+  /eslint-config-next@13.3.2(eslint@8.39.0)(typescript@5.0.4):
+    resolution: {integrity: sha512-SHhE2Jo06wL3Y/hkb0in2FPXZJY3Q+6sTMUtlQkAYZFldRxoK4C5siXmuOcwSKBnaddVM1Az6GpTIDwFmKRwbg==}
+    peerDependencies:
+      eslint: ^7.23.0 || ^8.0.0
+      typescript: '>=3.3.1'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      '@next/eslint-plugin-next': 13.3.2
+      '@rushstack/eslint-patch': 1.2.0
+      '@typescript-eslint/parser': 5.59.1(eslint@8.39.0)(typescript@5.0.4)
+      eslint: 8.39.0
+      eslint-import-resolver-node: 0.3.7
+      eslint-import-resolver-typescript: 3.5.5(@typescript-eslint/parser@5.59.1)(eslint-import-resolver-node@0.3.7)(eslint-plugin-import@2.27.5)(eslint@8.39.0)
+      eslint-plugin-import: 2.27.5(@typescript-eslint/parser@5.59.1)(eslint-import-resolver-typescript@3.5.5)(eslint@8.39.0)
+      eslint-plugin-jsx-a11y: 6.7.1(eslint@8.39.0)
+      eslint-plugin-react: 7.32.2(eslint@8.39.0)
+      eslint-plugin-react-hooks: 4.6.0(eslint@8.39.0)
+      typescript: 5.0.4
+    transitivePeerDependencies:
+      - eslint-import-resolver-webpack
+      - supports-color
+    dev: true
+
   /eslint-config-prettier@8.8.0(eslint@8.39.0):
     resolution: {integrity: sha512-wLbQiFre3tdGgpDv67NQKnJuTlcUVYHas3k+DZCc2U2BadthoEY4B7hLPvAxaqdyOGCzuLfii2fqGph10va7oA==}
     hasBin: true
@@ -4232,7 +4265,7 @@ packages:
       lodash: 4.17.21
       pluralize: 8.0.0
       read-pkg-up: 7.0.1
-      regexp-tree: 0.1.25
+      regexp-tree: 0.1.27
       regjsparser: 0.9.1
       safe-regex: 2.1.1
       semver: 7.5.0
@@ -4266,7 +4299,7 @@ packages:
     hasBin: true
     dependencies:
       '@eslint-community/eslint-utils': 4.4.0(eslint@8.39.0)
-      '@eslint-community/regexpp': 4.5.0
+      '@eslint-community/regexpp': 4.5.1
       '@eslint/eslintrc': 2.0.2
       '@eslint/js': 8.39.0
       '@humanwhocodes/config-array': 0.11.8
@@ -4741,7 +4774,7 @@ packages:
     hasBin: true
     dependencies:
       foreground-child: 3.1.1
-      jackspeak: 2.1.0
+      jackspeak: 2.1.1
       minimatch: 9.0.0
       minipass: 5.0.0
       path-scurry: 1.7.0
@@ -5476,11 +5509,11 @@ packages:
       istanbul-lib-report: 3.0.0
     dev: true
 
-  /jackspeak@2.1.0:
-    resolution: {integrity: sha512-DiEwVPqsieUzZBNxQ2cxznmFzfg/AMgJUjYw5xl6rSmCxAQXECcbSdwcLM6Ds6T09+SBfSNCGPhYUoQ96P4h7A==}
+  /jackspeak@2.1.1:
+    resolution: {integrity: sha512-juf9stUEwUaILepraGOWIJTLwg48bUnBmRqd2ln2Os1sW987zeoj/hzhbvRB95oMuS2ZTpjULmdwHNX4rzZIZw==}
     engines: {node: '>=14'}
     dependencies:
-      cliui: 7.0.4
+      cliui: 8.0.1
     optionalDependencies:
       '@pkgjs/parseargs': 0.11.0
     dev: true
@@ -7401,8 +7434,8 @@ packages:
       postcss: 8.4.23
     dev: true
 
-  /postcss-selector-parser@6.0.11:
-    resolution: {integrity: sha512-zbARubNdogI9j7WY4nQJBiNqQf3sLS3wCP4WfOidu+p28LofJqDH1tcXypGrcmMHhDk2t9wGhCsYe/+szLTy1g==}
+  /postcss-selector-parser@6.0.12:
+    resolution: {integrity: sha512-NdxGCAZdRrwVI1sy59+Wzrh+pMMHxapGnpfenDVlMEXoOcvt4pGE0JLK9YY2F5dLxcFYA/YbVQKhcGU+FtSYQg==}
     engines: {node: '>=4'}
     dependencies:
       cssesc: 3.0.0
@@ -7692,8 +7725,8 @@ packages:
     resolution: {integrity: sha512-kY1AZVr2Ra+t+piVaJ4gxaFaReZVH40AKNo7UCX6W+dEwBo/2oZJzqfuN1qLq1oL45o56cPaTXELwrTh8Fpggg==}
     dev: true
 
-  /regexp-tree@0.1.25:
-    resolution: {integrity: sha512-szcL3aqw+vEeuxhL1AMYRyeMP+goYF5I/guaH10uJX5xbGyeQeNPPneaj3ZWVmGLCDxrVaaYekkr5R12gk4dJw==}
+  /regexp-tree@0.1.27:
+    resolution: {integrity: sha512-iETxpjK6YoRWJG5o6hXLwvjYAoW+FEZn9os0PD/b6AP6xQwsa/Y7lCVgIixBbUPMfhu+i2LtdeAqVTgGlQarfA==}
     hasBin: true
     dev: true
 
@@ -8590,8 +8623,8 @@ packages:
       glob: 9.3.5
     dev: true
 
-  /rollup@3.21.0:
-    resolution: {integrity: sha512-ANPhVcyeHvYdQMUyCbczy33nbLzI7RzrBje4uvNiTDJGIMtlKoOStmympwr9OtS1LZxiDmE2wvxHyVhoLtf1KQ==}
+  /rollup@3.21.2:
+    resolution: {integrity: sha512-c4vC+JZ3bbF4Kqq2TtM7zSKtSyMybFOjqmomFax3xpfYaPZDZ4iz8NMIuBRMjnXOcKYozw7bC6vhJjiWD6JpzQ==}
     engines: {node: '>=14.18.0', npm: '>=8.0.0'}
     hasBin: true
     optionalDependencies:
@@ -8639,7 +8672,7 @@ packages:
   /safe-regex@2.1.1:
     resolution: {integrity: sha512-rx+x8AMzKb5Q5lQ95Zoi6ZbJqwCLkqi3XuJXp5P3rT8OEc6sZCJG5AE5dU3lsgRr/F4Bs31jSlVN+j5KrsGu9A==}
     dependencies:
-      regexp-tree: 0.1.25
+      regexp-tree: 0.1.27
     dev: true
 
   /safer-buffer@2.1.2:
@@ -9103,7 +9136,7 @@ packages:
       postcss-scss: 4.0.6(postcss@8.4.23)
       stylelint: 15.6.0
       stylelint-config-recommended: 11.0.0(stylelint@15.6.0)
-      stylelint-scss: 4.6.0(stylelint@15.6.0)
+      stylelint-scss: 4.7.0(stylelint@15.6.0)
     dev: true
 
   /stylelint-config-recommended@11.0.0(stylelint@15.6.0):
@@ -9155,15 +9188,14 @@ packages:
       stylelint-config-recommended: 12.0.0(stylelint@15.6.0)
     dev: true
 
-  /stylelint-scss@4.6.0(stylelint@15.6.0):
-    resolution: {integrity: sha512-M+E0BQim6G4XEkaceEhfVjP/41C9Klg5/tTPTCQVlgw/jm2tvB+OXJGaU0TDP5rnTCB62aX6w+rT+gqJW/uwjA==}
+  /stylelint-scss@4.7.0(stylelint@15.6.0):
+    resolution: {integrity: sha512-TSUgIeS0H3jqDZnby1UO1Qv3poi1N8wUYIJY6D1tuUq2MN3lwp/rITVo0wD+1SWTmRm0tNmGO0b7nKInnqF6Hg==}
     peerDependencies:
       stylelint: ^14.5.1 || ^15.0.0
     dependencies:
-      dlv: 1.1.3
       postcss-media-query-parser: 0.2.3
       postcss-resolve-nested-selector: 0.1.1
-      postcss-selector-parser: 6.0.11
+      postcss-selector-parser: 6.0.12
       postcss-value-parser: 4.2.0
       stylelint: 15.6.0
     dev: true
@@ -9176,7 +9208,7 @@ packages:
       '@csstools/css-parser-algorithms': 2.1.1(@csstools/css-tokenizer@2.1.1)
       '@csstools/css-tokenizer': 2.1.1
       '@csstools/media-query-list-parser': 2.0.4(@csstools/css-parser-algorithms@2.1.1)(@csstools/css-tokenizer@2.1.1)
-      '@csstools/selector-specificity': 2.2.0(postcss-selector-parser@6.0.11)
+      '@csstools/selector-specificity': 2.2.0(postcss-selector-parser@6.0.12)
       balanced-match: 2.0.0
       colord: 2.9.3
       cosmiconfig: 8.1.3
@@ -9204,7 +9236,7 @@ packages:
       postcss-media-query-parser: 0.2.3
       postcss-resolve-nested-selector: 0.1.1
       postcss-safe-parser: 6.0.0(postcss@8.4.23)
-      postcss-selector-parser: 6.0.11
+      postcss-selector-parser: 6.0.12
       postcss-value-parser: 4.2.0
       resolve-from: 5.0.0
       string-width: 4.2.3
@@ -9363,8 +9395,8 @@ packages:
       globrex: 0.1.2
     dev: true
 
-  /tinybench@2.4.0:
-    resolution: {integrity: sha512-iyziEiyFxX4kyxSp+MtY1oCH/lvjH3PxFN8PGCDeqcZWAJ/i+9y+nL85w99PxVzrIvew/GSkSbDYtiGVa85Afg==}
+  /tinybench@2.5.0:
+    resolution: {integrity: sha512-kRwSG8Zx4tjF9ZiyH4bhaebu+EDz1BOx9hOigYHlUW4xxI/wKIUQUqo018UlU4ar6ATPBsaMrdbKZ+tmPdohFA==}
     dev: true
 
   /tinypool@0.4.0:
@@ -9445,7 +9477,7 @@ packages:
       code-block-writer: 12.0.0
     dev: true
 
-  /ts-node@10.9.1(@types/node@18.16.2)(typescript@5.0.4):
+  /ts-node@10.9.1(@types/node@18.16.3)(typescript@5.0.4):
     resolution: {integrity: sha512-NtVysVPkxxrwFGUUxGYhfux8k78pQB3JqYBXlLRZgdGUqTO5wU/UyHop5p70iEbGhB7q5KmiZiU0Y3KlJrScEw==}
     hasBin: true
     peerDependencies:
@@ -9464,7 +9496,7 @@ packages:
       '@tsconfig/node12': 1.0.11
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.3
-      '@types/node': 18.16.2
+      '@types/node': 18.16.3
       acorn: 8.8.2
       acorn-walk: 8.2.0
       arg: 4.1.3
@@ -9724,7 +9756,7 @@ packages:
       '@types/concat-stream': 2.0.0
       '@types/debug': 4.1.7
       '@types/is-empty': 1.2.1
-      '@types/node': 18.16.2
+      '@types/node': 18.16.3
       '@types/unist': 2.0.6
       concat-stream: 2.0.0
       debug: 4.3.4
@@ -10026,7 +10058,7 @@ packages:
       vfile-message: 3.1.4
     dev: true
 
-  /vite-node@0.30.1(@types/node@18.16.2):
+  /vite-node@0.30.1(@types/node@18.16.3):
     resolution: {integrity: sha512-vTikpU/J7e6LU/8iM3dzBo8ZhEiKZEKRznEMm+mJh95XhWaPrJQraT/QsT2NWmuEf+zgAoMe64PKT7hfZ1Njmg==}
     engines: {node: '>=v14.18.0'}
     hasBin: true
@@ -10036,7 +10068,7 @@ packages:
       mlly: 1.2.0
       pathe: 1.1.0
       picocolors: 1.0.0
-      vite: 4.3.3(@types/node@18.16.2)
+      vite: 4.3.3(@types/node@18.16.3)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -10058,13 +10090,13 @@ packages:
       '@alexaegis/fs': 0.1.1
       '@alexaegis/logging': 0.1.1
       '@alexaegis/workspace-tools': 0.1.1
-      '@types/node': 18.16.2
+      '@types/node': 18.16.3
       globby: 13.1.4
       prettier: 2.8.8
-      rollup: 3.21.0
-      ts-node: 10.9.1(@types/node@18.16.2)(typescript@5.0.4)
+      rollup: 3.21.2
+      ts-node: 10.9.1(@types/node@18.16.3)(typescript@5.0.4)
       typescript: 5.0.4
-      vite: 4.3.3(@types/node@18.16.2)
+      vite: 4.3.3(@types/node@18.16.3)
       yargs: 17.7.2
     transitivePeerDependencies:
       - '@swc/core'
@@ -10076,30 +10108,30 @@ packages:
       - terser
     dev: true
 
-  /vite-plugin-dts@2.3.0(@types/node@18.16.2)(vite@4.3.3):
+  /vite-plugin-dts@2.3.0(@types/node@18.16.3)(vite@4.3.3):
     resolution: {integrity: sha512-WbJgGtsStgQhdm3EosYmIdTGbag5YQpZ3HXWUAPCDyoXI5qN6EY0V7NXq0lAmnv9hVQsvh0htbYcg0Or5Db9JQ==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
       vite: '>=2.9.0'
     dependencies:
       '@babel/parser': 7.21.5
-      '@microsoft/api-extractor': 7.34.5(@types/node@18.16.2)
+      '@microsoft/api-extractor': 7.34.6(@types/node@18.16.3)
       '@rollup/pluginutils': 5.0.2
-      '@rushstack/node-core-library': 3.56.0(@types/node@18.16.2)
+      '@rushstack/node-core-library': 3.57.0(@types/node@18.16.3)
       debug: 4.3.4
       fast-glob: 3.2.12
       fs-extra: 10.1.0
       kolorist: 1.8.0
       magic-string: 0.29.0
       ts-morph: 18.0.0
-      vite: 4.3.3(@types/node@18.16.2)
+      vite: 4.3.3(@types/node@18.16.3)
     transitivePeerDependencies:
       - '@types/node'
       - rollup
       - supports-color
     dev: true
 
-  /vite@4.3.3(@types/node@18.16.2):
+  /vite@4.3.3(@types/node@18.16.3):
     resolution: {integrity: sha512-MwFlLBO4udZXd+VBcezo3u8mC77YQk+ik+fbc0GZWGgzfbPP+8Kf0fldhARqvSYmtIWoAJ5BXPClUbMTlqFxrA==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -10124,10 +10156,10 @@ packages:
       terser:
         optional: true
     dependencies:
-      '@types/node': 18.16.2
+      '@types/node': 18.16.3
       esbuild: 0.17.18
       postcss: 8.4.23
-      rollup: 3.21.0
+      rollup: 3.21.2
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
@@ -10140,7 +10172,7 @@ packages:
       vite:
         optional: true
     dependencies:
-      vite: 4.3.3(@types/node@18.16.2)
+      vite: 4.3.3(@types/node@18.16.3)
     dev: true
 
   /vitest@0.30.1:
@@ -10174,9 +10206,9 @@ packages:
       webdriverio:
         optional: true
     dependencies:
-      '@types/chai': 4.3.4
+      '@types/chai': 4.3.5
       '@types/chai-subset': 1.3.3
-      '@types/node': 18.16.2
+      '@types/node': 18.16.3
       '@vitest/expect': 0.30.1
       '@vitest/runner': 0.30.1
       '@vitest/snapshot': 0.30.1
@@ -10195,10 +10227,10 @@ packages:
       source-map: 0.6.1
       std-env: 3.3.2
       strip-literal: 1.0.1
-      tinybench: 2.4.0
+      tinybench: 2.5.0
       tinypool: 0.4.0
-      vite: 4.3.3(@types/node@18.16.2)
-      vite-node: 0.30.1(@types/node@18.16.2)
+      vite: 4.3.3(@types/node@18.16.3)
+      vite-node: 0.30.1(@types/node@18.16.3)
       why-is-node-running: 2.2.2
     transitivePeerDependencies:
       - less
