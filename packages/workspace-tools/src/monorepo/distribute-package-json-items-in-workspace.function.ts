@@ -1,7 +1,7 @@
 import { deepMerge, fillObjectWithTemplateVariables, sortObject } from '@alexaegis/common';
 import { writeJson } from '@alexaegis/fs';
 import type { Dependency } from '@schemastore/package';
-import { join, relative } from 'node:path';
+import { relative } from 'node:path';
 import { getWorkspaceRoot } from '../npm/get-workspace-root.function.js';
 import {
 	getPackageJsonTemplateVariables,
@@ -10,7 +10,6 @@ import {
 import { mergeDependencies } from '../package-json/merge-dependencies.function.js';
 import {
 	PACKAGE_JSON_DEPENDENCY_FIELDS,
-	PACKAGE_JSON_NAME,
 	type PackageJson,
 } from '../package-json/package-json.interface.js';
 import { collectWorkspacePackages } from './collect-workspace-packages.function.js';
@@ -43,7 +42,7 @@ export const distributePackageJsonItemsInWorkspace = async (
 
 	options.logger.info(
 		`packages to check:\n\t${targetPackages
-			.map((packageJson) => './' + relative(options.cwd, packageJson.path))
+			.map((packageJson) => './' + relative(options.cwd, packageJson.packagePath))
 			.join('\n\t')}`
 	);
 
@@ -51,7 +50,7 @@ export const distributePackageJsonItemsInWorkspace = async (
 		targetPackages.map((target) => {
 			const templateVariables = getPackageJsonTemplateVariables(target.packageJson);
 			templateVariables['relativePathFromPackageToRoot'] =
-				relative(target.path, workspaceRoot) || '.';
+				relative(target.packagePath, workspaceRoot) || '.';
 
 			const packageJsonUpdates =
 				fillObjectWithTemplateVariables<PackageJsonTemplateVariableNames>(
@@ -75,23 +74,20 @@ export const distributePackageJsonItemsInWorkspace = async (
 
 			return writeJson(
 				sortObject(targetPackageJson, options.sortingPreference),
-				join(target.path, PACKAGE_JSON_NAME),
+				target.packageJsonPath,
 				{
 					dry: options.dry,
 				}
 			)
 				.then(() => {
 					options.logger.info(
-						`writing ${target.path}'s new content:`,
+						`writing ${target.packageJsonPath}'s new content:`,
 						packageJsonUpdates
 					);
 				})
 				.catch((error: string) => {
 					options.logger.error(
-						`can't write updates to ${join(
-							target.path,
-							PACKAGE_JSON_NAME
-						)}, error happened: ${error}`
+						`can't write updates to ${target.packageJsonPath}, error happened: ${error}`
 					);
 				});
 		})

@@ -6,6 +6,7 @@ import { mockProjectRoot } from '../../__mocks__/fs.js';
 
 import { PACKAGE_JSON_NAME, type PackageJson } from '../package-json/package-json.interface.js';
 import { collectWorkspacePackages } from './collect-workspace-packages.function.js';
+import type { WorkspacePackage } from './workspace-package.interface.js';
 
 const mockPackageJsonWorkspaceValue: PackageJson = {
 	name: 'name',
@@ -79,25 +80,47 @@ vi.mock('globby', () => {
 });
 
 describe('collectWorkspacePackages in a multi-package npm workspace', () => {
+	const workspacePackageRoot: WorkspacePackage = {
+		packageKind: 'root',
+		packageJson: mockPackageJsonWorkspaceValue,
+		packagePath: '/foo/bar',
+		packageJsonPath: '/foo/bar/' + PACKAGE_JSON_NAME,
+		workspacePackagePatterns: ['packages/**'],
+	};
+
+	const workspacePackageZed: WorkspacePackage = {
+		packageKind: 'regular',
+		packageJson: mockPackageJsonZedValue,
+		packagePath: '/foo/bar/packages/zed',
+		packageJsonPath: '/foo/bar/packages/zed/' + PACKAGE_JSON_NAME,
+	};
+
+	const workspacePackageZod: WorkspacePackage = {
+		packageKind: 'regular',
+		packageJson: mockPackageJsonZodValue,
+		packagePath: '/foo/bar/packages/zod',
+		packageJsonPath: '/foo/bar/packages/zod/' + PACKAGE_JSON_NAME,
+	};
+
 	afterAll(() => {
 		vi.resetAllMocks();
 	});
 
 	it('should be able to collect all packages in a workspace from a sub package', async () => {
 		const foundPackageJsons = await collectWorkspacePackages({ cwd: '/foo/bar/packages/zed' });
-		expect(foundPackageJsons).toEqual([
-			{ path: '/foo/bar', packageJson: mockPackageJsonWorkspaceValue },
-			{ path: '/foo/bar/packages/zed', packageJson: mockPackageJsonZedValue },
-			{ path: '/foo/bar/packages/zod', packageJson: mockPackageJsonZodValue },
+		expect(foundPackageJsons).toEqual<WorkspacePackage[]>([
+			workspacePackageRoot,
+			workspacePackageZed,
+			workspacePackageZod,
 		]);
 	});
 
 	it('should be able to collect all packages in a workspace from the root', async () => {
 		const foundPackageJsons = await collectWorkspacePackages({ cwd: '/foo/bar' });
-		expect(foundPackageJsons).toEqual([
-			{ packageJson: mockPackageJsonWorkspaceValue, path: '/foo/bar' },
-			{ packageJson: mockPackageJsonZedValue, path: '/foo/bar/packages/zed' },
-			{ packageJson: mockPackageJsonZodValue, path: '/foo/bar/packages/zod' },
+		expect(foundPackageJsons).toEqual<WorkspacePackage[]>([
+			workspacePackageRoot,
+			workspacePackageZed,
+			workspacePackageZod,
 		]);
 	});
 
@@ -106,9 +129,7 @@ describe('collectWorkspacePackages in a multi-package npm workspace', () => {
 			cwd: '/foo/bar',
 			dependencyCriteria: ['foo', 'bar'],
 		});
-		expect(foundPackageJsons).toEqual([
-			{ packageJson: mockPackageJsonZedValue, path: '/foo/bar/packages/zed' },
-		]);
+		expect(foundPackageJsons).toEqual<WorkspacePackage[]>([workspacePackageZed]);
 	});
 
 	it('should be able to collect packages with specific keywords being present', async () => {
@@ -116,9 +137,7 @@ describe('collectWorkspacePackages in a multi-package npm workspace', () => {
 			cwd: '/foo/bar',
 			keywordCriteria: ['keyA', 'keyB'],
 		});
-		expect(foundPackageJsons).toEqual([
-			{ packageJson: mockPackageJsonZodValue, path: '/foo/bar/packages/zod' },
-		]);
+		expect(foundPackageJsons).toEqual<WorkspacePackage[]>([workspacePackageZod]);
 	});
 
 	it('should be able to collect packages with both a keywords and dependency criteria being present', async () => {
@@ -127,13 +146,11 @@ describe('collectWorkspacePackages in a multi-package npm workspace', () => {
 			keywordCriteria: ['keyB'],
 			dependencyCriteria: ['foo'],
 		});
-		expect(foundPackageJsons).toEqual([
-			{ packageJson: mockPackageJsonZodValue, path: '/foo/bar/packages/zod' },
-		]);
+		expect(foundPackageJsons).toEqual<WorkspacePackage[]>([workspacePackageZod]);
 	});
 
 	it('should be able to collect nothing, outside the workspace', async () => {
 		const foundPackageJsons = await collectWorkspacePackages({ cwd: '/foo' });
-		expect(foundPackageJsons).toEqual([]);
+		expect(foundPackageJsons).toEqual<WorkspacePackage[]>([]);
 	});
 });

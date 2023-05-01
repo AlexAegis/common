@@ -20,13 +20,13 @@ export const removeFilesInWorkspace = async (
 
 	options.logger.info(
 		`packages to check:\n\t${targetPackages
-			.map((packageJson) => './' + relative(options.cwd, packageJson.path))
+			.map((packageJson) => './' + relative(options.cwd, packageJson.packagePath))
 			.join('\n\t')}`
 	);
 
 	const pathsToDelete = await asyncFilterMap(targetPackages, (target) =>
 		globby(packageRelativeGlobs, {
-			cwd: target.path,
+			cwd: target.packagePath,
 			ignore: [NODE_MODULES_DIRECTORY_NAME],
 			absolute: true,
 			gitignore: true,

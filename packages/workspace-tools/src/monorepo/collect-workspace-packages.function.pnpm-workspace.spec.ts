@@ -9,6 +9,7 @@ import {
 	type PnpmWorkspaceYaml,
 } from '../package-json/package-json.interface.js';
 import { collectWorkspacePackages } from './collect-workspace-packages.function.js';
+import type { WorkspacePackage } from './workspace-package.interface.js';
 
 const mockPackageJsonValue: PackageJson = {
 	name: 'name',
@@ -71,19 +72,51 @@ describe('collectWorkspacePackages in a multi-package pnpm workspace', () => {
 
 	it('should be able to collect all packages in a workspace from a sub package', async () => {
 		const foundPackageJsons = await collectWorkspacePackages({ cwd: '/foo/bar/packages/zed' });
-		expect(foundPackageJsons).toEqual([
-			{ path: '/foo/bar', packageJson: mockPackageJsonValue },
-			{ path: '/foo/bar/packages/zed', packageJson: mockPackageJsonValue },
-			{ path: '/foo/bar/packages/zod', packageJson: mockPackageJsonValue },
+		expect(foundPackageJsons).toEqual<WorkspacePackage[]>([
+			{
+				packageKind: 'root',
+				packagePath: '/foo/bar',
+				packageJson: mockPackageJsonValue,
+				packageJsonPath: '/foo/bar/' + PACKAGE_JSON_NAME,
+				workspacePackagePatterns: ['packages/*'],
+			},
+			{
+				packageKind: 'regular',
+				packagePath: '/foo/bar/packages/zed',
+				packageJsonPath: '/foo/bar/packages/zed/' + PACKAGE_JSON_NAME,
+				packageJson: mockPackageJsonValue,
+			},
+			{
+				packageKind: 'regular',
+				packagePath: '/foo/bar/packages/zod',
+				packageJsonPath: '/foo/bar/packages/zod/' + PACKAGE_JSON_NAME,
+				packageJson: mockPackageJsonValue,
+			},
 		]);
 	});
 
 	it('should be able to collect all packages in a workspace from the root', async () => {
 		const foundPackageJsons = await collectWorkspacePackages({ cwd: '/foo/bar' });
-		expect(foundPackageJsons).toEqual([
-			{ packageJson: mockPackageJsonValue, path: '/foo/bar' },
-			{ packageJson: mockPackageJsonValue, path: '/foo/bar/packages/zed' },
-			{ packageJson: mockPackageJsonValue, path: '/foo/bar/packages/zod' },
+		expect(foundPackageJsons).toEqual<WorkspacePackage[]>([
+			{
+				packageKind: 'root',
+				packageJson: mockPackageJsonValue,
+				packagePath: '/foo/bar',
+				packageJsonPath: '/foo/bar/' + PACKAGE_JSON_NAME,
+				workspacePackagePatterns: ['packages/*'],
+			},
+			{
+				packageKind: 'regular',
+				packageJson: mockPackageJsonValue,
+				packagePath: '/foo/bar/packages/zed',
+				packageJsonPath: '/foo/bar/packages/zed/' + PACKAGE_JSON_NAME,
+			},
+			{
+				packageKind: 'regular',
+				packageJson: mockPackageJsonValue,
+				packagePath: '/foo/bar/packages/zod',
+				packageJsonPath: '/foo/bar/packages/zod/' + PACKAGE_JSON_NAME,
+			},
 		]);
 	});
 

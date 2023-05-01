@@ -29,7 +29,7 @@ export const collectLcovReportPaths = async (
 
 	const lcovPathResults = await Promise.all(
 		workspacePackages.map((workspacePackage) =>
-			globby([`${workspacePackage.path}/**/${LCOV_INFO_FILE_NAME}`], {
+			globby([`${workspacePackage.packagePath}/**/${LCOV_INFO_FILE_NAME}`], {
 				absolute: true,
 				onlyFiles: true,
 				cwd: workspaceRoot,

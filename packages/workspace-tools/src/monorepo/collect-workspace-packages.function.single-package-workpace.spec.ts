@@ -4,6 +4,7 @@ import { afterAll, describe, expect, it, vi } from 'vitest';
 import { mockProjectRoot } from '../../__mocks__/fs.js';
 import { PACKAGE_JSON_NAME, type PackageJson } from '../package-json/package-json.interface.js';
 import { collectWorkspacePackages } from './collect-workspace-packages.function.js';
+import type { WorkspacePackage } from './workspace-package.interface.js';
 
 const mockPackageJsonValue: PackageJson = {
 	name: 'name',
@@ -45,22 +46,25 @@ vi.mock('globby', () => {
 });
 
 describe('collectWorkspacePackages in a root-package only workspace', () => {
+	const workspacePackageRoot: WorkspacePackage = {
+		packageKind: 'root',
+		packageJson: mockPackageJsonValue,
+		packagePath: '/foo/bar',
+		packageJsonPath: `/foo/bar/${PACKAGE_JSON_NAME}`,
+		workspacePackagePatterns: [],
+	};
 	afterAll(() => {
 		vi.resetAllMocks();
 	});
 
 	it('should be able to collect all packages in a workspace from a sub directory', async () => {
 		const foundPackageJsons = await collectWorkspacePackages({ cwd: '/foo/bar/zed' });
-		expect(foundPackageJsons).toEqual([
-			{ packageJson: mockPackageJsonValue, path: '/foo/bar' },
-		]);
+		expect(foundPackageJsons).toEqual<WorkspacePackage[]>([workspacePackageRoot]);
 	});
 
 	it('should be able to collect all packages in a workspace from the root', async () => {
 		const foundPackageJsons = await collectWorkspacePackages({ cwd: '/foo/bar' });
-		expect(foundPackageJsons).toEqual([
-			{ packageJson: mockPackageJsonValue, path: '/foo/bar' },
-		]);
+		expect(foundPackageJsons).toEqual<WorkspacePackage[]>([workspacePackageRoot]);
 	});
 
 	it('should be able to collect nothing, outside the workspace', async () => {

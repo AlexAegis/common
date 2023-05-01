@@ -3,7 +3,7 @@ export * from './get-largest-version.function.js';
 export * from './get-package-json-template-variables.function.js';
 export * from './merge-dependencies.function.js';
 export * from './normalize-sorting-preference-for-package-json.function.js';
+export * from './package-archetype.interface.js';
 export * from './package-json-export-conditions.type.js';
 export * from './package-json.interface.js';
 export * from './sort-versions.function.js';
-export * from './workspace-package.interface.js';

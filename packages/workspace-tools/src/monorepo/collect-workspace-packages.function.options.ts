@@ -1,10 +1,9 @@
 import { normalizeRegExpLikeToRegExp } from '@alexaegis/common';
-import { normalizeCwdOption, type CwdOption, type NormalizedCwdOption } from '@alexaegis/fs';
 import {
-	normalizeLoggerOption,
-	type LoggerOption,
-	type NormalizedLoggerOption,
-} from '@alexaegis/logging';
+	normalizeGetRootPackageJsonOptions,
+	type GetRootPackageJsonOptions,
+	type NormalizedGetRootPackageJsonOptions,
+} from '../npm/get-root-package-json.function.options.js';
 
 interface CollectWorkspaceOnlyOptions {
 	/**
@@ -39,20 +38,20 @@ interface CollectWorkspaceOnlyOptions {
 }
 
 export type CollectWorkspacePackagesOptions = CollectWorkspaceOnlyOptions &
-	CwdOption &
-	LoggerOption;
+	GetRootPackageJsonOptions;
 
 export type NormalizedCollectWorkspacePackagesOptions = Required<
 	Omit<CollectWorkspaceOnlyOptions, 'keywordCriteria' | 'dependencyCriteria'>
-> & { dependencyCriteria: RegExp[]; keywordCriteria: RegExp[] } & NormalizedCwdOption &
-	NormalizedLoggerOption;
+> & {
+	dependencyCriteria: RegExp[];
+	keywordCriteria: RegExp[];
+} & NormalizedGetRootPackageJsonOptions;
 
 export const normalizeCollectWorkspacePackagesOptions = (
 	options?: CollectWorkspacePackagesOptions
 ): NormalizedCollectWorkspacePackagesOptions => {
 	return {
-		...normalizeCwdOption(options),
-		...normalizeLoggerOption(options),
+		...normalizeGetRootPackageJsonOptions(options),
 		onlyWorkspaceRoot: options?.onlyWorkspaceRoot ?? false,
 		skipWorkspaceRoot: options?.skipWorkspaceRoot ?? false,
 		dependencyCriteria: options?.dependencyCriteria?.map(normalizeRegExpLikeToRegExp) ?? [],

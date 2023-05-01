@@ -1,5 +1,6 @@
 import type { Replace } from '@alexaegis/common';
 import type { JSONSchemaForNPMPackageJsonFiles } from '@schemastore/package';
+import type { PackageArchetype } from './package-archetype.interface.js';
 import type { PackageJsonExportConditions } from './package-json-export-conditions.type.js';
 
 export const PACKAGE_JSON_NAME = 'package.json';
@@ -21,6 +22,7 @@ export interface SimplifiedPackageJsonFields {
 	scripts?: Record<string, string | undefined> | undefined;
 	main?: string | undefined;
 	module?: string | undefined;
+	archetype?: PackageArchetype;
 }
 
 /**

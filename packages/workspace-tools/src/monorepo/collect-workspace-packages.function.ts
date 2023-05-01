@@ -1,80 +1,58 @@
 import { asyncFilterMap } from '@alexaegis/common';
-import { readJson, readYaml } from '@alexaegis/fs';
+import { readJson } from '@alexaegis/fs';
 import { globby } from 'globby';
 import { join } from 'node:path';
-import { getWorkspaceRoot } from '../npm/get-workspace-root.function.js';
-import { normalizePackageJsonWorkspacesField } from '../npm/normalize-package-json-workspaces-field.function.js';
+import { getRootPackageJson } from '../npm/get-root-package-json.function.js';
 import {
 	NODE_MODULES_DIRECTORY_NAME,
 	PACKAGE_JSON_NAME,
-	PNPM_WORKSPACE_FILE_NAME,
 	type PackageJson,
-	type PnpmWorkspaceYaml,
 } from '../package-json/package-json.interface.js';
-import type { WorkspacePackage } from '../package-json/workspace-package.interface.js';
 import {
 	normalizeCollectWorkspacePackagesOptions,
 	type CollectWorkspacePackagesOptions,
 } from './collect-workspace-packages.function.options.js';
+import type { RegularWorkspacePackage, WorkspacePackage } from './workspace-package.interface.js';
 
 export const collectWorkspacePackages = async (
 	rawOptions?: CollectWorkspacePackagesOptions
 ): Promise<WorkspacePackage[]> => {
 	const options = normalizeCollectWorkspacePackagesOptions(rawOptions);
 
-	const rootWorkspace = getWorkspaceRoot(options.cwd);
-	if (!rootWorkspace) {
+	const rootPackage = await getRootPackageJson(options);
+
+	if (!rootPackage) {
 		options.logger.error('No package json was found! Cannot collect workspace packages!');
 
 		return [];
 	}
 
-	const packageJsonPath = join(rootWorkspace, PACKAGE_JSON_NAME);
-	const packageJson = await readJson<PackageJson>(packageJsonPath).catch(() => undefined);
-
-	if (!packageJson) {
-		options.logger.error('Failed to read packageJson!', packageJsonPath);
-		return [];
-	}
-
-	const rootPackage: WorkspacePackage = {
-		path: rootWorkspace,
-		packageJson,
-	};
-
-	const pnpmWorkspace = await readYaml<PnpmWorkspaceYaml>(
-		join(rootWorkspace, PNPM_WORKSPACE_FILE_NAME)
-	);
-
-	let workspaces = normalizePackageJsonWorkspacesField(packageJson.workspaces);
-
-	if (pnpmWorkspace?.packages) {
-		workspaces = [...workspaces, ...pnpmWorkspace.packages];
-	}
-
 	let result: WorkspacePackage[] = [];
 
-	if (workspaces.length > 0) {
-		const paths = await globby(workspaces, {
+	if (rootPackage.workspacePackagePatterns.length > 0) {
+		const paths = await globby(rootPackage.workspacePackagePatterns, {
 			gitignore: true,
 			onlyDirectories: true,
 			ignore: [NODE_MODULES_DIRECTORY_NAME],
 			absolute: true,
-			cwd: rootWorkspace,
+			cwd: rootPackage.packagePath,
 		});
 
-		const subPackages = await asyncFilterMap(paths, (path) =>
-			readJson<PackageJson>(join(path, PACKAGE_JSON_NAME))
+		const subPackages = await asyncFilterMap(paths, (path) => {
+			const packageJsonPath = join(path, PACKAGE_JSON_NAME);
+			return readJson<PackageJson>(packageJsonPath)
 				.catch(() => undefined)
 				.then((packageJson) =>
 					packageJson
-						? {
+						? ({
+								packageKind: 'regular',
 								packageJson,
-								path,
-						  }
+								packagePath: path,
+								packageJsonPath,
+						  } as RegularWorkspacePackage)
 						: undefined
-				)
-		);
+				);
+		});
 
 		if (!options.onlyWorkspaceRoot) {
 			result.push(...subPackages);

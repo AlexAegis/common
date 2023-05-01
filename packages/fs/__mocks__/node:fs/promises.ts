@@ -20,7 +20,7 @@ const mockLstat: ReturnType<typeof vi.fn> = vi.fn(
 					mode: path.toString().includes('executable') ? 0o111 : 0o444,
 				} as Stats);
 			} else if (path.toString().endsWith('directory')) {
-				resolve({ isFile: () => false, isDirectory: () => true } as Stats);
+				resolve({ isFile: () => false } as Stats);
 			} else {
 				throw new Error('non existent!');
 			}

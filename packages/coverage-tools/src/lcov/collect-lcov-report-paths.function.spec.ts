@@ -1,4 +1,8 @@
-import type { CollectWorkspacePackagesOptions, WorkspacePackage } from '@alexaegis/workspace-tools';
+import {
+	PACKAGE_JSON_NAME,
+	type CollectWorkspacePackagesOptions,
+	type WorkspacePackage,
+} from '@alexaegis/workspace-tools';
 import { join } from 'node:path/posix';
 import { afterAll, describe, expect, it, vi } from 'vitest';
 import { mockProjectRoot } from '../../__mocks__/globby.js';
@@ -26,9 +30,24 @@ vi.mock('@alexaegis/workspace-tools', async () => {
 
 				return cwd.startsWith(mockProjectRoot)
 					? [
-							{ path: `${mockProjectRoot}/package/zed`, packageJson: {} },
-							{ path: `${mockProjectRoot}/package/zod`, packageJson: {} },
-							{ path: `${mockProjectRoot}/package/notest`, packageJson: {} },
+							{
+								packageKind: 'regular',
+								packagePath: `${mockProjectRoot}/package/zed`,
+								packageJsonPath: `${mockProjectRoot}/package/zed/${PACKAGE_JSON_NAME}`,
+								packageJson: {},
+							},
+							{
+								packageKind: 'regular',
+								packagePath: `${mockProjectRoot}/package/zod`,
+								packageJsonPath: `${mockProjectRoot}/package/zod/${PACKAGE_JSON_NAME}`,
+								packageJson: {},
+							},
+							{
+								packageKind: 'regular',
+								packagePath: `${mockProjectRoot}/package/notest`,
+								packageJsonPath: `${mockProjectRoot}/package/notest/${PACKAGE_JSON_NAME}`,
+								packageJson: {},
+							},
 					  ]
 					: [];
 			}
@@ -36,6 +55,7 @@ vi.mock('@alexaegis/workspace-tools', async () => {
 		normalizeCollectWorkspacePackagesOptions:
 			actualWorkspaceTools.normalizeCollectWorkspacePackagesOptions,
 		NODE_MODULES_DIRECTORY_NAME: actualWorkspaceTools.NODE_MODULES_DIRECTORY_NAME,
+		PACKAGE_JSON_NAME: actualWorkspaceTools.PACKAGE_JSON_NAME,
 	};
 });
 
