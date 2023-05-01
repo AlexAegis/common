@@ -9,6 +9,7 @@ export * from './is-not-nullish.function.js';
 export * from './is-nullish.function.js';
 export * from './is-object.function.js';
 export * from './is-promise-like.function.js';
+export * from './item-of.type.js';
 export * from './modify.type.js';
 export * from './replace.type.js';
 export * from './some-partial.type.js';
