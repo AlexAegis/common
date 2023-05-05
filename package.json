@@ -74,7 +74,7 @@
 		"typedoc": "turbo run typedoc_"
 	},
 	"devDependencies": {
-		"@alexaegis/coverage-tools": "workspace:^0.1.6",
+		"@alexaegis/coverage-tools": "workspace:^",
 		"@alexaegis/eslint-config-core": "^0.2.0",
 		"@alexaegis/nuke": "^0.2.0",
 		"@alexaegis/setup-commitlint": "^0.2.0",
@@ -102,11 +102,10 @@
 		"commit-and-tag-version": "^11.2.1",
 		"commitlint": "^17.6.3",
 		"depcheck": "^1.4.3",
-		"eslint": "^8.39.0",
+		"eslint": "^8.40.0",
 		"husky": "^8.0.3",
 		"lint-staged": "^13.2.2",
 		"npm-check-updates": "^16.10.9",
-		"postcss-scss": "^4.0.6",
 		"prettier": "^2.8.8",
 		"remark": "^14.0.2",
 		"remark-cli": "^11.0.0",

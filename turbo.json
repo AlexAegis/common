@@ -44,7 +44,12 @@
 				"lint:style:scss_",
 				"lint:style:html_",
 				"lint:md_",
-				"lint:format_"
+				"lint:format_",
+				"//#lint:es_",
+				"//#lint:depcheck_",
+				"//#lint:tsc_",
+				"//#lint:md_",
+				"//#lint:format_"
 			],
 			"outputMode": "new-only"
 		},
