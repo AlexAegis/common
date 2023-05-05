@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.1.6](https://github.com/AlexAegis/js/compare/v0.1.5...v0.1.6) (2023-05-05)
+
+
+### Features
+
+* **common:** add ItemOf type ([31eec9e](https://github.com/AlexAegis/js/commit/31eec9ed3fb7ac00d3c12282e05a8f9af89f768b))
+* **match:** added match library ([55cafde](https://github.com/AlexAegis/js/commit/55cafde12f919217f56de06e3ddedd871ab026ce))
+
 ## [0.1.5](https://github.com/AlexAegis/js/compare/v0.1.4...v0.1.5) (2023-05-01)
 
 

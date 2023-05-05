@@ -1,7 +1,7 @@
 {
 	"name": "@alexaegis/coverage-tools",
 	"description": "Tools for working with coverage reports in workspaces",
-	"version": "0.1.5",
+	"version": "0.1.6",
 	"license": "MIT",
 	"private": false,
 	"author": {
@@ -65,9 +65,9 @@
 		"merge-workspace-lcov-reports": "./shims/merge-workspace-lcov-reports.js"
 	},
 	"dependencies": {
-		"@alexaegis/common": "^0.1.5",
-		"@alexaegis/logging": "^0.1.5",
-		"@alexaegis/workspace-tools": "^0.1.5",
+		"@alexaegis/common": "^0.1.6",
+		"@alexaegis/logging": "^0.1.6",
+		"@alexaegis/workspace-tools": "^0.1.6",
 		"globby": "^13.1.4"
 	},
 	"devDependencies": {

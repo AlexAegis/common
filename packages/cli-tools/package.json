@@ -1,7 +1,7 @@
 {
 	"name": "@alexaegis/cli-tools",
 	"description": "Common yargs setup",
-	"version": "0.1.5",
+	"version": "0.1.6",
 	"license": "MIT",
 	"private": false,
 	"author": {
@@ -63,10 +63,10 @@
 		"./readme": "./readme.md"
 	},
 	"dependencies": {
-		"@alexaegis/common": "^0.1.5",
-		"@alexaegis/fs": "^0.1.5",
-		"@alexaegis/logging": "^0.1.5",
-		"@alexaegis/workspace-tools": "^0.1.5",
+		"@alexaegis/common": "^0.1.6",
+		"@alexaegis/fs": "^0.1.6",
+		"@alexaegis/logging": "^0.1.6",
+		"@alexaegis/workspace-tools": "^0.1.6",
 		"yargs": "^17.7.2"
 	},
 	"devDependencies": {
