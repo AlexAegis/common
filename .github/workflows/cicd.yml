@@ -298,6 +298,7 @@ jobs:
             'common',
             'coverage-tools',
             'fs',
+            'match',
             'logging',
             'workspace-tools',
           ]
