@@ -1,5 +1,5 @@
 import { join } from 'node:path';
-import { afterAll, describe, expect, it, vi } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { mockProjectRoot } from '../../__mocks__/fs.js';
 import type { RootWorkspacePackage } from '../index.js';
 import {
@@ -45,11 +45,6 @@ vi.mock('@alexaegis/fs', async () => {
 });
 
 describe('getRootPackageJson', () => {
-	afterAll(() => {
-		vi.resetAllMocks();
-		vi.unmock('node:fs');
-	});
-
 	it('should find both normal packageJson and pnpm data', async () => {
 		const rootPackage = await getRootPackageJson({
 			cwd: mockProjectRoot,

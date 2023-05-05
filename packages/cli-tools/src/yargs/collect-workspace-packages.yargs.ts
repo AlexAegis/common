@@ -5,6 +5,9 @@ import { yargsForCwdOption } from './cwd.yargs.js';
 import { yargsForDryOption } from './dry.yargs.js';
 import { yargsForForceOption } from './force.yargs.js';
 
+/**
+ * @deprecated moved from the cli to the plugins to decide
+ */
 export const yargsForCollectWorkspacePackagesOptions = <T>(
 	yargs: Argv<T>
 ): Argv<T & Omit<CollectWorkspacePackagesOptions, keyof LoggerOption>> => {
