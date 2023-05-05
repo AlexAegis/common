@@ -5,14 +5,6 @@ export interface JsonObject {
 }
 export type JsonValue = JsonObject[keyof JsonObject];
 
-export const isJsonObject = (t: unknown): t is JsonObject => {
-	return typeof t === 'string' || typeof t === 'number' || typeof t === 'object';
-};
-
-export const isCustomJsonValueMatcher = <T>(t: unknown): t is CustomJsonValueMatcher<T> => {
-	return typeof t === 'function';
-};
-
 export type CustomJsonValueMatcher<T = JsonValue> = (value: T) => boolean;
 
 export type JsonLeafMatcher = string | number | boolean | RegExp | CustomJsonValueMatcher;
@@ -45,11 +37,15 @@ export type JsonMatcherFrom<T> = T extends string
 			| CustomJsonValueMatcher<T>
 	: T;
 
+const isCustomJsonValueMatcher = <T>(t: unknown): t is CustomJsonValueMatcher<T> => {
+	return typeof t === 'function';
+};
+
 /**
  * TODO: Options to set if extra keys are allowed or not, currently it's allowed
  * TODO: The generic was extremely slow!!!
  */
-export const objectMatch = <T = JsonValue>(
+export const match = <T = JsonValue>(
 	target: T,
 	matcher: JsonMatcher | undefined | null
 ): boolean => {
@@ -69,7 +65,7 @@ export const objectMatch = <T = JsonValue>(
 		return typeof target === 'string' && matcher.test(target);
 	} else if (Array.isArray(matcher)) {
 		return Array.isArray(target)
-			? matcher.every((itemMatcher, i) => objectMatch(target[i], itemMatcher))
+			? matcher.every((itemMatcher, i) => match(target[i], itemMatcher))
 			: false;
 	} else {
 		return Object.entries(matcher).every(([filterKey, filter]) => {
@@ -77,7 +73,7 @@ export const objectMatch = <T = JsonValue>(
 				typeof target === 'object' &&
 				target !== null && // typeof null === 'object'
 				!Array.isArray(target) &&
-				objectMatch(
+				match(
 					(target as Record<string | number, unknown>)[filterKey],
 					filter as JsonMatcher
 				)

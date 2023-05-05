@@ -1,1 +1,1 @@
-export * from './internal/object-match.function.js';
+export * from './internal/match.function.js';
