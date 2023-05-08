@@ -31,6 +31,8 @@ interface WorkspaceFileTarget {
  *   - ${packageNameWithoutOrg}
  *
  * This is only available when files are copied and not symlinked.
+ *
+ * @deprecated use autotool
  */
 export const distributeFileInWorkspace = async (
 	sourceFile: string,

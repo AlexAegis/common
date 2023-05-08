@@ -35,18 +35,21 @@ vi.mock('@alexaegis/workspace-tools', async () => {
 								packagePath: `${mockProjectRoot}/package/zed`,
 								packageJsonPath: `${mockProjectRoot}/package/zed/${PACKAGE_JSON_NAME}`,
 								packageJson: {},
+								packagePathFromRootPackage: 'package/zed',
 							},
 							{
 								packageKind: 'regular',
 								packagePath: `${mockProjectRoot}/package/zod`,
 								packageJsonPath: `${mockProjectRoot}/package/zod/${PACKAGE_JSON_NAME}`,
 								packageJson: {},
+								packagePathFromRootPackage: 'package/zod',
 							},
 							{
 								packageKind: 'regular',
 								packagePath: `${mockProjectRoot}/package/notest`,
 								packageJsonPath: `${mockProjectRoot}/package/notest/${PACKAGE_JSON_NAME}`,
 								packageJson: {},
+								packagePathFromRootPackage: 'package/notest',
 							},
 					  ]
 					: [];

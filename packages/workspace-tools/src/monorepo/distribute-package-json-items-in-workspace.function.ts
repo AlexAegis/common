@@ -25,6 +25,8 @@ import {
  *
  * Do not use it concurrently with other packageJson edits! Information can be
  * lost as they both edit the same files!
+ *
+ * @deprecated use autotool
  */
 export const distributePackageJsonItemsInWorkspace = async (
 	unprocessedPackageJsonUpdates: Partial<PackageJson>,

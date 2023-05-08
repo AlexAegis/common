@@ -79,18 +79,21 @@ describe('collectWorkspacePackages in a multi-package pnpm workspace', () => {
 				packageJson: mockPackageJsonValue,
 				packageJsonPath: '/foo/bar/' + PACKAGE_JSON_NAME,
 				workspacePackagePatterns: ['packages/*'],
+				packagePathFromRootPackage: '.',
 			},
 			{
 				packageKind: 'regular',
 				packagePath: '/foo/bar/packages/zed',
 				packageJsonPath: '/foo/bar/packages/zed/' + PACKAGE_JSON_NAME,
 				packageJson: mockPackageJsonValue,
+				packagePathFromRootPackage: 'packages/zed',
 			},
 			{
 				packageKind: 'regular',
 				packagePath: '/foo/bar/packages/zod',
 				packageJsonPath: '/foo/bar/packages/zod/' + PACKAGE_JSON_NAME,
 				packageJson: mockPackageJsonValue,
+				packagePathFromRootPackage: 'packages/zod',
 			},
 		]);
 	});
@@ -104,18 +107,21 @@ describe('collectWorkspacePackages in a multi-package pnpm workspace', () => {
 				packagePath: '/foo/bar',
 				packageJsonPath: '/foo/bar/' + PACKAGE_JSON_NAME,
 				workspacePackagePatterns: ['packages/*'],
+				packagePathFromRootPackage: '.',
 			},
 			{
 				packageKind: 'regular',
 				packageJson: mockPackageJsonValue,
 				packagePath: '/foo/bar/packages/zed',
 				packageJsonPath: '/foo/bar/packages/zed/' + PACKAGE_JSON_NAME,
+				packagePathFromRootPackage: 'packages/zed',
 			},
 			{
 				packageKind: 'regular',
 				packageJson: mockPackageJsonValue,
 				packagePath: '/foo/bar/packages/zod',
 				packageJsonPath: '/foo/bar/packages/zod/' + PACKAGE_JSON_NAME,
+				packagePathFromRootPackage: 'packages/zod',
 			},
 		]);
 	});

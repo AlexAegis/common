@@ -49,5 +49,6 @@ export const getRootPackageJson = async (
 		workspacePackagePatterns: workspaces,
 		packageJsonPath: packageJsonPath,
 		packagePath: rootWorkspace,
+		packagePathFromRootPackage: '.',
 	};
 };

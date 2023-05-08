@@ -52,6 +52,7 @@ describe('collectWorkspacePackages in a root-package only workspace', () => {
 		packagePath: '/foo/bar',
 		packageJsonPath: `/foo/bar/${PACKAGE_JSON_NAME}`,
 		workspacePackagePatterns: [],
+		packagePathFromRootPackage: '.',
 	};
 	afterAll(() => {
 		vi.resetAllMocks();

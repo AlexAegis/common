@@ -10,6 +10,10 @@ import {
 	type RemoveFilesInWorkspaceOptions,
 } from './remove-files-in-workspace.function.options.js';
 
+/**
+ *
+ * @deprecated use autotool
+ */
 export const removeFilesInWorkspace = async (
 	packageRelativeGlobs: string | string[],
 	rawOptions?: RemoveFilesInWorkspaceOptions

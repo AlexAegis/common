@@ -5,6 +5,7 @@ interface BaseWorkspacePackage {
 	packageJsonPath: string;
 	packagePath: string;
 }
+
 export interface RootWorkspacePackage extends BaseWorkspacePackage {
 	packageKind: 'root';
 	/**
@@ -15,9 +16,11 @@ export interface RootWorkspacePackage extends BaseWorkspacePackage {
 	 * ? workspaces property and rely entirely on what's in the packageJson
 	 */
 	workspacePackagePatterns: string[];
+	packagePathFromRootPackage: '.';
 }
 
 export interface RegularWorkspacePackage extends BaseWorkspacePackage {
 	packageKind: 'regular';
+	packagePathFromRootPackage: string;
 }
 export type WorkspacePackage = RootWorkspacePackage | RegularWorkspacePackage;

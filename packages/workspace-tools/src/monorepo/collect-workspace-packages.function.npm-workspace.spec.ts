@@ -86,6 +86,7 @@ describe('collectWorkspacePackages in a multi-package npm workspace', () => {
 		packagePath: '/foo/bar',
 		packageJsonPath: '/foo/bar/' + PACKAGE_JSON_NAME,
 		workspacePackagePatterns: ['packages/**'],
+		packagePathFromRootPackage: '.',
 	};
 
 	const workspacePackageZed: WorkspacePackage = {
@@ -93,6 +94,7 @@ describe('collectWorkspacePackages in a multi-package npm workspace', () => {
 		packageJson: mockPackageJsonZedValue,
 		packagePath: '/foo/bar/packages/zed',
 		packageJsonPath: '/foo/bar/packages/zed/' + PACKAGE_JSON_NAME,
+		packagePathFromRootPackage: 'packages/zed',
 	};
 
 	const workspacePackageZod: WorkspacePackage = {
@@ -100,6 +102,7 @@ describe('collectWorkspacePackages in a multi-package npm workspace', () => {
 		packageJson: mockPackageJsonZodValue,
 		packagePath: '/foo/bar/packages/zod',
 		packageJsonPath: '/foo/bar/packages/zod/' + PACKAGE_JSON_NAME,
+		packagePathFromRootPackage: 'packages/zod',
 	};
 
 	afterAll(() => {

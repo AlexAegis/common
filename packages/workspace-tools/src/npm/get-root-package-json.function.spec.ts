@@ -50,13 +50,14 @@ describe('getRootPackageJson', () => {
 			cwd: mockProjectRoot,
 		});
 
-		expect(rootPackage).toEqual({
+		expect(rootPackage).toEqual<RootWorkspacePackage>({
 			packageJson: mockPackageJsonValue,
 			packageKind: 'root',
+			packagePathFromRootPackage: '.',
 			packageJsonPath: join(mockProjectRoot, PACKAGE_JSON_NAME),
 			packagePath: mockProjectRoot,
 			workspacePackagePatterns: [...packageJsonWorkspaces, ...pnpmWorkspaceYamlWorkspaces],
-		} as RootWorkspacePackage);
+		});
 	});
 
 	it('should not find one outside of a workspace', async () => {

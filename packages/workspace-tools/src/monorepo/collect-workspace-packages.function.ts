@@ -1,7 +1,7 @@
 import { asyncFilterMap } from '@alexaegis/common';
 import { readJson } from '@alexaegis/fs';
 import { globby } from 'globby';
-import { join } from 'node:path';
+import { join, relative } from 'node:path';
 import { getRootPackageJson } from '../npm/get-root-package-json.function.js';
 import {
 	NODE_MODULES_DIRECTORY_NAME,
@@ -48,6 +48,7 @@ export const collectWorkspacePackages = async (
 								packageKind: 'regular',
 								packageJson,
 								packagePath: path,
+								packagePathFromRootPackage: relative(rootPackage.packagePath, path),
 								packageJsonPath,
 						  } as RegularWorkspacePackage)
 						: undefined
