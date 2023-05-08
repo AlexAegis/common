@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.1.7](https://github.com/AlexAegis/js/compare/v0.1.6...v0.1.7) (2023-05-08)
+
+
+### Features
+
+* **workspace-tools:** added relative packagePathFromRootPackage ([c6283b9](https://github.com/AlexAegis/js/commit/c6283b9bb1b944e73fd452304b42520add9c94af))
+
 ## [0.1.6](https://github.com/AlexAegis/js/compare/v0.1.5...v0.1.6) (2023-05-05)
 
 
