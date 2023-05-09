@@ -11,7 +11,7 @@ export const writeJson = async <
 ): Promise<void> => {
 	const options = normalizeWriteJsonOptions(rawOptions);
 
-	const rawData = JSON.stringify(data);
+	const rawData = JSON.stringify(data, undefined, 2);
 
 	if (options.autoPrettier) {
 		const formattedData = await tryPrettify(rawData, { parser: 'json-stringify' });

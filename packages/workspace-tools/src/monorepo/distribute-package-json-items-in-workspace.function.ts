@@ -64,7 +64,7 @@ export const distributePackageJsonItemsInWorkspace = async (
 				(acc, dependencyFieldKey) => {
 					if (packageJsonUpdates[dependencyFieldKey]) {
 						acc[dependencyFieldKey] = mergeDependencies(
-							target.packageJson[dependencyFieldKey] as Dependency,
+							target.packageJson[dependencyFieldKey],
 							packageJsonUpdates[dependencyFieldKey] as Dependency
 						);
 					}

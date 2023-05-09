@@ -11,7 +11,7 @@ export const PACKAGE_JSON_DEPENDENCY_FIELDS = [
 	'devDependencies',
 	'optionalDependencies',
 	'peerDependencies',
-];
+] as const;
 
 export type PackageJsonExports = Record<string, PackageJsonExportConditions | string>;
 

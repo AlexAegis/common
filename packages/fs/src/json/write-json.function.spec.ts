@@ -31,7 +31,10 @@ describe('writeJson', () => {
 	it('should write the stringified form of the object when not prettified', async () => {
 		await writeJson(testJson, testFileName, { autoPrettier: false });
 		expect(mockPrettierFormat).not.toHaveBeenCalled();
-		expect(mockWriteFile).toHaveBeenCalledWith(testFileName, JSON.stringify(testJson));
+		expect(mockWriteFile).toHaveBeenCalledWith(
+			testFileName,
+			JSON.stringify(testJson, undefined, 2)
+		);
 	});
 
 	it('should not write when dry but still format when enabled', async () => {
