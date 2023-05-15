@@ -1,7 +1,7 @@
 {
 	"name": "@alexaegis/workspace",
 	"description": "base repo for common stuff in my other js projects",
-	"version": "0.1.7",
+	"version": "0.1.8",
 	"license": "mit",
 	"private": true,
 	"author": {
@@ -74,7 +74,7 @@
 		"typedoc": "turbo run typedoc_"
 	},
 	"devDependencies": {
-		"@alexaegis/coverage-tools": "workspace:^",
+		"@alexaegis/coverage-tools": "workspace:^0.1.8",
 		"@alexaegis/eslint-config-core": "^0.2.0",
 		"@alexaegis/nuke": "^0.2.0",
 		"@alexaegis/setup-commitlint": "^0.2.0",

@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.1.8](https://github.com/AlexAegis/js/compare/v0.1.7...v0.1.8) (2023-05-15)
+
+
+### Features
+
+* added archetype to default ordering ([5b0a3cd](https://github.com/AlexAegis/js/commit/5b0a3cd5dd8136255e87b35973d0ee12fc108b22))
+* **fs:** set the default indentation to 2 space for writeJson ([60e2f60](https://github.com/AlexAegis/js/commit/60e2f60b7608b347653c8a95d5216cdcfec840cf))
+
 ## [0.1.7](https://github.com/AlexAegis/js/compare/v0.1.6...v0.1.7) (2023-05-08)
 
 
