@@ -173,5 +173,15 @@ describe('match', () => {
 
 			expect(result).toBeFalsy();
 		});
+
+		it('should match an undefined when a field is not defined', () => {
+			const target = {};
+
+			const result = match(target, {
+				foo: undefined,
+			} as unknown as JsonMatcher);
+
+			expect(result).toBeTruthy();
+		});
 	});
 });

@@ -33,7 +33,7 @@
 	"engines": {
 		"node": ">=18.13.0"
 	},
-	"packageManager": "pnpm@8.4.0",
+	"packageManager": "pnpm@8.5.1",
 	"workspaces": [
 		"apps/*",
 		"libs/*",
@@ -48,7 +48,7 @@
 		"lint:depcheck_": "depcheck",
 		"lint:es": "turbo run lint:es_ --concurrency 6 --cache-dir .cache/turbo",
 		"lint:format": "turbo run lint:format_ --concurrency 6 --cache-dir .cache/turbo",
-		"lint:format_": "prettier --check *.{json,ts,js,mjs,md,yml,yaml}",
+		"lint:format_": "prettier --check *.*",
 		"lint:md": "turbo run lint:md_ --concurrency 6 --cache-dir .cache/turbo",
 		"lint:md_": "remark --frail --no-stdout --silently-ignore *.md docs/**/*.md",
 		"lint:style": "turbo run lint:style_ --concurrency 6 --cache-dir .cache/turbo",
@@ -111,7 +111,7 @@
 		"remark-cli": "^11.0.0",
 		"stylelint": "^15.6.1",
 		"ts-node": "^10.9.1",
-		"turbo": "^1.9.3",
+		"turbo": "^1.9.5",
 		"typedoc": "^0.24.7",
 		"typescript": "^5.0.4",
 		"vitest": "^0.31.0"
