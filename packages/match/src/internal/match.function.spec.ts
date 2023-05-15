@@ -183,5 +183,40 @@ describe('match', () => {
 
 			expect(result).toBeTruthy();
 		});
+
+		it('should not match when one matcher is negative even if another is matching', () => {
+			const target = {
+				name: '@org/pack',
+				archetype: {
+					platform: 'node',
+				},
+			};
+
+			const result = match(target, {
+				name: (name) => name !== '@org/pack',
+				archetype: {
+					platform: 'node',
+				},
+			});
+			expect(result).toBeFalsy();
+		});
+
+		it('should not match when one matcher is negative even if another is matching using a regexp', () => {
+			const target = {
+				name: '@org/pack',
+				archetype: {
+					platform: 'node',
+				},
+			};
+
+			const result = match(target, {
+				name: /^(?!.*@org\/pack).*$/,
+				archetype: {
+					platform: 'node',
+				},
+			});
+
+			expect(result).toBeFalsy();
+		});
 	});
 });
