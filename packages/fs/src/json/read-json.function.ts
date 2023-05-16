@@ -1,9 +1,11 @@
+import type { LoggerOption } from '@alexaegis/logging';
 import { readFile } from 'node:fs/promises';
 
 export const readJson = async <
 	T extends Record<string | number, unknown> = Record<string | number, unknown>
 >(
-	path: string | undefined
+	path: string | undefined,
+	options?: LoggerOption
 ): Promise<T | undefined> => {
 	if (path === undefined) {
 		return undefined;
@@ -12,7 +14,7 @@ export const readJson = async <
 	const rawJson = await readFile(path, {
 		encoding: 'utf8',
 	}).catch((error) => {
-		console.error('error reading json', error);
+		options?.logger?.error('error reading json', error);
 		return undefined;
 	});
 
@@ -23,6 +25,7 @@ export const readJson = async <
 	try {
 		return JSON.parse(rawJson) as T;
 	} catch {
+		options?.logger?.error('error parsing json');
 		return undefined;
 	}
 };
