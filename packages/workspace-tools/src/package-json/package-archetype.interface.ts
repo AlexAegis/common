@@ -1,5 +1,5 @@
-import { isNotNullish, type Nullable } from '@alexaegis/common';
-
+import { type Nullable } from '@alexaegis/common';
+import type { CustomJsonValueMatcher, JsonMatcherFrom } from '@alexaegis/match';
 /**
  * The archetypical description of a project present in the "archetype" field
  * of the package.json. It's not the full description as other package.json
@@ -53,12 +53,13 @@ export interface PackageArchetype {
  * This will return names for when you want to denote the archetype in a
  * filename: `tsconfig.web-svelte-lib.json` or `tsconfig.node-lib.json`
  */
-export const getEncodedArchetype = (archetype?: PackageArchetype | undefined): string => {
-	if (!archetype) {
+export const getEncodedArchetype = (
+	archetype?: JsonMatcherFrom<PackageArchetype> | undefined
+): string => {
+	if (!archetype || typeof archetype === 'function') {
 		return '';
 	}
-
-	const orderedValues: Nullable<string>[] = [
+	const orderedValues: Nullable<string | RegExp | CustomJsonValueMatcher<string>>[] = [
 		archetype.platform,
 		archetype.framework,
 		archetype.language,
@@ -67,5 +68,5 @@ export const getEncodedArchetype = (archetype?: PackageArchetype | undefined): s
 		archetype.testing,
 	];
 
-	return orderedValues.filter(isNotNullish).join('-');
+	return orderedValues.filter((value) => typeof value === 'string').join('-');
 };
