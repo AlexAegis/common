@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.2.0](https://github.com/AlexAegis/js/compare/v0.1.8...v0.2.0) (2023-05-19)
+
+
+### Features
+
+* **common:** added deepFreeze ([2ea9a40](https://github.com/AlexAegis/js/commit/2ea9a40b602cdbbbb7a1320e5c083ad56412d2c2))
+* **fs:** regular logging for readJson ([ab911b2](https://github.com/AlexAegis/js/commit/ab911b2ce2e89d50e8c2c796a1a9bae3fd249980))
+* migrated to autotool ([e22a607](https://github.com/AlexAegis/js/commit/e22a6071f6a319198811583aa0dad462f5e53f1b))
+
+
+### Bug Fixes
+
+* depend on yargs types so they are available at the consumer ([c946b1d](https://github.com/AlexAegis/js/commit/c946b1d6cb6f1836338c9a1ee34eb543344ca20d))
+
 ## [0.1.8](https://github.com/AlexAegis/js/compare/v0.1.7...v0.1.8) (2023-05-15)
 
 
