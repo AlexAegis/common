@@ -4,16 +4,15 @@
 	"version": "0.1.8",
 	"license": "MIT",
 	"private": false,
+	"archetype": {
+		"platform": "node",
+		"language": "ts",
+		"kind": "lib"
+	},
 	"keywords": [
-		"@alexaegis/setup-depcheck",
-		"@alexaegis/setup-eslint",
-		"@alexaegis/setup-prettier",
-		"@alexaegis/setup-remark",
-		"@alexaegis/setup-ts-node",
-		"@alexaegis/setup-vite-lib",
-		"@alexaegis/setup-vitest-node",
 		"javascript",
 		"js",
+		"managed-by-autotool",
 		"ts",
 		"typescript"
 	],
@@ -35,20 +34,22 @@
 		"access": "public"
 	},
 	"scripts": {
-		"build": "turbo run build-lib_ --concurrency 6 --cache-dir .cache/turbo --filter @alexaegis/workspace-tools",
+		"build": "turbo run build-lib_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/workspace-tools",
 		"build-lib_": "vite build",
 		"lint:depcheck": "turbo run lint:depcheck_ --concurrency 6 --cache-dir .cache/turbo --filter @alexaegis/workspace-tools",
 		"lint:depcheck_": "depcheck",
-		"lint:es": "turbo run lint:es_ --concurrency 6 --cache-dir .cache/turbo --filter @alexaegis/workspace-tools",
+		"lint:es": "turbo run lint:es_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/workspace-tools",
 		"lint:es_": "eslint --max-warnings=0 --fix --no-error-on-unmatched-pattern .",
-		"lint:format": "turbo run lint:format_ --concurrency 6 --cache-dir .cache/turbo --filter @alexaegis/workspace-tools",
+		"lint:format": "turbo run lint:format_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/workspace-tools",
 		"lint:format_": "prettier --check .",
-		"lint:md": "turbo run lint:md_ --concurrency 6 --cache-dir .cache/turbo --filter @alexaegis/workspace-tools",
+		"lint:md": "turbo run lint:md_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/workspace-tools",
 		"lint:md_": "remark --frail --no-stdout --silently-ignore *.md docs/**/*.md",
-		"lint:tsc": "turbo run lint:tsc_ --concurrency 6 --cache-dir .cache/turbo --filter @alexaegis/workspace-tools",
+		"lint:tsc": "turbo run lint:tsc_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/workspace-tools",
 		"lint:tsc_": "tsc --noEmit",
+		"publint": "turbo run publint_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/workspace-tools",
+		"publint_": "publint dist",
 		"format": "prettier --write .",
-		"test": "turbo run test_ --concurrency 6 --cache-dir .cache/turbo --filter @alexaegis/workspace-tools",
+		"test": "turbo run test_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/workspace-tools",
 		"test_": "vitest --passWithNoTests --coverage --run",
 		"test:watch": "vitest --passWithNoTests --coverage",
 		"turbo:test": "turbo --color --filter @alexaegis/workspace-tools test",
@@ -73,14 +74,15 @@
 		"semver": "^7.5.1"
 	},
 	"devDependencies": {
-		"@alexaegis/eslint-config-vitest": "^0.2.0",
-		"@alexaegis/ts": "^0.2.0",
-		"@alexaegis/vite": "^0.2.0",
-		"@alexaegis/vitest": "^0.2.0",
-		"@types/node": "^20.1.7",
+		"@alexaegis/eslint-config-vitest": "^0.3.0",
+		"@alexaegis/ts": "^0.3.0",
+		"@alexaegis/vite": "^0.3.0",
+		"@alexaegis/vitest": "^0.3.0",
+		"@types/node": "^20.2.1",
 		"@types/semver": "^7.5.0",
+		"publint": "^0.1.11",
 		"typescript": "^5.0.4",
-		"vite": "^4.3.7",
+		"vite": "^4.3.8",
 		"vitest": "^0.31.1"
 	}
 }
