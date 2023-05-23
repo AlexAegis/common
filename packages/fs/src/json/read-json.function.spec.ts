@@ -1,3 +1,5 @@
+import type { Logger } from '@alexaegis/logging';
+import { MockLogger } from '@alexaegis/logging/mocks';
 import type { PathLike } from 'node:fs';
 import { afterEach, beforeAll, describe, expect, it, vi } from 'vitest';
 import { readJson } from './read-json.function.js';
@@ -7,6 +9,9 @@ const testJson = {
 };
 
 describe('readJson', () => {
+	const mockLogger = new MockLogger();
+	const logger = mockLogger as unknown as Logger<unknown>;
+
 	beforeAll(() => {
 		vi.spyOn(console, 'error').mockImplementation(() => undefined);
 		vi.mock('node:fs/promises', () => {
@@ -51,6 +56,12 @@ describe('readJson', () => {
 			expect(result).toBeUndefined();
 		});
 
+		it('should return undefined and log the error when the fileReading results in an error', async () => {
+			const result = await readJson('error', { logger });
+			expect(result).toBeUndefined();
+			expect(mockLogger.error).toHaveBeenCalled();
+		});
+
 		it('should return undefined when no path is given', async () => {
 			const result = await readJson(undefined);
 			expect(result).toBeUndefined();
@@ -59,6 +70,12 @@ describe('readJson', () => {
 		it('should return undefined when when it is not json parsable', async () => {
 			const result = await readJson('test.txt');
 			expect(result).toBeUndefined();
+		});
+
+		it('should return undefined and log an error when when it is not json parsable', async () => {
+			const result = await readJson('test.txt', { logger });
+			expect(result).toBeUndefined();
+			expect(mockLogger.error).toHaveBeenCalled();
 		});
 	});
 });

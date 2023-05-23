@@ -17,8 +17,16 @@ export const getPrettierFormatter = async (
 			parser: options.parser,
 		};
 
-		return (content) => prettier.default.format(content, prettierOptions);
-	} catch {
+		return (content) => {
+			try {
+				return prettier.default.format(content, prettierOptions);
+			} catch (error) {
+				options.logger.error('prettier format failed', error);
+				return content;
+			}
+		};
+	} catch (error) {
+		options.logger.warn('loading prettier failed', error);
 		return (content) => content;
 	}
 };

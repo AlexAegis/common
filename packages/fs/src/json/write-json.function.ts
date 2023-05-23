@@ -11,14 +11,13 @@ export const writeJson = async <
 ): Promise<void> => {
 	const options = normalizeWriteJsonOptions(rawOptions);
 
-	const rawData = JSON.stringify(data, undefined, 2);
+	let content = JSON.stringify(data, undefined, 2);
 
 	if (options.autoPrettier) {
-		const formattedData = await tryPrettify(rawData, { parser: 'json-stringify' });
-		if (!options.dry) {
-			await writeFile(path, formattedData);
-		}
-	} else if (!options.dry) {
-		await writeFile(path, rawData);
+		content = await tryPrettify(content, { ...options, parser: 'json-stringify' });
+	}
+
+	if (!options.dry) {
+		await writeFile(path, content);
 	}
 };

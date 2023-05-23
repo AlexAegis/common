@@ -1,6 +1,8 @@
 import { normalizeDryOption, type DryOption } from '@alexaegis/common';
+import { normalizeLoggerOption, type LoggerOption } from '@alexaegis/logging';
+import { normalizeCwdOption, type CwdOption } from '../index.js';
 
-export interface WriteJsonOptions extends DryOption {
+export interface WriteJsonOptions extends DryOption, LoggerOption, CwdOption {
 	/**
 	 * Formats the json file using prettier and your configuration.
 	 *
@@ -18,6 +20,8 @@ export const normalizeWriteJsonOptions = (
 ): NormalizedWriteJsonOptions => {
 	return {
 		...normalizeDryOption(options),
+		...normalizeLoggerOption(options),
+		...normalizeCwdOption(options),
 		autoPrettier: options?.autoPrettier ?? true,
 	};
 };

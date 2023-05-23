@@ -1,3 +1,4 @@
+import { noopLogger } from '@alexaegis/logging';
 import { describe, expect, it } from 'vitest';
 import {
 	normalizeWriteJsonOptions,
@@ -10,6 +11,8 @@ describe('WriteJsonFunctionOptions', () => {
 		expect(normalizeWriteJsonOptions()).toEqual({
 			autoPrettier: true,
 			dry: false,
+			cwd: process.cwd(),
+			logger: noopLogger,
 		} as NormalizedWriteJsonOptions);
 	});
 
@@ -17,6 +20,8 @@ describe('WriteJsonFunctionOptions', () => {
 		const manualOptions: WriteJsonOptions = {
 			autoPrettier: false,
 			dry: true,
+			cwd: 'foo',
+			logger: noopLogger,
 		};
 		expect(normalizeWriteJsonOptions(manualOptions)).toEqual(manualOptions);
 	});

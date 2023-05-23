@@ -1,8 +1,13 @@
+import type { Logger } from '@alexaegis/logging';
+import { MockLogger } from '@alexaegis/logging/mocks';
 import { afterAll, beforeAll, describe, expect, it, vi } from 'vitest';
 import { mockPrettierFormat, mockPrettifiedJson } from '../mocks.js';
 import { getPrettierFormatter } from './get-prettier-formatter.function.js';
 
 describe('getPrettierFormatter', () => {
+	const mockLogger = new MockLogger();
+	const logger = mockLogger as unknown as Logger<unknown>;
+
 	describe('when prettier is present', () => {
 		beforeAll(() => {
 			// 'prettier' is dynamically imported so it can be dynamically mocked
@@ -47,6 +52,34 @@ describe('getPrettierFormatter', () => {
 			const formatter = await getPrettierFormatter({ parser: 'json' });
 			const input = '{im: not: even, making, sense}';
 			expect(formatter(input)).toEqual(input);
+		});
+	});
+
+	describe('when prettier is present but its config is invalid', () => {
+		beforeAll(() => {
+			vi.doMock('prettier', () => {
+				return {
+					default: {
+						format: vi.fn(() => {
+							throw new Error('Format failed!');
+						}),
+						resolveConfig: vi.fn(() => {
+							return {};
+						}),
+					},
+				};
+			});
+		});
+
+		afterAll(() => {
+			vi.doUnmock('prettier');
+		});
+
+		it('should return strings as is', async () => {
+			const formatter = await getPrettierFormatter({ parser: 'json', logger });
+			const input = '{ leave me }';
+			expect(formatter(input)).toEqual(input);
+			expect(mockLogger.error).toHaveBeenCalled();
 		});
 	});
 });

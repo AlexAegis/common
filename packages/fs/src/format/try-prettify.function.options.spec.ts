@@ -1,3 +1,4 @@
+import { noopLogger } from '@alexaegis/logging';
 import { afterEach, beforeAll, describe, expect, it, vi } from 'vitest';
 import { mockProcessCwd, mockProcessCwdValue } from '../functions/cwd.option.spec.js';
 import {
@@ -19,6 +20,8 @@ describe('normalizePrettifyOptions', () => {
 		expect(normalizePrettifyOptions()).toEqual({
 			cwd: mockProcessCwdValue,
 			parser: 'babel',
+			dry: false,
+			logger: noopLogger,
 		} as NormalizedPrettifyOptions);
 	});
 
@@ -26,6 +29,8 @@ describe('normalizePrettifyOptions', () => {
 		const manualOptions: PrettifyOptions = {
 			cwd: '/foo',
 			parser: 'html',
+			dry: true,
+			logger: noopLogger,
 		};
 		expect(normalizePrettifyOptions(manualOptions)).toEqual(manualOptions);
 	});
