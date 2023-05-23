@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.2.1](https://github.com/AlexAegis/js/compare/v0.2.0...v0.2.1) (2023-05-23)
+
+
+### Bug Fixes
+
+* catch prettier errors mid format ([6dcd983](https://github.com/AlexAegis/js/commit/6dcd983ab9edb31aa0ad0153894720d96d33b2ec))
+
 ## [0.2.0](https://github.com/AlexAegis/js/compare/v0.1.8...v0.2.0) (2023-05-19)
 
 
