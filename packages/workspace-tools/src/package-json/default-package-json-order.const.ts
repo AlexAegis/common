@@ -14,7 +14,10 @@ export const DEFAULT_PACKAGE_JSON_SORTING_PREFERENCE: ObjectKeyOrder = [
 	'keywords',
 	'author',
 	'homepage',
-	'repository',
+	{
+		key: 'repository',
+		order: ['url', 'type', 'directory'],
+	},
 	'bugs',
 	'type',
 	'config',

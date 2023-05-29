@@ -20,6 +20,7 @@ describe('normalizeRemoveFilesInWorkspaceOptions', () => {
 		logger: noopLogger,
 		onlyWorkspaceRoot: false,
 		skipWorkspaceRoot: false,
+		filter: [],
 	};
 
 	it('should have a default when not defined', () => {

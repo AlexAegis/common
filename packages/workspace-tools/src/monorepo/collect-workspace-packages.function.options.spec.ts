@@ -18,6 +18,7 @@ describe('normalizeCollectWorkspacePackagesOptions', () => {
 			dependencyCriteria: [],
 			keywordCriteria: [],
 			logger: noopLogger,
+			filter: [],
 		} as NormalizedCollectWorkspacePackagesOptions);
 	});
 
@@ -29,6 +30,7 @@ describe('normalizeCollectWorkspacePackagesOptions', () => {
 			dependencyCriteria: ['dep'],
 			keywordCriteria: [/key/],
 			logger: noopLogger,
+			filter: [],
 		};
 		expect(normalizeCollectWorkspacePackagesOptions(manualOptions)).toEqual({
 			...manualOptions,

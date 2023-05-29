@@ -21,6 +21,14 @@ interface CollectWorkspaceOnlyOptions {
 	skipWorkspaceRoot?: boolean;
 
 	/**
+	 * When defined, only return packages matching one of the filters.
+	 * When empty or undefined, it's not doing anything.
+	 *
+	 * @defaultValue undefined
+	 */
+	filter?: string[] | undefined;
+
+	/**
 	 * Return only those packages that list these dependencies. When it's not
 	 * defined or is an empty array, it will not perform such filtering.
 	 *
@@ -56,5 +64,6 @@ export const normalizeCollectWorkspacePackagesOptions = (
 		skipWorkspaceRoot: options?.skipWorkspaceRoot ?? false,
 		dependencyCriteria: options?.dependencyCriteria?.map(normalizeRegExpLikeToRegExp) ?? [],
 		keywordCriteria: options?.keywordCriteria?.map(normalizeRegExpLikeToRegExp) ?? [],
+		filter: options?.filter ?? [],
 	};
 };

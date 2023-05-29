@@ -9,7 +9,7 @@ export interface PrettifyOptions extends CwdOption, LoggerOption, DryOption {
 	 *
 	 * @defaultValue 'babel'
 	 */
-	parser?: BuiltInParserName;
+	parser?: BuiltInParserName | string;
 }
 
 export type NormalizedPrettifyOptions = Required<PrettifyOptions>;

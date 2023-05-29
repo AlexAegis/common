@@ -24,6 +24,7 @@ describe('DistributeFileInWorkspaceOptions', () => {
 		markAsExecutable: false,
 		templateVariables: {},
 		transformers: [],
+		filter: [],
 	} as NormalizedDistributeFileInWorkspaceOptions;
 
 	it('should have a default when not defined', () => {
