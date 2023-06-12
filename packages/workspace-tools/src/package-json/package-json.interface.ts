@@ -19,6 +19,7 @@ export interface SimplifiedPackageJsonFields {
 	exports?: PackageJsonExports | undefined;
 	bin?: Record<string, string> | undefined;
 	type?: 'commonjs' | 'module' | undefined;
+	types?: string | undefined;
 	scripts?: Record<string, string | undefined> | undefined;
 	main?: string | undefined;
 	module?: string | undefined;
