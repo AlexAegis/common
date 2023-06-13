@@ -36,4 +36,26 @@ describe('deepMerge', () => {
 		expect(result).toEqual(expected);
 		expect(result).toBe(target);
 	});
+
+	it('should be able to merge arrays too', () => {
+		const target = [1, 2, 3];
+		const source = [3, 4, 5];
+
+		const result = deepMerge(target, source);
+		const expected = [1, 2, 3, 4, 5];
+
+		expect(result).toEqual(expected);
+		expect(result).toBe(target);
+	});
+
+	it('should be add arrays', () => {
+		const target = {};
+		const source = { arr: [1, 2, 3] };
+
+		const result = deepMerge(target, source);
+		const expected = { arr: [1, 2, 3] };
+
+		expect(result).toEqual(expected);
+		expect(result).toBe(target);
+	});
 });

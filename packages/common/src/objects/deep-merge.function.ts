@@ -4,7 +4,7 @@ import type { Struct } from './struct.type.js';
 
 /**
  * Merges multiple objects in order into the first argument.
- * It mutates the target!
+ * It mutates the target! Arrays are merged naively using === equality.
  *
  * Keys that are explicitly set to `undefined` among sources are dropped from
  * the target object.
@@ -27,6 +27,14 @@ export const deepMerge = <T, S extends unknown[]>(target: T, ...sources: S): T &
 				delete target[key];
 			} else {
 				Object.assign(target, { [key]: source[key] });
+			}
+		}
+	}
+
+	if (Array.isArray(source) && Array.isArray(target)) {
+		for (const element of source) {
+			if (!target.includes(element)) {
+				target.push(element);
 			}
 		}
 	}
