@@ -11,6 +11,7 @@ export * from './is-nullish.function.js';
 export * from './is-object.function.js';
 export * from './is-promise-like.function.js';
 export * from './item-of.type.js';
+export * from './map-object.function.js';
 export * from './modify.type.js';
 export * from './nullable.type.js';
 export * from './replace.type.js';
