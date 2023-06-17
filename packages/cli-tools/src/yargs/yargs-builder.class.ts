@@ -12,6 +12,15 @@ export class YargsBuilder<T> {
 		return new YargsBuilder();
 	}
 
+	/**
+	 * Creates a YargsBuilder with some default options:
+	 * - enables help
+	 * - adds metadata found in packageJson for
+	 *   - version
+	 *   - epilogue showing the repository url
+	 *
+	 * It does not add any options
+	 */
 	static withDefaults<T extends PackageJson>(packageJson?: T): YargsBuilder<object> {
 		return new YargsBuilder().add(defaultYargsFromPackageJson(packageJson));
 	}
