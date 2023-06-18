@@ -16,20 +16,7 @@
 		"ts",
 		"typescript"
 	],
-	"author": {
-		"email": "alexaegis@gmail.com",
-		"name": "AlexAegis",
-		"url": "https://www.github.com/AlexAegis"
-	},
-	"homepage": "https://www.github.com/AlexAegis/vite-plugin-autolib#readme",
-	"repository": "github:AlexAegis/vite-plugin-autolib",
-	"bugs": {
-		"url": "https://www.github.com/AlexAegis/vite-plugin-autolib/issues"
-	},
 	"type": "module",
-	"config": {
-		"engine-strict": false
-	},
 	"publishConfig": {
 		"access": "public"
 	},

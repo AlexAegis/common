@@ -21,11 +21,11 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/AlexAegis/js"
+		"url": "https://github.com/AlexAegis/js-core"
 	},
 	"bugs": {
 		"email": "alexaegis@gmail.com",
-		"url": "https://github.com/AlexAegis/js/issues"
+		"url": "https://github.com/AlexAegis/js-core/issues"
 	},
 	"type": "module",
 	"config": {

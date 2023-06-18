@@ -19,9 +19,6 @@
 		"query"
 	],
 	"type": "module",
-	"config": {
-		"engine-strict": false
-	},
 	"publishConfig": {
 		"access": "public"
 	},

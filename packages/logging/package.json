@@ -17,20 +17,7 @@
 		"ts",
 		"typescript"
 	],
-	"author": {
-		"email": "alexaegis@gmail.com",
-		"name": "AlexAegis",
-		"url": "https://www.github.com/AlexAegis"
-	},
-	"homepage": "https://www.github.com/AlexAegis/js-core#readme",
-	"repository": "github:AlexAegis/js-core",
-	"bugs": {
-		"url": "https://www.github.com/AlexAegis/js-core/issues"
-	},
 	"type": "module",
-	"config": {
-		"engine-strict": false
-	},
 	"publishConfig": {
 		"access": "public"
 	},
