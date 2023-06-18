@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.2.2](https://github.com/AlexAegis/js/compare/v0.2.1...v0.2.2) (2023-06-18)
+
+
+### Features
+
+* add directory finder ([d7ab3f5](https://github.com/AlexAegis/js/commit/d7ab3f5a7a6adb06ce36b6c4fe1037bdf492f7ee))
+* **common:** add mapObject ([4673599](https://github.com/AlexAegis/js/commit/467359916d2c5b3040cf40dafd95cea8d81ad72d))
+* **common:** deepMerge now supports arrays too ([277f403](https://github.com/AlexAegis/js/commit/277f403063b0d037dce14ec75df3193bba02720c))
+* **workspace-tools:** mark types as nullable ([f9e8c20](https://github.com/AlexAegis/js/commit/f9e8c20338453f8e5f6b152e1172a0c7677d80a5))
+
 ## [0.2.1](https://github.com/AlexAegis/js/compare/v0.2.0...v0.2.1) (2023-05-23)
 
 

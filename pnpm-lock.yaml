@@ -69,7 +69,7 @@ importers:
         specifier: ^0.3.1
         version: 0.3.1
       '@alexaegis/coverage-tools':
-        specifier: workspace:^
+        specifier: workspace:^0.2.2
         version: link:packages/coverage-tools
       '@alexaegis/eslint-config-core':
         specifier: ^0.3.1
@@ -150,16 +150,16 @@ importers:
   packages/cli-tools:
     dependencies:
       '@alexaegis/common':
-        specifier: ^0.2.1
+        specifier: ^0.2.2
         version: link:../common
       '@alexaegis/fs':
-        specifier: ^0.2.1
+        specifier: ^0.2.2
         version: link:../fs
       '@alexaegis/logging':
-        specifier: ^0.2.1
+        specifier: ^0.2.2
         version: link:../logging
       '@alexaegis/workspace-tools':
-        specifier: ^0.2.1
+        specifier: ^0.2.2
         version: link:../workspace-tools
       '@types/yargs':
         specifier: 17.0.24
@@ -229,13 +229,13 @@ importers:
   packages/coverage-tools:
     dependencies:
       '@alexaegis/common':
-        specifier: ^0.2.1
+        specifier: ^0.2.2
         version: link:../common
       '@alexaegis/logging':
-        specifier: ^0.2.1
+        specifier: ^0.2.2
         version: link:../logging
       '@alexaegis/workspace-tools':
-        specifier: ^0.2.1
+        specifier: ^0.2.2
         version: link:../workspace-tools
       globby:
         specifier: ^13.1.4
@@ -272,10 +272,10 @@ importers:
   packages/fs:
     dependencies:
       '@alexaegis/common':
-        specifier: ^0.2.1
+        specifier: ^0.2.2
         version: link:../common
       '@alexaegis/logging':
-        specifier: ^0.2.1
+        specifier: ^0.2.2
         version: link:../logging
       js-yaml:
         specifier: ^4.1.0
@@ -322,7 +322,7 @@ importers:
   packages/logging:
     dependencies:
       '@alexaegis/common':
-        specifier: ^0.2.1
+        specifier: ^0.2.2
         version: link:../common
       tslog:
         specifier: ^4.8.2
@@ -392,16 +392,16 @@ importers:
   packages/workspace-tools:
     dependencies:
       '@alexaegis/common':
-        specifier: ^0.2.1
+        specifier: ^0.2.2
         version: link:../common
       '@alexaegis/fs':
-        specifier: ^0.2.1
+        specifier: ^0.2.2
         version: link:../fs
       '@alexaegis/logging':
-        specifier: ^0.2.1
+        specifier: ^0.2.2
         version: link:../logging
       '@alexaegis/match':
-        specifier: ^0.2.1
+        specifier: ^0.2.2
         version: link:../match
       '@schemastore/package':
         specifier: ^0.0.8
