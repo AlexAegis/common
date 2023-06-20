@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.2.3](https://github.com/AlexAegis/js-core/compare/v0.2.2...v0.2.3) (2023-06-20)
+
+
+### Features
+
+* **workspace-tools:** treat the default export as special ([788bb9e](https://github.com/AlexAegis/js-core/commit/788bb9e6f06684541699c04f904e5381d524aff4))
+
 ## [0.2.2](https://github.com/AlexAegis/js/compare/v0.2.1...v0.2.2) (2023-06-18)
 
 

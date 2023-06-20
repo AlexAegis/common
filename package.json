@@ -1,7 +1,7 @@
 {
 	"name": "@alexaegis/workspace",
 	"description": "base repo for common stuff in my other js projects",
-	"version": "0.2.2",
+	"version": "0.2.3",
 	"license": "mit",
 	"private": true,
 	"keywords": [
@@ -100,7 +100,7 @@
 		"@alexaegis/autotool-plugin-vitest": "^0.3.1",
 		"@alexaegis/autotool-plugin-vscode": "^0.3.1",
 		"@alexaegis/autotool-plugin-workspace": "^0.3.1",
-		"@alexaegis/coverage-tools": "workspace:^",
+		"@alexaegis/coverage-tools": "workspace:^0.2.3",
 		"@alexaegis/eslint-config-core": "^0.3.1",
 		"@alexaegis/nuke": "^0.3.1",
 		"@alexaegis/stylelint-config": "^0.3.1",
