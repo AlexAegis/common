@@ -58,13 +58,13 @@
 		"@alexaegis/common": "^0.2.3",
 		"@alexaegis/logging": "^0.2.3",
 		"@alexaegis/workspace-tools": "^0.2.3",
-		"globby": "^13.1.4"
+		"globby": "^13.2.0"
 	},
 	"devDependencies": {
-		"@alexaegis/eslint-config-vitest": "^0.3.1",
-		"@alexaegis/ts": "^0.3.1",
-		"@alexaegis/vite": "^0.3.1",
-		"@alexaegis/vitest": "^0.3.1",
+		"@alexaegis/eslint-config-vitest": "^0.3.2",
+		"@alexaegis/ts": "^0.3.2",
+		"@alexaegis/vite": "^0.3.2",
+		"@alexaegis/vitest": "^0.3.2",
 		"@types/node": "^20.3.1",
 		"publint": "^0.1.12",
 		"typescript": "^5.1.3",

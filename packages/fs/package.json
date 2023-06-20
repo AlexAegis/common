@@ -66,10 +66,10 @@
 		"prettier": "^2.8.8"
 	},
 	"devDependencies": {
-		"@alexaegis/eslint-config-vitest": "^0.3.1",
-		"@alexaegis/ts": "^0.3.1",
-		"@alexaegis/vite": "^0.3.1",
-		"@alexaegis/vitest": "^0.3.1",
+		"@alexaegis/eslint-config-vitest": "^0.3.2",
+		"@alexaegis/ts": "^0.3.2",
+		"@alexaegis/vite": "^0.3.2",
+		"@alexaegis/vitest": "^0.3.2",
 		"@types/js-yaml": "^4.0.5",
 		"@types/node": "^20.3.1",
 		"@types/prettier": "^2.7.3",
