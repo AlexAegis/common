@@ -6,7 +6,7 @@ describe('normalizeSortingPreferenceForPackageJson', () => {
 	it('should add it even to empty sorting preferences', () => {
 		const sortingPreference: ObjectKeyOrder = [];
 		const expectedSortingPreference: ObjectKeyOrder = [
-			{ key: 'exports', order: [{ key: '.*', order: ['types'] }] },
+			{ key: 'exports', order: [{ key: '.*', order: ['types', '.*', 'default'] }] },
 		];
 		const result = normalizeSortingPreferenceForPackageJson(sortingPreference);
 		expect(result).toEqual(expectedSortingPreference);
@@ -17,7 +17,7 @@ describe('normalizeSortingPreferenceForPackageJson', () => {
 		const expectedSortingPreference: ObjectKeyOrder = [
 			{
 				key: 'exports',
-				order: [{ key: '.*', order: ['types'] }],
+				order: [{ key: '.*', order: ['types', '.*', 'default'] }],
 			},
 		];
 		const result = normalizeSortingPreferenceForPackageJson(sortingPreference);
@@ -34,8 +34,8 @@ describe('normalizeSortingPreferenceForPackageJson', () => {
 			{
 				key: 'exports',
 				order: [
-					{ key: 'something', order: ['types'] },
-					{ key: '.*', order: ['types'] },
+					{ key: 'something', order: ['types', '.*', 'default'] },
+					{ key: '.*', order: ['types', '.*', 'default'] },
 				],
 			},
 		];
@@ -48,7 +48,7 @@ describe('normalizeSortingPreferenceForPackageJson', () => {
 			{ key: 'exports', order: [{ key: '.*', order: ['nope'] }] },
 		];
 		const expectedSortingPreference: ObjectKeyOrder = [
-			{ key: 'exports', order: [{ key: '.*', order: ['types', 'nope'] }] },
+			{ key: 'exports', order: [{ key: '.*', order: ['types', 'nope', '.*', 'default'] }] },
 		];
 		const result = normalizeSortingPreferenceForPackageJson(sortingPreference);
 		expect(result).toEqual(expectedSortingPreference);
@@ -68,9 +68,9 @@ describe('normalizeSortingPreferenceForPackageJson', () => {
 			{
 				key: 'exports',
 				order: [
-					{ key: 'foo', order: ['types', 'nope'] },
-					{ key: 'bar', order: ['types', 'nope'] },
-					{ key: '.*', order: ['types'] },
+					{ key: 'foo', order: ['types', 'nope', '.*', 'default'] },
+					{ key: 'bar', order: ['types', 'nope', '.*', 'default'] },
+					{ key: '.*', order: ['types', '.*', 'default'] },
 				],
 			},
 		];
@@ -83,7 +83,7 @@ describe('normalizeSortingPreferenceForPackageJson', () => {
 			{ key: 'exports', order: [{ key: '.*', order: ['nope', 'types'] }] },
 		];
 		const expectedSortingPreference: ObjectKeyOrder = [
-			{ key: 'exports', order: [{ key: '.*', order: ['types', 'nope'] }] },
+			{ key: 'exports', order: [{ key: '.*', order: ['types', 'nope', '.*', 'default'] }] },
 		];
 		const result = normalizeSortingPreferenceForPackageJson(sortingPreference);
 		expect(result).toEqual(expectedSortingPreference);
@@ -99,7 +99,9 @@ describe('normalizeSortingPreferenceForPackageJson', () => {
 		const expectedSortingPreference: ObjectKeyOrder = [
 			{
 				key: 'exports',
-				order: [{ key: '.*', order: [{ key: 'types', order: [] }, 'nope'] }],
+				order: [
+					{ key: '.*', order: [{ key: 'types', order: [] }, 'nope', '.*', 'default'] },
+				],
 			},
 		];
 		const result = normalizeSortingPreferenceForPackageJson(sortingPreference);

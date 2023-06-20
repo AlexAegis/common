@@ -2,7 +2,6 @@ import type { ObjectKeyOrder } from '@alexaegis/common';
 
 export const DEFAULT_PACKAGE_JSON_SORTING_PREFERENCE: ObjectKeyOrder = [
 	'name',
-	'displayName',
 	'description',
 	'version',
 	'license',
@@ -27,7 +26,7 @@ export const DEFAULT_PACKAGE_JSON_SORTING_PREFERENCE: ObjectKeyOrder = [
 	'packageManager',
 	'workspaces',
 	{ key: 'scripts', order: ['build.*', 'lint.*', 'test.*'] },
-	{ key: 'exports', order: [{ key: '.*', order: ['types', '.*'] }] },
+	{ key: 'exports', order: [{ key: '.*', order: ['types', '.*', 'default'] }] },
 	'bin',
 	'dependencies',
 	'peerDependencies',
