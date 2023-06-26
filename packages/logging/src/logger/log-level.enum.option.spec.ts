@@ -9,7 +9,7 @@ import {
 describe('normalizeLogLevelOption', () => {
 	it('should have a default when not defined', () => {
 		expect(normalizeLogLevelOption()).toEqual({
-			logLevel: LogLevel.OFF,
+			logLevel: LogLevel.INFO,
 		} as NormalizedLogLevelOption);
 	});
 

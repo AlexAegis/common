@@ -4,7 +4,7 @@ export interface LogLevelOption {
 	/**
 	 * A minimum logLevel
 	 *
-	 * @defaultValue LogLevel.OFF
+	 * @defaultValue LogLevel.INFO
 	 */
 	logLevel?: LogLevel;
 }
@@ -13,6 +13,6 @@ export type NormalizedLogLevelOption = Required<LogLevelOption>;
 
 export const normalizeLogLevelOption = (options?: LogLevelOption): NormalizedLogLevelOption => {
 	return {
-		logLevel: options?.logLevel ?? LogLevel.OFF,
+		logLevel: options?.logLevel ?? LogLevel.INFO,
 	};
 };
