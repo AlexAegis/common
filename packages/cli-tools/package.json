@@ -48,7 +48,8 @@
 		".": {
 			"types": "./src/index.ts",
 			"import": "./dist/index.js",
-			"require": "./dist/index.cjs"
+			"require": "./dist/index.cjs",
+			"default": "./dist/index.js"
 		},
 		"./readme": "./readme.md"
 	},
@@ -61,10 +62,10 @@
 		"yargs": "^17.7.2"
 	},
 	"devDependencies": {
-		"@alexaegis/eslint-config-vitest": "^0.3.2",
-		"@alexaegis/ts": "^0.3.2",
-		"@alexaegis/vite": "^0.3.2",
-		"@alexaegis/vitest": "^0.3.2",
+		"@alexaegis/eslint-config-vitest": "^0.3.3",
+		"@alexaegis/ts": "^0.3.3",
+		"@alexaegis/vite": "^0.3.3",
+		"@alexaegis/vitest": "^0.3.3",
 		"@types/node": "^20.3.2",
 		"publint": "^0.1.12",
 		"typescript": "^5.1.3",
