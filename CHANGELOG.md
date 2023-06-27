@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.2.4](https://github.com/AlexAegis/js-core/compare/v0.2.3...v0.2.4) (2023-06-27)
+
+
+### Features
+
+* **logging:** default loglevel is now INFO ([c8ee455](https://github.com/AlexAegis/js-core/commit/c8ee4554d07b2250a032db2ee009e7ddb5a6087e))
+* **logging:** do not include the timestamp by default ([3615bd1](https://github.com/AlexAegis/js-core/commit/3615bd193fc752f5b994539d75f662a88faf022b))
+
 ## [0.2.3](https://github.com/AlexAegis/js-core/compare/v0.2.2...v0.2.3) (2023-06-20)
 
 
