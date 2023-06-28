@@ -1,4 +1,4 @@
-import type { ObjectKeyOrder } from '@alexaegis/common';
+import type { DetailedObjectKeyOrder, ObjectKeyOrder } from '@alexaegis/common';
 import { describe, expect, it } from 'vitest';
 import { normalizeSortingPreferenceForPackageJson } from './normalize-sorting-preference-for-package-json.function.js';
 
@@ -70,6 +70,36 @@ describe('normalizeSortingPreferenceForPackageJson', () => {
 				order: [
 					{ key: 'foo', order: ['types', 'nope', '.*', 'default'] },
 					{ key: 'bar', order: ['types', 'nope', '.*', 'default'] },
+					{ key: '.*', order: ['types', '.*', 'default'] },
+				],
+			},
+		];
+		const result = normalizeSortingPreferenceForPackageJson(sortingPreference);
+		expect(result).toEqual(expectedSortingPreference);
+	});
+
+	it('should reuse custom sorters for the special keys too', () => {
+		const uniqueTypesOrder: DetailedObjectKeyOrder = {
+			key: 'types',
+			order: [],
+		};
+
+		const uniqueCustomOrder: DetailedObjectKeyOrder = {
+			key: 'nope',
+			order: [],
+		};
+
+		const sortingPreference: ObjectKeyOrder = [
+			{
+				key: 'exports',
+				order: [{ key: 'foo', order: [uniqueCustomOrder, uniqueTypesOrder] }],
+			},
+		];
+		const expectedSortingPreference: ObjectKeyOrder = [
+			{
+				key: 'exports',
+				order: [
+					{ key: 'foo', order: [uniqueTypesOrder, uniqueCustomOrder, '.*', 'default'] },
 					{ key: '.*', order: ['types', '.*', 'default'] },
 				],
 			},
