@@ -218,5 +218,27 @@ describe('match', () => {
 
 			expect(result).toBeFalsy();
 		});
+
+		it('should use matchers even if they do not have a defined field paired to them', () => {
+			expect(
+				match(
+					{ bar: 1 },
+					{
+						foo: (v) => v === 'bar',
+					}
+				)
+			).toBeFalsy();
+
+			expect(
+				match(
+					{
+						bar: 1,
+					},
+					{
+						foo: (v) => v !== 'bar',
+					}
+				)
+			).toBeTruthy();
+		});
 	});
 });
