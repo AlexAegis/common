@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.3.1](https://github.com/AlexAegis/js-core/compare/v0.3.0...v0.3.1) (2023-06-29)
+
+
+### Features
+
+* **predicate:** allow undefined ([2caf5f5](https://github.com/AlexAegis/js-core/commit/2caf5f57e0cdef32f1e3bfba377a4ede94655d47))
+
 ## [0.3.0](https://github.com/AlexAegis/js-core/compare/v0.2.5...v0.3.0) (2023-06-29)
 
 
