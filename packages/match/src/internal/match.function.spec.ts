@@ -20,6 +20,22 @@ describe('match', () => {
 		it('should be able to match anything using a function', () => {
 			expect(match({ foo: 'foo' }, { foo: (v) => v.startsWith('f') })).toBeTruthy();
 		});
+
+		it('should treat returing undefined as a non match', () => {
+			expect(
+				match<{ foo: string | undefined }>(
+					{ foo: undefined },
+					{ foo: (v) => v?.startsWith('f') }
+				)
+			).toBeFalsy();
+
+			expect(
+				match<{ foo: string | undefined }>(
+					{ foo: undefined },
+					{ foo: (v) => v === undefined }
+				)
+			).toBeTruthy();
+		});
 	});
 
 	describe('nullish values', () => {
