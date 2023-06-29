@@ -25,8 +25,8 @@ export const yargsForCollectWorkspacePackagesOptions = <T>(
 		})
 		.option('dependencyCriteria', {
 			default: [],
-			coerce: (v) => v as string[],
-			type: 'array',
+			array: true,
+			string: true,
 			description:
 				'Only distribute to workspace packages that have this dependency listed ' +
 				'in their package.json file. Empty means no filtering is applied.',
