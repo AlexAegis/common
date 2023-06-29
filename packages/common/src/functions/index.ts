@@ -1,4 +1,5 @@
 export * from './fn.type.js';
+export * from './group-by.function.js';
 export * from './identity.function.js';
 export * from './memoize.function.js';
 export * from './memoize.function.options.js';
