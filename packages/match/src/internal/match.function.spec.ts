@@ -1,3 +1,4 @@
+import { equal, not } from '@alexaegis/predicate';
 import { describe, expect, it } from 'vitest';
 import { match, type JsonMatcher } from './match.function.js';
 
@@ -250,6 +251,22 @@ describe('match', () => {
 					},
 					{
 						foo: (v) => v !== 'bar',
+					}
+				)
+			).toBeTruthy();
+		});
+	});
+
+	describe('using predicates as custom matchers', () => {
+		it('should be able to just work', () => {
+			expect(
+				match<{ bar: number; foo?: string }>(
+					{
+						bar: 1,
+					},
+					{
+						bar: equal(1),
+						foo: not(equal('1')),
 					}
 				)
 			).toBeTruthy();

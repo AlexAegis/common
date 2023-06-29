@@ -361,6 +361,9 @@ importers:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.3.3
         version: 0.3.3
+      '@alexaegis/predicate':
+        specifier: ^0.3.1
+        version: link:../predicate
       '@alexaegis/ts':
         specifier: ^0.3.3
         version: 0.3.3
