@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.3.0](https://github.com/AlexAegis/js-core/compare/v0.2.5...v0.3.0) (2023-06-29)
+
+
+### ⚠ BREAKING CHANGES
+
+* **workspace-tools:** removed deprecated functions
+
+### Features
+
+* **match:** improved JsonMatcherFrom and related types ([ea0e9c8](https://github.com/AlexAegis/js-core/commit/ea0e9c8c42b5fd147f27a9e3c155080db5c43ec9))
+* **workspace-tools:** added packageJson match based filtering and removed keywordCriteria ([c5f6afe](https://github.com/AlexAegis/js-core/commit/c5f6afe2433c92efcd0a07f8a6ee0597d47f85ed))
+* **workspace-tools:** removed deprecated functions ([31733ae](https://github.com/AlexAegis/js-core/commit/31733aeced25d48cf1fcda753ce0c64f62af403f))
+
 ## [0.2.5](https://github.com/AlexAegis/js-core/compare/v0.2.4...v0.2.5) (2023-06-29)
 
 
