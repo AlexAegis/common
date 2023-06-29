@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.2.5](https://github.com/AlexAegis/js-core/compare/v0.2.4...v0.2.5) (2023-06-29)
+
+
+### Features
+
+* **common:** added groupBy function ([6298d85](https://github.com/AlexAegis/js-core/commit/6298d857965a03898f6445a979fcfb373a005ac4))
+* **predicate:** added simple declarative predicates ([0b48eb1](https://github.com/AlexAegis/js-core/commit/0b48eb19c3013e43e747e2db590b164c2bd9ab19))
+* **workspace-tools:** added a function to check if a string is a dependency field ([f3ee5ed](https://github.com/AlexAegis/js-core/commit/f3ee5ed9ac138efc1dca64d0f2ee744d0af79162))
+
 ## [0.2.4](https://github.com/AlexAegis/js-core/compare/v0.2.3...v0.2.4) (2023-06-27)
 
 
