@@ -1,3 +1,4 @@
+/* eslint-disable unicorn/no-null */
 import { equal, not } from '@alexaegis/predicate';
 import { describe, expect, it } from 'vitest';
 import { match, type JsonMatcher } from './match.function.js';
@@ -258,7 +259,7 @@ describe('match', () => {
 	});
 
 	describe('using predicates as custom matchers', () => {
-		it('should be able to just work', () => {
+		it('should be able to used as a custom matcher', () => {
 			expect(
 				match<{ bar: number; foo?: string }>(
 					{
@@ -266,6 +267,21 @@ describe('match', () => {
 					},
 					{
 						bar: equal(1),
+						foo: not(equal('1')),
+					}
+				)
+			).toBeTruthy();
+		});
+
+		it('should be able to used for nullish fields', () => {
+			expect(
+				match<{ bar: null; foo?: string | null }>(
+					{
+						bar: null,
+						foo: null,
+					},
+					{
+						bar: equal(null),
 						foo: not(equal('1')),
 					}
 				)
