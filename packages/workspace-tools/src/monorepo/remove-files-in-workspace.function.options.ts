@@ -25,5 +25,6 @@ export const normalizeRemoveFilesInWorkspaceOptions = (
 		...normalizeSafeOption(options),
 		onlyWorkspaceRoot: options?.onlyWorkspaceRoot ?? false,
 		skipWorkspaceRoot: options?.skipWorkspaceRoot ?? false,
+		packageJsonMatcher: options?.packageJsonMatcher,
 	};
 };

@@ -29,5 +29,6 @@ export const normalizeDistributeInWorkspaceOptions = (
 		...normalizeForceOption(options),
 		onlyWorkspaceRoot: options?.onlyWorkspaceRoot ?? false,
 		skipWorkspaceRoot: options?.skipWorkspaceRoot ?? false,
+		packageJsonMatcher: options?.packageJsonMatcher,
 	};
 };

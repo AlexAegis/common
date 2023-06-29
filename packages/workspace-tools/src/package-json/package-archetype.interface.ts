@@ -1,5 +1,5 @@
 import { type Nullable } from '@alexaegis/common';
-import type { CustomJsonValueMatcher, JsonMatcherFrom } from '@alexaegis/match';
+import type { JsonMatcherFrom } from '@alexaegis/match';
 /**
  * The archetypical description of a project present in the "archetype" field
  * of the package.json. It's not the full description as other package.json
@@ -12,7 +12,7 @@ import type { CustomJsonValueMatcher, JsonMatcherFrom } from '@alexaegis/match';
  * web-svelte-lib
  */
 export interface PackageArchetype {
-	platform?: Nullable<'node' | 'web'>;
+	platform?: Nullable<'node' | 'web' | string>;
 
 	/**
 	 * @example 'node' | 'svelte' | 'angular'
@@ -24,7 +24,7 @@ export interface PackageArchetype {
 	 */
 	language?: Nullable<string>;
 
-	kind?: Nullable<'app' | 'lib'>;
+	kind?: Nullable<'app' | 'lib' | string>;
 
 	/**
 	 * @example 'vite' | 'rollup'
@@ -49,23 +49,26 @@ export interface PackageArchetype {
 	disabledPlugins?: string[];
 }
 
+export type PackageJsonArchetypeMatcher = JsonMatcherFrom<PackageArchetype>;
+
 /**
  * This will return names for when you want to denote the archetype in a
  * filename: `tsconfig.web-svelte-lib.json` or `tsconfig.node-lib.json`
  */
 export const getEncodedArchetype = (
-	archetype?: JsonMatcherFrom<PackageArchetype> | undefined
+	archetypeMatcher?: PackageJsonArchetypeMatcher | undefined
 ): string => {
-	if (!archetype || typeof archetype === 'function') {
+	if (!archetypeMatcher || typeof archetypeMatcher === 'function') {
 		return '';
 	}
-	const orderedValues: Nullable<string | RegExp | CustomJsonValueMatcher<string>>[] = [
-		archetype.platform,
-		archetype.framework,
-		archetype.language,
-		archetype.kind,
-		archetype.bundler,
-		archetype.testing,
+
+	const orderedValues = [
+		archetypeMatcher.platform,
+		archetypeMatcher.framework,
+		archetypeMatcher.language,
+		archetypeMatcher.kind,
+		archetypeMatcher.bundler,
+		archetypeMatcher.testing,
 	];
 
 	return orderedValues.filter((value) => typeof value === 'string').join('-');

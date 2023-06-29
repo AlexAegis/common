@@ -1,4 +1,6 @@
-import { normalizeRegExpLikeToRegExp } from '@alexaegis/common';
+import { Defined, normalizeRegExpLikeToRegExp } from '@alexaegis/common';
+import { JsonMatcherFrom } from '@alexaegis/match';
+import { PackageJson } from '../index.js';
 import {
 	normalizeGetRootPackageJsonOptions,
 	type GetRootPackageJsonOptions,
@@ -21,39 +23,36 @@ interface CollectWorkspaceOnlyOptions {
 	skipWorkspaceRoot?: boolean;
 
 	/**
-	 * When defined, only return packages matching one of the filters.
-	 * When empty or undefined, it's not doing anything.
-	 *
-	 * @defaultValue undefined
+	 * When defined only the packages where the package.json file is matching
+	 * to this matcher are returned.
 	 */
-	filter?: string[] | undefined;
+	packageJsonMatcher?: JsonMatcherFrom<PackageJson> | undefined;
 
 	/**
-	 * Return only those packages that list these dependencies. When it's not
+	 * Return only those packages that list these dependencies among either
+	 * `dependencies` or `devDependencies`. When it's not
 	 * defined or is an empty array, it will not perform such filtering.
+	 *
+	 * Note that while the `packageJsonMatcher` can also match dependencies,
+	 * matching across multiple fields at the top level means that you're
+	 * limited to only use a single function based matcher, or writing
+	 * needlessly complicated boilerplate. So this field is here to trivialize
+	 * this usecase.
 	 *
 	 * @defaultValue []
 	 */
 	dependencyCriteria?: (string | RegExp)[];
-
-	/**
-	 * Return only those packages that list these keywords. When it's not
-	 * defined or is an empty array, it will not perform such filtering.
-	 *
-	 * @defaultValue []
-	 */
-	keywordCriteria?: (string | RegExp)[];
 }
 
 export type CollectWorkspacePackagesOptions = CollectWorkspaceOnlyOptions &
 	GetRootPackageJsonOptions;
 
-export type NormalizedCollectWorkspacePackagesOptions = Required<
-	Omit<CollectWorkspaceOnlyOptions, 'keywordCriteria' | 'dependencyCriteria'>
+export type NormalizedCollectWorkspacePackagesOptions = Defined<
+	Omit<CollectWorkspaceOnlyOptions, 'dependencyCriteria' | 'packageJsonMatcher'>
 > & {
 	dependencyCriteria: RegExp[];
-	keywordCriteria: RegExp[];
-} & NormalizedGetRootPackageJsonOptions;
+} & Pick<CollectWorkspaceOnlyOptions, 'packageJsonMatcher'> &
+	NormalizedGetRootPackageJsonOptions;
 
 export const normalizeCollectWorkspacePackagesOptions = (
 	options?: CollectWorkspacePackagesOptions
@@ -63,7 +62,6 @@ export const normalizeCollectWorkspacePackagesOptions = (
 		onlyWorkspaceRoot: options?.onlyWorkspaceRoot ?? false,
 		skipWorkspaceRoot: options?.skipWorkspaceRoot ?? false,
 		dependencyCriteria: options?.dependencyCriteria?.map(normalizeRegExpLikeToRegExp) ?? [],
-		keywordCriteria: options?.keywordCriteria?.map(normalizeRegExpLikeToRegExp) ?? [],
-		filter: options?.filter ?? [],
+		packageJsonMatcher: options?.packageJsonMatcher,
 	};
 };

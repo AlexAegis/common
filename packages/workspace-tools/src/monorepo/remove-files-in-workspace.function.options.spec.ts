@@ -14,13 +14,12 @@ describe('normalizeRemoveFilesInWorkspaceOptions', () => {
 	const defaultOptions: NormalizedRemoveFilesInWorkspaceOptions = {
 		cwd: mockCwd,
 		dependencyCriteria: [],
-		keywordCriteria: [],
 		dry: false,
 		safe: false,
 		logger: noopLogger,
 		onlyWorkspaceRoot: false,
 		skipWorkspaceRoot: false,
-		filter: [],
+		packageJsonMatcher: undefined,
 	};
 
 	it('should have a default when not defined', () => {

@@ -14,7 +14,6 @@ describe('DistributeFileInWorkspaceOptions', () => {
 	const defaultOptions: NormalizedDistributeFileInWorkspaceOptions = {
 		cwd: mockCwd,
 		dependencyCriteria: [],
-		keywordCriteria: [],
 		dry: false,
 		force: false,
 		logger: noopLogger,
@@ -24,7 +23,7 @@ describe('DistributeFileInWorkspaceOptions', () => {
 		markAsExecutable: false,
 		templateVariables: {},
 		transformers: [],
-		filter: [],
+		packageJsonMatcher: undefined,
 	} as NormalizedDistributeFileInWorkspaceOptions;
 
 	it('should have a default when not defined', () => {

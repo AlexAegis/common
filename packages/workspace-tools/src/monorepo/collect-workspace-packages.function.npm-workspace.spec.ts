@@ -138,7 +138,9 @@ describe('collectWorkspacePackages in a multi-package npm workspace', () => {
 	it('should be able to collect packages with specific keywords being present', async () => {
 		const foundPackageJsons = await collectWorkspacePackages({
 			cwd: '/foo/bar',
-			keywordCriteria: ['keyA', 'keyB'],
+			packageJsonMatcher: {
+				keywords: (keywords) => keywords?.includes('keyB') && keywords.includes('keyA'),
+			},
 		});
 		expect(foundPackageJsons).toEqual<WorkspacePackage[]>([workspacePackageZod]);
 	});
@@ -146,8 +148,10 @@ describe('collectWorkspacePackages in a multi-package npm workspace', () => {
 	it('should be able to collect packages with both a keywords and dependency criteria being present', async () => {
 		const foundPackageJsons = await collectWorkspacePackages({
 			cwd: '/foo/bar',
-			keywordCriteria: ['keyB'],
 			dependencyCriteria: ['foo'],
+			packageJsonMatcher: {
+				keywords: (keywords) => keywords?.includes('keyB'),
+			},
 		});
 		expect(foundPackageJsons).toEqual<WorkspacePackage[]>([workspacePackageZod]);
 	});

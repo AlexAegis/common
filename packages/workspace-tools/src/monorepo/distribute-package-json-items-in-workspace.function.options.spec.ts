@@ -21,8 +21,7 @@ describe('normalizeDistributePackageJsonItemsInWorkspaceOptions', () => {
 		onlyWorkspaceRoot: false,
 		skipWorkspaceRoot: false,
 		sortingPreference: DEFAULT_PACKAGE_JSON_SORTING_PREFERENCE,
-		keywordCriteria: [],
-		filter: [],
+		packageJsonMatcher: undefined,
 	} as NormalizedDistributePackageJsonItemsInWorkspaceOptions;
 
 	it('should have a default when not defined', () => {

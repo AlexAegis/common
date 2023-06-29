@@ -1,5 +1,6 @@
 import { asyncFilterMap } from '@alexaegis/common';
 import { readJson } from '@alexaegis/fs';
+import { match } from '@alexaegis/match';
 import { globby } from 'globby';
 import { join, relative } from 'node:path';
 import { getRootPackageJson } from '../npm/get-root-package-json.function.js';
@@ -64,6 +65,12 @@ export const collectWorkspacePackages = async (
 		result.unshift(rootPackage);
 	}
 
+	if (options.packageJsonMatcher) {
+		result = result.filter((relativePackage) =>
+			match(relativePackage.packageJson, options.packageJsonMatcher)
+		);
+	}
+
 	if (options.dependencyCriteria.length > 0) {
 		result = result.filter((relativePackage) => {
 			const packageDependencies = [
@@ -73,19 +80,6 @@ export const collectWorkspacePackages = async (
 
 			return options.dependencyCriteria.every((dependencyCriteria) =>
 				packageDependencies.some((dependency) => dependencyCriteria.test(dependency))
-			);
-		});
-	}
-
-	if (options.keywordCriteria.length > 0) {
-		result = result.filter((relativePackage) => {
-			const keywords = relativePackage.packageJson.keywords;
-
-			return (
-				keywords &&
-				options.keywordCriteria.every((keywordCriteria) =>
-					keywords.some((keyword) => keywordCriteria.test(keyword))
-				)
 			);
 		});
 	}

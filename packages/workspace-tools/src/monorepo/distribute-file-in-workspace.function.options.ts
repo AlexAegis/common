@@ -53,5 +53,6 @@ export const normalizeDistributeFileInWorkspaceOptions = (
 		markAsExecutable: options?.markAsExecutable ?? false,
 		templateVariables: options?.templateVariables ?? {},
 		transformers: options?.transformers ?? [],
+		packageJsonMatcher: options?.packageJsonMatcher,
 	};
 };

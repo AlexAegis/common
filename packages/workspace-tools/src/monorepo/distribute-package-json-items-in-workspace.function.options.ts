@@ -22,5 +22,6 @@ export const normalizeDistributePackageJsonItemsInWorkspaceOptions = (
 	return {
 		...normalizeDistributeInWorkspaceOptions(options),
 		sortingPreference: options?.sortingPreference ?? DEFAULT_PACKAGE_JSON_SORTING_PREFERENCE,
+		packageJsonMatcher: options?.packageJsonMatcher,
 	};
 };
