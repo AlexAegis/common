@@ -18,9 +18,7 @@ describe('match', () => {
 
 	describe('matching using custom functions', () => {
 		it('should be able to match anything using a function', () => {
-			expect(
-				match({ foo: 'foo' }, { foo: (v) => v?.toString().startsWith('f') ?? false })
-			).toBeTruthy();
+			expect(match({ foo: 'foo' }, { foo: (v) => v.startsWith('f') })).toBeTruthy();
 		});
 	});
 
@@ -45,13 +43,13 @@ describe('match', () => {
 		});
 
 		it('should not match different booleans', () => {
-			expect(match(true, false)).toBeFalsy();
-			expect(match(false, true)).toBeFalsy();
+			expect(match<boolean>(true, false)).toBeFalsy();
+			expect(match<boolean>(false, true)).toBeFalsy();
 		});
 
 		it('should not match different booleans', () => {
-			expect(match(true, false)).toBeFalsy();
-			expect(match(false, true)).toBeFalsy();
+			expect(match<boolean>(true, false)).toBeFalsy();
+			expect(match<boolean>(false, true)).toBeFalsy();
 		});
 
 		it('should be able to match nested booleans', () => {
@@ -91,7 +89,7 @@ describe('match', () => {
 		});
 
 		it('should fail when trying to match a non-array to an array', () => {
-			expect(match(1, [])).toBeFalsy();
+			expect(match<number | unknown[]>(1, [])).toBeFalsy();
 		});
 	});
 
@@ -221,7 +219,7 @@ describe('match', () => {
 
 		it('should use matchers even if they do not have a defined field paired to them', () => {
 			expect(
-				match(
+				match<{ bar: number; foo?: string }>(
 					{ bar: 1 },
 					{
 						foo: (v) => v === 'bar',
@@ -230,7 +228,7 @@ describe('match', () => {
 			).toBeFalsy();
 
 			expect(
-				match(
+				match<{ bar: number; foo?: string }>(
 					{
 						bar: 1,
 					},

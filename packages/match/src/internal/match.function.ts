@@ -5,7 +5,10 @@ export interface JsonObject {
 }
 export type JsonValue = JsonObject[keyof JsonObject];
 
-export type CustomJsonValueMatcher<T = JsonValue> = (value: T) => boolean;
+/**
+ * A simple predicate. Returing undefined is the same thing as false.
+ */
+export type CustomJsonValueMatcher<T = JsonValue> = (value: T) => boolean | undefined;
 
 export type JsonLeafMatcher = string | number | boolean | RegExp | CustomJsonValueMatcher;
 
@@ -23,19 +26,17 @@ export type JsonMatcher = JsonObjectMatcher[keyof JsonObjectMatcher];
  *
  * Beautiful.
  */
-export type JsonMatcherFrom<T> = T extends string
-	? string | RegExp | CustomJsonValueMatcher<string>
-	: T extends number
-	? number | CustomJsonValueMatcher<number>
-	: T extends (infer R)[]
-	? JsonMatcherFrom<R>[] | CustomJsonValueMatcher<T>
-	: T extends object
-	?
-			| {
+export type JsonMatcherFrom<T> =
+	| CustomJsonValueMatcher<T>
+	| (T extends string
+			? T | RegExp
+			: T extends object
+			? {
 					[K in keyof T]?: JsonMatcherFrom<T[K]>;
 			  }
-			| CustomJsonValueMatcher<T>
-	: T;
+			: T extends (infer R)[]
+			? JsonMatcherFrom<R>[]
+			: T);
 
 const isCustomJsonValueMatcher = <T>(t: unknown): t is CustomJsonValueMatcher<T> => {
 	return typeof t === 'function';
@@ -43,11 +44,10 @@ const isCustomJsonValueMatcher = <T>(t: unknown): t is CustomJsonValueMatcher<T>
 
 /**
  * TODO: Options to set if extra keys are allowed or not, currently it's allowed
- * TODO: The generic was extremely slow!!!
  */
 export const match = <T = JsonValue>(
 	target: T,
-	matcher: JsonMatcher | undefined | null
+	matcher: JsonMatcherFrom<T> | undefined | null
 ): boolean => {
 	if (typeof matcher === 'string') {
 		return typeof target === 'string' && new RegExp(matcher).test(target); // Treat every string filter as a RegExp
@@ -60,7 +60,7 @@ export const match = <T = JsonValue>(
 	} else if (matcher === null) {
 		return target === null;
 	} else if (isCustomJsonValueMatcher<T>(matcher)) {
-		return matcher(target);
+		return matcher(target) ?? false;
 	} else if (matcher instanceof RegExp) {
 		return typeof target === 'string' && matcher.test(target);
 	} else if (Array.isArray(matcher)) {
@@ -73,10 +73,7 @@ export const match = <T = JsonValue>(
 				typeof target === 'object' &&
 				target !== null && // typeof null === 'object'
 				!Array.isArray(target) &&
-				match(
-					(target as Record<string | number, unknown>)[filterKey],
-					filter as JsonMatcher
-				)
+				match((target as Record<string | number, unknown>)[filterKey], filter)
 			);
 		});
 	}
