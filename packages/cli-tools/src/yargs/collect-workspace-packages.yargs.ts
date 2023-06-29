@@ -5,9 +5,6 @@ import { yargsForCwdOption } from './cwd.yargs.js';
 import { yargsForDryOption } from './dry.yargs.js';
 import { yargsForForceOption } from './force.yargs.js';
 
-/**
- * @deprecated moved from the cli to the plugins to decide
- */
 export const yargsForCollectWorkspacePackagesOptions = <T>(
 	yargs: Argv<T>
 ): Argv<T & Omit<CollectWorkspacePackagesOptions, keyof LoggerOption>> => {
@@ -15,20 +12,19 @@ export const yargsForCollectWorkspacePackagesOptions = <T>(
 		.option('skipWorkspaceRoot', {
 			boolean: true,
 			default: false,
-			description: "Don't distribute to the root of the workspace",
+			description: "Don't act on the root of the workspace",
 		})
 		.option('onlyWorkspaceRoot', {
 			boolean: true,
 			default: false,
-			description:
-				'Only distribute to the root of the workspace. (Skip all workspace packages)',
+			description: 'Only act on to the root of the workspace.',
 		})
 		.option('dependencyCriteria', {
 			default: [],
 			array: true,
 			string: true,
 			description:
-				'Only distribute to workspace packages that have this dependency listed ' +
-				'in their package.json file. Empty means no filtering is applied.',
+				'Only act on packages that have these dependencies or devDependencies listed ' +
+				'in their package.json file. Empty means no such filtering is applied.',
 		});
 };
