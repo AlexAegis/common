@@ -7,7 +7,7 @@ export type PackageJsonDependencyField = (typeof PACKAGE_JSON_DEPENDENCY_FIELDS)
  * 'optionalDependencies' and 'peerDependencies'
  */
 export const isPackageJsonDependencyField = (
-	field: string | undefined
+	field: unknown
 ): field is PackageJsonDependencyField => {
 	return PACKAGE_JSON_DEPENDENCY_FIELDS.includes(field as PackageJsonDependencyField);
 };
