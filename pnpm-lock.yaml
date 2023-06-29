@@ -486,7 +486,7 @@ packages:
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
       '@alexaegis/commitlint-config': 0.3.3
-      '@alexaegis/logging': 0.2.4
+      '@alexaegis/logging': 0.2.5
       autotool-plugin: 0.0.5
       commitlint: 17.6.6
     transitivePeerDependencies:
@@ -498,7 +498,7 @@ packages:
     resolution: {integrity: sha512-u8y0OR7MOdJiMhTA1hmGiV2jgtt610yUKicMLLbxek24MYuw2q1O7WLCcsv9H1w/vXHttSAFMtIORxM+63xOHg==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@alexaegis/logging': 0.2.4
+      '@alexaegis/logging': 0.2.5
       autotool-plugin: 0.0.5
     dev: true
 
@@ -506,7 +506,7 @@ packages:
     resolution: {integrity: sha512-BBePvLOYn5KcISQs5C0cIUJU7KVOQ3M1QVCWzwjo7nVtNr9nmxrYxZvXSOCfKxjTL77+x95atkidIcJmcmSXyA==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@alexaegis/logging': 0.2.4
+      '@alexaegis/logging': 0.2.5
       autotool-plugin: 0.0.5
     dev: true
 
@@ -514,7 +514,7 @@ packages:
     resolution: {integrity: sha512-jyCM8cp8HgBaWA16zrYzoUUX0ggrEwxhOnVZoCnFLkE/9VxNnfcZOC25Ffd26DwPZ2OvPrndY3f3dvYfvGlS8g==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@alexaegis/logging': 0.2.4
+      '@alexaegis/logging': 0.2.5
       autotool-plugin: 0.0.5
     dev: true
 
@@ -522,7 +522,7 @@ packages:
     resolution: {integrity: sha512-P+NXgHcc/RkOt3wp0G7HDybsaeUOy7d1V5Q9a4pExD3aGco3RxciB5yPtgrqEgle6eeynGLOI16JFiXhh+6MJA==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@alexaegis/logging': 0.2.4
+      '@alexaegis/logging': 0.2.5
       autotool-plugin: 0.0.5
     dev: true
 
@@ -530,7 +530,7 @@ packages:
     resolution: {integrity: sha512-FOElwIxAuYmPuBxcvxTwNUh7xYgBT+O+Mc2G557G0iFv9GSDN8Sx6hswCebTUqv0VwR1ICKJPU9xXc9/3gzbyw==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@alexaegis/logging': 0.2.4
+      '@alexaegis/logging': 0.2.5
       autotool-plugin: 0.0.5
     dev: true
 
@@ -539,7 +539,7 @@ packages:
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
       '@alexaegis/lint-staged-config': 0.3.3
-      '@alexaegis/logging': 0.2.4
+      '@alexaegis/logging': 0.2.5
       '@commitlint/config-conventional': 17.6.6
       autotool-plugin: 0.0.5
       husky: 8.0.3
@@ -553,7 +553,7 @@ packages:
     resolution: {integrity: sha512-tIvN3/D1En8occrvJjQ/ZRZjNMPUsYsR5T2eZ9i6e0hQhITxcmnOssSc34/PKAECYkfxSwRNACmuF8kXk4l0bQ==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@alexaegis/logging': 0.2.4
+      '@alexaegis/logging': 0.2.5
       '@alexaegis/prettier-config': 0.3.3
       autotool-plugin: 0.0.5
       prettier: 2.8.8
@@ -565,7 +565,7 @@ packages:
     resolution: {integrity: sha512-4YUF5XUulWAo2G3PuDIwGSxDIt2CSNQTxbUMucyK4JdOcXCoJhaFcG9p4T0bNKQYSzhgMMTlpp5JlcFpqsBC+Q==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@alexaegis/logging': 0.2.4
+      '@alexaegis/logging': 0.2.5
       autotool-plugin: 0.0.5
     dev: true
 
@@ -573,7 +573,7 @@ packages:
     resolution: {integrity: sha512-UN70ZPv3NfwGViUaTz8k+xPqVZlZq0UTVqfAr7mGXPwJ4PNa7FRnv3D/mPIQm+YirZB0t0BnYS7SZofdzWLCfw==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@alexaegis/logging': 0.2.4
+      '@alexaegis/logging': 0.2.5
       '@alexaegis/remark-preset': 0.3.3
       autotool-plugin: 0.0.5
     transitivePeerDependencies:
@@ -584,7 +584,7 @@ packages:
     resolution: {integrity: sha512-vh8eU2ktlVuYCYzONUfjEEWtmgFKF8vKFJMUhwq66PuwtEvbIDv87JZ+gtYVuZo4T01Ql0nBxrm2340nZ7GcMg==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@alexaegis/logging': 0.2.4
+      '@alexaegis/logging': 0.2.5
       '@alexaegis/standard-version': 0.3.3
       autotool-plugin: 0.0.5
       commit-and-tag-version: 11.2.2
@@ -594,7 +594,7 @@ packages:
     resolution: {integrity: sha512-EXcWHCfnxnd+rjW2FtfsYcdXxVKElmwbrLkyLDaRq9s0zNNmRWr+MMfjqpcy3J2TL5n741zEFGnN/6raCtdTHg==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@alexaegis/logging': 0.2.4
+      '@alexaegis/logging': 0.2.5
       autotool-plugin: 0.0.5
     dev: true
 
@@ -602,8 +602,8 @@ packages:
     resolution: {integrity: sha512-Zn/jOxigyo8o5YMDbDZMDAvGDe2i53PLbLCeJ9g1q5tG+gEM1erflVp/wCjy1MDhuwRz4p5UqbA0YgVXR2/LKA==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@alexaegis/coverage-tools': 0.2.4
-      '@alexaegis/logging': 0.2.4
+      '@alexaegis/coverage-tools': 0.2.5
+      '@alexaegis/logging': 0.2.5
       '@sveltejs/kit': 1.21.0(svelte@4.0.1)(vite@4.3.9)
       autotool-plugin: 0.0.5
       svelte: 4.0.1
@@ -628,9 +628,9 @@ packages:
     resolution: {integrity: sha512-y8WHDYQwK4V8N31hLFBegqAr/c2Y2ov3X7Rs8i0X9deWaLbRGfr3xHsOZ3tuMZLPKPJxjPmfFvhFYL9712jWLQ==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@alexaegis/logging': 0.2.4
-      '@alexaegis/match': 0.2.4
-      '@alexaegis/workspace-tools': 0.2.4
+      '@alexaegis/logging': 0.2.5
+      '@alexaegis/match': 0.2.5
+      '@alexaegis/workspace-tools': 0.2.5
       autotool-plugin: 0.0.5
       typescript: 5.1.6
     dev: true
@@ -639,7 +639,7 @@ packages:
     resolution: {integrity: sha512-j7H3AK8kspY2jR2RVl1UTbx6IgxI2LCYhIyBb4YTrq9ai1+lEaUMSdVLgZnCYm0eDAbF6CShrj7E/uuy4/olnA==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@alexaegis/logging': 0.2.4
+      '@alexaegis/logging': 0.2.5
       autotool-plugin: 0.0.5
       turbo: 1.10.6
     dev: true
@@ -648,7 +648,7 @@ packages:
     resolution: {integrity: sha512-dEPbwZLJ+VGox0SfR6d7+6Tz7uzFkl7eg6sIlWlRtZui6xBBzQalBgKlrMu/wNG/WBO8oRTFjzcd9BXeziMgVg==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@alexaegis/logging': 0.2.4
+      '@alexaegis/logging': 0.2.5
       autotool-plugin: 0.0.5
       typedoc: 0.24.8(typescript@5.1.6)
     transitivePeerDependencies:
@@ -659,7 +659,7 @@ packages:
     resolution: {integrity: sha512-hAIn9g9ygoY3YcsN35Xixd8pgfy0vvqbHJBKl+h7FhtI6GM5nqv6fNexoQGoaZ5y7UPUAIXUtRm7OYTXkhszNQ==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@alexaegis/logging': 0.2.4
+      '@alexaegis/logging': 0.2.5
       autotool-plugin: 0.0.5
       concurrently: 8.2.0
       nodemon: 2.0.22
@@ -677,8 +677,8 @@ packages:
     resolution: {integrity: sha512-iW+8kkAxewAXduu74GM6fjdfEROaBrnmDI7eX91cLJYW9q0/P7jo2s49RBImYkIXchboh5UZ+T9SGeNMQs+3Zw==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@alexaegis/coverage-tools': 0.2.4
-      '@alexaegis/logging': 0.2.4
+      '@alexaegis/coverage-tools': 0.2.5
+      '@alexaegis/logging': 0.2.5
       autotool-plugin: 0.0.5
     dev: true
 
@@ -686,7 +686,7 @@ packages:
     resolution: {integrity: sha512-cWgKkqdo6eM7MYtRVL9zE2eYLJys0h5Jd0cK8pJpQwa/t/jZS/mXg9FyIbkwd2CZqb3vlOaBu0Pam0mUs2eagA==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@alexaegis/logging': 0.2.4
+      '@alexaegis/logging': 0.2.5
       autotool-plugin: 0.0.5
     dev: true
 
@@ -694,7 +694,7 @@ packages:
     resolution: {integrity: sha512-45Ba4oyAwCEuba9AxtWa/56tEbXuGZXrmn+dOp2Egi9YGR8NspLc0oFKGRg0G2FlPyWMaWmfZSVjPumwq/cj2g==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@alexaegis/logging': 0.2.4
+      '@alexaegis/logging': 0.2.5
       autotool-plugin: 0.0.5
       npm-check-updates: 16.10.13
     transitivePeerDependencies:
@@ -702,14 +702,14 @@ packages:
       - supports-color
     dev: true
 
-  /@alexaegis/cli-tools@0.2.4:
-    resolution: {integrity: sha512-DQ9Xp1U1ofCvZEH8rgl820F8gPhL4kGMWhqZ4OQLcJ1ZrPXr+XIMORGC2/uiljoJRvKp501HDKC8GZtV1ilvKw==}
+  /@alexaegis/cli-tools@0.2.5:
+    resolution: {integrity: sha512-/oJRQAQ9FZfKL2EEu43A+1utt8r0tS9VQHw3/F9lWIfAi7fb0raEY0BM6BTbO2fgXkyZvCbX8M07j0jTG716SA==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@alexaegis/common': 0.2.4
-      '@alexaegis/fs': 0.2.4
-      '@alexaegis/logging': 0.2.4
-      '@alexaegis/workspace-tools': 0.2.4
+      '@alexaegis/common': 0.2.5
+      '@alexaegis/fs': 0.2.5
+      '@alexaegis/logging': 0.2.5
+      '@alexaegis/workspace-tools': 0.2.5
       '@types/yargs': 17.0.24
       yargs: 17.7.2
     dev: true
@@ -721,19 +721,19 @@ packages:
       '@alexaegis/standard-version': 0.3.3
     dev: true
 
-  /@alexaegis/common@0.2.4:
-    resolution: {integrity: sha512-pDoARLd6MhWSCXc+3cougWJCQr+2af7xjFY/kCMA5Kyzrx9Lk45ZexRVtjAYxi2fVyqmps/AVd9l9Fg3WuZy4A==}
+  /@alexaegis/common@0.2.5:
+    resolution: {integrity: sha512-imXIFYpB3bCWo/OwXn11Hes6RQtnSUFjIfTkTMri4ZtIqUqoafM8kCqb2RB36H36HR3C54p1A/Wsm7Zn3JZ0tA==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dev: true
 
-  /@alexaegis/coverage-tools@0.2.4:
-    resolution: {integrity: sha512-sHwLlgI/Rfa0G3dGpxuGBR4iOPXvBRZaxwhkrtNn6yeB0w/+HDG18ZltMk0APG7iFxpgpW9KM4PK4Ijc3zS+6w==}
+  /@alexaegis/coverage-tools@0.2.5:
+    resolution: {integrity: sha512-vB4tP78TVdbTacSUAMjHeQRa1ZX3Bcfh5dW5aj3Ydhngkutc6cdeb2iFu9unocT802UsebmKYvwKXCsq/liZow==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     hasBin: true
     dependencies:
-      '@alexaegis/common': 0.2.4
-      '@alexaegis/logging': 0.2.4
-      '@alexaegis/workspace-tools': 0.2.4
+      '@alexaegis/common': 0.2.5
+      '@alexaegis/logging': 0.2.5
+      '@alexaegis/workspace-tools': 0.2.5
       globby: 13.2.0
     dev: true
 
@@ -780,12 +780,12 @@ packages:
       - supports-color
     dev: true
 
-  /@alexaegis/fs@0.2.4:
-    resolution: {integrity: sha512-xpMSjqJeFHRWT9qGg/nN8iEp8aHG8+G2SP7YwjpAWA9AOBXVnlCUI3OO1XQAxnDVWnG8el/ayIsL8cUgMLf+yQ==}
+  /@alexaegis/fs@0.2.5:
+    resolution: {integrity: sha512-28pGKfqoWxk2eQ9rnnhYeL4SZwtyFTXfl0xdBWmIxhM5gulgeAZfR/bwpyjlXy0mHlaxJxN+fQ6DP7caFXLN8A==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@alexaegis/common': 0.2.4
-      '@alexaegis/logging': 0.2.4
+      '@alexaegis/common': 0.2.5
+      '@alexaegis/logging': 0.2.5
       js-yaml: 4.1.0
     optionalDependencies:
       prettier: 2.8.8
@@ -795,7 +795,7 @@ packages:
     resolution: {integrity: sha512-A0hFJfGOhf/JJQlVRY0Uvi72WC4ojJTeprLQ8KMq8XhpeqBrO/Ng6RPA+mQ4PjMjyqEI2SUWOwsTBkALHQP7ew==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@alexaegis/fs': 0.2.4
+      '@alexaegis/fs': 0.2.5
       lint-staged: 13.2.2
       typescript: 5.1.6
     optionalDependencies:
@@ -805,16 +805,16 @@ packages:
       - supports-color
     dev: true
 
-  /@alexaegis/logging@0.2.4:
-    resolution: {integrity: sha512-jqbUVnIlNAImlW4jkcg7Bw2RQmivmqypBpIAzgh1NLKq+dLfc/Y8+OKNCq46EZdCBJia3f2Jb87PnnOv4HrUNw==}
+  /@alexaegis/logging@0.2.5:
+    resolution: {integrity: sha512-wODP89xHF0BM+FZCwjkVNWAWPtYBHo0ui7k1OmHoTT9WiVyGLFweCtaJoNnOwzdCxCXudCfMqLSow4CNGlSDsw==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@alexaegis/common': 0.2.4
+      '@alexaegis/common': 0.2.5
       tslog: 4.8.2
     dev: true
 
-  /@alexaegis/match@0.2.4:
-    resolution: {integrity: sha512-JyoLAd26ex8pi+lfChfCnyt3GKKPFQp5auiRuU7Jaj0LzhecFuRDaGOmqRe2dyFwbxyfVXcPAn1NTa2/cLQMxQ==}
+  /@alexaegis/match@0.2.5:
+    resolution: {integrity: sha512-L2hb0t6PxJtmm+TEUiEKWkn5VjnxrGHYlxLnH1GmLx1ZbCQVdnUMOGNaYJtC7KcqBmNIw2khwB1Ikj72UFR2fw==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dev: true
 
@@ -823,10 +823,10 @@ packages:
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     hasBin: true
     dependencies:
-      '@alexaegis/cli-tools': 0.2.4
-      '@alexaegis/common': 0.2.4
-      '@alexaegis/logging': 0.2.4
-      '@alexaegis/workspace-tools': 0.2.4
+      '@alexaegis/cli-tools': 0.2.5
+      '@alexaegis/common': 0.2.5
+      '@alexaegis/logging': 0.2.5
+      '@alexaegis/workspace-tools': 0.2.5
       globby: 13.2.0
     dev: true
 
@@ -864,9 +864,9 @@ packages:
     resolution: {integrity: sha512-iCG67vtwc8vvW8l2XgrFwEhnHLpP8q+dzv9+7yiX2tQeIcomeR0evdU1wNjU7bva9Eg+UMEoPKJZZisF/HIzzg==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@alexaegis/common': 0.2.4
-      '@alexaegis/coverage-tools': 0.2.4
-      '@alexaegis/workspace-tools': 0.2.4
+      '@alexaegis/common': 0.2.5
+      '@alexaegis/coverage-tools': 0.2.5
+      '@alexaegis/workspace-tools': 0.2.5
       glob: 10.3.1
       js-yaml: 4.1.0
     dev: true
@@ -909,8 +909,8 @@ packages:
     resolution: {integrity: sha512-By1nv2bQj5ofaKffbiThto+FBnwvls+kHya0gkob5TNq18D4TegWSVNt0lJ3XVdxRCVM8IlCVCVk29sN3jTUMg==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@alexaegis/logging': 0.2.4
-      '@alexaegis/workspace-tools': 0.2.4
+      '@alexaegis/logging': 0.2.5
+      '@alexaegis/workspace-tools': 0.2.5
       '@sveltejs/vite-plugin-svelte': 2.4.2(svelte@4.0.1)(vite@4.3.9)
       concurrently: 8.2.0
       nodemon: 2.0.22
@@ -962,14 +962,14 @@ packages:
       - webdriverio
     dev: true
 
-  /@alexaegis/workspace-tools@0.2.4:
-    resolution: {integrity: sha512-fLfY+5MMiGH+U3wyJTKynsNHCqcShpPcWBhXD6EIyKWipTzqWJ8l/iSolWjCsGRrKbbe7MIqbod2Fm/mI4jfrA==}
+  /@alexaegis/workspace-tools@0.2.5:
+    resolution: {integrity: sha512-nUsowLU0VSl/ylZmXwXcboT0eXTad29OjVFlAF63PCBAlWat6qPAAklM0Tmj8q+HRjEguosyrqwn9aG9VNm/SA==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@alexaegis/common': 0.2.4
-      '@alexaegis/fs': 0.2.4
-      '@alexaegis/logging': 0.2.4
-      '@alexaegis/match': 0.2.4
+      '@alexaegis/common': 0.2.5
+      '@alexaegis/fs': 0.2.5
+      '@alexaegis/logging': 0.2.5
+      '@alexaegis/match': 0.2.5
       '@schemastore/package': 0.0.8
       globby: 13.2.0
       prettier: 2.8.8
@@ -1813,10 +1813,10 @@ packages:
     resolution: {integrity: sha512-CvNmSi5G1Cli9QXhhLQSnXxbjXnLxHfkTdem6ooM69gdskJcPfP06j93H6JB06m6bBsdu9P2AJMcVv1sZBDfEQ==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@alexaegis/common': 0.2.4
-      '@alexaegis/fs': 0.2.4
-      '@alexaegis/logging': 0.2.4
-      '@alexaegis/workspace-tools': 0.2.4
+      '@alexaegis/common': 0.2.5
+      '@alexaegis/fs': 0.2.5
+      '@alexaegis/logging': 0.2.5
+      '@alexaegis/workspace-tools': 0.2.5
       '@types/node': 20.3.2
       globby: 13.2.0
       prettier: 2.8.8
@@ -2738,10 +2738,10 @@ packages:
     resolution: {integrity: sha512-OW0PoAREgb0mmsSjsQMwx0c2Ng5528GF35Z5sbyM9f7849IsSxXuuCnRQHsNoaXjQjnsPyW6ZlP2FiBtkysTDw==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@alexaegis/common': 0.2.4
-      '@alexaegis/fs': 0.2.4
-      '@alexaegis/logging': 0.2.4
-      '@alexaegis/workspace-tools': 0.2.4
+      '@alexaegis/common': 0.2.5
+      '@alexaegis/fs': 0.2.5
+      '@alexaegis/logging': 0.2.5
+      '@alexaegis/workspace-tools': 0.2.5
       autotool-plugin: 0.1.0
       minimatch: 9.0.2
     dev: true
@@ -2750,22 +2750,22 @@ packages:
     resolution: {integrity: sha512-I1hdNVpLTxqTtkuvUVHb+ws3VO+zE2IImKjQ4PylH+19zrMApAMBCQ7ihJgxO7HxUMCLyfagEhsaZJdr+U5Zyw==}
     engines: {node: '>=18.13.0'}
     dependencies:
-      '@alexaegis/common': 0.2.4
-      '@alexaegis/fs': 0.2.4
-      '@alexaegis/logging': 0.2.4
-      '@alexaegis/match': 0.2.4
-      '@alexaegis/workspace-tools': 0.2.4
+      '@alexaegis/common': 0.2.5
+      '@alexaegis/fs': 0.2.5
+      '@alexaegis/logging': 0.2.5
+      '@alexaegis/match': 0.2.5
+      '@alexaegis/workspace-tools': 0.2.5
     dev: true
 
   /autotool-plugin@0.1.0:
     resolution: {integrity: sha512-IFhSHouUz+WdqutqjhfW6r3zfsc4axXPPOB112iBCJBAFzoJbfoi9CCNnER9qi1G4G/e1M0LrvCGvRlzwONHbg==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@alexaegis/common': 0.2.4
-      '@alexaegis/fs': 0.2.4
-      '@alexaegis/logging': 0.2.4
-      '@alexaegis/match': 0.2.4
-      '@alexaegis/workspace-tools': 0.2.4
+      '@alexaegis/common': 0.2.5
+      '@alexaegis/fs': 0.2.5
+      '@alexaegis/logging': 0.2.5
+      '@alexaegis/match': 0.2.5
+      '@alexaegis/workspace-tools': 0.2.5
     dev: true
 
   /autotool@0.1.0:
@@ -2774,12 +2774,12 @@ packages:
     hasBin: true
     requiresBuild: true
     dependencies:
-      '@alexaegis/cli-tools': 0.2.4
-      '@alexaegis/common': 0.2.4
-      '@alexaegis/fs': 0.2.4
-      '@alexaegis/logging': 0.2.4
-      '@alexaegis/match': 0.2.4
-      '@alexaegis/workspace-tools': 0.2.4
+      '@alexaegis/cli-tools': 0.2.5
+      '@alexaegis/common': 0.2.5
+      '@alexaegis/fs': 0.2.5
+      '@alexaegis/logging': 0.2.5
+      '@alexaegis/match': 0.2.5
+      '@alexaegis/workspace-tools': 0.2.5
       autotool-plugin: 0.1.0
       autotool-plugin-default: 0.1.0
       globby: 13.2.0
@@ -10328,9 +10328,9 @@ packages:
     resolution: {integrity: sha512-ifzBbFfbyh7pxqBHIzH/bMm0SottZzJan40YO6lMO6gDCHiQUegfghKjlD5+a6SPpQ9qrxtveAM41Ymb8YK1Ww==}
     engines: {node: '>=18.10.0', pnpm: '>=8.0.0'}
     dependencies:
-      '@alexaegis/common': 0.2.4
-      '@alexaegis/fs': 0.2.4
-      '@alexaegis/workspace-tools': 0.2.4
+      '@alexaegis/common': 0.2.5
+      '@alexaegis/fs': 0.2.5
+      '@alexaegis/workspace-tools': 0.2.5
       '@pakk/core': 0.2.2
       '@types/node': 20.3.2
       prettier: 2.8.8
