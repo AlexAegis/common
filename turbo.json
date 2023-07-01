@@ -207,14 +207,8 @@
 		},
 		"test_": {
 			"env": ["VITEST"],
-			"dependsOn": ["^build-lib_", "^test:require:build-lib_", "test:require:build-lib_"],
+			"dependsOn": ["^build-lib_"],
 			"outputs": ["coverage/**"],
-			"outputMode": "new-only"
-		},
-		"test:require:build-lib_": {
-			"env": [],
-			"dependsOn": ["build-lib_"],
-			"outputs": [],
 			"outputMode": "new-only"
 		},
 		"start": {

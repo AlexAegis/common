@@ -17,4 +17,13 @@ describe('dropKeys', () => {
 		expect(Object.hasOwn(result, 'bar')).toBeFalsy();
 		expect(Object.hasOwn(result, 'zed')).toBeTruthy();
 	});
+
+	it('should drop undefined by default in deeper objects too', () => {
+		const o = { foo: undefined, bar: { zed: undefined } };
+		const result = dropKeys(o);
+		expect(result).toBe(o); // Mutates
+		expect(Object.hasOwn(result, 'foo')).toBeFalsy();
+		expect(Object.hasOwn(result, 'bar')).toBeTruthy();
+		expect(Object.hasOwn(result.bar, 'zed')).toBeFalsy();
+	});
 });

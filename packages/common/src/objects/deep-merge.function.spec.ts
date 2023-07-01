@@ -110,4 +110,15 @@ describe('deepMerge', () => {
 		expect(result).toEqual(expected);
 		expect(Object.hasOwn(result, 'foo')).toBeFalsy();
 	});
+
+	it('should drop what the dropKeyMatcher says', () => {
+		const a = { foo: 'a', bar: 12 };
+		const b = { foo: 'b' };
+
+		const result = deepMerge([a, b], { dropKeys: (value) => typeof value === 'number' });
+		const expected = { foo: 'b' };
+
+		expect(result).toEqual(expected);
+		expect(Object.hasOwn(result, 'bar')).toBeFalsy();
+	});
 });
