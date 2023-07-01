@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.3.2](https://github.com/AlexAegis/js-core/compare/v0.3.1...v0.3.2) (2023-07-01)
+
+
+### Features
+
+* **common:** extracted key dropping from deepMerge ([35dfba8](https://github.com/AlexAegis/js-core/commit/35dfba81a59f7af5b0d91a5d36adc349de1f97fb))
+* **predicate:** also allow null ([1d6616a](https://github.com/AlexAegis/js-core/commit/1d6616a94e1794459122e33ca98272122a5990bb))
+
 ## [0.3.1](https://github.com/AlexAegis/js-core/compare/v0.3.0...v0.3.1) (2023-06-29)
 
 
