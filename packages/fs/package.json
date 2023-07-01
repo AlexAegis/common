@@ -24,7 +24,7 @@
 	"scripts": {
 		"build": "turbo run build-lib_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/fs",
 		"build-lib_": "vite build",
-		"lint:depcheck": "turbo run lint:depcheck_ --concurrency 6 --cache-dir .cache/turbo --filter @alexaegis/fs",
+		"lint:depcheck": "turbo run lint:depcheck_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/fs",
 		"lint:depcheck_": "depcheck",
 		"lint:es": "turbo run lint:es_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/fs",
 		"lint:es_": "eslint --max-warnings=0 --fix --no-error-on-unmatched-pattern .",
@@ -68,10 +68,10 @@
 		"prettier": "^2.8.8"
 	},
 	"devDependencies": {
-		"@alexaegis/eslint-config-vitest": "^0.3.3",
-		"@alexaegis/ts": "^0.3.3",
-		"@alexaegis/vite": "^0.3.3",
-		"@alexaegis/vitest": "^0.3.3",
+		"@alexaegis/eslint-config-vitest": "^0.3.4",
+		"@alexaegis/ts": "^0.3.4",
+		"@alexaegis/vite": "^0.3.4",
+		"@alexaegis/vitest": "^0.3.4",
 		"@types/js-yaml": "^4.0.5",
 		"@types/node": "^20.3.3",
 		"@types/prettier": "^2.7.3",
