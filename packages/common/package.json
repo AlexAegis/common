@@ -52,7 +52,6 @@
 		},
 		"./readme": "./readme.md"
 	},
-	"dependencies": {},
 	"devDependencies": {
 		"@alexaegis/eslint-config-vitest": "^0.3.3",
 		"@alexaegis/ts": "^0.3.3",

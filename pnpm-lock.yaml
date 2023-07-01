@@ -238,8 +238,8 @@ importers:
         specifier: ^0.3.2
         version: link:../workspace-tools
       globby:
-        specifier: ^13.2.0
-        version: 13.2.0
+        specifier: ^13.2.1
+        version: 13.2.1
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.3.3
@@ -437,8 +437,8 @@ importers:
         specifier: ^0.0.9
         version: 0.0.9
       globby:
-        specifier: ^13.2.0
-        version: 13.2.0
+        specifier: ^13.2.1
+        version: 13.2.1
       prettier:
         specifier: ^2.8.8
         version: 2.8.8
@@ -737,7 +737,7 @@ packages:
       '@alexaegis/common': 0.2.5
       '@alexaegis/logging': 0.2.5
       '@alexaegis/workspace-tools': 0.2.5
-      globby: 13.2.0
+      globby: 13.2.1
     dev: true
 
   /@alexaegis/eslint-config-core@0.3.3(ts-node@10.9.1):
@@ -830,7 +830,7 @@ packages:
       '@alexaegis/common': 0.2.5
       '@alexaegis/logging': 0.2.5
       '@alexaegis/workspace-tools': 0.2.5
-      globby: 13.2.0
+      globby: 13.2.1
     dev: true
 
   /@alexaegis/prettier-config@0.3.3:
@@ -974,7 +974,7 @@ packages:
       '@alexaegis/logging': 0.2.5
       '@alexaegis/match': 0.2.5
       '@schemastore/package': 0.0.8
-      globby: 13.2.0
+      globby: 13.2.1
       prettier: 2.8.8
       semver: 7.5.3
     dev: true
@@ -1821,7 +1821,7 @@ packages:
       '@alexaegis/logging': 0.2.5
       '@alexaegis/workspace-tools': 0.2.5
       '@types/node': 20.3.3
-      globby: 13.2.0
+      globby: 13.2.1
       prettier: 2.8.8
       rollup: 3.26.0
       ts-node: 10.9.1(@types/node@20.3.3)(typescript@5.1.6)
@@ -2091,7 +2091,7 @@ packages:
   /@types/concat-stream@2.0.0:
     resolution: {integrity: sha512-t3YCerNM7NTVjLuICZo5gYAXYoDvpuuTceCcFQWcDQz26kxUR5uIWolxbIR5jRNIXpMqhOpW/b8imCR1LEmuJw==}
     dependencies:
-      '@types/node': 20.3.3
+      '@types/node': 18.16.19
     dev: true
 
   /@types/cookie@0.5.1:
@@ -2789,7 +2789,7 @@ packages:
       '@alexaegis/workspace-tools': 0.2.5
       autotool-plugin: 0.1.0
       autotool-plugin-default: 0.1.0
-      globby: 13.2.0
+      globby: 13.2.1
       microdiff: 1.3.2
     dev: true
 
@@ -4146,7 +4146,7 @@ packages:
       eslint-module-utils: 2.8.0(@typescript-eslint/parser@5.60.1)(eslint-import-resolver-node@0.3.7)(eslint-import-resolver-typescript@3.5.5)(eslint@8.44.0)
       eslint-plugin-import: 2.27.5(@typescript-eslint/parser@5.60.1)(eslint-import-resolver-typescript@3.5.5)(eslint@8.44.0)
       get-tsconfig: 4.6.2
-      globby: 13.2.0
+      globby: 13.2.1
       is-core-module: 2.12.1
       is-glob: 4.0.3
       synckit: 0.8.5
@@ -4979,8 +4979,8 @@ packages:
       slash: 3.0.0
     dev: true
 
-  /globby@13.2.0:
-    resolution: {integrity: sha512-jWsQfayf13NvqKUIL3Ta+CIqMnvlaIDFveWE/dpOZ9+3AMEJozsxDvKA02zync9UuvOM8rOXzsD5GqKP4OnWPQ==}
+  /globby@13.2.1:
+    resolution: {integrity: sha512-DPCBxctI7dN4EeIqjW2KGqgdcUMbrhJ9AzON+PlxCtvppWhubTLD4+a0GFxiym14ZvacUydTPjLPc2DlKz7EIg==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     dependencies:
       dir-glob: 3.0.1
