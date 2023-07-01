@@ -19,7 +19,7 @@ export const normalizeLoggerOptions = <L = unknown>(
 ): NormalizedLoggerOptions<L> => {
 	const timestamps = options?.timestamps ?? false;
 
-	return deepMerge(
+	return deepMerge([
 		{
 			name: 'log',
 			timestamps,
@@ -27,8 +27,8 @@ export const normalizeLoggerOptions = <L = unknown>(
 				? prettyLogTemplateTimestamp + prettyLogTemplateBody
 				: prettyLogTemplateBody,
 		} as NormalizedLoggerOptions<L>,
-		options
-	);
+		options,
+	]);
 };
 
 export const createLogger = <L = unknown>(options?: LoggerOptions<L>): Logger<L> => {
