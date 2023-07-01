@@ -21,7 +21,7 @@
 				"!{src,static,public}/**/*.spec.{ts,js,tsx,jsx}",
 				"!vite*.config.*.*"
 			],
-			"outputs": ["{dist,build,.svelte-kit}/**/*"],
+			"outputs": ["dist", "build", ".svelte-kit"],
 			"outputMode": "new-only"
 		},
 		"build-app_": {
@@ -33,7 +33,7 @@
 				"!{src,static,public}/**/*.spec.{ts,js,tsx,jsx}",
 				"!vite*.config.*.*"
 			],
-			"outputs": ["{dist,build,.svelte-kit}/**/*"],
+			"outputs": ["dist", "build", ".svelte-kit"],
 			"outputMode": "new-only"
 		},
 		"all_": {
@@ -146,7 +146,7 @@
 			"inputs": [
 				"package.json",
 				"**/*.md",
-				"!{packages,libs,apps,fixtures,.turbo,.cache}",
+				"!{packages,libs,apps,fixtures,.turbo,.cache,dist,build,.svelte-kit}",
 				"!vite*.config.*.*"
 			],
 			"outputs": [],
@@ -154,53 +154,81 @@
 		},
 		"publint_": {
 			"dependsOn": ["build-lib_"],
-			"inputs": ["dist/**/*", "!{.turbo,.cache}/**/*", "!vite*.config.*.*"],
+			"inputs": ["dist"],
 			"outputs": [],
 			"outputMode": "new-only"
 		},
 		"lint:format_": {
 			"env": [],
-			"inputs": ["{src,static,public}/**/*", "*.*", "!vite*.config.*.*"],
+			"inputs": [
+				"{src,static,public}/**/*.{ts,js,tsx,jsx,md,json,json5,yaml,yml,html,svelte,vue,astro,xml,php}",
+				"*.*",
+				"!{.turbo,.cache,dist,build,.svelte-kit}/**/*",
+				"!vite*.config.*.*"
+			],
 			"dependsOn": [],
 			"outputs": [".cache/prettier"],
 			"outputMode": "new-only"
 		},
 		"//#lint:format_": {
 			"env": [],
-			"inputs": ["**/*", "!{.turbo,.cache}/**/*", "!vite*.config.*.*"],
+			"inputs": [
+				"**/*.{ts,js,tsx,jsx,md,json,json5,yaml,yml,html,svelte,vue,astro,xml,php}",
+				"!{.turbo,.cache,packages,libs,apps,fixtures,dist,build,.svelte-kit}/**/*",
+				"!vite*.config.*.*"
+			],
 			"dependsOn": [],
 			"outputs": [".cache/prettier"],
 			"outputMode": "new-only"
 		},
 		"format_": {
-			"env": [],
+			"inputs": [
+				"{src,static,public}/**/*.{ts,js,tsx,jsx,md,json,json5,yaml,yml,html,svelte,vue,astro,xml,php}",
+				"*.*",
+				"!{.turbo,.cache,dist,build,.svelte-kit}/**/*",
+				"!vite*.config.*.*"
+			],
 			"dependsOn": [],
 			"outputs": [".cache/prettier"],
 			"outputMode": "new-only"
 		},
 		"//#format_": {
-			"env": [],
 			"dependsOn": [],
+			"inputs": [
+				"**/*.{ts,js,tsx,jsx,md,json,json5,yaml,yml,html,svelte,vue,astro,xml,php}",
+				"!{.turbo,.cache,packages,libs,apps,fixtures,dist,build,.svelte-kit}/**/*",
+				"!vite*.config.*.*"
+			],
 			"outputs": [".cache/prettier"],
 			"outputMode": "new-only"
 		},
 		"typedoc_": {
 			"dependsOn": [],
-			"inputs": ["**/*.ts", "typedoc.json", "!{.turbo,.cache}/**/*", "!vite*.config.*.*"],
-			"outputs": [".cache/typedoc/**"],
+			"inputs": [
+				"**/*.ts",
+				"typedoc.json",
+				"!{.turbo,.cache,dist,build,.svelte-kit}/**/*",
+				"!vite*.config.*.*"
+			],
+			"outputs": [".cache/typedoc"],
 			"outputMode": "new-only"
 		},
 		"//#typedoc_": {
 			"dependsOn": [],
-			"inputs": ["**/*.ts", "typedoc.json", "!{.turbo,.cache}/**/*", "!vite*.config.*.*"],
-			"outputs": [".cache/typedoc/**"],
+			"inputs": [
+				"**/*.ts",
+				"typedoc.json",
+				"!{.turbo,.cache,dist,build,.svelte-kit}/**/*",
+				"!vite*.config.*.*"
+			],
+			"outputs": [".cache/typedoc"],
 			"outputMode": "new-only"
 		},
 		"test_": {
 			"env": ["VITEST"],
 			"inputs": ["{src,static,public}/**/*", "*.*", "!vite*.config.*.*"],
 			"dependsOn": ["^build-lib_"],
-			"outputs": ["coverage/**"],
+			"outputs": ["coverage"],
 			"outputMode": "new-only"
 		},
 		"start": {
