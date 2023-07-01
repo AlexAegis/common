@@ -20,12 +20,12 @@
 		"url": "https://github.com/AlexAegis"
 	},
 	"repository": {
-		"url": "https://github.com/AlexAegis/js-core",
+		"url": "https://github.com/AlexAegis/common",
 		"type": "git"
 	},
 	"bugs": {
 		"email": "alexaegis@gmail.com",
-		"url": "https://github.com/AlexAegis/js-core/issues"
+		"url": "https://github.com/AlexAegis/common/issues"
 	},
 	"type": "module",
 	"config": {

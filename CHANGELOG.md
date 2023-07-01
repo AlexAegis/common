@@ -2,22 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
-## [0.3.2](https://github.com/AlexAegis/js-core/compare/v0.3.1...v0.3.2) (2023-07-01)
+## [0.3.2](https://github.com/AlexAegis/common/compare/v0.3.1...v0.3.2) (2023-07-01)
 
 
 ### Features
 
-* **common:** extracted key dropping from deepMerge ([35dfba8](https://github.com/AlexAegis/js-core/commit/35dfba81a59f7af5b0d91a5d36adc349de1f97fb))
-* **predicate:** also allow null ([1d6616a](https://github.com/AlexAegis/js-core/commit/1d6616a94e1794459122e33ca98272122a5990bb))
+* **common:** extracted key dropping from deepMerge ([35dfba8](https://github.com/AlexAegis/common/commit/35dfba81a59f7af5b0d91a5d36adc349de1f97fb))
+* **predicate:** also allow null ([1d6616a](https://github.com/AlexAegis/common/commit/1d6616a94e1794459122e33ca98272122a5990bb))
 
-## [0.3.1](https://github.com/AlexAegis/js-core/compare/v0.3.0...v0.3.1) (2023-06-29)
+## [0.3.1](https://github.com/AlexAegis/common/compare/v0.3.0...v0.3.1) (2023-06-29)
 
 
 ### Features
 
-* **predicate:** allow undefined ([2caf5f5](https://github.com/AlexAegis/js-core/commit/2caf5f57e0cdef32f1e3bfba377a4ede94655d47))
+* **predicate:** allow undefined ([2caf5f5](https://github.com/AlexAegis/common/commit/2caf5f57e0cdef32f1e3bfba377a4ede94655d47))
 
-## [0.3.0](https://github.com/AlexAegis/js-core/compare/v0.2.5...v0.3.0) (2023-06-29)
+## [0.3.0](https://github.com/AlexAegis/common/compare/v0.2.5...v0.3.0) (2023-06-29)
 
 
 ### ⚠ BREAKING CHANGES
@@ -26,33 +26,33 @@ All notable changes to this project will be documented in this file. See [commit
 
 ### Features
 
-* **match:** improved JsonMatcherFrom and related types ([ea0e9c8](https://github.com/AlexAegis/js-core/commit/ea0e9c8c42b5fd147f27a9e3c155080db5c43ec9))
-* **workspace-tools:** added packageJson match based filtering and removed keywordCriteria ([c5f6afe](https://github.com/AlexAegis/js-core/commit/c5f6afe2433c92efcd0a07f8a6ee0597d47f85ed))
-* **workspace-tools:** removed deprecated functions ([31733ae](https://github.com/AlexAegis/js-core/commit/31733aeced25d48cf1fcda753ce0c64f62af403f))
+* **match:** improved JsonMatcherFrom and related types ([ea0e9c8](https://github.com/AlexAegis/common/commit/ea0e9c8c42b5fd147f27a9e3c155080db5c43ec9))
+* **workspace-tools:** added packageJson match based filtering and removed keywordCriteria ([c5f6afe](https://github.com/AlexAegis/common/commit/c5f6afe2433c92efcd0a07f8a6ee0597d47f85ed))
+* **workspace-tools:** removed deprecated functions ([31733ae](https://github.com/AlexAegis/common/commit/31733aeced25d48cf1fcda753ce0c64f62af403f))
 
-## [0.2.5](https://github.com/AlexAegis/js-core/compare/v0.2.4...v0.2.5) (2023-06-29)
-
-
-### Features
-
-* **common:** added groupBy function ([6298d85](https://github.com/AlexAegis/js-core/commit/6298d857965a03898f6445a979fcfb373a005ac4))
-* **predicate:** added simple declarative predicates ([0b48eb1](https://github.com/AlexAegis/js-core/commit/0b48eb19c3013e43e747e2db590b164c2bd9ab19))
-* **workspace-tools:** added a function to check if a string is a dependency field ([f3ee5ed](https://github.com/AlexAegis/js-core/commit/f3ee5ed9ac138efc1dca64d0f2ee744d0af79162))
-
-## [0.2.4](https://github.com/AlexAegis/js-core/compare/v0.2.3...v0.2.4) (2023-06-27)
+## [0.2.5](https://github.com/AlexAegis/common/compare/v0.2.4...v0.2.5) (2023-06-29)
 
 
 ### Features
 
-* **logging:** default loglevel is now INFO ([c8ee455](https://github.com/AlexAegis/js-core/commit/c8ee4554d07b2250a032db2ee009e7ddb5a6087e))
-* **logging:** do not include the timestamp by default ([3615bd1](https://github.com/AlexAegis/js-core/commit/3615bd193fc752f5b994539d75f662a88faf022b))
+* **common:** added groupBy function ([6298d85](https://github.com/AlexAegis/common/commit/6298d857965a03898f6445a979fcfb373a005ac4))
+* **predicate:** added simple declarative predicates ([0b48eb1](https://github.com/AlexAegis/common/commit/0b48eb19c3013e43e747e2db590b164c2bd9ab19))
+* **workspace-tools:** added a function to check if a string is a dependency field ([f3ee5ed](https://github.com/AlexAegis/common/commit/f3ee5ed9ac138efc1dca64d0f2ee744d0af79162))
 
-## [0.2.3](https://github.com/AlexAegis/js-core/compare/v0.2.2...v0.2.3) (2023-06-20)
+## [0.2.4](https://github.com/AlexAegis/common/compare/v0.2.3...v0.2.4) (2023-06-27)
 
 
 ### Features
 
-* **workspace-tools:** treat the default export as special ([788bb9e](https://github.com/AlexAegis/js-core/commit/788bb9e6f06684541699c04f904e5381d524aff4))
+* **logging:** default loglevel is now INFO ([c8ee455](https://github.com/AlexAegis/common/commit/c8ee4554d07b2250a032db2ee009e7ddb5a6087e))
+* **logging:** do not include the timestamp by default ([3615bd1](https://github.com/AlexAegis/common/commit/3615bd193fc752f5b994539d75f662a88faf022b))
+
+## [0.2.3](https://github.com/AlexAegis/common/compare/v0.2.2...v0.2.3) (2023-06-20)
+
+
+### Features
+
+* **workspace-tools:** treat the default export as special ([788bb9e](https://github.com/AlexAegis/common/commit/788bb9e6f06684541699c04f904e5381d524aff4))
 
 ## [0.2.2](https://github.com/AlexAegis/js/compare/v0.2.1...v0.2.2) (2023-06-18)
 
