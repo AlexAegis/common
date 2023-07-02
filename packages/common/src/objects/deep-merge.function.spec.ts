@@ -121,4 +121,28 @@ describe('deepMerge', () => {
 		expect(result).toEqual(expected);
 		expect(Object.hasOwn(result, 'bar')).toBeFalsy();
 	});
+
+	it('should be able to drop deeper fields too', () => {
+		const a = {
+			devDependencies: {
+				'@org/foo': '1',
+				'@org/bar': '1',
+			},
+		};
+		const b = {
+			devDependencies: {
+				'@org/bar': undefined,
+			},
+		};
+
+		const result = deepMerge([a, b], { dropKeys: true });
+		const expected = {
+			devDependencies: {
+				'@org/foo': '1',
+			},
+		};
+
+		expect(result).toEqual(expected);
+		expect(Object.hasOwn(result.devDependencies, '@org/bar')).toBeFalsy();
+	});
 });
