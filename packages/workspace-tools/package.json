@@ -59,8 +59,7 @@
 		"@alexaegis/logging": "^0.4.0",
 		"@alexaegis/match": "^0.4.0",
 		"@schemastore/package": "^0.0.9",
-		"globby": "^13.2.1",
-		"prettier": "^2.8.8"
+		"globby": "^13.2.1"
 	},
 	"devDependencies": {
 		"@alexaegis/eslint-config-vitest": "^0.3.4",
