@@ -1,4 +1,4 @@
-import { Defined, deepMerge } from '@alexaegis/common';
+import type { Defined } from '@alexaegis/common';
 import { Logger, type ISettingsParam } from 'tslog';
 
 export interface LoggerCustomOptions {
@@ -19,16 +19,14 @@ export const normalizeLoggerOptions = <L = unknown>(
 ): NormalizedLoggerOptions<L> => {
 	const timestamps = options?.timestamps ?? false;
 
-	return deepMerge([
-		{
-			name: 'log',
-			timestamps,
-			prettyLogTemplate: timestamps
-				? prettyLogTemplateTimestamp + prettyLogTemplateBody
-				: prettyLogTemplateBody,
-		} as NormalizedLoggerOptions<L>,
-		options,
-	]);
+	return {
+		name: 'log',
+		timestamps,
+		prettyLogTemplate: timestamps
+			? prettyLogTemplateTimestamp + prettyLogTemplateBody
+			: prettyLogTemplateBody,
+		...options,
+	} as NormalizedLoggerOptions<L>;
 };
 
 export const createLogger = <L = unknown>(options?: LoggerOptions<L>): Logger<L> => {
