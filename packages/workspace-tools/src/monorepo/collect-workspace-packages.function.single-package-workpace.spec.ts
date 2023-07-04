@@ -70,6 +70,14 @@ describe('collectWorkspacePackages in a root-package only workspace', () => {
 
 	it('should be able to collect nothing, outside the workspace', async () => {
 		const foundPackageJsons = await collectWorkspacePackages({ cwd: '/foo' });
-		expect(foundPackageJsons).toEqual([]);
+		expect(foundPackageJsons).toEqual<WorkspacePackage[]>([]);
+	});
+
+	it('should still be able to collect the single package even if skipWorkspaceRoot is enabled', async () => {
+		const foundPackageJsons = await collectWorkspacePackages({
+			cwd: '/foo/bar',
+			skipWorkspaceRoot: true,
+		});
+		expect(foundPackageJsons).toEqual<WorkspacePackage[]>([workspacePackageRoot]);
 	});
 });

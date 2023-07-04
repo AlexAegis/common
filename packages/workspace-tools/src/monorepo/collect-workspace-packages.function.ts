@@ -61,7 +61,8 @@ export const collectWorkspacePackages = async (
 		}
 	}
 
-	if (!options.skipWorkspaceRoot) {
+	// The root package is only accounted for if it's not skipped OR it's not a monorepo!
+	if (!options.skipWorkspaceRoot || rootPackage.workspacePackagePatterns.length === 0) {
 		result.unshift(rootPackage);
 	}
 

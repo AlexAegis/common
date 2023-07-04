@@ -130,4 +130,27 @@ describe('collectWorkspacePackages in a multi-package pnpm workspace', () => {
 		const foundPackageJsons = await collectWorkspacePackages({ cwd: '/foo' });
 		expect(foundPackageJsons).toEqual([]);
 	});
+
+	it('should be able to collect only iner packages if skipWorkspaceRoot is enabled', async () => {
+		const foundPackageJsons = await collectWorkspacePackages({
+			cwd: '/foo/bar',
+			skipWorkspaceRoot: true,
+		});
+		expect(foundPackageJsons).toEqual([
+			{
+				packageKind: 'regular',
+				packageJson: mockPackageJsonValue,
+				packagePath: '/foo/bar/packages/zed',
+				packageJsonPath: '/foo/bar/packages/zed/' + PACKAGE_JSON_NAME,
+				packagePathFromRootPackage: 'packages/zed',
+			},
+			{
+				packageKind: 'regular',
+				packageJson: mockPackageJsonValue,
+				packagePath: '/foo/bar/packages/zod',
+				packageJsonPath: '/foo/bar/packages/zod/' + PACKAGE_JSON_NAME,
+				packagePathFromRootPackage: 'packages/zod',
+			},
+		]);
+	});
 });

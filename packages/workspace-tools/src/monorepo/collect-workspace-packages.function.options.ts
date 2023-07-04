@@ -16,7 +16,8 @@ interface CollectWorkspaceOnlyOptions {
 	onlyWorkspaceRoot?: boolean;
 
 	/**
-	 * Skip the root workspace package itself
+	 * Skip the root workspace package itself. Has no effect if the repo is
+	 * not a monorepo!
 	 *
 	 * @defaultValue false
 	 */
