@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.4.0](https://github.com/AlexAegis/common/compare/v0.3.2...v0.4.0) (2023-07-04)
+
+
+### ⚠ BREAKING CHANGES
+
+* **workspace-tools:** removed some functions as they are were moved to autotool
+
+* **workspace-tools:** removed some functions as they are were moved to autotool ([480ea22](https://github.com/AlexAegis/common/commit/480ea22309c06a2c9b5574f65f99f3ff208784c2))
+
+
+### Features
+
+* remove unnecessary usage of deepMerge ([619dfbc](https://github.com/AlexAegis/common/commit/619dfbc0b525f18a709d48ba0cec29ae4dfe2c80))
+* **workspace-tools:** now skipWorkspaceRoot lets the root through when not in a monorepo ([ba7f995](https://github.com/AlexAegis/common/commit/ba7f9950cf34e5399c5d364ab943ff9345f0ac9e))
+
+
+### Bug Fixes
+
+* removed unused dependency ([fb6bc4c](https://github.com/AlexAegis/common/commit/fb6bc4c2d0aebebcea9dc3b9269a0b1bbd5b8398))
+
 ## [0.3.2](https://github.com/AlexAegis/common/compare/v0.3.1...v0.3.2) (2023-07-01)
 
 
