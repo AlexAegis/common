@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.4.2](https://github.com/AlexAegis/common/compare/v0.4.1...v0.4.2) (2023-07-06)
+
+
+### Bug Fixes
+
+* exported mocks should not use vi to avoid problems from version mismatches ([108d8c8](https://github.com/AlexAegis/common/commit/108d8c83ebab97b4f35cf953ee3e74d57490793b))
+
 ## [0.4.1](https://github.com/AlexAegis/common/compare/v0.4.0...v0.4.1) (2023-07-06)
 
 
