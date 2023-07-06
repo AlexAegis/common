@@ -1,7 +1,6 @@
-import type { Logger } from '@alexaegis/logging';
-import { MockLogger } from '@alexaegis/logging/mocks';
+import { createMockLogger } from '@alexaegis/logging/mocks';
 import { join } from 'node:path/posix';
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { mockChmod, mockReadFile, mockWriteFile } from '../../__mocks__/node:fs/promises.js';
 import { NODE_SHEBANG, SHELL_SHEBANG, TSNODE_SHEBANG } from './shebangs.const.js';
 import { turnIntoExecutable } from './turn-into-executable.function.js';
@@ -12,13 +11,7 @@ vi.spyOn(process, 'cwd').mockReturnValue(mockProcessCwdValue);
 vi.mock('node:fs/promises');
 
 describe('turnIntoExecutable', () => {
-	let mockLogger: MockLogger;
-	let logger: Logger<unknown>;
-
-	beforeEach(() => {
-		mockLogger = new MockLogger();
-		logger = mockLogger as unknown as Logger<unknown>;
-	});
+	const { logger, mockLogger } = createMockLogger(vi);
 
 	afterEach(() => {
 		vi.clearAllMocks();

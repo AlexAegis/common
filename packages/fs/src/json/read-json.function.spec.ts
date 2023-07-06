@@ -1,5 +1,4 @@
-import type { Logger } from '@alexaegis/logging';
-import { MockLogger } from '@alexaegis/logging/mocks';
+import { createMockLogger } from '@alexaegis/logging/mocks';
 import type { PathLike } from 'node:fs';
 import { afterEach, beforeAll, describe, expect, it, vi } from 'vitest';
 import { readJson } from './read-json.function.js';
@@ -9,8 +8,7 @@ const testJson = {
 };
 
 describe('readJson', () => {
-	const mockLogger = new MockLogger();
-	const logger = mockLogger as unknown as Logger<unknown>;
+	const { logger, mockLogger } = createMockLogger(vi);
 
 	beforeAll(() => {
 		vi.spyOn(console, 'error').mockImplementation(() => undefined);

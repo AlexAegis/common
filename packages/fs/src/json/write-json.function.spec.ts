@@ -1,7 +1,8 @@
 import { afterAll, afterEach, describe, expect, it, vi } from 'vitest';
 import { mockWriteFile } from '../../__mocks__/node:fs/promises.js';
-import { mockPrettierFormat, mockPrettifiedJson } from '../mocks.js';
+import { mockDefaultPrettifiedJsonOutput } from '../mocks.js';
 
+import { prettierMock } from '../../__mocks__/prettier.js';
 import { writeJson } from './write-json.function.js';
 
 vi.mock('prettier');
@@ -24,13 +25,13 @@ describe('writeJson', () => {
 
 	it('should write the prettified result by default', async () => {
 		await writeJson(testJson, testFileName);
-		expect(mockPrettierFormat).toHaveBeenCalledOnce();
-		expect(mockWriteFile).toHaveBeenCalledWith(testFileName, mockPrettifiedJson);
+		expect(prettierMock.prettierMock.format).toHaveBeenCalledOnce();
+		expect(mockWriteFile).toHaveBeenCalledWith(testFileName, mockDefaultPrettifiedJsonOutput);
 	});
 
 	it('should write the stringified form of the object when not prettified', async () => {
 		await writeJson(testJson, testFileName, { autoPrettier: false });
-		expect(mockPrettierFormat).not.toHaveBeenCalled();
+		expect(prettierMock.prettierMock.format).not.toHaveBeenCalled();
 		expect(mockWriteFile).toHaveBeenCalledWith(
 			testFileName,
 			JSON.stringify(testJson, undefined, 2),
@@ -39,13 +40,13 @@ describe('writeJson', () => {
 
 	it('should not write when dry but still format when enabled', async () => {
 		await writeJson(testJson, testFileName, { autoPrettier: true, dry: true });
-		expect(mockPrettierFormat).toHaveBeenCalledOnce();
+		expect(prettierMock.prettierMock.format).toHaveBeenCalledOnce();
 		expect(mockWriteFile).not.toHaveBeenCalled();
 	});
 
 	it('should not write when dry and not even format when disabled', async () => {
 		await writeJson(testJson, testFileName, { autoPrettier: false, dry: true });
-		expect(mockPrettierFormat).not.toHaveBeenCalled();
+		expect(prettierMock.prettierMock.format).not.toHaveBeenCalled();
 		expect(mockWriteFile).not.toHaveBeenCalled();
 	});
 });

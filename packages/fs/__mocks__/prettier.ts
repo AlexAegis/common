@@ -1,5 +1,6 @@
+import { vi } from 'vitest';
 import { mockPrettier } from '../src/mocks.js';
 
-const mockedPrettier: ReturnType<typeof mockPrettier> = mockPrettier();
+export const prettierMock = mockPrettier(vi);
 
-export default mockedPrettier;
+export default prettierMock.prettier;

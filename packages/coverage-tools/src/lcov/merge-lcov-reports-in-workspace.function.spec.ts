@@ -1,6 +1,5 @@
-import type { Logger } from '@alexaegis/logging';
-import { MockLogger } from '@alexaegis/logging/mocks';
-import { afterAll, beforeEach, describe, expect, it, vi } from 'vitest';
+import { createMockLogger } from '@alexaegis/logging/mocks';
+import { afterAll, describe, expect, it, vi } from 'vitest';
 import { mergeLcovReportsInWorkspace } from './merge-lcov-reports-in-workspace.function.js';
 
 vi.mock('node:fs/promises');
@@ -8,13 +7,7 @@ vi.mock('globby');
 vi.mock('./collect-lcov-report-paths.function.js');
 
 describe('mergeLcovReportsInWorkspace', () => {
-	let mockLogger: MockLogger;
-	let logger: Logger<unknown>;
-
-	beforeEach(() => {
-		mockLogger = new MockLogger();
-		logger = mockLogger as unknown as Logger<unknown>;
-	});
+	const { logger } = createMockLogger(vi);
 
 	afterAll(() => {
 		vi.resetAllMocks();

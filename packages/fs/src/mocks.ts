@@ -1,21 +1,29 @@
 import type { Options } from 'prettier';
 import { vi } from 'vitest';
 
-export const mockPrettifiedJson = 'prettyJson';
-export const mockPrettierFormat: ReturnType<typeof vi.fn<[string, Options], string | undefined>> =
-	vi.fn<[string, Options], string | undefined>((_data: string) => mockPrettifiedJson);
+/**
+ * Calling the mock format function of prettier will return this
+ */
+export const mockDefaultPrettifiedJsonOutput = 'prettyJson';
 
-const mockResolveConfig: ReturnType<typeof vi.fn<[string], Promise<Options>>> = vi.fn<
-	[string],
-	Promise<Options>
->();
+export interface MockPrettierReturn {
+	prettier: typeof import('prettier');
+	prettierMock: {
+		format: ReturnType<typeof vi.fn<[string, Options], Promise<string | undefined>>>;
+		resolveConfig: ReturnType<typeof vi.fn<[string], Promise<Options>>>;
+	};
+}
 
-export const mockPrettier: () => {
-	format: typeof mockPrettierFormat;
-	resolveConfig: typeof mockResolveConfig;
-} = () => {
+export const mockPrettier = (vi: typeof import('vitest').vi): MockPrettierReturn => {
+	const mock = {
+		format: vi.fn<[string, Options], Promise<string | undefined>>(
+			(_data: string) => new Promise((resolve) => resolve(mockDefaultPrettifiedJsonOutput)),
+		),
+		resolveConfig: vi.fn<[string], Promise<Options>>(),
+	};
+
 	return {
-		format: mockPrettierFormat,
-		resolveConfig: mockResolveConfig,
+		prettier: mock as unknown as typeof import('prettier'),
+		prettierMock: mock,
 	};
 };
