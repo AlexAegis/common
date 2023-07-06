@@ -10,10 +10,10 @@ import type { SimpleObjectKey } from './struct.type.js';
  */
 export const fillObjectWithTemplateVariables = <
 	VariableKeys extends SimpleObjectKey,
-	T extends Record<string | number, unknown> = Record<string | number, unknown>
+	T extends Record<string | number, unknown> = Record<string | number, unknown>,
 >(
 	target: T,
-	variables: Record<VariableKeys, string>
+	variables: Record<VariableKeys, string>,
 ): T => {
 	return deepMapObject(target, (_key, value) => {
 		return typeof value === 'string'

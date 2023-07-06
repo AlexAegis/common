@@ -2,10 +2,10 @@ import type { LoggerOption } from '@alexaegis/logging';
 import { readFile } from 'node:fs/promises';
 
 export const readJson = async <
-	T extends Record<string | number, unknown> = Record<string | number, unknown>
+	T extends Record<string | number, unknown> = Record<string | number, unknown>,
 >(
 	path: string | undefined,
-	options?: LoggerOption
+	options?: LoggerOption,
 ): Promise<T | undefined> => {
 	if (path === undefined) {
 		return undefined;

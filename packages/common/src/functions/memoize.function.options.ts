@@ -20,7 +20,7 @@ export type NormalizedMemoizeOptions<A, T = unknown> = Required<
 	Pick<MemoizeOptions<A, T>, 'thisContext'>;
 
 export const normalizeMemoizeOptions = <A, T>(
-	options?: MemoizeOptions<A, T>
+	options?: MemoizeOptions<A, T>,
 ): NormalizedMemoizeOptions<A, T> => {
 	return {
 		argHasher: options?.argHasher ?? JSON.stringify,

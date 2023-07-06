@@ -13,7 +13,7 @@ import {
 export const LCOV_INFO_FILE_NAME = 'lcov.info';
 
 export const collectLcovReportPaths = async (
-	rawOptions?: CollectLcovReportPathsOptions
+	rawOptions?: CollectLcovReportPathsOptions,
 ): Promise<string[]> => {
 	const options = normalizeCollectLcovReportPathsOptions(rawOptions);
 	const workspaceRoot = getWorkspaceRoot(options.cwd);
@@ -34,8 +34,8 @@ export const collectLcovReportPaths = async (
 				onlyFiles: true,
 				cwd: workspaceRoot,
 				ignore: [`**/${NODE_MODULES_DIRECTORY_NAME}`],
-			})
-		)
+			}),
+		),
 	);
 
 	return lcovPathResults.flat();

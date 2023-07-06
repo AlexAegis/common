@@ -10,12 +10,12 @@ import type { ObjectKeyOrder } from '@alexaegis/common';
  * @returns a sortingPreference that will always be suited for packageJson files
  */
 export const normalizeSortingPreferenceForPackageJson = (
-	sortingPreferences: ObjectKeyOrder
+	sortingPreferences: ObjectKeyOrder,
 ): ObjectKeyOrder => {
 	return sortingPreferences.some(
 		(sortingPrefrence) =>
 			(typeof sortingPrefrence === 'string' && sortingPrefrence === 'exports') ||
-			(typeof sortingPrefrence === 'object' && sortingPrefrence.key === 'exports')
+			(typeof sortingPrefrence === 'object' && sortingPrefrence.key === 'exports'),
 	)
 		? sortingPreferences.map((sortingPrefrence) => {
 				if (typeof sortingPrefrence === 'string' && sortingPrefrence === 'exports') {
@@ -33,19 +33,19 @@ export const normalizeSortingPreferenceForPackageJson = (
 						} else {
 							// These special entries may be defined by the user as an object so let's keep it
 							const typesEntry = ordering.order.find((o) =>
-								typeof o === 'string' ? o === 'types' : o.key === 'types'
+								typeof o === 'string' ? o === 'types' : o.key === 'types',
 							);
 							const defaultEntry = ordering.order.find((o) =>
-								typeof o === 'string' ? o === 'default' : o.key === 'default'
+								typeof o === 'string' ? o === 'default' : o.key === 'default',
 							);
 
 							const hasSpread = ordering.order.some((o) =>
-								typeof o === 'string' ? o === '.*' : o.key === '.*'
+								typeof o === 'string' ? o === '.*' : o.key === '.*',
 							);
 							const nonSpecialEntries = ordering.order.filter((o) =>
 								typeof o === 'string'
 									? o !== 'types' && o !== 'default'
-									: o.key !== 'types' && o.key !== 'default'
+									: o.key !== 'types' && o.key !== 'default',
 							);
 
 							if (!hasSpread) {

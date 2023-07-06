@@ -2,7 +2,7 @@ import { isObject } from './is-object.function.js';
 
 export const deepMapObject = <T>(
 	o: T,
-	mapper: (key: string | number, value: unknown) => unknown
+	mapper: (key: string | number, value: unknown) => unknown,
 ): T => {
 	const target = structuredClone(o);
 

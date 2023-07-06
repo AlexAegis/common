@@ -27,7 +27,7 @@ export interface DeepMergeOptions {
 const deepMergeInternal = <T extends unknown[]>(
 	sources: [...T],
 	options?: DeepMergeOptions,
-	visited = new Set<unknown>()
+	visited = new Set<unknown>(),
 ): MergeTuple<T> => {
 	const firstSource = sources.shift();
 	visited.add(firstSource);
@@ -59,7 +59,7 @@ const deepMergeInternal = <T extends unknown[]>(
 						merged[key] = deepMergeInternal(
 							[merged[key] as T, structuredClone(sourceValue)],
 							options,
-							visited
+							visited,
 						);
 					} else {
 						Object.assign(merged, { [key]: structuredClone(sourceValue) });
@@ -89,7 +89,7 @@ const deepMergeInternal = <T extends unknown[]>(
  */
 export const deepMerge = <T extends unknown[]>(
 	sources: [...T],
-	options?: DeepMergeOptions
+	options?: DeepMergeOptions,
 ): MergeTuple<T> => {
 	return deepMergeInternal(sources, options);
 };

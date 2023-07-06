@@ -38,7 +38,7 @@ export class YargsBuilder<T> {
 	 */
 	build(
 		args: string | readonly string[] | undefined = process.argv.splice(2),
-		cwd?: string | undefined
+		cwd?: string | undefined,
 	): Argv<T> {
 		let y = yargs(args, cwd) as Argv<T>;
 		for (const mutator of this.mutators) {

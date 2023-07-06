@@ -4,7 +4,7 @@ export interface DrySync {
 	<T extends (...args: never) => unknown>(
 		isDry: boolean,
 		whenWet: T,
-		dryDefault: ReturnType<T>
+		dryDefault: ReturnType<T>,
 	): T;
 	<T extends (...args: never) => unknown>(isDry: true, whenWet: T, dryDefault?: ReturnType<T>): T;
 	<T extends (...args: never) => unknown>(isDry: false, whenWet: T): T;
@@ -22,12 +22,12 @@ export interface DryAsync {
 	<T extends (...args: never) => Promise<unknown>>(
 		isDry: boolean,
 		whenWet: T,
-		dryDefault?: Awaited<ReturnType<T>>
+		dryDefault?: Awaited<ReturnType<T>>,
 	): T;
 	<T extends (...args: never) => Promise<unknown>>(
 		isDry: true,
 		whenWet: T,
-		dryDefault?: Awaited<ReturnType<T>>
+		dryDefault?: Awaited<ReturnType<T>>,
 	): () => Promise<true>;
 	<T extends (...args: never) => Promise<unknown>>(isDry: false, whenWet: T): T;
 }

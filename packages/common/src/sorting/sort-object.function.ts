@@ -15,19 +15,19 @@ const arrayToObject = <T extends SimpleObjectKey>(a: T[]): Record<SimpleObjectKe
  */
 export const sortObject = <T extends object | unknown[]>(
 	o: T,
-	sortPreferences: ObjectKeyOrder = []
+	sortPreferences: ObjectKeyOrder = [],
 ): T => {
 	if (
 		sortPreferences.length === 0 ||
 		!sortPreferences.some((pref) =>
-			typeof pref === 'object' ? pref.key === '.*' : pref === '.*'
+			typeof pref === 'object' ? pref.key === '.*' : pref === '.*',
 		)
 	) {
 		sortPreferences.push('.*');
 	}
 
 	const plainLevelOrder = sortPreferences.map((pref) =>
-		typeof pref === 'object' ? pref.key : pref
+		typeof pref === 'object' ? pref.key : pref,
 	);
 
 	const regexpLevelOrder = plainLevelOrder.map((pref) => new RegExp(pref));
@@ -56,7 +56,7 @@ export const sortObject = <T extends object | unknown[]>(
 						.sort((a, b) =>
 							a.test(b.source) || b.test(a.source)
 								? -1
-								: a.source.localeCompare(b.source)
+								: a.source.localeCompare(b.source),
 						)
 						.map((r) => r.source);
 					const shakedKey = shaked.indexOf(key);

@@ -7,7 +7,7 @@ import { join, normalize } from 'node:path';
 export const collectDirectoriesWithFileUntilRoot = (
 	cwd: string = process.cwd(),
 	file: string,
-	collection: string[] = []
+	collection: string[] = [],
 ): string[] => {
 	const path = normalize(cwd);
 	if (existsSync(join(path, file))) {

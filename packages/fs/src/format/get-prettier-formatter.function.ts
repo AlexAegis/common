@@ -1,3 +1,4 @@
+import { Awaitable } from '@alexaegis/common';
 import type { Options } from 'prettier';
 import { normalizePrettifyOptions, type PrettifyOptions } from './try-prettify.function.options.js';
 
@@ -5,8 +6,8 @@ import { normalizePrettifyOptions, type PrettifyOptions } from './try-prettify.f
  * @returns a function that formats strings with prettier
  */
 export const getPrettierFormatter = async (
-	rawOptions?: PrettifyOptions
-): Promise<(content: string) => string> => {
+	rawOptions?: PrettifyOptions,
+): Promise<(content: string) => Awaitable<string>> => {
 	const options = normalizePrettifyOptions(rawOptions);
 	try {
 		const prettier = await import('prettier');
@@ -17,9 +18,9 @@ export const getPrettierFormatter = async (
 			parser: options.parser,
 		};
 
-		return (content) => {
+		return async (content) => {
 			try {
-				return prettier.default.format(content, prettierOptions);
+				return await prettier.default.format(content, prettierOptions);
 			} catch (error) {
 				options.logger.error('prettier format failed', error);
 				return content;

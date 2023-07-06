@@ -1,7 +1,7 @@
 import type { PackageJson } from '../package-json/package-json.interface.js';
 
 export const normalizePackageJsonWorkspacesField = (
-	packageJsonWorkspaces?: PackageJson['workspaces']
+	packageJsonWorkspaces?: PackageJson['workspaces'],
 ): string[] => {
 	if (Array.isArray(packageJsonWorkspaces)) {
 		return packageJsonWorkspaces;

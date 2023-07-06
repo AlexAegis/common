@@ -16,7 +16,7 @@ describe('reorderObject', () => {
 		};
 
 		expect(JSON.stringify(sortObject(from), undefined, 2)).toEqual(
-			JSON.stringify(to, undefined, 2)
+			JSON.stringify(to, undefined, 2),
 		);
 	});
 
@@ -26,7 +26,7 @@ describe('reorderObject', () => {
 		const to = ['a', 'b', 'c'];
 
 		expect(JSON.stringify(sortObject(from), undefined, 2)).toEqual(
-			JSON.stringify(to, undefined, 2)
+			JSON.stringify(to, undefined, 2),
 		);
 	});
 
@@ -52,7 +52,7 @@ describe('reorderObject', () => {
 		};
 
 		expect(JSON.stringify(sortObject(from, []), undefined, 2)).toEqual(
-			JSON.stringify(to, undefined, 2)
+			JSON.stringify(to, undefined, 2),
 		);
 	});
 
@@ -70,7 +70,7 @@ describe('reorderObject', () => {
 		};
 
 		expect(JSON.stringify(sortObject(from, ['c', 'b', 'a']), undefined, 2)).toEqual(
-			JSON.stringify(to, undefined, 2)
+			JSON.stringify(to, undefined, 2),
 		);
 	});
 
@@ -96,7 +96,7 @@ describe('reorderObject', () => {
 		};
 
 		expect(JSON.stringify(sortObject(from, ['d', '.*', 'f']), undefined, 2)).toEqual(
-			JSON.stringify(to, undefined, 2)
+			JSON.stringify(to, undefined, 2),
 		);
 	});
 
@@ -164,8 +164,8 @@ describe('reorderObject', () => {
 					'.*',
 				]),
 				undefined,
-				2
-			)
+				2,
+			),
 		).toEqual(JSON.stringify(to, undefined, 2));
 	});
 
@@ -236,8 +236,8 @@ describe('reorderObject', () => {
 					{ key: 'exports', order: [{ key: '.*', order: ['types', '.*'] }] },
 				]),
 				undefined,
-				2
-			)
+				2,
+			),
 		).toEqual(JSON.stringify(to, undefined, 2));
 	});
 
@@ -265,7 +265,7 @@ describe('reorderObject', () => {
 		};
 
 		expect(JSON.stringify(sortObject(from, ['name', 'mode', 'stuff']), undefined, 2)).toEqual(
-			JSON.stringify(to, undefined, 2)
+			JSON.stringify(to, undefined, 2),
 		);
 	});
 });

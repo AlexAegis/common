@@ -56,7 +56,7 @@ export type NormalizedCollectWorkspacePackagesOptions = Defined<
 	NormalizedGetRootPackageJsonOptions;
 
 export const normalizeCollectWorkspacePackagesOptions = (
-	options?: CollectWorkspacePackagesOptions
+	options?: CollectWorkspacePackagesOptions,
 ): NormalizedCollectWorkspacePackagesOptions => {
 	return {
 		...normalizeGetRootPackageJsonOptions(options),

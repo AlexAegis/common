@@ -8,7 +8,7 @@ import type { SimpleObjectKey } from './struct.type.js';
  */
 export const fillStringWithTemplateVariables = <VariableKeys extends SimpleObjectKey>(
 	value: string,
-	variables: Record<VariableKeys, string>
+	variables: Record<VariableKeys, string>,
 ): string => {
 	return Object.entries<string>(variables).reduce((acc, [variableKey, variableValue]) => {
 		return acc.replaceAll('${' + variableKey + '}', variableValue);

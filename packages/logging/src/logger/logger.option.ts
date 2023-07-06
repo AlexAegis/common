@@ -13,7 +13,7 @@ export interface LoggerOption<LogObj = unknown> {
 export type NormalizedLoggerOption<LogObj = unknown> = Required<LoggerOption<LogObj>>;
 
 export const normalizeLoggerOption = <LogObj = unknown>(
-	options?: LoggerOption<LogObj>
+	options?: LoggerOption<LogObj>,
 ): NormalizedLoggerOption<LogObj> => {
 	return {
 		logger: options?.logger ?? (noopLogger as Logger<LogObj>),

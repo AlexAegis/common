@@ -14,7 +14,7 @@ vi.mock('node:fs', () => {
 				join('/foo', 'zed'),
 				join('/foo', 'bar'),
 				join('/foo', 'package.json'),
-			].includes(path)
+			].includes(path),
 		),
 	};
 });

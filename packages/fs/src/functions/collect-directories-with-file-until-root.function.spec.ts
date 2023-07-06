@@ -12,7 +12,7 @@ describe('collectDirectoriesWithFileUntilRoot', () => {
 					(path: PathLike) =>
 						path === '/foo/bar/yon/package.json' ||
 						path === '/foo/bar/zed/package.json' ||
-						path === '/foo/bar/package.json'
+						path === '/foo/bar/package.json',
 				),
 			};
 		});

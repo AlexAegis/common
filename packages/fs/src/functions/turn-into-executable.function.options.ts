@@ -9,7 +9,7 @@ export type TurnIntoExecutableOptions = CwdOption & LoggerOption;
 export type NormalizedTurnIntoExecutableOptions = NormalizedCwdOption & NormalizedLoggerOption;
 
 export const normalizeTurnIntoExecutableOptions = (
-	options?: TurnIntoExecutableOptions
+	options?: TurnIntoExecutableOptions,
 ): NormalizedTurnIntoExecutableOptions => {
 	return {
 		...normalizeCwdOption(options),

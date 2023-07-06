@@ -9,13 +9,12 @@ import { mockProjectRoot } from '../../__mocks__/globby.js';
 import { collectLcovReportPaths } from './collect-lcov-report-paths.function.js';
 
 vi.mock('globby');
-vi.mock('fs');
 
 const cwdSpy = vi.spyOn(process, 'cwd').mockImplementation(() => mockProjectRoot);
 
 vi.mock('@alexaegis/workspace-tools', async () => {
 	const actualWorkspaceTools = await vi.importActual<typeof import('@alexaegis/workspace-tools')>(
-		'@alexaegis/workspace-tools'
+		'@alexaegis/workspace-tools',
 	);
 
 	return {
@@ -53,7 +52,7 @@ vi.mock('@alexaegis/workspace-tools', async () => {
 							},
 					  ]
 					: [];
-			}
+			},
 		),
 		normalizeCollectWorkspacePackagesOptions:
 			actualWorkspaceTools.normalizeCollectWorkspacePackagesOptions,

@@ -16,7 +16,7 @@ import {
 import type { RegularWorkspacePackage, WorkspacePackage } from './workspace-package.interface.js';
 
 export const collectWorkspacePackages = async (
-	rawOptions?: CollectWorkspacePackagesOptions
+	rawOptions?: CollectWorkspacePackagesOptions,
 ): Promise<WorkspacePackage[]> => {
 	const options = normalizeCollectWorkspacePackagesOptions(rawOptions);
 
@@ -52,7 +52,7 @@ export const collectWorkspacePackages = async (
 								packagePathFromRootPackage: relative(rootPackage.packagePath, path),
 								packageJsonPath,
 						  } as RegularWorkspacePackage)
-						: undefined
+						: undefined,
 				);
 		});
 
@@ -68,7 +68,7 @@ export const collectWorkspacePackages = async (
 
 	if (options.packageJsonMatcher) {
 		result = result.filter((relativePackage) =>
-			match(relativePackage.packageJson, options.packageJsonMatcher)
+			match(relativePackage.packageJson, options.packageJsonMatcher),
 		);
 	}
 
@@ -80,7 +80,7 @@ export const collectWorkspacePackages = async (
 			];
 
 			return options.dependencyCriteria.every((dependencyCriteria) =>
-				packageDependencies.some((dependency) => dependencyCriteria.test(dependency))
+				packageDependencies.some((dependency) => dependencyCriteria.test(dependency)),
 			);
 		});
 	}

@@ -4,7 +4,7 @@ export type DropKeyMatcher = (value: unknown, key: string | number | symbol) => 
 
 export const defaultDropKeyMatcher: DropKeyMatcher = (
 	value: unknown,
-	_key: string | number | symbol
+	_key: string | number | symbol,
 ): value is undefined => value === undefined;
 
 /**

@@ -28,7 +28,7 @@ describe('readJson', () => {
 							} else {
 								resolve(undefined);
 							}
-						})
+						}),
 				),
 			};
 		});

@@ -6,7 +6,7 @@ describe('yargsForCollectWorkspacePackagesOptions', () => {
 	it('should be able to extend an existing yargs object', async () => {
 		const dependencyCriteria = ['foo', 'bar'];
 		const yarguments = yargsForCollectWorkspacePackagesOptions(
-			yargs(['--dependencyCriteria', ...dependencyCriteria])
+			yargs(['--dependencyCriteria', ...dependencyCriteria]),
 		);
 		const args = await yarguments.parseAsync();
 

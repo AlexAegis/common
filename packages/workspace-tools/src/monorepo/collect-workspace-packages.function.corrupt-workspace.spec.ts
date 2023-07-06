@@ -9,11 +9,11 @@ import { collectWorkspacePackages } from './collect-workspace-packages.function.
 
 vi.mock('@alexaegis/fs', async () => {
 	const mockReadJson = vi.fn<[string | undefined], Promise<undefined>>((_path) =>
-		Promise.resolve(undefined)
+		Promise.resolve(undefined),
 	);
 
 	const mockReadYaml = vi.fn<[string | undefined], Promise<undefined>>((_path) =>
-		Promise.resolve(undefined)
+		Promise.resolve(undefined),
 	);
 
 	return {

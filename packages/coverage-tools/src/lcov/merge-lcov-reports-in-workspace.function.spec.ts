@@ -25,7 +25,7 @@ describe('mergeLcovReportsInWorkspace', () => {
 			[
 				'/foo/bar/packages/zed/coverage/lcov.info',
 				'/foo/bar/packages/zod/coverage/lcov.info',
-			].join('\n')
+			].join('\n'),
 		);
 	});
 

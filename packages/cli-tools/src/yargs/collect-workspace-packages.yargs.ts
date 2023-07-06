@@ -6,7 +6,7 @@ import { yargsForDryOption } from './dry.yargs.js';
 import { yargsForForceOption } from './force.yargs.js';
 
 export const yargsForCollectWorkspacePackagesOptions = <T>(
-	yargs: Argv<T>
+	yargs: Argv<T>,
 ): Argv<T & Omit<CollectWorkspacePackagesOptions, keyof LoggerOption>> => {
 	return yargsForDryOption(yargsForForceOption(yargsForCwdOption(yargs)))
 		.option('skipWorkspaceRoot', {

@@ -47,7 +47,7 @@ const isCustomJsonValueMatcher = <T>(t: unknown): t is CustomJsonValueMatcher<T>
  */
 export const match = <T = JsonValue>(
 	target: T,
-	matcher: JsonMatcherFrom<T> | undefined | null
+	matcher: JsonMatcherFrom<T> | undefined | null,
 ): boolean => {
 	if (typeof matcher === 'string') {
 		return typeof target === 'string' && new RegExp(matcher).test(target); // Treat every string filter as a RegExp

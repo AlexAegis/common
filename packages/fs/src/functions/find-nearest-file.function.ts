@@ -3,7 +3,7 @@ import { join } from 'node:path';
 
 export const findNearestFile = (
 	fileName: string,
-	relativeTo: string = process.cwd()
+	relativeTo: string = process.cwd(),
 ): string | undefined => {
 	let currentPath = relativeTo;
 	for (;;) {

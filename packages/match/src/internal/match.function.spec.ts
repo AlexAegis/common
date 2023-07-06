@@ -27,15 +27,15 @@ describe('match', () => {
 			expect(
 				match<{ foo: string | undefined }>(
 					{ foo: undefined },
-					{ foo: (v) => v?.startsWith('f') }
-				)
+					{ foo: (v) => v?.startsWith('f') },
+				),
 			).toBeFalsy();
 
 			expect(
 				match<{ foo: string | undefined }>(
 					{ foo: undefined },
-					{ foo: (v) => v === undefined }
-				)
+					{ foo: (v) => v === undefined },
+				),
 			).toBeTruthy();
 		});
 	});
@@ -78,8 +78,8 @@ describe('match', () => {
 					},
 					{
 						foo: true,
-					}
-				)
+					},
+				),
 			).toBeTruthy();
 		});
 
@@ -91,8 +91,8 @@ describe('match', () => {
 					},
 					{
 						foo: false,
-					}
-				)
+					},
+				),
 			).toBeFalsy();
 		});
 	});
@@ -241,8 +241,8 @@ describe('match', () => {
 					{ bar: 1 },
 					{
 						foo: (v) => v === 'bar',
-					}
-				)
+					},
+				),
 			).toBeFalsy();
 
 			expect(
@@ -252,8 +252,8 @@ describe('match', () => {
 					},
 					{
 						foo: (v) => v !== 'bar',
-					}
-				)
+					},
+				),
 			).toBeTruthy();
 		});
 	});
@@ -268,8 +268,8 @@ describe('match', () => {
 					{
 						bar: equal(1),
 						foo: not(equal('1')),
-					}
-				)
+					},
+				),
 			).toBeTruthy();
 		});
 
@@ -283,8 +283,8 @@ describe('match', () => {
 					{
 						bar: equal(null),
 						foo: not(equal('1')),
-					}
-				)
+					},
+				),
 			).toBeTruthy();
 		});
 	});

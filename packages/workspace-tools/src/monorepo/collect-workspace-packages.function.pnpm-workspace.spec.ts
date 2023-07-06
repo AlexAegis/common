@@ -17,7 +17,7 @@ const mockPackageJsonValue: PackageJson = {
 
 vi.mock('@alexaegis/fs', async () => {
 	const mockReadJson = vi.fn<[string | undefined], Promise<PackageJson | undefined>>((path) =>
-		Promise.resolve(path?.endsWith(PACKAGE_JSON_NAME) ? mockPackageJsonValue : undefined)
+		Promise.resolve(path?.endsWith(PACKAGE_JSON_NAME) ? mockPackageJsonValue : undefined),
 	);
 
 	const mockReadYaml = vi.fn<[string | undefined], Promise<PnpmWorkspaceYaml | undefined>>(
@@ -27,8 +27,8 @@ vi.mock('@alexaegis/fs', async () => {
 					? ({
 							packages: ['packages/*'],
 					  } satisfies PnpmWorkspaceYaml)
-					: undefined
-			)
+					: undefined,
+			),
 	);
 
 	return {
@@ -46,7 +46,7 @@ vi.mock('node:fs', () => {
 			(path: string) =>
 				path === join(mockProjectRoot, 'packages/zed', PACKAGE_JSON_NAME) ||
 				path === join(mockProjectRoot, 'packages/zod', PACKAGE_JSON_NAME) ||
-				path === join(mockProjectRoot, PACKAGE_JSON_NAME)
+				path === join(mockProjectRoot, PACKAGE_JSON_NAME),
 		),
 	};
 });

@@ -8,7 +8,7 @@ export const collectPackageJsonPathsUpDirectoryTree = (cwd: string = process.cwd
 
 const collectPackageJsonPathsUpDirectoryTreeInternal = (
 	cwd: string,
-	collection: string[] = []
+	collection: string[] = [],
 ): string[] => {
 	const path = normalize(cwd);
 

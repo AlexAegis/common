@@ -57,7 +57,7 @@ describe('turnIntoExecutable', () => {
 				() =>
 					new Promise(() => {
 						throw new Error('error!');
-					})
+					}),
 			);
 			await turnIntoExecutable('file.sh', { logger });
 			expect(mockChmod).toHaveBeenCalled();
@@ -98,7 +98,7 @@ describe('turnIntoExecutable', () => {
 
 			expect(mockWriteFile).toHaveBeenCalledWith(
 				join(mockProcessCwdValue, mockPath),
-				`${SHELL_SHEBANG}\n\n${mockContent}`
+				`${SHELL_SHEBANG}\n\n${mockContent}`,
 			);
 
 			expect(mockLogger.info).toHaveBeenCalled();
@@ -115,7 +115,7 @@ describe('turnIntoExecutable', () => {
 
 			expect(mockWriteFile).toHaveBeenCalledWith(
 				join(mockProcessCwdValue, mockPath),
-				`${NODE_SHEBANG}\n\n${mockContent}`
+				`${NODE_SHEBANG}\n\n${mockContent}`,
 			);
 		});
 
@@ -130,7 +130,7 @@ describe('turnIntoExecutable', () => {
 
 			expect(mockWriteFile).toHaveBeenCalledWith(
 				join(mockProcessCwdValue, mockPath),
-				`${TSNODE_SHEBANG}\n\n${mockContent}`
+				`${TSNODE_SHEBANG}\n\n${mockContent}`,
 			);
 		});
 	});

@@ -9,7 +9,7 @@ vi.mock('node:fs', () => {
 				join('/foo'),
 				join('/foo', 'zed', 'package.json'),
 				join('/foo', 'bar', 'package.json'),
-			].includes(path)
+			].includes(path),
 		),
 	};
 });
@@ -42,7 +42,7 @@ describe('groupByCommonNearestFile', () => {
 		const outsidePaths = [join('/out', 'bar', 'b', 'o'), join('/out', 'bar', 'c')];
 
 		expect(
-			groupByCommonNearestFile([...zedPaths, ...barPaths, ...outsidePaths], 'package.json')
+			groupByCommonNearestFile([...zedPaths, ...barPaths, ...outsidePaths], 'package.json'),
 		).toEqual({
 			[join('/foo/zed')]: zedPaths,
 			[join('/foo/bar')]: barPaths,

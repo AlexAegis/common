@@ -24,7 +24,7 @@ export const defaultYargsFromPackageJson =
 
 			if (packageJson.name && packageJson.version && repositoryUrl) {
 				yargs = yargs.epilogue(
-					`${packageJson.name}@${packageJson.version} see project at ${repositoryUrl}`
+					`${packageJson.name}@${packageJson.version} see project at ${repositoryUrl}`,
 				);
 			}
 		}

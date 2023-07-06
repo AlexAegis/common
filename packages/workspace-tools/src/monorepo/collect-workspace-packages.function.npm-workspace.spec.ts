@@ -40,7 +40,7 @@ vi.mock('@alexaegis/fs', async () => {
 				} else {
 					resolve(undefined);
 				}
-			})
+			}),
 	);
 
 	const mockReadYaml = vi.fn<[string | undefined], undefined>((_path) => {

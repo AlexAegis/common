@@ -56,7 +56,7 @@ export type PackageJsonArchetypeMatcher = JsonMatcherFrom<PackageArchetype>;
  * filename: `tsconfig.web-svelte-lib.json` or `tsconfig.node-lib.json`
  */
 export const getEncodedArchetype = (
-	archetypeMatcher?: PackageJsonArchetypeMatcher | undefined
+	archetypeMatcher?: PackageJsonArchetypeMatcher | undefined,
 ): string => {
 	if (!archetypeMatcher || typeof archetypeMatcher === 'function') {
 		return '';

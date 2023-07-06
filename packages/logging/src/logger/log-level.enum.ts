@@ -12,11 +12,11 @@ export enum LogLevel {
 export type LogLevelKeys = keyof typeof LogLevel;
 
 export const logLevelKeys = Object.values(LogLevel).filter(
-	(valueOrKey) => typeof valueOrKey === 'string'
+	(valueOrKey) => typeof valueOrKey === 'string',
 );
 
 export const logLevelValues = Object.values(LogLevel).filter(
-	(valueOrKey) => typeof valueOrKey === 'number'
+	(valueOrKey) => typeof valueOrKey === 'number',
 );
 
 export const isLogLevelEnumValue = (o: unknown): o is LogLevel => {

@@ -14,7 +14,7 @@ import {
  */
 export const turnIntoExecutable = async (
 	file: string,
-	rawOptions?: TurnIntoExecutableOptions
+	rawOptions?: TurnIntoExecutableOptions,
 ): Promise<void> => {
 	const options = normalizeTurnIntoExecutableOptions(rawOptions);
 	const filePath = toAbsolute(file, options);

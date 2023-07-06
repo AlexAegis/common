@@ -4,12 +4,12 @@ const filterMark = {};
 
 export const asyncFilter = async <T>(
 	array: T[],
-	predicate: (t: T, i: number) => Promise<boolean>
+	predicate: (t: T, i: number) => Promise<boolean>,
 ): Promise<T[]> => {
 	const checks = await Promise.allSettled(
 		array.map((item, i) => {
 			return predicate(item, i).then((result) => (result ? item : filterMark));
-		})
+		}),
 	);
 
 	return checks

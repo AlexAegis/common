@@ -10,7 +10,7 @@ export type GetRootPackageJsonOptions = CwdOption & LoggerOption;
 export type NormalizedGetRootPackageJsonOptions = NormalizedCwdOption & NormalizedLoggerOption;
 
 export const normalizeGetRootPackageJsonOptions = (
-	options?: GetRootPackageJsonOptions
+	options?: GetRootPackageJsonOptions,
 ): NormalizedGetRootPackageJsonOptions => {
 	return {
 		...normalizeCwdOption(options),

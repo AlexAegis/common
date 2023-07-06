@@ -15,7 +15,7 @@ import { getWorkspaceRoot } from './get-workspace-root.function.js';
 import { normalizePackageJsonWorkspacesField } from './normalize-package-json-workspaces-field.function.js';
 
 export const getRootPackageJson = async (
-	rawOptions: GetRootPackageJsonOptions
+	rawOptions: GetRootPackageJsonOptions,
 ): Promise<RootWorkspacePackage | undefined> => {
 	const options = normalizeGetRootPackageJsonOptions(rawOptions);
 	const rootWorkspace = getWorkspaceRoot(options.cwd);
@@ -36,7 +36,7 @@ export const getRootPackageJson = async (
 	let workspaces = normalizePackageJsonWorkspacesField(packageJson.workspaces);
 
 	const pnpmWorkspace = await readYaml<PnpmWorkspaceYaml>(
-		join(rootWorkspace, PNPM_WORKSPACE_FILE_NAME)
+		join(rootWorkspace, PNPM_WORKSPACE_FILE_NAME),
 	);
 
 	if (pnpmWorkspace?.packages) {

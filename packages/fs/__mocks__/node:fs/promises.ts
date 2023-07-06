@@ -24,7 +24,7 @@ const mockLstat: ReturnType<typeof vi.fn> = vi.fn(
 			} else {
 				throw new Error('non existent!');
 			}
-		})
+		}),
 );
 
 export const mockChmod: ReturnType<typeof vi.fn> = vi.fn(() => Promise.resolve(undefined));

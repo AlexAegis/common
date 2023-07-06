@@ -21,7 +21,7 @@ vi.mock('node:fs/promises', () => {
 					} else {
 						resolve(undefined);
 					}
-				})
+				}),
 		),
 	};
 });

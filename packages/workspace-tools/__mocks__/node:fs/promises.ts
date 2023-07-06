@@ -3,32 +3,32 @@ import { vi } from 'vitest';
 
 export const cpMock: ReturnType<typeof vi.fn> = vi.fn<[string, string], Promise<void>>();
 export const rmMock: ReturnType<typeof vi.fn> = vi.fn<[string, string], Promise<void>>(() =>
-	Promise.resolve()
+	Promise.resolve(),
 );
 export const symlinkMock: ReturnType<typeof vi.fn> = vi.fn<[string, string], Promise<void>>(() =>
-	Promise.resolve()
+	Promise.resolve(),
 );
 export const readFileMock: ReturnType<typeof vi.fn<[PathLike], Promise<string | undefined>>> =
 	vi.fn(
 		(_path: PathLike): Promise<string | undefined> =>
-			Promise.resolve('content ${relativePathFromPackageToRoot}')
+			Promise.resolve('content ${relativePathFromPackageToRoot}'),
 	);
 export const writeFileMock: ReturnType<typeof vi.fn> = vi.fn(
-	(_path: PathLike, _content: string): Promise<void> => Promise.resolve(undefined)
+	(_path: PathLike, _content: string): Promise<void> => Promise.resolve(undefined),
 );
 export const mkdirMock: ReturnType<typeof vi.fn> = vi.fn<[string], Promise<void>>();
 
 export const rm: ReturnType<typeof vi.fn> = vi.fn((path: string, target: string) =>
-	rmMock(path, target)
+	rmMock(path, target),
 );
 export const symlink: ReturnType<typeof vi.fn> = vi.fn((path: string, target: string) =>
-	symlinkMock(path, target)
+	symlinkMock(path, target),
 );
 export const mkdir: ReturnType<typeof vi.fn> = vi.fn((path: string) => mkdirMock(path));
 
 export const readFile: ReturnType<typeof vi.fn> = vi.fn((path: string) => readFileMock(path));
 export const writeFile: ReturnType<typeof vi.fn> = vi.fn((path: string, content: string) =>
-	writeFileMock(path, content)
+	writeFileMock(path, content),
 );
 
 export const lstat: ReturnType<typeof vi.fn> = vi.fn((path: string) => {

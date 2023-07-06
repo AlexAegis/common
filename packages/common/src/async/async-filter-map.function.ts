@@ -3,7 +3,7 @@ import { isPromiseFulfilled } from './is-promise-fulfilled.function.js';
 
 export const asyncFilterMap = async <T, R>(
 	array: T[],
-	map: (t: T, i: number) => Promise<R | undefined>
+	map: (t: T, i: number) => Promise<R | undefined>,
 ): Promise<R[]> => {
 	const checks = await Promise.allSettled(array.map(map));
 

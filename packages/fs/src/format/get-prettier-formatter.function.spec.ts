@@ -27,7 +27,7 @@ describe('getPrettierFormatter', () => {
 			const formatter = await getPrettierFormatter({ parser: 'json' });
 			const input = '{"foo": "hello",  "bar": 2}';
 
-			expect(formatter(input)).toEqual(mockPrettifiedJson);
+			expect(await formatter(input)).toEqual(mockPrettifiedJson);
 			expect(mockPrettierFormat).toHaveBeenCalledOnce();
 		});
 	});
@@ -51,7 +51,7 @@ describe('getPrettierFormatter', () => {
 		it('should return strings as is', async () => {
 			const formatter = await getPrettierFormatter({ parser: 'json' });
 			const input = '{im: not: even, making, sense}';
-			expect(formatter(input)).toEqual(input);
+			expect(await formatter(input)).toEqual(input);
 		});
 	});
 
@@ -78,7 +78,7 @@ describe('getPrettierFormatter', () => {
 		it('should return strings as is', async () => {
 			const formatter = await getPrettierFormatter({ parser: 'json', logger });
 			const input = '{ leave me }';
-			expect(formatter(input)).toEqual(input);
+			expect(await formatter(input)).toEqual(input);
 			expect(mockLogger.error).toHaveBeenCalled();
 		});
 	});

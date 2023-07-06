@@ -16,7 +16,7 @@ export interface WriteJsonOptions extends DryOption, LoggerOption, CwdOption {
 export type NormalizedWriteJsonOptions = Required<WriteJsonOptions>;
 
 export const normalizeWriteJsonOptions = (
-	options?: WriteJsonOptions
+	options?: WriteJsonOptions,
 ): NormalizedWriteJsonOptions => {
 	return {
 		...normalizeDryOption(options),

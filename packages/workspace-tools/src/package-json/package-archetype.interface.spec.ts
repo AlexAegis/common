@@ -7,13 +7,13 @@ describe('getEncodedArchetype', () => {
 			getEncodedArchetype({
 				platform: 'node',
 				kind: 'lib',
-			})
+			}),
 		).toEqual('node-lib');
 		expect(
 			getEncodedArchetype({
 				kind: 'lib',
 				platform: 'node',
-			})
+			}),
 		).toEqual('node-lib');
 	});
 
@@ -22,7 +22,7 @@ describe('getEncodedArchetype', () => {
 			getEncodedArchetype({
 				platform: 'node',
 				kind: undefined,
-			})
+			}),
 		).toEqual('node');
 	});
 
@@ -35,7 +35,7 @@ describe('getEncodedArchetype', () => {
 				framework: 'svelte',
 				bundler: 'vite',
 				testing: 'vitest',
-			})
+			}),
 		).toEqual('web-svelte-ts-app-vite-vitest');
 	});
 

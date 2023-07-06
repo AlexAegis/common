@@ -15,7 +15,7 @@ export const prettyLogTemplateTimestamp = '{{dateIsoStr}}\t';
 export const prettyLogTemplateBody = '{{logLevelName}}:{{nameWithDelimiterPrefix}}\t';
 
 export const normalizeLoggerOptions = <L = unknown>(
-	options?: LoggerOptions<L>
+	options?: LoggerOptions<L>,
 ): NormalizedLoggerOptions<L> => {
 	const timestamps = options?.timestamps ?? false;
 

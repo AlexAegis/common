@@ -4,7 +4,7 @@ import { normalizeMemoizeOptions, type MemoizeOptions } from './memoize.function
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const memoize = <F extends (...args: any) => unknown, T = unknown>(
 	fn: F,
-	rawOptions?: MemoizeOptions<Parameters<F>, T>
+	rawOptions?: MemoizeOptions<Parameters<F>, T>,
 ): Fn<Parameters<F>, ReturnType<F>> => {
 	const options = normalizeMemoizeOptions(rawOptions);
 	const cache = new Map<string, ReturnType<F>>();

@@ -13,7 +13,7 @@ import { findNearestFile } from './find-nearest-file.function.js';
  */
 export const groupByCommonNearestFile = (
 	paths: string[],
-	filename: string
+	filename: string,
 ): Record<string, string[]> => {
 	return groupBy(paths, (path) => findNearestFile(filename, path));
 };

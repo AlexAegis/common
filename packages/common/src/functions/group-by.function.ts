@@ -12,7 +12,7 @@
  */
 export const groupBy = <T, K extends string>(
 	elements: T[],
-	groupKey: (element: T) => K | undefined
+	groupKey: (element: T) => K | undefined,
 ): Record<K, T[]> => {
 	return elements.reduce<Record<string, T[]>>((acc, next) => {
 		const key = groupKey(next);

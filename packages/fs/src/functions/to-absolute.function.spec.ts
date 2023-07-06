@@ -14,7 +14,7 @@ describe('toAbsolute', () => {
 		expect(
 			toAbsolute(mockRelativePath, {
 				cwd: mockCwd,
-			})
+			}),
 		).toEqual(mockAbsolutePath);
 	});
 });

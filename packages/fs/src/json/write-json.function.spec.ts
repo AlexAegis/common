@@ -33,7 +33,7 @@ describe('writeJson', () => {
 		expect(mockPrettierFormat).not.toHaveBeenCalled();
 		expect(mockWriteFile).toHaveBeenCalledWith(
 			testFileName,
-			JSON.stringify(testJson, undefined, 2)
+			JSON.stringify(testJson, undefined, 2),
 		);
 	});
 
