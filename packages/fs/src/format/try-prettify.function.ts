@@ -8,5 +8,5 @@ import type { PrettifyOptions } from './try-prettify.function.options.js';
  */
 export const tryPrettify = async (content: string, options?: PrettifyOptions): Promise<string> => {
 	const formatter = await getPrettierFormatter(options);
-	return formatter(content);
+	return await formatter(content);
 };
