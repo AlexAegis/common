@@ -1,7 +1,7 @@
 {
 	"name": "@alexaegis/fs",
 	"description": "Filesystem tools",
-	"version": "0.4.3",
+	"version": "0.4.4",
 	"license": "MIT",
 	"private": false,
 	"archetype": {
@@ -60,18 +60,18 @@
 		"./readme": "./readme.md"
 	},
 	"dependencies": {
-		"@alexaegis/common": "^0.4.3",
-		"@alexaegis/logging": "^0.4.3",
+		"@alexaegis/common": "^0.4.4",
+		"@alexaegis/logging": "^0.4.4",
 		"js-yaml": "^4.1.0"
 	},
 	"optionalDependencies": {
 		"prettier": "^3.0.0"
 	},
 	"devDependencies": {
-		"@alexaegis/eslint-config-vitest": "^0.4.1",
-		"@alexaegis/ts": "^0.4.1",
-		"@alexaegis/vite": "^0.4.1",
-		"@alexaegis/vitest": "^0.4.1",
+		"@alexaegis/eslint-config-vitest": "^0.4.2",
+		"@alexaegis/ts": "^0.4.2",
+		"@alexaegis/vite": "^0.4.2",
+		"@alexaegis/vitest": "^0.4.2",
 		"@types/js-yaml": "^4.0.5",
 		"@types/node": "^20.4.1",
 		"@types/prettier": "^2.7.3",

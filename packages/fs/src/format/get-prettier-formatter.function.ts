@@ -12,7 +12,9 @@ export const getPrettierFormatter = async (
 	try {
 		const prettier = await import('prettier');
 
-		const prettierConfig = await prettier.default.resolveConfig(options.cwd);
+		const prettierConfig = await prettier.resolveConfig(options.cwd, {
+			editorconfig: true,
+		});
 		const prettierOptions: Options = {
 			...prettierConfig,
 			parser: options.parser,
