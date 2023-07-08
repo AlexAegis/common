@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.4.3](https://github.com/AlexAegis/common/compare/v0.4.2...v0.4.3) (2023-07-08)
+
+
+### Features
+
+* **workspace-tools:** normalize sorting preference and support sort.json files ([87f87f7](https://github.com/AlexAegis/common/commit/87f87f70471786672c167325a34dfef3a34d94ed))
+
 ## [0.4.2](https://github.com/AlexAegis/common/compare/v0.4.1...v0.4.2) (2023-07-06)
 
 
