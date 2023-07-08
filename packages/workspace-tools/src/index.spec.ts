@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
-import * as library from './index.js';
+import * as index from './index.js';
 
-describe('library', () => {
+describe('index', () => {
 	it('should be defined', () => {
-		expect(library).toBeDefined();
+		expect(index).toBeDefined();
 	});
 });
