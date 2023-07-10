@@ -58,14 +58,12 @@ describe('getPrettierFormatter', () => {
 		beforeAll(() => {
 			vi.doMock('prettier', () => {
 				return {
-					default: {
-						format: vi.fn(() => {
-							throw new Error('Format failed!');
-						}),
-						resolveConfig: vi.fn(() => {
-							return {};
-						}),
-					},
+					format: vi.fn(() => {
+						throw new Error('Format failed!');
+					}),
+					resolveConfig: vi.fn(() => {
+						return {};
+					}),
 				};
 			});
 		});

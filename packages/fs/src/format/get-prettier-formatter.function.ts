@@ -9,12 +9,14 @@ export const getPrettierFormatter = async (
 	rawOptions?: PrettifyOptions,
 ): Promise<(content: string) => Awaitable<string>> => {
 	const options = normalizePrettifyOptions(rawOptions);
+
 	try {
 		const prettier = await import('prettier');
 
 		const prettierConfig = await prettier.resolveConfig(options.cwd, {
 			editorconfig: true,
 		});
+
 		const prettierOptions: Options = {
 			...prettierConfig,
 			parser: options.parser,
@@ -22,7 +24,7 @@ export const getPrettierFormatter = async (
 
 		return async (content) => {
 			try {
-				return await prettier.default.format(content, prettierOptions);
+				return await prettier.format(content, prettierOptions);
 			} catch (error) {
 				options.logger.error('prettier format failed', error);
 				return content;
