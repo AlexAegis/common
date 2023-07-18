@@ -12,6 +12,8 @@ export const identityAsync = async <V>(value?: V, mode: 'micro' | 'macro' = 'mic
 		if (mode === 'micro') {
 			resolve(value);
 		} else {
-			setTimeout(() => resolve(value), 0);
+			setTimeout(() => {
+				resolve(value);
+			}, 0);
 		}
 	});

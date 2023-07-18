@@ -5,6 +5,8 @@ export const yesAsync = (mode: 'micro' | 'macro' = 'micro') =>
 		if (mode === 'micro') {
 			resolve(true);
 		} else {
-			setTimeout(() => resolve(true), 0);
+			setTimeout(() => {
+				resolve(true);
+			}, 0);
 		}
 	});

@@ -1,4 +1,4 @@
-import { Defined } from './defined.type.js';
+import type { Defined } from './defined.type.js';
 
 /**
  * Mark only selected variables as defined

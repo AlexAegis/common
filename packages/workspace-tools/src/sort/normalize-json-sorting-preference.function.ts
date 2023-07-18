@@ -1,5 +1,5 @@
 import type { ObjectKeyOrder } from '@alexaegis/common';
-import { CwdOption, normalizeCwdOption, readJson } from '@alexaegis/fs';
+import { normalizeCwdOption, readJson, type CwdOption } from '@alexaegis/fs';
 import { join } from 'node:path';
 
 import { getWorkspaceRoot } from '../npm/get-workspace-root.function.js';

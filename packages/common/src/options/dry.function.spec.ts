@@ -44,7 +44,12 @@ describe('dry', () => {
 	});
 
 	describe('async dry', () => {
-		const fn = vi.fn(() => new Promise((resolve) => resolve(wetResult)));
+		const fn = vi.fn(
+			() =>
+				new Promise((resolve) => {
+					resolve(wetResult);
+				}),
+		);
 
 		it('should not call the original function when dry', async () => {
 			const driedFn = dry(true, fn);

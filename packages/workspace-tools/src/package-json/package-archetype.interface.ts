@@ -12,7 +12,7 @@ import type { JsonMatcherFrom } from '@alexaegis/match';
  * web-svelte-lib
  */
 export interface PackageArchetype {
-	platform?: Nullable<'node' | 'web' | string>;
+	platform?: Nullable<'node' | 'web'>;
 
 	/**
 	 * @example 'node' | 'svelte' | 'angular'
@@ -24,7 +24,7 @@ export interface PackageArchetype {
 	 */
 	language?: Nullable<string>;
 
-	kind?: Nullable<'app' | 'lib' | string>;
+	kind?: Nullable<'app' | 'lib' | 'fixture'>;
 
 	/**
 	 * @example 'vite' | 'rollup'

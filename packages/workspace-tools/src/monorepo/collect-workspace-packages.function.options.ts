@@ -1,6 +1,6 @@
-import { Defined, normalizeRegExpLikeToRegExp } from '@alexaegis/common';
-import { JsonMatcherFrom } from '@alexaegis/match';
-import { PackageJson } from '../index.js';
+import { normalizeRegExpLikeToRegExp, type Defined } from '@alexaegis/common';
+import type { JsonMatcherFrom } from '@alexaegis/match';
+import type { PackageJson } from '../index.js';
 import {
 	normalizeGetRootPackageJsonOptions,
 	type GetRootPackageJsonOptions,

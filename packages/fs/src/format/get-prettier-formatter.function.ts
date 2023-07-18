@@ -1,4 +1,4 @@
-import { Awaitable } from '@alexaegis/common';
+import type { Awaitable } from '@alexaegis/common';
 import type { Options } from 'prettier';
 import { normalizePrettifyOptions, type PrettifyOptions } from './try-prettify.function.options.js';
 

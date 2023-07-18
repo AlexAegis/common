@@ -25,4 +25,6 @@ const mergeWorkspaceLcovReports = async () => {
 	}
 };
 
-void (async () => await mergeWorkspaceLcovReports())();
+void (async () => {
+	await mergeWorkspaceLcovReports();
+})();

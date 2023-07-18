@@ -4,6 +4,7 @@ import { noop, noopAsync } from './noop.function.js';
 describe('noop', () => {
 	describe('noop', () => {
 		it('should return undefined', () => {
+			// eslint-disable-next-line @typescript-eslint/no-confusing-void-expression
 			expect(noop()).toBeUndefined();
 		});
 	});

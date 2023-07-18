@@ -1,6 +1,6 @@
-import { DropKeyMatcher, defaultDropKeyMatcher, dropKeys } from './drop-keys.function.js';
+import { defaultDropKeyMatcher, dropKeys, type DropKeyMatcher } from './drop-keys.function.js';
 import { isObject } from './is-object.function.js';
-import { MergeTuple } from './tuple.type.js';
+import type { MergeTuple } from './tuple.type.js';
 
 export interface DeepMergeOptions {
 	/**

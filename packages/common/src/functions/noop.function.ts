@@ -12,6 +12,8 @@ export const noopAsync = (mode: 'micro' | 'macro' = 'micro') =>
 		if (mode === 'micro') {
 			resolve(undefined);
 		} else {
-			setTimeout(() => resolve(undefined), 0);
+			setTimeout(() => {
+				resolve(undefined);
+			}, 0);
 		}
 	});

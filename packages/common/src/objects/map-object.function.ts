@@ -1,4 +1,4 @@
-import { SimpleObjectKey } from './struct.type.js';
+import type { SimpleObjectKey } from './struct.type.js';
 
 export const mapObject = <T extends Record<SimpleObjectKey, unknown>, K>(
 	o: T,

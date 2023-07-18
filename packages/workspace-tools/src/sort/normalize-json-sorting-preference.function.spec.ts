@@ -1,8 +1,8 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { DEFAULT_PACKAGE_JSON_SORTING_PREFERENCE } from './default-package-json-order.const.js';
 import {
-	SortingPreferenceJson,
 	createJsonSortingPreferenceNormalizer,
+	type SortingPreferenceJson,
 } from './normalize-json-sorting-preference.function.js';
 
 const readJsonMock = vi.hoisted(() =>

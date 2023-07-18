@@ -1,5 +1,5 @@
 import type { vi } from 'vitest';
-import { Logger } from './index.js';
+import type { Logger } from './index.js';
 
 export interface MockLogger {
 	silly: ReturnType<typeof vi.fn>;
