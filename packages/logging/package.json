@@ -1,7 +1,7 @@
 {
 	"name": "@alexaegis/logging",
 	"description": "Minimal logging tools",
-	"version": "0.4.4",
+	"version": "0.4.5",
 	"license": "MIT",
 	"private": false,
 	"archetype": {
@@ -60,7 +60,7 @@
 		"./readme": "./readme.md"
 	},
 	"dependencies": {
-		"@alexaegis/common": "^0.4.4",
+		"@alexaegis/common": "^0.4.5",
 		"tslog": "^4.8.2"
 	},
 	"devDependencies": {

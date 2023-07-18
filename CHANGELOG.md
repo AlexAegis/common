@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.4.5](https://github.com/AlexAegis/common/compare/v0.4.4...v0.4.5) (2023-07-18)
+
+
+### Features
+
+* **common:** added valueOf type and someDefined ([8811ae1](https://github.com/AlexAegis/common/commit/8811ae14a5dc9a32b1d8158cc02b7d6b6d6d5f56))
+
 ## [0.4.3](https://github.com/AlexAegis/common/compare/v0.4.2...v0.4.3) (2023-07-08)
 
 
