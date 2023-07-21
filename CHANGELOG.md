@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.5.0](https://github.com/AlexAegis/common/compare/v0.4.5...v0.5.0) (2023-07-21)
+
+
+### Features
+
+* **common:** deepMapObject can now drop values ([e584a13](https://github.com/AlexAegis/common/commit/e584a13cfdf300026dd1f683bd491778b08f5082))
+
 ## [0.4.5](https://github.com/AlexAegis/common/compare/v0.4.4...v0.4.5) (2023-07-18)
 
 
