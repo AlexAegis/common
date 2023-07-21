@@ -35,9 +35,9 @@
 		"lint:md_": "remark --frail --no-stdout --silently-ignore .",
 		"lint:tsc": "turbo run lint:tsc_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/match",
 		"lint:tsc_": "tsc --noEmit",
-		"publint": "turbo run publint_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/match",
+		"publint": "BUILD_REASON='publish' turbo run publint_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/match",
 		"publint_": "publint dist",
-		"all": "turbo run all_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/match",
+		"all": "BUILD_REASON='publish' turbo run all_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/match",
 		"format": "turbo run format_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/match",
 		"format_": "prettier --cache-location .cache/prettier --plugin prettier-plugin-svelte --plugin prettier-plugin-tailwindcss --write .",
 		"test": "turbo run test_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/match",
@@ -54,15 +54,15 @@
 		"./readme": "./readme.md"
 	},
 	"devDependencies": {
-		"@alexaegis/eslint-config-vitest": "^0.5.6",
+		"@alexaegis/eslint-config-vitest": "^0.5.12",
 		"@alexaegis/predicate": "^0.5.0",
-		"@alexaegis/ts": "^0.5.6",
-		"@alexaegis/vite": "^0.5.6",
-		"@alexaegis/vitest": "^0.5.6",
-		"@types/node": "^20.4.2",
+		"@alexaegis/ts": "^0.5.12",
+		"@alexaegis/vite": "^0.5.12",
+		"@alexaegis/vitest": "^0.5.12",
+		"@types/node": "^20.4.4",
 		"publint": "^0.1.16",
 		"typescript": "^5.1.6",
-		"vite": "^4.4.5",
+		"vite": "^4.4.6",
 		"vitest": "^0.33.0"
 	}
 }
