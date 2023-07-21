@@ -18,6 +18,6 @@ export const fillObjectWithTemplateVariables = <
 	return deepMapObject(target, (_key, value) => {
 		return typeof value === 'string'
 			? fillStringWithTemplateVariables(value, variables)
-			: undefined;
+			: value;
 	});
 };

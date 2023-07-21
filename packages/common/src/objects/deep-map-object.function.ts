@@ -4,15 +4,21 @@ export const deepMapObject = <T>(
 	o: T,
 	mapper: (key: string | number, value: unknown) => unknown,
 ): T => {
-	const target = structuredClone(o);
+	const target = { ...o };
 
 	if (isObject(target)) {
 		for (const key in target) {
 			const value = target[key];
 			if (isObject(value)) {
-				Object.assign(value, deepMapObject(value, mapper));
+				Object.assign(target, { [key]: deepMapObject(value, mapper) });
 			} else {
-				Object.assign(target, { [key]: mapper(key, value) ?? value });
+				const mapResult = mapper(key, value);
+				if (mapResult === undefined) {
+					// eslint-disable-next-line @typescript-eslint/no-dynamic-delete
+					delete target[key];
+				} else {
+					Object.assign(target, { [key]: mapResult });
+				}
 			}
 		}
 	}

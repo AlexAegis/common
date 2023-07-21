@@ -17,7 +17,7 @@ describe('deepMapObject', () => {
 		const copyOfOriginal = structuredClone(original);
 
 		const mappedObject = deepMapObject(original, (key, value) => {
-			return typeof value === 'string' ? `${value} ${key}!` : undefined;
+			return typeof value === 'string' ? `${value} ${key}!` : value;
 		});
 
 		expect(original).toEqual(copyOfOriginal);
@@ -29,6 +29,34 @@ describe('deepMapObject', () => {
 			deeper: {
 				zed: 'hello zed!',
 				zod: 'hola zod!',
+				yon: 2,
+			},
+		});
+	});
+
+	it('should delete keys where the returned values are undefined', () => {
+		const original = {
+			foo: 1,
+			bar: 'hello',
+			baz: 'hola',
+			deeper: {
+				zed: 'hello',
+				zod: 'hola',
+				yon: 2,
+			},
+		};
+
+		const copyOfOriginal = structuredClone(original);
+
+		const mappedObject = deepMapObject(original, (_key, value) => {
+			return typeof value === 'string' ? undefined : value;
+		});
+
+		expect(original).toEqual(copyOfOriginal);
+		expect(mappedObject).not.toBe(original);
+		expect(mappedObject).toEqual({
+			foo: 1,
+			deeper: {
 				yon: 2,
 			},
 		});
