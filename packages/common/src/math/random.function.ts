@@ -1,7 +1,7 @@
 export function random(min: number, max: number): number {
-	return min + Math.random() * max;
-}
+	if (min > max) {
+		[min, max] = [max, min];
+	}
 
-export function randomInt(min: number, max: number): number {
-	return Math.floor(random(min, max));
+	return Math.floor(Math.random() * (max - min + 1) + min);
 }
