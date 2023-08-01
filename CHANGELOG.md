@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.5.2](https://github.com/AlexAegis/common/compare/v0.5.1...v0.5.2) (2023-08-01)
+
+
+### Bug Fixes
+
+* random fn ([65ee089](https://github.com/AlexAegis/common/commit/65ee08931b1f5cf99f8dad28b069488efc754143))
+
 ## [0.5.1](https://github.com/AlexAegis/common/compare/v0.5.0...v0.5.1) (2023-07-25)
 
 
