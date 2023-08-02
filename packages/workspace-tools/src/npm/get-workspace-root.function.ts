@@ -1,5 +1,6 @@
-import { collectPackageJsonPathsUpDirectoryTree } from './collect-package-json-paths-up-directory-tree.function.js';
-import type { CollectPackageJsonPathsUpDirectoryTreeOptions } from './collect-package-json-paths-up-directory-tree.function.options.js';
+import { PACKAGE_JSON_NAME } from '../package-json/package-json.interface.js';
+import { collectFileDirnamePathsUpDirectoryTree } from './collect-file-dirname-paths-up-directory-tree.function.js';
+import type { CollectFileDirnamesUpDirectoryTreeOptions } from './collect-file-dirname-paths-up-directory-tree.function.options.js';
 
 /**
  * Returns the furthest folder where a package.json file is present
@@ -10,7 +11,7 @@ import type { CollectPackageJsonPathsUpDirectoryTreeOptions } from './collect-pa
  * @returns
  */
 export const getWorkspaceRoot = (
-	rawOptions?: CollectPackageJsonPathsUpDirectoryTreeOptions,
+	rawOptions?: CollectFileDirnamesUpDirectoryTreeOptions,
 ): string | undefined => {
-	return collectPackageJsonPathsUpDirectoryTree(rawOptions)[0];
+	return collectFileDirnamePathsUpDirectoryTree(PACKAGE_JSON_NAME, rawOptions)[0];
 };

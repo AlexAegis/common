@@ -6,10 +6,11 @@ import {
 	type DirectoryDepthOption,
 } from '@alexaegis/fs';
 
-export type CollectPackageJsonPathsUpDirectoryTreeOptions = CwdOption &
+export type CollectFileDirnamesUpDirectoryTreeOptions = CwdOption &
 	DirectoryDepthOption & {
 		/**
-		 * How many packages it should find at most
+		 * How many packages it should search in at most (A folder is treated
+		 * as a package if there is a `package.json` file directly in it)
 		 *
 		 * Normally workspaces only have 2 layer of packages, so by default
 		 * I assume a monorepo. You can change this to 1 if using a
@@ -21,17 +22,27 @@ export type CollectPackageJsonPathsUpDirectoryTreeOptions = CwdOption &
 		 * @default 2
 		 */
 		maxPackages?: number | undefined;
+
+		/**
+		 * If the search term is package.json, this has the same effect
+		 * as maxPackages. Both conditions can stop the search, the smaller one
+		 * will be the stronger.
+		 *
+		 * @default Infinity
+		 */
+		maxResults?: number | undefined;
 	};
 
-export type NormalizedCollectPackageJsonPathsUpDirectoryTreeOptions =
-	Defined<CollectPackageJsonPathsUpDirectoryTreeOptions>;
+export type NormalizedCollectFileDirnamesUpDirectoryTreeOptions =
+	Defined<CollectFileDirnamesUpDirectoryTreeOptions>;
 
-export const normalizeCollectPackageJsonPathsUpDirectoryTreeOptions = (
-	options?: CollectPackageJsonPathsUpDirectoryTreeOptions,
-): NormalizedCollectPackageJsonPathsUpDirectoryTreeOptions => {
+export const normalizeCollectFileDirnamesUpDirectoryTreeOptions = (
+	options?: CollectFileDirnamesUpDirectoryTreeOptions,
+): NormalizedCollectFileDirnamesUpDirectoryTreeOptions => {
 	return {
 		...normalizeCwdOption(options),
 		...normalizeDirectoryDepthOption(options),
 		maxPackages: options?.maxPackages ?? 2,
+		maxResults: options?.maxResults ?? Number.POSITIVE_INFINITY,
 	};
 };

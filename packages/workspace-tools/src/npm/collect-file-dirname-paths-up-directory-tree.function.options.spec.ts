@@ -1,8 +1,8 @@
 import { describe, expect, it, vi, type SpyInstance } from 'vitest';
 import {
-	normalizeCollectPackageJsonPathsUpDirectoryTreeOptions,
-	type NormalizedCollectPackageJsonPathsUpDirectoryTreeOptions,
-} from './collect-package-json-paths-up-directory-tree.function.options.js';
+	normalizeCollectFileDirnamesUpDirectoryTreeOptions,
+	type NormalizedCollectFileDirnamesUpDirectoryTreeOptions,
+} from './collect-file-dirname-paths-up-directory-tree.function.options.js';
 
 export const mockProcessCwdValue = '/foo';
 
@@ -12,18 +12,20 @@ export const mockProcessCwd = (): SpyInstance => {
 
 describe('normalizeDepthOption', () => {
 	it('should default Infinity when not defined', () => {
-		expect(normalizeCollectPackageJsonPathsUpDirectoryTreeOptions()).toEqual({
+		expect(normalizeCollectFileDirnamesUpDirectoryTreeOptions()).toEqual({
 			depth: Number.POSITIVE_INFINITY,
 			cwd: process.cwd(),
 			maxPackages: 2,
-		} as NormalizedCollectPackageJsonPathsUpDirectoryTreeOptions);
+			maxResults: Number.POSITIVE_INFINITY,
+		} as NormalizedCollectFileDirnamesUpDirectoryTreeOptions);
 	});
 
 	it('should keep the overrides', () => {
 		const depthOverride = 2;
 		const maxPackagesOverride = 1;
+
 		expect(
-			normalizeCollectPackageJsonPathsUpDirectoryTreeOptions({
+			normalizeCollectFileDirnamesUpDirectoryTreeOptions({
 				depth: depthOverride,
 				maxPackages: maxPackagesOverride,
 			}),
@@ -31,6 +33,7 @@ describe('normalizeDepthOption', () => {
 			depth: depthOverride,
 			cwd: process.cwd(),
 			maxPackages: maxPackagesOverride,
-		} as NormalizedCollectPackageJsonPathsUpDirectoryTreeOptions);
+			maxResults: Number.POSITIVE_INFINITY,
+		} as NormalizedCollectFileDirnamesUpDirectoryTreeOptions);
 	});
 });

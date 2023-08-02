@@ -1,4 +1,5 @@
-import { collectPackageJsonPathsUpDirectoryTree } from './collect-package-json-paths-up-directory-tree.function.js';
+import { PACKAGE_JSON_NAME } from '../package-json/package-json.interface.js';
+import { collectFileDirnamePathsUpDirectoryTree } from './collect-file-dirname-paths-up-directory-tree.function.js';
 
 /**
  * Returns the nearest folder where a package.json file is present
@@ -9,5 +10,5 @@ import { collectPackageJsonPathsUpDirectoryTree } from './collect-package-json-p
  * @returns
  */
 export const getCurrentPackageRoot = (cwd: string = process.cwd()): string | undefined => {
-	return collectPackageJsonPathsUpDirectoryTree({ cwd, maxPackages: 1 })[0];
+	return collectFileDirnamePathsUpDirectoryTree(PACKAGE_JSON_NAME, { cwd, maxPackages: 1 })[0];
 };
