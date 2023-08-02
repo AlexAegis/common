@@ -18,7 +18,6 @@ export const collectIgnoreEntries = async (
 	rawOptions?: CollectIgnoreEntriesOptions,
 ): Promise<string[]> => {
 	const options = normalizeCollectIgnoreEntriesOptions(rawOptions);
-	console.log('options', options);
 	const workspaceRoot = getWorkspaceRoot();
 
 	if (!workspaceRoot) {
@@ -29,7 +28,6 @@ export const collectIgnoreEntries = async (
 		options.ignoreFileName,
 		options,
 	);
-	console.log('ignoreFilePaths', ignoreFileDirnames);
 
 	const ignoreFilePathsWithinWorkspace = ignoreFileDirnames
 		.filter((ignoreFileDirname) => ignoreFileDirname.startsWith(workspaceRoot))
@@ -41,12 +39,9 @@ export const collectIgnoreEntries = async (
 			const gitIgnoreFile = await readFile(ignoreFile, {
 				encoding: 'utf8',
 			});
-			console.log('gitIgnoreFile', gitIgnoreFile);
 			return splitAndStripHashComments(gitIgnoreFile);
 		},
 	);
-
-	console.log('ignoreFileLines', ignoreFileLines);
 
 	return ignoreFileLines.flat();
 };
