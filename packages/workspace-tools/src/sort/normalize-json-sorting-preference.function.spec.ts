@@ -17,7 +17,7 @@ const readJsonMock = vi.hoisted(() =>
 	}),
 );
 
-vi.mock('@alexaegis/fs', () => {
+vi.mock('@alexaegis/fs', async () => {
 	return {
 		readJson: readJsonMock,
 		normalizeCwdOption: () => {
@@ -25,6 +25,9 @@ vi.mock('@alexaegis/fs', () => {
 				cwd: '/foo',
 			};
 		},
+		normalizeDirectoryDepthOption: await vi
+			.importActual<typeof import('@alexaegis/fs')>('@alexaegis/fs')
+			.then((mod) => mod.normalizeDirectoryDepthOption),
 	};
 });
 

@@ -22,6 +22,9 @@ vi.mock('@alexaegis/fs', async () => {
 		normalizeCwdOption: await vi
 			.importActual<typeof import('@alexaegis/fs')>('@alexaegis/fs')
 			.then((mod) => mod.normalizeCwdOption),
+		normalizeDirectoryDepthOption: await vi
+			.importActual<typeof import('@alexaegis/fs')>('@alexaegis/fs')
+			.then((mod) => mod.normalizeDirectoryDepthOption),
 	};
 });
 

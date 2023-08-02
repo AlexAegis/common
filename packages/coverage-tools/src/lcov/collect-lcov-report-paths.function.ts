@@ -16,7 +16,7 @@ export const collectLcovReportPaths = async (
 	rawOptions?: CollectLcovReportPathsOptions,
 ): Promise<string[]> => {
 	const options = normalizeCollectLcovReportPathsOptions(rawOptions);
-	const workspaceRoot = getWorkspaceRoot(options.cwd);
+	const workspaceRoot = getWorkspaceRoot(options);
 
 	if (isNullish(workspaceRoot)) {
 		return [];

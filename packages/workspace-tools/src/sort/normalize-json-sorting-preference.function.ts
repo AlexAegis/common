@@ -31,7 +31,7 @@ export const createJsonSortingPreferenceNormalizer = async (
 	rawOptions?: CwdOption,
 ) => {
 	const options = normalizeCwdOption(rawOptions);
-	const workspaceRoot = getWorkspaceRoot(options.cwd);
+	const workspaceRoot = getWorkspaceRoot(options);
 
 	let workspaceSortPreference: SortingPreferenceJson | undefined;
 	if (workspaceRoot) {

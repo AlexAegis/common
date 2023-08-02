@@ -11,17 +11,17 @@ describe('getWorkspaceRoot', () => {
 	});
 
 	it('should find nothing when not in a workspace', () => {
-		const foundPackageJsons = getWorkspaceRoot(join(mockProjectRoot, '..'));
+		const foundPackageJsons = getWorkspaceRoot({ cwd: join(mockProjectRoot, '..') });
 		expect(foundPackageJsons).toBeUndefined();
 	});
 
 	it('should find the workspace root when being directly in it', () => {
-		const foundPackageJsons = getWorkspaceRoot(mockProjectRoot);
+		const foundPackageJsons = getWorkspaceRoot({ cwd: mockProjectRoot });
 		expect(foundPackageJsons).toEqual(mockProjectRoot);
 	});
 
 	it('should find the workspace root when being inside in it', () => {
-		const foundPackageJsons = getWorkspaceRoot(join(mockProjectRoot, 'packages'));
+		const foundPackageJsons = getWorkspaceRoot({ cwd: join(mockProjectRoot, 'packages') });
 		expect(foundPackageJsons).toEqual(mockProjectRoot);
 	});
 });

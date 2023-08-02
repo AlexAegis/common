@@ -18,8 +18,10 @@ vi.mock('@alexaegis/workspace-tools', async () => {
 	);
 
 	return {
-		getWorkspaceRoot: vi.fn<[], string | undefined>((cwd = process.cwd()) => {
-			return cwd.startsWith(mockProjectRoot) ? mockProjectRoot : undefined;
+		getWorkspaceRoot: vi.fn<[], string | undefined>((options?: { cwd: string | undefined }) => {
+			return (options?.cwd ?? mockProjectRoot).startsWith(mockProjectRoot)
+				? mockProjectRoot
+				: undefined;
 		}),
 		collectWorkspacePackages: vi.fn(
 			(rawOptions?: CollectWorkspacePackagesOptions): WorkspacePackage[] => {

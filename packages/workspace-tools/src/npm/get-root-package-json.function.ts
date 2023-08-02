@@ -18,7 +18,7 @@ export const getRootPackageJson = async (
 	rawOptions: GetRootPackageJsonOptions,
 ): Promise<RootWorkspacePackage | undefined> => {
 	const options = normalizeGetRootPackageJsonOptions(rawOptions);
-	const rootWorkspace = getWorkspaceRoot(options.cwd);
+	const rootWorkspace = getWorkspaceRoot(options);
 	if (!rootWorkspace) {
 		options.logger.error('No package json was found! Cannot collect workspace packages!');
 
