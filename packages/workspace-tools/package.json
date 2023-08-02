@@ -1,7 +1,7 @@
 {
 	"name": "@alexaegis/workspace-tools",
 	"description": "Tools for working with javascript workspaces",
-	"version": "0.5.2",
+	"version": "0.6.0",
 	"license": "MIT",
 	"private": false,
 	"archetype": {
@@ -72,10 +72,10 @@
 		}
 	},
 	"dependencies": {
-		"@alexaegis/common": "^0.5.2",
-		"@alexaegis/fs": "^0.5.2",
-		"@alexaegis/logging": "^0.5.2",
-		"@alexaegis/match": "^0.5.2",
+		"@alexaegis/common": "^0.6.0",
+		"@alexaegis/fs": "^0.6.0",
+		"@alexaegis/logging": "^0.6.0",
+		"@alexaegis/match": "^0.6.0",
 		"@schemastore/package": "^0.0.10",
 		"globby": "^13.2.2"
 	},

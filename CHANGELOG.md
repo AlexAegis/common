@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.6.0](https://github.com/AlexAegis/common/compare/v0.5.2...v0.6.0) (2023-08-02)
+
+
+### ⚠ BREAKING CHANGES
+
+* **workspace-tools:** getWorkspaceRoot and getCurrentPackageRoot now using an options param
+
+### Features
+
+* **workspace-tools:** added ignorefile reading ([cee2fb2](https://github.com/AlexAegis/common/commit/cee2fb217ebb80c6ee649d231a0dc12656524afc))
+* **workspace-tools:** getWorkspaceRoot and getCurrentPackageRoot now using an options param ([f8609b5](https://github.com/AlexAegis/common/commit/f8609b5b320e7aea00bdd2e09318ab1d8f223a4f))
+
 ## [0.5.2](https://github.com/AlexAegis/common/compare/v0.5.1...v0.5.2) (2023-08-01)
 
 
