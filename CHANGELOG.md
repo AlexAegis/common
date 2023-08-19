@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.6.2](https://github.com/AlexAegis/common/compare/v0.6.1...v0.6.2) (2023-08-19)
+
+
+### Features
+
+* **common:** added bufferedAllSettled ([2f7ea87](https://github.com/AlexAegis/common/commit/2f7ea87e9334c13120b7176ce462af24c8cbfb01))
+
 ## [0.6.1](https://github.com/AlexAegis/common/compare/v0.6.0...v0.6.1) (2023-08-02)
 
 ## [0.6.0](https://github.com/AlexAegis/common/compare/v0.5.2...v0.6.0) (2023-08-02)
