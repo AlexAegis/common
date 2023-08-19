@@ -1,7 +1,3 @@
-import type { Awaitable } from '../index.js';
-
-export const sleep = (ms: number): Awaitable<void> => {
-	if (ms > 0) {
-		return new Promise((resolve) => setTimeout(resolve, ms));
-	}
+export const sleep = (ms: number): Promise<void> => {
+	return ms > 0 ? new Promise((resolve) => setTimeout(resolve, ms)) : Promise.resolve();
 };

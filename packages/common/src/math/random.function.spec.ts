@@ -12,4 +12,12 @@ describe('random', () => {
 		expect(result).to.be.greaterThanOrEqual(low);
 		expect(result).toEqual(Math.floor(result));
 	});
+
+	it('should handle ranges declared in the wrong order', () => {
+		const result = random(high, low);
+		expect(result).toBeTypeOf('number');
+		expect(result).to.be.lessThanOrEqual(high);
+		expect(result).to.be.greaterThanOrEqual(low);
+		expect(result).toEqual(Math.floor(result));
+	});
 });

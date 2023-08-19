@@ -54,14 +54,14 @@
 		"./readme": "./readme.md"
 	},
 	"devDependencies": {
-		"@alexaegis/eslint-config-vitest": "^0.6.3",
-		"@alexaegis/ts": "^0.6.3",
-		"@alexaegis/vite": "^0.6.3",
-		"@alexaegis/vitest": "^0.6.3",
-		"@types/node": "^20.4.6",
-		"publint": "^0.2.0",
+		"@alexaegis/eslint-config-vitest": "^0.7.1",
+		"@alexaegis/ts": "^0.7.1",
+		"@alexaegis/vite": "^0.7.1",
+		"@alexaegis/vitest": "^0.7.1",
+		"@types/node": "^20.5.1",
+		"publint": "^0.2.1",
 		"typescript": "^5.1.6",
-		"vite": "^4.4.8",
-		"vitest": "^0.34.1"
+		"vite": "^4.4.9",
+		"vitest": "^0.34.2"
 	}
 }
