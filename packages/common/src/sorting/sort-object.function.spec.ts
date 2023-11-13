@@ -241,6 +241,22 @@ describe('reorderObject', () => {
 		).toEqual(JSON.stringify(to, undefined, 2));
 	});
 
+	it('should order based on an ordering preference using RegExp like strings', () => {
+		const from = {
+			'other-build': 'build other',
+			'test:bar': 'test bar',
+		};
+
+		const to = {
+			'test:bar': 'test bar',
+			'other-build': 'build other',
+		};
+
+		expect(JSON.stringify(sortObject(from, ['^build.*', '^test.*']), undefined, 2)).toEqual(
+			JSON.stringify(to, undefined, 2),
+		);
+	});
+
 	it('should order subobjects even if they are not mentioned in detail', () => {
 		const from = {
 			zed: 'zed',

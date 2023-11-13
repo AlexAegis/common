@@ -25,7 +25,7 @@ export const DEFAULT_PACKAGE_JSON_SORTING_PREFERENCE: ObjectKeyOrder = [
 	'engines',
 	'packageManager',
 	'workspaces',
-	{ key: 'scripts', order: ['build.*', 'lint.*', 'test.*'] },
+	{ key: 'scripts', order: ['^build.*', '^lint.*', '^test.*'] },
 	{ key: 'exports', order: [{ key: '.*', order: ['types', '.*', 'default'] }] },
 	'bin',
 	'dependencies',

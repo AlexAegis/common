@@ -17,21 +17,12 @@ export const sortObject = <T extends object | unknown[]>(
 	o: T,
 	sortPreferences: ObjectKeyOrder = [],
 ): T => {
-	if (
-		sortPreferences.length === 0 ||
-		!sortPreferences.some((pref) =>
-			typeof pref === 'object' ? pref.key === '.*' : pref === '.*',
-		)
-	) {
-		sortPreferences.push('.*');
-	}
-
 	const plainLevelOrder = sortPreferences.map((pref) =>
 		typeof pref === 'object' ? pref.key : pref,
 	);
 
 	const regexpLevelOrder = plainLevelOrder.map((pref) => new RegExp(pref));
-
+	console.log('regexpLevelOrder', regexpLevelOrder);
 	// Turn arrays into objects too, they will be turned back into arrays
 	const isArray = Array.isArray(o);
 	let obj: T = o;
@@ -42,12 +33,11 @@ export const sortObject = <T extends object | unknown[]>(
 	const ordered = Object.entries(obj)
 		.map<[string, unknown, number]>(([key, value]) => {
 			// Could fill multiple spots
-			let order = -1;
+			let order = Number.POSITIVE_INFINITY;
 			const regexpIndices = regexpLevelOrder
 				.map((orderingRegExp, i) => (orderingRegExp.test(key) ? i : -1))
 				.filter((index) => index > -1);
 			const plainIndex = plainLevelOrder.indexOf(key);
-
 			if (plainIndex >= 0) {
 				order = plainIndex;
 			} else {
@@ -60,17 +50,16 @@ export const sortObject = <T extends object | unknown[]>(
 						)
 						.map((r) => r.source);
 					const shakedKey = shaked.indexOf(key);
+
 					order = closestNumber(regexpIndices, shakedKey);
 				} else if (regexpIndices[0]) {
 					order = regexpIndices[0];
 				}
 			}
-
 			if (value !== undefined && value !== null && typeof value === 'object') {
 				const subOrdering = sortPreferences
 					.filter((pref): pref is DetailedObjectKeyOrder => typeof pref === 'object')
 					.find((preference) => new RegExp(preference.key).test(key));
-
 				return [key, sortObject(value, subOrdering?.order), order];
 			} else {
 				return [key, value, order];
