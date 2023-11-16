@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { sortObject } from './sort-object.function.js';
+import { findMostSensibleMatch, sortObject } from './sort-object.function.js';
 
 describe('reorderObject', () => {
 	it('should be able to order simple objects in alphabetical order', () => {
@@ -194,6 +194,25 @@ describe('reorderObject', () => {
 		expect(result).toEqual(JSON.stringify(to, undefined, 2));
 	});
 
+	it('should treat exact matches with a higher priority', () => {
+		// Since everything in the ordering is turned into a regex, it could partially match with unintended keys.
+		const from = {
+			build: 'build',
+			'other:build:bar': 'build bar',
+			almond: 'almond',
+		};
+
+		const to = {
+			build: 'build',
+			almond: 'almond',
+			'other:build:bar': 'build bar',
+		};
+
+		expect(JSON.stringify(sortObject(from, ['build', 'almond', '.*']), undefined, 2)).toEqual(
+			JSON.stringify(to, undefined, 2),
+		);
+	});
+
 	it('should order based on an ordering preference', () => {
 		const from = {
 			name: 'foo',
@@ -283,5 +302,15 @@ describe('reorderObject', () => {
 		expect(JSON.stringify(sortObject(from, ['name', 'mode', 'stuff']), undefined, 2)).toEqual(
 			JSON.stringify(to, undefined, 2),
 		);
+	});
+
+	describe('findMostSensibleMatch', () => {
+		it('should find MostSensibleMatch', () => {
+			const matchers = [/.*/, /b/, /.*/];
+			expect(findMostSensibleMatch(matchers, 'a')).toEqual(0);
+			expect(findMostSensibleMatch(matchers, 'b')).toEqual(1);
+			expect(findMostSensibleMatch(matchers, 'c')).toEqual(2);
+			expect(findMostSensibleMatch(matchers, 'd')).toEqual(2);
+		});
 	});
 });
