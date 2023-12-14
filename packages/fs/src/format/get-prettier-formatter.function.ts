@@ -1,4 +1,5 @@
 import type { Awaitable } from '@alexaegis/common';
+import { join } from 'node:path';
 import type { Options } from 'prettier';
 import { normalizePrettifyOptions, type PrettifyOptions } from './try-prettify.function.options.js';
 
@@ -13,7 +14,11 @@ export const getPrettierFormatter = async (
 	try {
 		const prettier = await import('prettier');
 
-		const prettierConfig = await prettier.resolveConfig(options.cwd, {
+		// Prettier expects a file path (the one intended to be formatted), not
+		// a directory path. So even if you have a file such as `/project/.prettierrc`
+		// searching from `/project` will not find it.
+		// The filename joined after cwd could be anything, it does not need to exist.
+		const prettierConfig = await prettier.resolveConfig(join(options.cwd, '.prettierrc'), {
 			editorconfig: true,
 		});
 
