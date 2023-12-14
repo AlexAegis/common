@@ -51,7 +51,7 @@ export const collectWorkspacePackages = async (
 								packagePath: path,
 								packagePathFromRootPackage: relative(rootPackage.packagePath, path),
 								packageJsonPath,
-						  } as RegularWorkspacePackage)
+							} as RegularWorkspacePackage)
 						: undefined,
 				);
 		});

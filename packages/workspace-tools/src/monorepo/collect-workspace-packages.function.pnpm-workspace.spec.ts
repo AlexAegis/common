@@ -26,7 +26,7 @@ vi.mock('@alexaegis/fs', async () => {
 				path?.endsWith(PNPM_WORKSPACE_FILE_NAME)
 					? ({
 							packages: ['packages/*'],
-					  } satisfies PnpmWorkspaceYaml)
+						} satisfies PnpmWorkspaceYaml)
 					: undefined,
 			),
 	);

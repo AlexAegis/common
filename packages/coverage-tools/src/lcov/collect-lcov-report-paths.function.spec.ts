@@ -52,7 +52,7 @@ vi.mock('@alexaegis/workspace-tools', async () => {
 								packageJson: {},
 								packagePathFromRootPackage: 'package/notest',
 							},
-					  ]
+						]
 					: [];
 			},
 		),

@@ -74,12 +74,12 @@ export const normalizeSortingPreferenceForPackageJson = (
 				} else {
 					return sortingPrefrence;
 				}
-		  })
+			})
 		: [
 				...sortingPreferences,
 				{
 					key: 'exports',
 					order: [{ key: '.*', order: ['types', '.*', 'default'] }],
 				},
-		  ];
+			];
 };

@@ -31,12 +31,12 @@ export type JsonMatcherFrom<T> =
 	| (T extends string
 			? T | RegExp
 			: T extends object
-			  ? {
+				? {
 						[K in keyof T]?: JsonMatcherFrom<T[K]>;
-			    }
-			  : T extends (infer R)[]
-			    ? JsonMatcherFrom<R>[]
-			    : T);
+					}
+				: T extends (infer R)[]
+					? JsonMatcherFrom<R>[]
+					: T);
 
 const isCustomJsonValueMatcher = <T>(t: unknown): t is CustomJsonValueMatcher<T> => {
 	return typeof t === 'function';
