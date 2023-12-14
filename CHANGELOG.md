@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.8.1](https://github.com/AlexAegis/common/compare/v0.8.0...v0.8.1) (2023-12-14)
+
+
+### Bug Fixes
+
+* getPrettierFormatter now can find the prettier config again ([4897ace](https://github.com/AlexAegis/common/commit/4897acebbc2af362d0ba97f46b6608f7a2d8628b))
+
 ## [0.8.0](https://github.com/AlexAegis/common/compare/v0.7.3...v0.8.0) (2023-11-30)
 
 ## [0.7.3](https://github.com/AlexAegis/common/compare/v0.7.2...v0.7.3) (2023-11-16)
