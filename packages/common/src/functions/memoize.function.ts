@@ -1,8 +1,16 @@
 import type { Fn } from './fn.type.js';
 import { normalizeMemoizeOptions, type MemoizeOptions } from './memoize.function.options.js';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const memoize = <F extends (...args: any) => unknown, T = unknown>(
+/**
+ * By default the cache does not start growing, the limit is infinite.
+ * To set otherwise, use the options object.
+ *
+ * @param fn to be memoized
+ * @param rawOptions options to customize cache behavior
+ * @returns the memoized version of the function that will either return a cached value
+ * or call the original function when one does not exist.
+ */
+export const memoize = <F extends (...args: never) => unknown, T = unknown>(
 	fn: F,
 	rawOptions?: MemoizeOptions<F, T>,
 ): Fn<Parameters<F>, ReturnType<F>> => {
@@ -10,25 +18,25 @@ export const memoize = <F extends (...args: any) => unknown, T = unknown>(
 	const dropQueue: string[] = [];
 
 	return (...args: Parameters<F>): ReturnType<F> => {
-		const argsHash = options.argHasher(args);
-
+		const hash = JSON.stringify(args);
 		// Checking for the existence of a key instead of straight-up using get
 		// and checking if it's nullish or not prevents nullish results from
 		// being cached.
-		if (options.cache.has(argsHash)) {
+		if (options.cache.has(hash)) {
 			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-			return options.cache.get(argsHash)!;
+			return options.cache.get(hash)!;
 		} else {
 			// eslint-disable-next-line prefer-spread
-			const result = fn.apply(options.thisContext, args) as ReturnType<F>;
+			const result = fn(...(args as never)) as ReturnType<F>;
+			options.cache.set(hash, result);
 
-			options.cache.set(argsHash, result);
-
-			dropQueue.push(argsHash);
-			if (options.maxCacheEntries > 0 && dropQueue.length > options.maxCacheEntries) {
-				// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-				const cacheToDrop = dropQueue.shift()!;
-				options.cache.delete(cacheToDrop);
+			if (options.maxCacheEntries > 0 && options.maxCacheEntries < Number.POSITIVE_INFINITY) {
+				dropQueue.push(hash);
+				if (dropQueue.length > options.maxCacheEntries) {
+					// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+					const cacheToDrop = dropQueue.shift()!;
+					options.cache.delete(cacheToDrop);
+				}
 			}
 
 			return result;

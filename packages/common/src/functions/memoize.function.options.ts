@@ -10,7 +10,7 @@ export interface MemoizeOptions<F extends (...args: any) => unknown, T = unknown
 	 */
 	argHasher?: (args: Parameters<F>) => string;
 	/**
-	 * @defaultValue 10
+	 * @defaultValue Infinity
 	 */
 	maxCacheEntries?: number;
 
@@ -30,7 +30,7 @@ export const normalizeMemoizeOptions = <F extends (...args: any) => unknown, T>(
 	return {
 		argHasher: options?.argHasher ?? JSON.stringify,
 		thisContext: options?.thisContext,
-		maxCacheEntries: options?.maxCacheEntries ?? 10,
+		maxCacheEntries: options?.maxCacheEntries ?? Number.POSITIVE_INFINITY,
 		cache: options?.cache ?? new Map<string, ReturnType<F>>(),
 	};
 };
