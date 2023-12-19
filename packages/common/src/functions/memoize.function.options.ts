@@ -1,4 +1,5 @@
-export interface MemoizeOptions<A, T = unknown> {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export interface MemoizeOptions<F extends (...args: any) => unknown, T = unknown> {
 	/**
 	 * @defaultValue undefined
 	 */
@@ -7,24 +8,29 @@ export interface MemoizeOptions<A, T = unknown> {
 	 *
 	 * @defaultValue JSON.stringify
 	 */
-	argHasher?: (args: A) => string;
+	argHasher?: (args: Parameters<F>) => string;
 	/**
 	 * @defaultValue 10
 	 */
 	maxCacheEntries?: number;
+
+	cache?: Map<string, ReturnType<F>>;
 }
 
-export type NormalizedMemoizeOptions<A, T = unknown> = Required<
-	Omit<MemoizeOptions<A, T>, 'thisContext'>
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type NormalizedMemoizeOptions<F extends (...args: any) => unknown, T = unknown> = Required<
+	Omit<MemoizeOptions<F, T>, 'thisContext'>
 > &
-	Pick<MemoizeOptions<A, T>, 'thisContext'>;
+	Pick<MemoizeOptions<F, T>, 'thisContext'>;
 
-export const normalizeMemoizeOptions = <A, T>(
-	options?: MemoizeOptions<A, T>,
-): NormalizedMemoizeOptions<A, T> => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const normalizeMemoizeOptions = <F extends (...args: any) => unknown, T>(
+	options?: MemoizeOptions<F, T>,
+): NormalizedMemoizeOptions<F, T> => {
 	return {
 		argHasher: options?.argHasher ?? JSON.stringify,
 		thisContext: options?.thisContext,
 		maxCacheEntries: options?.maxCacheEntries ?? 10,
+		cache: options?.cache ?? new Map<string, ReturnType<F>>(),
 	};
 };
