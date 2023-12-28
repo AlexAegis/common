@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.8.2](https://github.com/AlexAegis/common/compare/v0.8.1...v0.8.2) (2023-12-28)
+
+
+### Features
+
+* allow setting the cache through options ([7e018a3](https://github.com/AlexAegis/common/commit/7e018a3c64c3c7871c38bb19b634d2ec21482f7c))
+
+
+### Bug Fixes
+
+* memoize fn ([7050662](https://github.com/AlexAegis/common/commit/70506620a8c7a6c31f24648f1755ef7828461da7))
+
 ## [0.8.1](https://github.com/AlexAegis/common/compare/v0.8.0...v0.8.1) (2023-12-14)
 
 
