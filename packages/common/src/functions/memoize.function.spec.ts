@@ -20,7 +20,9 @@ describe('memoize', () => {
 
 	describe('using a different hasher', () => {
 		it('should only call a memoized function once', () => {
-			const memoizedAdd = memoize(add, { argHasher: ([n, _m]) => n.toString() });
+			const memoizedAdd = memoize(add, {
+				argHasher: ([n, _m]) => n.toString(),
+			});
 			// Even though the second call is different, this hasher ignores the second param
 			expect(memoizedAdd(1, 2)).toBe(3);
 			expect(memoizedAdd(1, 3)).toBe(3);

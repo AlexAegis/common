@@ -18,16 +18,15 @@ export const memoize = <F extends (...args: never) => unknown, T = unknown>(
 	const dropQueue: string[] = [];
 
 	return (...args: Parameters<F>): ReturnType<F> => {
-		const hash = JSON.stringify(args);
-		// Checking for the existence of a key instead of straight-up using get
-		// and checking if it's nullish or not prevents nullish results from
-		// being cached.
+		const hash = options.argHasher(args);
+		// Checking for the existence of a key instead of just using get
+		// and checking if it's nullish or not, to avoid preventing nullish
+		// results from being cached.
 		if (options.cache.has(hash)) {
 			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 			return options.cache.get(hash)!;
 		} else {
-			// eslint-disable-next-line prefer-spread
-			const result = fn(...(args as never)) as ReturnType<F>;
+			const result = fn.apply(options.thisContext, args as never) as ReturnType<F>;
 			options.cache.set(hash, result);
 
 			if (options.maxCacheEntries > 0 && options.maxCacheEntries < Number.POSITIVE_INFINITY) {
