@@ -7,7 +7,7 @@ import { PACKAGE_JSON_NAME } from '../src/package-json/package-json.interface.js
 export const mockProjectRoot = '/foo/bar';
 const GITIGNORE_FILENAME = '.gitignore';
 
-export const existsSync: ReturnType<typeof vi.fn> = vi.fn((path: PathLike) => {
+export const existsSync: ReturnType<typeof vi.fn<[PathLike], boolean>> = vi.fn((path: PathLike) => {
 	const workspaceFiles = new Set([
 		join(mockProjectRoot, 'packages/zed', PACKAGE_JSON_NAME),
 		join(mockProjectRoot, 'packages/zed', GITIGNORE_FILENAME),

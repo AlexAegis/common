@@ -1,13 +1,12 @@
+import type { Awaitable } from '@alexaegis/common';
 import type { PathLike, Stats } from 'node:fs';
 import { vi } from 'vitest';
 
-export const mockWriteFile: ReturnType<typeof vi.fn> = vi.fn<
-	[PathLike, unknown],
-	Promise<undefined>
->(() => Promise.resolve(undefined));
+export const mockWriteFile: ReturnType<typeof vi.fn<[PathLike, unknown], Awaitable<undefined>>> =
+	vi.fn<[PathLike, unknown], Awaitable<undefined>>(() => Promise.resolve(undefined));
 
-const mockLstat: ReturnType<typeof vi.fn> = vi.fn(
-	(path: PathLike): Promise<Stats | undefined> =>
+const mockLstat: ReturnType<typeof vi.fn<[PathLike], Awaitable<Stats | undefined>>> = vi.fn(
+	(path: PathLike): Awaitable<Stats | undefined> =>
 		new Promise((resolve) => {
 			if (
 				path.toString().endsWith('.sh') ||
@@ -27,11 +26,18 @@ const mockLstat: ReturnType<typeof vi.fn> = vi.fn(
 		}),
 );
 
-export const mockChmod: ReturnType<typeof vi.fn> = vi.fn(() => Promise.resolve(undefined));
+export const mockChmod: ReturnType<typeof vi.fn<[], Promise<undefined>>> = vi.fn(() =>
+	Promise.resolve(undefined),
+);
 
-export const mockReadFile: ReturnType<typeof vi.fn> = vi.fn<[PathLike, unknown], Promise<string>>();
+export const mockReadFile: ReturnType<typeof vi.fn<[PathLike, unknown], Awaitable<string>>> = vi.fn<
+	[PathLike, unknown],
+	Awaitable<string>
+>();
 
-export const readFile: ReturnType<typeof vi.fn> = mockReadFile;
-export const writeFile: ReturnType<typeof vi.fn> = mockWriteFile;
-export const lstat: ReturnType<typeof vi.fn> = mockLstat;
-export const chmod: ReturnType<typeof vi.fn> = mockChmod;
+export const readFile: ReturnType<typeof vi.fn<[PathLike, unknown], Awaitable<string>>> =
+	mockReadFile;
+export const writeFile: ReturnType<typeof vi.fn<[PathLike, unknown], Awaitable<undefined>>> =
+	mockWriteFile;
+export const lstat: ReturnType<typeof vi.fn<[PathLike], Awaitable<Stats | undefined>>> = mockLstat;
+export const chmod: ReturnType<typeof vi.fn<[], Promise<undefined>>> = mockChmod;
