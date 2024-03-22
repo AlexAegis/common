@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.9.0](https://github.com/AlexAegis/common/compare/v0.8.2...v0.9.0) (2024-03-22)
+
 ## [0.8.2](https://github.com/AlexAegis/common/compare/v0.8.1...v0.8.2) (2023-12-28)
 
 
