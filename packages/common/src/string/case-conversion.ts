@@ -4,9 +4,11 @@ import { capitalize } from './capitalize.function.js';
  * Splits a string apart into it's individial words. It treats ' ', '_' and '-'
  * as word boundaries as well as when a lower case character is followed by an
  * upper case character.
+ *
+ * An empty string will result in an empty array.
  */
 export const splitByCasing = (input: string): string[] => {
-	return input.split(/(?=[A-Z][a-z])|[\s_-]+/).map((word) => word.toLowerCase());
+	return input ? input.split(/(?=[A-Z][a-z])|[\s_-]+/).map((word) => word.toLowerCase()) : [];
 };
 
 /**
@@ -14,7 +16,7 @@ export const splitByCasing = (input: string): string[] => {
  */
 export function camelCase(input: string): string {
 	const [first, ...rest] = splitByCasing(input);
-	return first + rest.map(capitalize).join('');
+	return (first ?? '') + rest.map(capitalize).join('');
 }
 
 /**

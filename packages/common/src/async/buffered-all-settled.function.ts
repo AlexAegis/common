@@ -8,11 +8,11 @@
  * @param bufferSize (default 25) at most, this many tasks will be running at a time
  * @returns the results of each promise in the order they resolved or rejected
  */
-export const bufferedAllSettled = async <T, E extends Error>(
+export const bufferedAllSettled = async <T>(
 	tasks: (() => Promise<T>)[],
 	bufferSize = 25,
 ): Promise<PromiseSettledResult<T>[]> => {
-	const buffer = new Map<() => Promise<T>, Promise<T | E>>();
+	const buffer = new Map<() => Promise<T>, Promise<unknown>>();
 	const results: PromiseSettledResult<T>[] = [];
 	while (tasks.length > 0) {
 		while (buffer.size < bufferSize) {
@@ -24,7 +24,7 @@ export const bufferedAllSettled = async <T, E extends Error>(
 					buffer.delete(task);
 					return value;
 				})
-				.catch((error: E) => {
+				.catch((error: unknown) => {
 					results.push({ status: 'rejected', reason: error });
 					buffer.delete(task);
 					return error;

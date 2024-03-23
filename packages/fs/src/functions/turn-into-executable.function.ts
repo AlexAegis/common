@@ -54,7 +54,7 @@ export const turnIntoExecutable = async (
 			.then(() => {
 				options.logger.info(`marked ${file} as executable`);
 			})
-			.catch((error) => {
+			.catch((error: unknown) => {
 				options.logger.error(`cannot chmod ${file}, error:`, error);
 			});
 	}

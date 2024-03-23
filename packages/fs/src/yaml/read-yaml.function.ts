@@ -8,7 +8,7 @@ export const readYaml = async <T>(path: string | undefined): Promise<T | undefin
 
 	const rawYaml = await readFile(path, {
 		encoding: 'utf8',
-	}).catch((error) => {
+	}).catch((error: unknown) => {
 		console.error('error reading yaml', error);
 		return undefined;
 	});

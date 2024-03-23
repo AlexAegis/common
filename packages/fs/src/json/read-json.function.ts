@@ -11,7 +11,7 @@ export const readJson = async <T = unknown>(
 
 	const rawJson = await readFile(path, {
 		encoding: 'utf8',
-	}).catch((error) => {
+	}).catch((error: unknown) => {
 		options?.logger?.error('error reading json', error);
 		return undefined;
 	});

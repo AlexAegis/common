@@ -17,7 +17,7 @@ describe('deepMapObject', () => {
 		const copyOfOriginal = structuredClone(original);
 
 		const mappedObject = deepMapObject(original, (key, value) => {
-			return typeof value === 'string' ? `${value} ${key}!` : value;
+			return typeof value === 'string' ? `${value} ${key.toString()}!` : value;
 		});
 
 		expect(original).toEqual(copyOfOriginal);

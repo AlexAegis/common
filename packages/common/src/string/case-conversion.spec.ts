@@ -38,6 +38,10 @@ describe('case conversions', () => {
 				expect(splitByCasing('Some example string')).toEqual(expected);
 			});
 
+			it('should return an empty array for an empty string', () => {
+				expect(splitByCasing('')).toEqual([]);
+			});
+
 			describe('stacked separators when splitting', () => {
 				it('should be able to split stacked kebab-case', () => {
 					expect(splitByCasing('some----example-string')).toEqual(expected);
@@ -86,6 +90,10 @@ describe('case conversions', () => {
 		it('should keep camelCase as camelCase', () => {
 			expect(camelCase('someExampleString')).toBe('someExampleString');
 		});
+
+		it('should return an empty string for an empty string', () => {
+			expect(camelCase('')).toBe('');
+		});
 	});
 
 	describe('kebab-case conversion', () => {
@@ -107,6 +115,10 @@ describe('case conversions', () => {
 
 		it('should convert a regular sentence to kebab-case', () => {
 			expect(kebabCase('This is a test sentence')).toBe('this-is-a-test-sentence');
+		});
+
+		it('should return an empty string for an empty string', () => {
+			expect(kebabCase('')).toBe('');
 		});
 	});
 
@@ -130,6 +142,10 @@ describe('case conversions', () => {
 		it('should convert a regular sentence to snake_case', () => {
 			expect(snakeCase('This is a test sentence')).toBe('this_is_a_test_sentence');
 		});
+
+		it('should return an empty string for an empty string', () => {
+			expect(snakeCase('')).toBe('');
+		});
 	});
 
 	describe('UPPER_SNAKE_CASE conversion', () => {
@@ -152,6 +168,10 @@ describe('case conversions', () => {
 		it('should convert a regular sentence to UPPER_SNAKE_CASE', () => {
 			expect(upperSnakeCase('This is a test sentence')).toBe('THIS_IS_A_TEST_SENTENCE');
 		});
+
+		it('should return an empty string for an empty string', () => {
+			expect(upperSnakeCase('')).toBe('');
+		});
 	});
 
 	describe('PascalCase conversion', () => {
@@ -173,6 +193,10 @@ describe('case conversions', () => {
 
 		it('should convert a regular sentence to PascalCase', () => {
 			expect(pascalCase('This is a test sentence')).toBe('ThisIsATestSentence');
+		});
+
+		it('should return an empty string for an empty string', () => {
+			expect(pascalCase('')).toBe('');
 		});
 	});
 
@@ -203,6 +227,10 @@ describe('case conversions', () => {
 
 		it('should convert a mix of different casings to Train-Case', () => {
 			expect(trainCase('mixed_Camel-kebab_snakeCase')).toBe('Mixed-Camel-Kebab-Snake-Case');
+		});
+
+		it('should return an empty string for an empty string', () => {
+			expect(trainCase('')).toBe('');
 		});
 	});
 });
