@@ -1,4 +1,5 @@
 export * from './awaitable.type.js';
+export * from './brand.type.js';
 export * from './deep-freeze.function.js';
 export * from './deep-map-object.function.js';
 export * from './deep-merge.function.js';
