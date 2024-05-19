@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.10.0](https://github.com/AlexAegis/common/compare/v0.9.1...v0.10.0) (2024-05-19)
+
+
+### Features
+
+* **@alexaegis/rx:** added new package ([02d5857](https://github.com/AlexAegis/common/commit/02d5857cee12fe090dd64debf9e9e19b240c8fc2))
+* **common:** added loosened branded types ([78247b1](https://github.com/AlexAegis/common/commit/78247b19ea31a7e4ff7719e21a12086d8e980fcf))
+* **common:** added the Branded type ([327eedc](https://github.com/AlexAegis/common/commit/327eedcc1a278b2f3682419a93612f83f56a9070))
+
 ## [0.9.1](https://github.com/AlexAegis/common/compare/v0.9.0...v0.9.1) (2024-03-23)
 
 

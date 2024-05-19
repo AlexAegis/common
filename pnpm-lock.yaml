@@ -168,16 +168,16 @@ importers:
   packages/cli-tools:
     dependencies:
       '@alexaegis/common':
-        specifier: workspace:^0.9.1
+        specifier: workspace:^
         version: link:../common
       '@alexaegis/fs':
-        specifier: workspace:^0.9.1
+        specifier: workspace:^
         version: link:../fs
       '@alexaegis/logging':
-        specifier: workspace:^0.9.1
+        specifier: workspace:^
         version: link:../logging
       '@alexaegis/workspace-tools':
-        specifier: workspace:^0.9.1
+        specifier: workspace:^
         version: link:../workspace-tools
       '@types/yargs':
         specifier: 17.0.32
@@ -247,13 +247,13 @@ importers:
   packages/coverage-tools:
     dependencies:
       '@alexaegis/common':
-        specifier: workspace:^0.9.1
+        specifier: workspace:^
         version: link:../common
       '@alexaegis/logging':
-        specifier: workspace:^0.9.1
+        specifier: workspace:^
         version: link:../logging
       '@alexaegis/workspace-tools':
-        specifier: workspace:^0.9.1
+        specifier: workspace:^
         version: link:../workspace-tools
       globby:
         specifier: ^14.0.1
@@ -290,10 +290,10 @@ importers:
   packages/fs:
     dependencies:
       '@alexaegis/common':
-        specifier: workspace:^0.9.1
+        specifier: workspace:^
         version: link:../common
       '@alexaegis/logging':
-        specifier: workspace:^0.9.1
+        specifier: workspace:^
         version: link:../logging
       js-yaml:
         specifier: ^4.1.0
@@ -340,7 +340,7 @@ importers:
   packages/logging:
     dependencies:
       '@alexaegis/common':
-        specifier: workspace:^0.9.1
+        specifier: workspace:^
         version: link:../common
       tslog:
         specifier: ^4.9.2
@@ -380,7 +380,7 @@ importers:
         specifier: ^0.11.2
         version: 0.11.2
       '@alexaegis/predicate':
-        specifier: workspace:^0.9.1
+        specifier: workspace:^
         version: link:../predicate
       '@alexaegis/ts':
         specifier: ^0.11.2
@@ -474,16 +474,16 @@ importers:
   packages/workspace-tools:
     dependencies:
       '@alexaegis/common':
-        specifier: workspace:^0.9.1
+        specifier: workspace:^
         version: link:../common
       '@alexaegis/fs':
-        specifier: workspace:^0.9.1
+        specifier: workspace:^
         version: link:../fs
       '@alexaegis/logging':
-        specifier: workspace:^0.9.1
+        specifier: workspace:^
         version: link:../logging
       '@alexaegis/match':
-        specifier: workspace:^0.9.1
+        specifier: workspace:^
         version: link:../match
       '@schemastore/package':
         specifier: ^0.0.10

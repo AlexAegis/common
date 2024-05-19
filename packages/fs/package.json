@@ -1,7 +1,7 @@
 {
 	"name": "@alexaegis/fs",
 	"description": "Filesystem tools",
-	"version": "0.9.1",
+	"version": "0.10.0",
 	"license": "MIT",
 	"private": false,
 	"archetype": {
@@ -61,8 +61,8 @@
 		"./readme": "./readme.md"
 	},
 	"dependencies": {
-		"@alexaegis/common": "workspace:^0.9.1",
-		"@alexaegis/logging": "workspace:^0.9.1",
+		"@alexaegis/common": "workspace:^",
+		"@alexaegis/logging": "workspace:^",
 		"js-yaml": "^4.1.0"
 	},
 	"optionalDependencies": {

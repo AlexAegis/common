@@ -1,7 +1,7 @@
 {
 	"name": "@alexaegis/match",
 	"description": "Matches objects based on a matcher",
-	"version": "0.9.1",
+	"version": "0.10.0",
 	"license": "MIT",
 	"private": false,
 	"archetype": {
@@ -56,7 +56,7 @@
 	},
 	"devDependencies": {
 		"@alexaegis/eslint-config-vitest": "^0.11.2",
-		"@alexaegis/predicate": "workspace:^0.9.1",
+		"@alexaegis/predicate": "workspace:^",
 		"@alexaegis/ts": "^0.11.2",
 		"@alexaegis/vite": "^0.11.2",
 		"@alexaegis/vitest": "^0.11.2",
