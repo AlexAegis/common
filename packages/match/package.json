@@ -55,11 +55,11 @@
 		"./readme": "./readme.md"
 	},
 	"devDependencies": {
-		"@alexaegis/eslint-config-vitest": "^0.11.2",
+		"@alexaegis/eslint-config-vitest": "^0.11.4",
 		"@alexaegis/predicate": "workspace:^",
-		"@alexaegis/ts": "^0.11.2",
-		"@alexaegis/vite": "^0.11.2",
-		"@alexaegis/vitest": "^0.11.2",
+		"@alexaegis/ts": "^0.11.4",
+		"@alexaegis/vite": "^0.11.4",
+		"@alexaegis/vitest": "^0.11.4",
 		"@types/node": "^20.12.12",
 		"publint": "^0.2.8",
 		"typescript": "^5.4.5",
