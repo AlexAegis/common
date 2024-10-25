@@ -2,12 +2,12 @@ import type { PathLike } from 'node:fs';
 import { join } from 'node:path/posix';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { mockProjectRoot } from '../../__mocks__/fs.js';
-import { readFileMock } from '../../__mocks__/node:fs/promises.js';
+import { readFileMock } from '../../__mocks__/fs/promises.js';
 import { collectIgnoreEntries } from './collect-ignore-entries.function.js';
 import { GITIGNORE_FILENAME } from './collect-ignore-entries.function.options.js';
 
 vi.mock('node:fs/promises');
-vi.mock('fs');
+vi.mock('node:fs');
 
 const cwdSpy = vi.spyOn(process, 'cwd');
 

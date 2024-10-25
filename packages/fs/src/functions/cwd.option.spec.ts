@@ -1,14 +1,14 @@
-import { afterEach, beforeAll, describe, expect, it, vi, type SpyInstance } from 'vitest';
+import { afterEach, beforeAll, describe, expect, it, vi, type MockInstance } from 'vitest';
 import { normalizeCwdOption, type NormalizedCwdOption } from './cwd.option.js';
 
 export const mockProcessCwdValue = '/foo';
 
-export const mockProcessCwd = (): SpyInstance => {
+export const mockProcessCwd = (): MockInstance<() => string> => {
 	return vi.spyOn(process, 'cwd').mockReturnValue(mockProcessCwdValue);
 };
 
 describe('cwdOption', () => {
-	let processCwdSpy: SpyInstance;
+	let processCwdSpy: MockInstance<() => string>;
 
 	beforeAll(() => {
 		processCwdSpy = mockProcessCwd();

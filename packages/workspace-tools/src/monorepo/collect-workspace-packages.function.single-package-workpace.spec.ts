@@ -11,11 +11,12 @@ const mockPackageJsonValue: PackageJson = {
 };
 
 vi.mock('@alexaegis/fs', async () => {
-	const mockReadJson = vi.fn<[string | undefined], Promise<PackageJson | undefined>>((path) =>
-		Promise.resolve(path?.endsWith(PACKAGE_JSON_NAME) ? mockPackageJsonValue : undefined),
+	const mockReadJson = vi.fn<(_: string | undefined) => Promise<PackageJson | undefined>>(
+		(path) =>
+			Promise.resolve(path?.endsWith(PACKAGE_JSON_NAME) ? mockPackageJsonValue : undefined),
 	);
 
-	const mockReadYaml = vi.fn<[string | undefined], Promise<undefined>>((_path) =>
+	const mockReadYaml = vi.fn<(_: string | undefined) => Promise<undefined>>((_path) =>
 		Promise.resolve(undefined),
 	);
 

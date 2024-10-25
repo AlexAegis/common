@@ -2,7 +2,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 import { memoize } from './memoize.function.js';
 
 describe('memoize', () => {
-	const add = vi.fn<[number, number], number>((n, m) => n + m);
+	const add = vi.fn((n: number, m: number) => n + m);
 
 	afterEach(() => {
 		vi.clearAllMocks();

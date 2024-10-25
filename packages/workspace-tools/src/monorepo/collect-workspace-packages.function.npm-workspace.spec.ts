@@ -26,7 +26,7 @@ const mockPackageJsonZodValue: PackageJson = {
 };
 
 vi.mock('@alexaegis/fs', async () => {
-	const mockReadJson = vi.fn<[string | undefined], Promise<PackageJson | undefined>>(
+	const mockReadJson = vi.fn<(_: string | undefined) => Promise<PackageJson | undefined>>(
 		(path) =>
 			new Promise((resolve) => {
 				if (path?.endsWith(join('zed', PACKAGE_JSON_NAME))) {
@@ -43,7 +43,7 @@ vi.mock('@alexaegis/fs', async () => {
 			}),
 	);
 
-	const mockReadYaml = vi.fn<[string | undefined], undefined>((_path) => {
+	const mockReadYaml = vi.fn<(_: string | undefined) => undefined>((_path) => {
 		return undefined;
 	});
 

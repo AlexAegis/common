@@ -1,7 +1,7 @@
 import { createMockLogger } from '@alexaegis/logging/mocks';
 import { join } from 'node:path/posix';
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { mockChmod, mockReadFile, mockWriteFile } from '../../__mocks__/node:fs/promises.js';
+import { mockChmod, mockReadFile, mockWriteFile } from '../../__mocks__/fs/promises.js';
 import { NODE_SHEBANG, SHELL_SHEBANG, TSNODE_SHEBANG } from './shebangs.const.js';
 import { turnIntoExecutable } from './turn-into-executable.function.js';
 

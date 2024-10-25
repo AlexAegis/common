@@ -1,11 +1,11 @@
-import { beforeEach, describe, expect, it, vi, type SpyInstance } from 'vitest';
+import { beforeEach, describe, expect, it, vi, type MockInstance } from 'vitest';
 import yargs, { type Argv } from 'yargs';
 import { defaultYargsFromPackageJson } from './default-yargs.function.js';
 
 describe('defaultYargs', () => {
 	let yargsInstance!: Argv;
-	let versionSpy: SpyInstance;
-	let epilogueSpy: SpyInstance;
+	let versionSpy: MockInstance<(_: string) => Argv<{}>>;
+	let epilogueSpy: MockInstance<(_: string) => Argv<{}>>;
 
 	beforeEach(() => {
 		yargsInstance = yargs([]);

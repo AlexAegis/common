@@ -1,4 +1,4 @@
-import { describe, expect, it, vi, type SpyInstance } from 'vitest';
+import { describe, expect, it, vi, type MockInstance } from 'vitest';
 import type { CollectIgnoreEntriesOptions } from './collect-ignore-entries.function.options.js';
 import {
 	GITIGNORE_FILENAME,
@@ -7,7 +7,7 @@ import {
 
 export const mockProcessCwdValue = '/foo';
 
-export const mockProcessCwd = (): SpyInstance => {
+export const mockProcessCwd = (): MockInstance<() => string> => {
 	return vi.spyOn(process, 'cwd').mockReturnValue(mockProcessCwdValue);
 };
 

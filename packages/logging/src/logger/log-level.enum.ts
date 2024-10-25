@@ -20,9 +20,9 @@ export const logLevelValues = Object.values(LogLevel).filter(
 );
 
 export const isLogLevelEnumValue = (o: unknown): o is LogLevel => {
-	return logLevelValues.includes(o as string | LogLevel);
+	return logLevelValues.includes(o as LogLevel);
 };
 
 export const isLogLevelEnumKey = (o: unknown): o is LogLevelKeys => {
-	return logLevelKeys.includes(o as string | LogLevel);
+	return logLevelKeys.includes(o as string);
 };

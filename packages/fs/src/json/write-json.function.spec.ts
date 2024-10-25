@@ -1,5 +1,5 @@
 import { afterAll, afterEach, describe, expect, it, vi } from 'vitest';
-import { mockWriteFile } from '../../__mocks__/node:fs/promises.js';
+import { mockWriteFile } from '../../__mocks__/fs/promises.js';
 import { mockDefaultPrettifiedJsonOutput } from '../mocks.js';
 
 import { prettierMock } from '../../__mocks__/prettier.js';

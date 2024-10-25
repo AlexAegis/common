@@ -8,11 +8,11 @@ import { PACKAGE_JSON_NAME } from '../package-json/package-json.interface.js';
 import { collectWorkspacePackages } from './collect-workspace-packages.function.js';
 
 vi.mock('@alexaegis/fs', async () => {
-	const mockReadJson = vi.fn<[string | undefined], Promise<undefined>>((_path) =>
+	const mockReadJson = vi.fn<(_: string | undefined) => Promise<undefined>>((_path) =>
 		Promise.resolve(undefined),
 	);
 
-	const mockReadYaml = vi.fn<[string | undefined], Promise<undefined>>((_path) =>
+	const mockReadYaml = vi.fn<(_: string | undefined) => Promise<undefined>>((_path) =>
 		Promise.resolve(undefined),
 	);
 
